@@ -1095,7 +1095,7 @@ export default class Page1 extends React.Component {
      };
      axios(config).then((res)=>{
          
-      // console.log("test..", res.data.result)
+      console.log("test..", res.data.result)
         this.setState({
           ques1_text1 : res.data.result[0].Answers[0],
           ques1_text2 : res.data.result[0].Answers[1],

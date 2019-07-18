@@ -4,7 +4,6 @@
 import React, { Component } from 'react';
 //import react in our code.
 import { View, Image, TouchableOpacity,  } from 'react-native';
-import Icon from 'react-native-vector-icons/dist/FontAwesome';
 // import all basic components
 //For React Navigation 2.+ import following
 //import {DrawerNavigator, StackNavigator} from 'react-navigation';

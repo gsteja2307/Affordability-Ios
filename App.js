@@ -6,6 +6,7 @@
  * @flow
  */
 //test git
+//fixed git user name
 import React, { Component } from "react";
 import {
   Platform,
@@ -23,6 +24,8 @@ import DeviceInfo from "react-native-device-info";
 import NetInfo from "@react-native-community/netinfo";
 import AsyncStorage from "@react-native-community/async-storage";
 // import Main from './Components/Main'
+import {createStackNavigator, createAppContainer} from 'react-navigation';
+import Afford from './Components/Afford';
 
 const instructions = Platform.select({
   ios: "Press Cmd+R to reload,\n" + "Cmd+D or shake for dev menu",
@@ -314,10 +317,21 @@ export default class App extends Component {
   }
 
   render() {
+    if (false) {
+    return <View 
+            style={styles.container2}
+            > 
+              <View style={{justifyContent:"center",backgroundColor:"#dde3ed",alignItems:"center",height:120,width:120,borderRadius:15,borderColor:"#FFF",imageAlign:"center",elevation:2}}>
+                <Image
+                style={{height:100,width:100}}
+                source={require('./ic_launcher.png')}
+                />
+            </View>
+        </View>
+        ;
+  }
     return (
-      <View style={{ marginTop: 50 }}>
-        <Text>hfgfhjghjfv</Text>
-      </View>
+      <Afford screenProps={{CheckConnectivity:this.CheckConnectivity}}/>
     );
   }
 }
