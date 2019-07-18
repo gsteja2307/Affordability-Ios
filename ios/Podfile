@@ -40,6 +40,13 @@ target 'firebaseP' do
 
   pod 'react-native-netinfo', :path => '../node_modules/@react-native-community/netinfo'
 
+
+  pod 'RNGestureHandler', :path => '../node_modules/react-native-gesture-handler'
+
+  pod 'react-native-webview', :path => '../node_modules/react-native-webview'
+
+  pod 'react-native-slider', :path => '../node_modules/@react-native-community/slider'
+
   target 'firebasePTests' do
     inherit! :search_paths
     # Pods for testing

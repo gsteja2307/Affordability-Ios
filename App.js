@@ -5,86 +5,185 @@
  * @format
  * @flow
  */
-//lol
-// eslint-disable-next-line prettier/prettier
-import React, { Component } from 'react';
-import { async, Alert } from "react-native";
-import firebase from "react-native-firebase";
-import AsyncStorage from '@react-native-community/async-storage';
+//test git
+import React, { Component } from "react";
 import {
-  SafeAreaView,
+  Platform,
   StyleSheet,
-  ScrollView,
-  View,
   Text,
-  StatusBar
+  View,
+  Alert,
+  async,
+  AppState,
+  Image,
+  BackHandler
 } from "react-native";
+import firebase from "react-native-firebase";
+import DeviceInfo from "react-native-device-info";
+import NetInfo from "@react-native-community/netinfo";
+import AsyncStorage from "@react-native-community/async-storage";
+// import Main from './Components/Main'
 
-import {
-  Header,
-  LearnMoreLinks,
-  Colors,
-  DebugInstructions,
-  ReloadInstructions
-} from "react-native/Libraries/NewAppScreen";
+const instructions = Platform.select({
+  ios: "Press Cmd+R to reload,\n" + "Cmd+D or shake for dev menu",
+  android:
+    "Double tap R on your keyboard to reload,\n" +
+    "Shake or press menu button for dev menu",
+});
 
 export default class App extends Component {
-  async componentDidMount() {
-    this.checkPermission();
-    this.createNotificationListeners();
-  }
-  componentWillUnmount() {
-    this.notificationListener();
-    this.notificationOpenedListener();
-  }
-  async createNotificationListeners() {
-    /*
-     * Triggered when a particular notification has been received in foreground
-     * */
-    this.notificationListener = firebase
-      .notifications()
-      .onNotification(notification => {
-        const { title, body } = notification;
-        this.showAlert(title, body);
-      });
+  deviceInfo1 = [];
 
-    /*
-     * If your app is in background, you can listen for when a notification is clicked / tapped / opened as follows:
-     * */
-    this.notificationOpenedListener = firebase
-      .notifications()
-      .onNotificationOpened(notificationOpen => {
-        const { title, body } = notificationOpen.notification;
-        this.showAlert(title, body);
-      });
+  constructor(props) {
+    super(props);
+    this.state = {
+      // appState: AppState.currentState,
+      deviceInfo: {},
+      fcmToken: "",
+      isLoading: true,
+      isOnline: false,
+    };
+  }
+  performTimeConsumingTask = () => {
+    return new Promise(resolve =>
+      setTimeout(() => {
+        resolve("result");
+      }, 5000)
+    );
+  };
+  async componentWillMount() {
+    // Preload data from an external API
+    // Preload data using AsyncStorage
+    BackHandler.addEventListener("hardwareBackPress", this.onBackPress);
+    await this.CheckConnectivity();
+  }
+  CheckConnectivity = () => {
+    // For Android devices
+    if (Platform.OS === "android") {
+      NetInfo.isConnected.fetch().then(isConnected => {
+        if (isConnected) {
+          const data = this.performTimeConsumingTask();
 
-    /*
-     * If your app is closed, you can check if it was opened by a notification being clicked / tapped / opened as follows:
-     * */
-    const notificationOpen = await firebase
-      .notifications()
-      .getInitialNotification();
-    if (notificationOpen) {
-      const { title, body } = notificationOpen.notification;
-      this.showAlert(title, body);
+          if (data !== null) {
+            this.setState({ isLoading: false });
+          }
+          // Alert.alert("You are online!");
+        } else {
+          Alert.alert(
+            "No Connectivity",
+            "Please check your internet connection",
+            [{ text: "Try Again", onPress: () => this.CheckConnectivity() }],
+            { cancelable: false }
+          );
+        }
+      });
+    } else {
+      // For iOS devices
+      NetInfo.isConnected.addEventListener(
+        "connectionChange",
+        this.handleFirstConnectivityChange
+      );
     }
-    /*
-     * Triggered for data only payload in foreground
-     * */
-    this.messageListener = firebase.messaging().onMessage(message => {
-      //process data message
-      console.log(JSON.stringify(message));
-    });
+  };
+
+  handleFirstConnectivityChange = isConnected => {
+    NetInfo.isConnected.removeEventListener(
+      "connectionChange",
+      this.handleFirstConnectivityChange
+    );
+
+    if (isConnected === false) {
+      Alert.alert("You are offline!");
+    } else {
+      Alert.alert("You are online!");
+    }
+  };
+
+  async componentDidMount() {
+    this.CheckConnectivity();
+
+    var deviceInfo = {
+      getDeviceId: DeviceInfo.getDeviceId(),
+      getModel: DeviceInfo.getModel(),
+      getSerialNumber: DeviceInfo.getSerialNumber(),
+      getUniqueID: DeviceInfo.getUniqueID()
+    };
+
+    this.setState({ deviceInfo: deviceInfo });
+    // console.log("deviceInfo", deviceInfo);
+    this.checkPermission();
+    this.createNotificationListeners(); //add this line
+    console.log("HI");
+    // this.postFcmToken();
+    // AppState.addEventListener('change', this._handleAppStateChange);
+    this.onTokenRefreshListener = firebase
+      .messaging()
+      .onTokenRefresh(fcmToken => {
+        // Process your token as required
+        this.setState({ fcmToken });
+        this.postFcmToken();
+        console.log("Updated Token=" + fcmToken);
+      });
   }
 
-  showAlert(title, body) {
+  async postFcmToken() {
+    var data = {
+      deviceSerialNumber: this.state.deviceInfo.getSerialNumber,
+      deviceId: this.state.deviceInfo.getDeviceId,
+      deviceModel: this.state.deviceInfo.getModel,
+      deviceUniqueID: this.state.deviceInfo.getUniqueID,
+      fcmToken: this.state.fcmToken
+    };
+
+    fetch("http://69.55.49.121:3001/v1/notifications/post-fcm-token", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data)
+    })
+      .then(response => response.json())
+      .then(responseData => {
+        console.log(responseData);
+      })
+      .catch(error => {
+        console.log("Error fcm");
+      });
+    // console.log("after fetch call");
+  }
+
+  componentWillUnmount() {
+    this.onTokenRefreshListener();
+    BackHandler.removeEventListener("hardwareBackPress", this.onBackPress);
+    this.notificationListener;
+    this.notificationOpenedListener;
+    this.notificationDisplayedListener();
+    // AppState.removeEventListener('change', this._handleAppStateChange);
+  }
+  onBackPress = () => {
+    //Code to display alert message when use click on android device back button.
     Alert.alert(
-      title,
-      body,
-      [{ text: "OK", onPress: () => console.log("OK Pressed") }],
+      " Exit From App ",
+      " Do you want to exit From App ?",
+      [
+        { text: "Yes", onPress: () => BackHandler.exitApp() },
+        { text: "No", onPress: () => console.log("NO Pressed") }
+      ],
       { cancelable: false }
     );
-  }
+
+    // Return true to enable back button over ride.
+    return true;
+  };
+  // _handleAppStateChange = (nextAppState) => {
+  //   if (this.state.appState.match(/inactive|background/) && nextAppState === 'active') {
+  //     console.log('App has come to the foreground!')
+  //   }
+  //   else
+  //   console.log('app is closed')
+  //   this.setState({ appState: nextAppState });
+  // }
 
   //1
   async checkPermission() {
@@ -96,17 +195,110 @@ export default class App extends Component {
     }
   }
 
+  async createNotificationListeners() {
+    /*
+     * Triggered when a particular notification has been received in foreground
+     * */
+    this.notificationListener = firebase
+      .notifications()
+      .onNotification(notification => {
+        const { title, body } = notification;
+        // console.log('onNotification:');
+        // this.showAlert(title, body);
+        // alert('message');
+        notification.setSound("default");
+
+        const localNotification = new firebase.notifications.Notification({
+          sound: "default",
+          show_in_foreground: true
+        })
+          .setNotificationId(notification.notificationId)
+          .setTitle(notification.title)
+          // .setSubtitle(notification.subtitle)
+          .setBody(notification.body)
+          .setSound("default")
+          // .setData(notification.data)
+          .android.setChannelId("fcm_default_channel") // e.g. the id you chose above
+          .android.setSmallIcon("@drawable/ic_launcher") // create this icon in Android Studio
+          .android.setColor("#0088E8") // you can set a color here
+          .android.setPriority(firebase.notifications.Android.Priority.High)
+          .android.setAutoCancel(true);
+
+        firebase
+          .notifications()
+          .displayNotification(localNotification)
+          .catch(err => console.error(err));
+      });
+
+    const channel = new firebase.notifications.Android.Channel(
+      "fcm_default_channel",
+      "Demo app name",
+      firebase.notifications.Android.Importance.High
+    )
+      .setDescription("Demo app description")
+      .setSound("default");
+    firebase.notifications().android.createChannel(channel);
+
+    /*
+     * If your app is in background, you can listen for when a notification is clicked / tapped / opened as follows:
+     * */
+    this.notificationOpenedListener = await firebase
+      .notifications()
+      .onNotificationOpened(notificationOpen => {
+        const { title, body } = notificationOpen.notification;
+        // console.log('onNotificationOpened:');
+        // this.showAlert(title, body);
+        // console.log('hello');
+      });
+
+    this.notificationDisplayedListener = firebase
+      .notifications()
+      .onNotificationDisplayed((notificationDisplay: notification) => {
+        // Process your notification as required
+        // console.log('DisplayedListener: ', notificationDisplay);
+      });
+    // this.notificationListener = firebase.notifications().onNotification((notification: Notification) => {
+    //   console.log('notificationListener: ', notification);
+    // });
+
+    /*
+     * If your app is closed, you can check if it was opened by a notification being clicked / tapped / opened as follows:
+     * */
+    const notificationOpen = await firebase
+      .notifications()
+      .getInitialNotification();
+    if (notificationOpen) {
+      const { title, body } = notificationOpen.notification;
+      //console.log('getInitialNotification:');
+
+      this.showAlert(title, body);
+    }
+    /*
+     * Triggered for data only payload in foreground
+     * */
+    this.messageListener = firebase.messaging().onMessage(message => {
+      //process data message
+      console.log(JSON.stringify(message));
+    });
+  }
+
   //3
   async getToken() {
-    let fcmToken = await AsyncStorage.getItem('fcmToken');
+    let fcmToken = await AsyncStorage.getItem("fcmToken");
     if (!fcmToken) {
-        fcmToken = await firebase.messaging().getToken();
-        if (fcmToken) {
-            // user has a device token
-            await AsyncStorage.setItem('fcmToken', fcmToken);
-        }
+      fcmToken = await firebase.messaging().getToken();
+      console.log("if cond fcmToken:", fcmToken);
+      if (fcmToken) {
+        // user has a device token
+        console.log("nestedif cond fcmToken:", fcmToken);
+        AsyncStorage.setItem("fcmToken", fcmToken);
+        this.setState({ fcmToken: fcmToken });
+      }
+    } else {
+      this.setState({ fcmToken: fcmToken });
     }
-    console.log(fcmToken)
+    console.log("fcmToken:", fcmToken);
+    this.postFcmToken();
   }
 
   //2
@@ -120,51 +312,38 @@ export default class App extends Component {
       console.log("permission rejected");
     }
   }
+
   render() {
     return (
-      <View style={{ flex: 1, marginTop: 30 }}>
-        <Text>Welcome to React Native!</Text>
+      <View style={{ marginTop: 50 }}>
+        <Text>hfgfhjghjfv</Text>
       </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  scrollView: {
-    backgroundColor: Colors.lighter
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#F5FCFF",
   },
-  engine: {
-    // eslint-disable-next-line quotes
-    position: "absolute",
-    right: 0
+  container2: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#F5FCFF"
   },
-  body: {
-    backgroundColor: Colors.white
+
+  welcome: {
+    fontSize: 20,
+    textAlign: "center",
+    margin: 10
   },
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: "600",
-    color: Colors.black
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: "400",
-    color: Colors.dark
-  },
-  highlight: {
-    fontWeight: "700"
-  },
-  footer: {
-    color: Colors.dark,
-    fontSize: 12,
-    fontWeight: "600",
-    padding: 4,
-    paddingRight: 12,
-    textAlign: "right"
+  instructions: {
+    textAlign: "center",
+    color: "#333333",
+    marginBottom: 5
   }
 });
