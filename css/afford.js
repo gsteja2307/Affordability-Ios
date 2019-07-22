@@ -21,6 +21,8 @@ module.exports = StyleSheet.create({
   },
   yesnobuttonview:{
     width: deviceHeight <= 550 ? 250 : 300,
+    alignItems:"center",
+    justifyContent:"center"
   },
   viewrifan:{
   flexDirection:"row",

@@ -357,6 +357,7 @@ export default class Page1 extends React.Component {
     });
   }
   SubmitButton() {
+    console.log("submit button is clicked , first log")
     this.props.screenProps.CheckConnectivity();
     if (!this.state.email.includes("@") || !this.state.email.includes(".")) {
       this.setState({
@@ -419,7 +420,7 @@ export default class Page1 extends React.Component {
         //  enable_next: false,
         //  enable_submit:true
       })
-
+      console.log('submit is clicked , second log')
       var data = {
         "payCarInsurance": this.state.payCarInsurance_data,
         "fastAndEasyFindout": this.state.fastAndEasyFindout_data,
@@ -463,7 +464,7 @@ export default class Page1 extends React.Component {
 
       };
       this.setState({ isReady: false, isSubmitting: true });
-
+      console.log('submit is pressed , 3rd log ')
 
       axios(config).then((response) => {
         //this.props.navigation.navigate("Submit" )
@@ -1494,10 +1495,10 @@ export default class Page1 extends React.Component {
                   </View>
 
 
-                  <View style={{ justifyContent: "center", padding: "7%" }}>
+                  <View style={{alignItems:"center", justifyContent: "center", padding: "7%" }}>
                     <View style={styles.yesnobuttonview}>
-                      <View style={{}}>
-                        <Button style={{backgroundColor:'green'}} block onPress={() => {
+                    <View style={{ flexDirection:'row'}}>
+                      <Button style={{ backgroundColor: 'green', flex: 1,}} block onPress={() => {
                           this.setState({ index: '2a', payCarInsurance_data: this.state.yesnoques0text1.Text })
                         }}>
                           <Text style={{ fontSize: 15, textAlign: "center" }}>{this.state.yesnoques0text1.Text}</Text>
@@ -1505,9 +1506,9 @@ export default class Page1 extends React.Component {
 
 
                       </View>
-                      <View style={{marginTop:10}}>
+                      <View style={{marginTop:10,flexDirection:"row"}}>
 
-                        <Button style={{backgroundColor:"red"}} block onPress={() => {
+                        <Button style={{backgroundColor:"red",flex:1}} block onPress={() => {
                           this.setState({ index: '2a', payCarInsurance_data: this.state.yesnoques0text2.Text })
                         }}>
                           <Text style={{ fontSize: 15, textAlign: "center" }}>{this.state.yesnoques0text2.Text}</Text>
@@ -1537,10 +1538,10 @@ export default class Page1 extends React.Component {
                   </View>
 
 
-                  <View style={{ justifyContent: "center", padding: "7%" }}>
-                  <View style={styles.yesnobuttonview}>
-                      <View style={{ }}>
-                      <Button style={{ backgroundColor: "green" }} block onPress={() => {
+                  <View style={{alignItems:"center", justifyContent: "center", padding: "7%" }}>
+                    <View style={styles.yesnobuttonview}>
+                    <View style={{ flexDirection:'row'}}>
+                      <Button style={{ backgroundColor: "green",flex:1 }} block onPress={() => {
                           this.setState({ index: '3a', fastAndEasyFindout_data: this.state.yesnoques1text1.Text })
                         }}>
                           <Text style={{ fontSize: 15, textAlign: "center" }}>{this.state.yesnoques1text1.Text}</Text>
@@ -1548,9 +1549,9 @@ export default class Page1 extends React.Component {
 
 
                       </View>
-                      <View style={{marginTop:10}}>
+                      <View style={{marginTop:10,flexDirection:"row"}}>
 
-                      <Button style={{ backgroundColor: "red" }} block onPress={() => {
+                      <Button style={{ backgroundColor: "red",flex:1 }} block onPress={() => {
                           this.setState({ index: '3a', fastAndEasyFindout_data: this.state.yesnoques1text2.Text })
                         }}>
                           <Text style={{ fontSize: 15, textAlign: "center" }}>{this.state.yesnoques1text2.Text}</Text>
@@ -1580,10 +1581,10 @@ export default class Page1 extends React.Component {
                   </View>
 
 
-                  <View style={{ justifyContent: "center", padding: "7%" }}>
+                <View style={{ alignItems: "center", justifyContent: "center", padding: "7%" }}>
                   <View style={styles.yesnobuttonview}>
-                      <View>
-                      <Button style={{ backgroundColor: "green" }} block onPress={() => {
+                    <View style={{ flexDirection: 'row' }}>
+                      <Button style={{ backgroundColor: "green",flex:1 }} block onPress={() => {
                           this.setState({ index: '4a', buyingHouse: this.state.yesnoques2text1.Text })
                         }}>
                           <Text style={{ fontSize: 15, textAlign: "center" }}>{this.state.yesnoques2text1.Text}</Text>
@@ -1591,9 +1592,9 @@ export default class Page1 extends React.Component {
 
 
                       </View>
-                      <View style={{ marginTop:10 }}>
+                      <View style={{ marginTop:10 ,flexDirection:"row"}}>
 
-                      <Button style={{ backgroundColor: "red" }} block onPress={() => {
+                      <Button style={{ backgroundColor: "red",flex:1 }} block onPress={() => {
                           this.setState({ index: '4a', buyingHouse: this.state.yesnoques2text2.Text })
                         }}>
                           <Text style={{ fontSize: 15, textAlign: "center" }}>{this.state.yesnoques2text2.Text}</Text>
@@ -1623,10 +1624,10 @@ export default class Page1 extends React.Component {
                   </View>
 
 
-                  <View style={{ justifyContent: "center", padding: "7%" }}>
+                <View style={{ alignItems: "center", justifyContent: "center", padding: "7%" }}>
                   <View style={styles.yesnobuttonview}>
-                      <View style={{  }}>
-                      <Button style={{ backgroundColor: "green" }} block onPress={() => {
+                    <View style={{ flexDirection: 'row' }}>
+                      <Button style={{ backgroundColor: "green",flex:1 }} block onPress={() => {
                           this.setState({ index: '5a', creditReportFirst: this.state.yesnoques3text1.Text })
                         }}>
                           <Text style={{ fontSize: 15, textAlign: "center" }}>{this.state.yesnoques3text1.Text}</Text>
@@ -1634,9 +1635,9 @@ export default class Page1 extends React.Component {
 
 
                       </View>
-                      <View style={{ marginTop:10 }}>
+                      <View style={{ marginTop:10,flexDirection:"row" }}>
 
-                      <Button style={{ backgroundColor: "red" }} block onPress={() => {
+                      <Button style={{ backgroundColor: "red",flex:1 }} block onPress={() => {
                           this.setState({ index: '5a', creditReportFirst: this.state.yesnoques3text2.Text })
                         }}>
                           <Text style={{ fontSize: 15, textAlign: "center" }}>{this.state.yesnoques3text2.Text}</Text>
@@ -1666,10 +1667,10 @@ export default class Page1 extends React.Component {
                   </View>
 
 
-                  <View style={{ justifyContent: "center", padding: "7%" }}>
+                <View style={{ alignItems: "center", justifyContent: "center", padding: "7%" }}>
                   <View style={styles.yesnobuttonview}>
-                      <View style={{  }}>
-                      <Button style={{ backgroundColor: "green" }} block onPress={() => {
+                    <View style={{ flexDirection: 'row' }}>
+                      <Button style={{ backgroundColor: "green",flex:1 }} block onPress={() => {
                           this.setState({ index: '6a', haveKids: this.state.yesnoques4text1.Text })
                         }}>
                           <Text style={{ fontSize: 15, textAlign: "center" }}>{this.state.yesnoques4text1.Text}</Text>
@@ -1677,9 +1678,9 @@ export default class Page1 extends React.Component {
 
 
                       </View>
-                      <View style={{ marginTop:10 }}>
+                      <View style={{ marginTop:10,flexDirection:"row" }}>
 
-                      <Button style={{ backgroundColor: "red" }} block onPress={() => {
+                      <Button style={{ backgroundColor: "red",flex:1 }} block onPress={() => {
                           this.setState({ index: '6a', haveKids: this.state.yesnoques4text2.Text })
                         }}>
                           <Text style={{ fontSize: 15, textAlign: "center" }}>{this.state.yesnoques4text2.Text}</Text>
@@ -1709,10 +1710,10 @@ export default class Page1 extends React.Component {
                   </View>
 
 
-                  <View style={{ justifyContent: "center", padding: "7%" }}>
+                <View style={{ alignItems: "center", justifyContent: "center", padding: "7%" }}>
                   <View style={styles.yesnobuttonview}>
-                      <View style={{  }}>
-                      <Button style={{ backgroundColor: "green" }} block onPress={() => {
+                    <View style={{ flexDirection: 'row' }}>
+                      <Button style={{ backgroundColor: "green",flex:1 }} block onPress={() => {
                           this.setState({ index: '7a', familyProtection: this.state.yesnoques5text1.Text })
                         }}>
                           <Text style={{ fontSize: 15, textAlign: "center" }}>{this.state.yesnoques5text1.Text}</Text>
@@ -1720,9 +1721,9 @@ export default class Page1 extends React.Component {
 
 
                       </View>
-                      <View style={{ marginTop:10 }}>
+                      <View style={{ marginTop:10,flexDirection:"row" }}>
 
-                      <Button style={{ backgroundColor: "red" }} block onPress={() => {
+                      <Button style={{ backgroundColor: "red",flex:1 }} block onPress={() => {
                           this.setState({ index: '7a', familyProtection: this.state.yesnoques5text2.Text })
                         }}>
                           <Text style={{ fontSize: 15, textAlign: "center" }}>{this.state.yesnoques5text2.Text}</Text>
@@ -1752,10 +1753,10 @@ export default class Page1 extends React.Component {
                   </View>
 
 
-                  <View style={{ justifyContent: "center", padding: "7%" }}>
+                <View style={{ alignItems: "center", justifyContent: "center", padding: "7%" }}>
                   <View style={styles.yesnobuttonview}>
-                      <View style={{ }}>
-                      <Button style={{ backgroundColor: "green" }} block onPress={() => {
+                    <View style={{ flexDirection: 'row' }}>
+                      <Button style={{ backgroundColor: "green",flex:1 }} block onPress={() => {
                           this.setState({ index: '8a', haveMortgage: this.state.yesnoques6text1.Text })
                         }}>
                           <Text style={{ fontSize: 15, textAlign: "center" }}>{this.state.yesnoques6text1.Text}</Text>
@@ -1763,9 +1764,9 @@ export default class Page1 extends React.Component {
 
 
                       </View>
-                      <View style={{ marginTop:10 }}>
+                      <View style={{ marginTop:10,flexDirection:"row" }}>
 
-                      <Button style={{ backgroundColor: "red" }} block onPress={() => {
+                      <Button style={{ backgroundColor: "red",flex:1 }} block onPress={() => {
                           this.setState({ index: '8a', haveMortgage: this.state.yesnoques6text2.Text })
                         }}>
                           <Text style={{ fontSize: 15, textAlign: "center" }}>{this.state.yesnoques6text2.Text}</Text>
@@ -1795,10 +1796,10 @@ export default class Page1 extends React.Component {
                   </View>
 
 
-                  <View style={{ justifyContent: "center", padding: "7%" }}>
+                <View style={{ alignItems: "center", justifyContent: "center", padding: "7%" }}>
                   <View style={styles.yesnobuttonview}>
-                      <View style={{  }}>
-                      <Button style={{ backgroundColor: "green" }} block onPress={() => {
+                    <View style={{ flexDirection: 'row' }}>
+                      <Button style={{ backgroundColor: "green",flex:1 }} block onPress={() => {
                           this.setState({ index: 0, hugeSavings: this.state.yesnoques7text1.Text })
                         }}>
                           <Text style={{ fontSize: 15, textAlign: "center" }}>{this.state.yesnoques7text1.Text}</Text>
@@ -1806,9 +1807,9 @@ export default class Page1 extends React.Component {
 
 
                       </View>
-                      <View style={{ marginTop:10 }}>
+                      <View style={{ marginTop:10,flexDirection:"row" }}>
 
-                      <Button style={{ backgroundColor: "red" }} block onPress={() => {
+                      <Button style={{ backgroundColor: "red",flex:1 }} block onPress={() => {
                           this.setState({ index: 0, payCarInsurance_data: this.state.yesnoques7text2.Text })
                         }}>
                           <Text style={{ fontSize: 15, textAlign: "center" }}>{this.state.yesnoques7text2.Text}</Text>
@@ -2704,12 +2705,12 @@ export default class Page1 extends React.Component {
         <View
           style={styles.container2}
         >
-          <View style={{ justifyContent: "center", backgroundColor: "#dde3ed", alignItems: "center", height: 120, width: 120, borderRadius: 15, borderColor: "#FFF", imageAlign: "center", elevation: 2 }}>
+          {/* <View style={{ justifyContent: "center", backgroundColor: "#dde3ed", alignItems: "center", height: 120, width: 120, borderRadius: 15, borderColor: "#FFF", imageAlign: "center", elevation: 2 }}>
             <Image
               style={{ height: 100, width: 100 }}
               source={require('../ic_launcher.png')}
             />
-          </View>
+          </View> */}
 
         </View>
 

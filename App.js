@@ -25,8 +25,8 @@ import NetInfo from "@react-native-community/netinfo";
 import AsyncStorage from "@react-native-community/async-storage";
 // import Main from './Components/Main'
 import {createStackNavigator, createAppContainer} from 'react-navigation';
-import Afford from './Components/Afford';
-
+// import Afford from './Components/Afford';
+import WelcomePage from './Components/WelcomePage';
 const instructions = Platform.select({
   ios: "Press Cmd+R to reload,\n" + "Cmd+D or shake for dev menu",
   android:
@@ -96,9 +96,17 @@ export default class App extends Component {
     );
 
     if (isConnected === false) {
-      Alert.alert("You are offline!");
+      Alert.alert(
+        "No Connectivity",
+        "Please check your internet connection",
+        [{ text: "Try Again", onPress: () => this.CheckConnectivity() }],
+        { cancelable: false }
+      );
     } else {
-      Alert.alert("You are online!");
+      
+        this.setState({ isLoading: false });
+    
+          // Alert.alert("You are online!");
     }
   };
 
@@ -108,12 +116,12 @@ export default class App extends Component {
     var deviceInfo = {
       getDeviceId: DeviceInfo.getDeviceId(),
       getModel: DeviceInfo.getModel(),
-      getSerialNumber: DeviceInfo.getSerialNumber(),
+      getSerialNumber: 'qwertyuiop',
       getUniqueID: DeviceInfo.getUniqueID()
     };
 
     this.setState({ deviceInfo: deviceInfo });
-    // console.log("deviceInfo", deviceInfo);
+    console.log("deviceInfo", deviceInfo);
     this.checkPermission();
     this.createNotificationListeners(); //add this line
     console.log("HI");
@@ -317,7 +325,7 @@ export default class App extends Component {
   }
 
   render() {
-    if (false) {
+    if (this.state.isLoading==true) {
     return <View 
             style={styles.container2}
             > 
@@ -331,7 +339,7 @@ export default class App extends Component {
         ;
   }
     return (
-      <Afford screenProps={{CheckConnectivity:this.CheckConnectivity}}/>
+      <WelcomePage screenProps={{CheckConnectivity:this.CheckConnectivity}}/>
     );
   }
 }

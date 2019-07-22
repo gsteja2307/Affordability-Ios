@@ -22,7 +22,7 @@ export default class GetStarted extends React.Component {
                       <Text style={styles.sub_hdng_styls}>We Are Ex Bankers And We Can Show You How To Play This Game</Text>
                    </View>
                    <View style={{marginTop:"7%"}}>
-                   <TouchableOpacity  style={{justifyContent:"center",backgroundColor:"green",borderRadius:10}}   onPress={() => navigate('Afford')} >
+                   <TouchableOpacity  style={{justifyContent:"center",backgroundColor:"green",borderRadius:10,height:60}}   onPress={() => navigate('Afford')} >
                      <Text style={{padding:"3%",color:"white"}} > Get Started</Text>
                   </TouchableOpacity>
                    </View>
