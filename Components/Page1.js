@@ -210,10 +210,10 @@ export default class Page1 extends React.Component {
       mortageBal_data: "",
       currIntRate_data: "",
       downPayament_data: "",
-      bankrupt_data: false,
+      bankrupt_data: "No",
       desireLoanType_data: "",
-      isVeteran_data: false,
-      borrowAddCash_data: false,
+      isVeteran_data: "No",
+      borrowAddCash_data: "No",
       address_data: "",
       city_data: "",
       zip_data: "",
@@ -445,7 +445,8 @@ export default class Page1 extends React.Component {
         "propertyInfo": {
           "address": this.state.address_data,
           "city": this.state.city_data,
-          "zip": this.state.zip_data
+          "zip": this.state.zip_data,
+          "state":this.state.property
         }
         ,
         "firstName": this.state.fName_data,
@@ -462,12 +463,12 @@ export default class Page1 extends React.Component {
         data: data,
         method: 'post',
 
-      };
+      }; 
       this.setState({ isReady: false, isSubmitting: true });
       console.log('submit is pressed , 3rd log ')
-
+      console.log(this.state.city_data,this.state.property,this.state.address_data)
       axios(config).then((response) => {
-        //this.props.navigation.navigate("Submit" )
+        this.props.navigation.navigate("Submit" )
         console.log(response);
         this.setState({
           submitting: true,
@@ -496,7 +497,7 @@ export default class Page1 extends React.Component {
           mortage_value: 50000,
           current_interest_value: 75.50,
           down_payment_value: 15.00,
-          bankrupt_data: false,
+          bankrupt_data: "No",
           loan_type: '',
           mortage_late: '',
           // mainModal:false,
@@ -539,8 +540,25 @@ export default class Page1 extends React.Component {
           validZipCode: false,
         });
       }).catch((error) => {
-        console.log(error.message);
+        console.log(error);
       })
+      // fetch('http://69.55.49.121:3001/v1/userTemplates/register', {
+      //   method: 'POST', // *GET, POST, PUT, DELETE, etc.
+      //   // mode: 'cors', // no-cors, cors, *same-origin
+      //   // cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+      //   // credentials: 'same-origin', // include, *same-origin, omit
+      //   headers: {
+      //     'Content-Type': 'application/json',
+      //     // 'Content-Type': 'application/x-www-form-urlencoded',
+      //   },
+      //   // redirect: 'follow', // manual, *follow, error
+      //   // referrer: 'no-referrer', // no-referrer, *client
+      //   body:data, // body data type must match "Content-Type" header
+      // })
+      //   .then(response => console.log(response))
+      //   .catch((error) => {
+      //     console.log(error);
+      //   });
 
       setTimeout(() => {
         this.setState({ isReady: true, isSubmitting: false, submitting: false })
@@ -1072,7 +1090,7 @@ export default class Page1 extends React.Component {
     this.setState({
       yes1: "green",
       no1: "#ECE9E9",
-      bankrupt_data: true,
+      bankrupt_data: "Yes",
       showimage11: true,
       index: 8,
 
@@ -1082,7 +1100,7 @@ export default class Page1 extends React.Component {
     this.setState({
       yes1: "#ECE9E9",
       no1: "red",
-      bankrupt_data: false,
+      bankrupt_data: "No",
       showimage12: true,
       index: 8,
 
@@ -1101,7 +1119,7 @@ export default class Page1 extends React.Component {
       no2: "#ECE9E9",
       showimage13: true,
       index: 10,
-      isVeteran_data: true
+      isVeteran_data: "Yes"
     })
   }
   handleChangeVeteranNo() {
@@ -1110,7 +1128,7 @@ export default class Page1 extends React.Component {
       no2: "red",
       showimage14: true,
       index: 10,
-      isVeteran_data: false
+      isVeteran_data: "No"
     })
   }
   handleChangeMortageLates(value) {
@@ -1126,7 +1144,7 @@ export default class Page1 extends React.Component {
       no3: "#ECE9E9",
       showimage15: true,
       index: 12,
-      borrowAddCash_data: true
+      borrowAddCash_data: "Yes"
     })
   }
   handleChangeBorrowNo() {
@@ -1135,7 +1153,7 @@ export default class Page1 extends React.Component {
       no3: "red",
       showimage16: true,
       index: 12,
-      borrowAddCash_data: false
+      borrowAddCash_data: "No"
     })
   }
 
