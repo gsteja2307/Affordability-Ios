@@ -19,6 +19,9 @@ module.exports = StyleSheet.create({
     height:deviceHeight<=550?70 : 130,
     width:deviceHeight<=550?80 : 130
   },
+  yesnobuttonview:{
+    width: deviceHeight <= 550 ? 250 : 300,
+  },
   viewrifan:{
   flexDirection:"row",
   width:deviceHeight<=550?250:300,

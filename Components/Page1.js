@@ -1495,23 +1495,23 @@ export default class Page1 extends React.Component {
 
 
                   <View style={{ justifyContent: "center", padding: "7%" }}>
-                    <View style={styles.viewrifan}>
-                      <View style={{ alignItems: 'flex-start', backgroundColor: 'white' }}>
-                        <TouchableOpacity onPress={() => {
+                    <View style={styles.yesnobuttonview}>
+                      <View style={{}}>
+                        <Button style={{backgroundColor:'green'}} block onPress={() => {
                           this.setState({ index: '2a', payCarInsurance_data: this.state.yesnoques0text1.Text })
                         }}>
                           <Text style={{ fontSize: 15, textAlign: "center" }}>{this.state.yesnoques0text1.Text}</Text>
-                        </TouchableOpacity>
+                        </Button>
 
 
                       </View>
-                      <View style={{ alignItems: 'flex-end', position: "absolute", right: 0 }}>
+                      <View style={{marginTop:10}}>
 
-                        <TouchableOpacity onPress={() => {
+                        <Button style={{backgroundColor:"red"}} block onPress={() => {
                           this.setState({ index: '2a', payCarInsurance_data: this.state.yesnoques0text2.Text })
                         }}>
                           <Text style={{ fontSize: 15, textAlign: "center" }}>{this.state.yesnoques0text2.Text}</Text>
-                        </TouchableOpacity>
+                        </Button>
 
                       </View>
                     </View>
@@ -1538,23 +1538,23 @@ export default class Page1 extends React.Component {
 
 
                   <View style={{ justifyContent: "center", padding: "7%" }}>
-                    <View style={styles.viewrifan}>
-                      <View style={{ alignItems: 'flex-start', backgroundColor: 'white' }}>
-                        <TouchableOpacity onPress={() => {
+                  <View style={styles.yesnobuttonview}>
+                      <View style={{ }}>
+                      <Button style={{ backgroundColor: "green" }} block onPress={() => {
                           this.setState({ index: '3a', fastAndEasyFindout_data: this.state.yesnoques1text1.Text })
                         }}>
                           <Text style={{ fontSize: 15, textAlign: "center" }}>{this.state.yesnoques1text1.Text}</Text>
-                        </TouchableOpacity>
+                        </Button>
 
 
                       </View>
-                      <View style={{ alignItems: 'flex-end', position: "absolute", right: 0 }}>
+                      <View style={{marginTop:10}}>
 
-                        <TouchableOpacity onPress={() => {
+                      <Button style={{ backgroundColor: "red" }} block onPress={() => {
                           this.setState({ index: '3a', fastAndEasyFindout_data: this.state.yesnoques1text2.Text })
                         }}>
                           <Text style={{ fontSize: 15, textAlign: "center" }}>{this.state.yesnoques1text2.Text}</Text>
-                        </TouchableOpacity>
+                        </Button>
 
                       </View>
                     </View>
@@ -1581,23 +1581,23 @@ export default class Page1 extends React.Component {
 
 
                   <View style={{ justifyContent: "center", padding: "7%" }}>
-                    <View style={styles.viewrifan}>
-                      <View style={{ alignItems: 'flex-start', backgroundColor: 'white' }}>
-                        <TouchableOpacity onPress={() => {
+                  <View style={styles.yesnobuttonview}>
+                      <View>
+                      <Button style={{ backgroundColor: "green" }} block onPress={() => {
                           this.setState({ index: '4a', buyingHouse: this.state.yesnoques2text1.Text })
                         }}>
                           <Text style={{ fontSize: 15, textAlign: "center" }}>{this.state.yesnoques2text1.Text}</Text>
-                        </TouchableOpacity>
+                        </Button>
 
 
                       </View>
-                      <View style={{ alignItems: 'flex-end', position: "absolute", right: 0 }}>
+                      <View style={{ marginTop:10 }}>
 
-                        <TouchableOpacity onPress={() => {
+                      <Button style={{ backgroundColor: "red" }} block onPress={() => {
                           this.setState({ index: '4a', buyingHouse: this.state.yesnoques2text2.Text })
                         }}>
                           <Text style={{ fontSize: 15, textAlign: "center" }}>{this.state.yesnoques2text2.Text}</Text>
-                        </TouchableOpacity>
+                        </Button>
 
                       </View>
                     </View>
@@ -1624,23 +1624,23 @@ export default class Page1 extends React.Component {
 
 
                   <View style={{ justifyContent: "center", padding: "7%" }}>
-                    <View style={styles.viewrifan}>
-                      <View style={{ alignItems: 'flex-start', backgroundColor: 'white' }}>
-                        <TouchableOpacity onPress={() => {
+                  <View style={styles.yesnobuttonview}>
+                      <View style={{  }}>
+                      <Button style={{ backgroundColor: "green" }} block onPress={() => {
                           this.setState({ index: '5a', creditReportFirst: this.state.yesnoques3text1.Text })
                         }}>
                           <Text style={{ fontSize: 15, textAlign: "center" }}>{this.state.yesnoques3text1.Text}</Text>
-                        </TouchableOpacity>
+                        </Button>
 
 
                       </View>
-                      <View style={{ alignItems: 'flex-end', position: "absolute", right: 0 }}>
+                      <View style={{ marginTop:10 }}>
 
-                        <TouchableOpacity onPress={() => {
+                      <Button style={{ backgroundColor: "red" }} block onPress={() => {
                           this.setState({ index: '5a', creditReportFirst: this.state.yesnoques3text2.Text })
                         }}>
                           <Text style={{ fontSize: 15, textAlign: "center" }}>{this.state.yesnoques3text2.Text}</Text>
-                        </TouchableOpacity>
+                        </Button>
 
                       </View>
                     </View>
@@ -1667,23 +1667,23 @@ export default class Page1 extends React.Component {
 
 
                   <View style={{ justifyContent: "center", padding: "7%" }}>
-                    <View style={styles.viewrifan}>
-                      <View style={{ alignItems: 'flex-start', backgroundColor: 'white' }}>
-                        <TouchableOpacity onPress={() => {
+                  <View style={styles.yesnobuttonview}>
+                      <View style={{  }}>
+                      <Button style={{ backgroundColor: "green" }} block onPress={() => {
                           this.setState({ index: '6a', haveKids: this.state.yesnoques4text1.Text })
                         }}>
                           <Text style={{ fontSize: 15, textAlign: "center" }}>{this.state.yesnoques4text1.Text}</Text>
-                        </TouchableOpacity>
+                        </Button>
 
 
                       </View>
-                      <View style={{ alignItems: 'flex-end', position: "absolute", right: 0 }}>
+                      <View style={{ marginTop:10 }}>
 
-                        <TouchableOpacity onPress={() => {
+                      <Button style={{ backgroundColor: "red" }} block onPress={() => {
                           this.setState({ index: '6a', haveKids: this.state.yesnoques4text2.Text })
                         }}>
                           <Text style={{ fontSize: 15, textAlign: "center" }}>{this.state.yesnoques4text2.Text}</Text>
-                        </TouchableOpacity>
+                        </Button>
 
                       </View>
                     </View>
@@ -1710,23 +1710,23 @@ export default class Page1 extends React.Component {
 
 
                   <View style={{ justifyContent: "center", padding: "7%" }}>
-                    <View style={styles.viewrifan}>
-                      <View style={{ alignItems: 'flex-start', backgroundColor: 'white' }}>
-                        <TouchableOpacity onPress={() => {
+                  <View style={styles.yesnobuttonview}>
+                      <View style={{  }}>
+                      <Button style={{ backgroundColor: "green" }} block onPress={() => {
                           this.setState({ index: '7a', familyProtection: this.state.yesnoques5text1.Text })
                         }}>
                           <Text style={{ fontSize: 15, textAlign: "center" }}>{this.state.yesnoques5text1.Text}</Text>
-                        </TouchableOpacity>
+                        </Button>
 
 
                       </View>
-                      <View style={{ alignItems: 'flex-end', position: "absolute", right: 0 }}>
+                      <View style={{ marginTop:10 }}>
 
-                        <TouchableOpacity onPress={() => {
+                      <Button style={{ backgroundColor: "red" }} block onPress={() => {
                           this.setState({ index: '7a', familyProtection: this.state.yesnoques5text2.Text })
                         }}>
                           <Text style={{ fontSize: 15, textAlign: "center" }}>{this.state.yesnoques5text2.Text}</Text>
-                        </TouchableOpacity>
+                        </Button>
 
                       </View>
                     </View>
@@ -1753,23 +1753,23 @@ export default class Page1 extends React.Component {
 
 
                   <View style={{ justifyContent: "center", padding: "7%" }}>
-                    <View style={styles.viewrifan}>
-                      <View style={{ alignItems: 'flex-start', backgroundColor: 'white' }}>
-                        <TouchableOpacity onPress={() => {
+                  <View style={styles.yesnobuttonview}>
+                      <View style={{ }}>
+                      <Button style={{ backgroundColor: "green" }} block onPress={() => {
                           this.setState({ index: '8a', haveMortgage: this.state.yesnoques6text1.Text })
                         }}>
                           <Text style={{ fontSize: 15, textAlign: "center" }}>{this.state.yesnoques6text1.Text}</Text>
-                        </TouchableOpacity>
+                        </Button>
 
 
                       </View>
-                      <View style={{ alignItems: 'flex-end', position: "absolute", right: 0 }}>
+                      <View style={{ marginTop:10 }}>
 
-                        <TouchableOpacity onPress={() => {
-                          this.setState({ index: '2a', haveMortgage: this.state.yesnoques6text2.Text })
+                      <Button style={{ backgroundColor: "red" }} block onPress={() => {
+                          this.setState({ index: '8a', haveMortgage: this.state.yesnoques6text2.Text })
                         }}>
                           <Text style={{ fontSize: 15, textAlign: "center" }}>{this.state.yesnoques6text2.Text}</Text>
-                        </TouchableOpacity>
+                        </Button>
 
                       </View>
                     </View>
@@ -1796,23 +1796,23 @@ export default class Page1 extends React.Component {
 
 
                   <View style={{ justifyContent: "center", padding: "7%" }}>
-                    <View style={styles.viewrifan}>
-                      <View style={{ alignItems: 'flex-start', backgroundColor: 'white' }}>
-                        <TouchableOpacity onPress={() => {
+                  <View style={styles.yesnobuttonview}>
+                      <View style={{  }}>
+                      <Button style={{ backgroundColor: "green" }} block onPress={() => {
                           this.setState({ index: 0, hugeSavings: this.state.yesnoques7text1.Text })
                         }}>
                           <Text style={{ fontSize: 15, textAlign: "center" }}>{this.state.yesnoques7text1.Text}</Text>
-                        </TouchableOpacity>
+                        </Button>
 
 
                       </View>
-                      <View style={{ alignItems: 'flex-end', position: "absolute", right: 0 }}>
+                      <View style={{ marginTop:10 }}>
 
-                        <TouchableOpacity onPress={() => {
+                      <Button style={{ backgroundColor: "red" }} block onPress={() => {
                           this.setState({ index: 0, payCarInsurance_data: this.state.yesnoques7text2.Text })
                         }}>
                           <Text style={{ fontSize: 15, textAlign: "center" }}>{this.state.yesnoques7text2.Text}</Text>
-                        </TouchableOpacity>
+                        </Button>
 
                       </View>
                     </View>
