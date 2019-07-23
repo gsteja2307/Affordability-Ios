@@ -4,7 +4,8 @@ StyleSheet,
  Text,
 View,
 TouchableOpacity,
-Platform 
+Platform ,
+ImageBackground
 } from 'react-native';
  
 export default class GetStarted extends React.Component {
@@ -14,11 +15,11 @@ export default class GetStarted extends React.Component {
     render() {
       const {navigate} = this.props.navigation;
       return (
-        <View style={styles.container}>
-                 <View >
+        <ImageBackground source={require('../assets/getstartedbg.jpg')} style={styles.container}>
+                 <View>
                      <Text style={styles.hdng_styls}>  CONTROL OF YOUR FINANCES AGAIN</Text>
                    </View>
-                   <View style={{marginTop:"7%"}}>
+                   <View style={{margin:"7%"}}>
                       <Text style={styles.sub_hdng_styls}>We Are Ex Bankers And We Can Show You How To Play This Game</Text>
                    </View>
                    <View style={{marginTop:"7%"}}>
@@ -26,7 +27,7 @@ export default class GetStarted extends React.Component {
                      <Text style={{padding:"3%",color:"white"}} > Get Started</Text>
                   </TouchableOpacity>
                    </View>
-                 </View>
+        </ImageBackground>
         
       );
     }
@@ -35,16 +36,18 @@ export default class GetStarted extends React.Component {
   const styles = StyleSheet.create({
 container: {
 flex: 1,
-marginTop:Platform.OS=== "android"?"50%":40,
+justifyContent:"center",
  alignItems: 'center',
 },
 hdng_styls:{
+  color: 'white',
 fontWeight:"bold",
 fontSize:20,
 textAlign:"center"
 },
 sub_hdng_styls:{
-    fontSize:18,
+color:'white',
+fontSize:18,
 textAlign:"center"
 },
 topbar: {
