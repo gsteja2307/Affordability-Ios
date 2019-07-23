@@ -46,11 +46,14 @@ export default class Privacy extends Component {
   })
 
   render() {
+    let jsCode = `document.querySelector('.logo-div').style.display = 'none'; `;
     return (
       <View style={styles.container}>
         <WebView
           renderLoading={() => { return (<ActivityIndicator style={{ position: 'absolute', left: 0, right: 0, top: 0, bottom: 0, alignItems: 'center', justifyContent: 'center' }} />) }}
-          startInLoadingState
+          //startInLoadingState
+          //javaScriptEnabled={true}
+          injectedJavaScript={jsCode}
           source={{ uri: 'http://affordability.io/mortgage/lander3/privacy_policy.html' }}
         />
 
@@ -61,7 +64,7 @@ export default class Privacy extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: Platform.OS === "android" ? "-50%" : 40,
+    marginTop: Platform.OS === "android" ? 24 : 40,
   },
   topbar: {
     height: 50,

@@ -27,7 +27,7 @@ export default class GetStarted extends React.Component {
           </View>
           <View style={{}}>
                   
-                     <Text style={styles.hdng_styls}>  CONTROL OF YOUR FINANCES AGAIN</Text>
+                     <Text style={styles.hdng_styls}>CONTROL OF YOUR FINANCES AGAIN</Text>
                    
                    
             <Text style={styles.sub_hdng_styls}>We Are Ex Bankers And We Can Show You </Text>
@@ -46,25 +46,28 @@ export default class GetStarted extends React.Component {
     }
   }
 
-  const styles = StyleSheet.create({
-container: {
-  marginTop:20,
-flex: 1,
-// justifyContent:'center',
- alignItems: 'center',
-},
-hdng_styls:{
-  marginBottom: "5%",
-  color: 'white',
-fontWeight:'bold',
-fontSize:20,
-textAlign:'center'
-},
-sub_hdng_styls:{
-  
-color:'white',
-fontSize:18,
-textAlign:'center'
-}
+const styles = StyleSheet.create({
+  container: {
+    marginTop: Platform.OS == "android" ? "" : 20,
+    flex: 1,
+    // justifyContent:'center',
+    alignItems: 'center',
+  },
+  hdng_styls: {
+    marginBottom: "5%",
+    // fontFamily: "Open Sans",
+    color: 'white',
+    fontWeight: 'bold',
+    fontSize: 18,
+    textAlign: 'center',
+
+  },
+  sub_hdng_styls: {
+    // fontFamily: "Open Sans",
+    color: 'white',
+    fontSize: 16,
+    fontStyle: 'italic',
+    textAlign: 'center'
+  }
 
 });

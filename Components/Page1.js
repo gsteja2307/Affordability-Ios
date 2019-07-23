@@ -1,3 +1,5 @@
+
+
 import React from 'react';
 import { View, Image, TextInput, TouchableOpacity, Alert, Animated, ActivityIndicator } from 'react-native';
 import Display from 'react-native-display';
@@ -25,38 +27,11 @@ var deviceHeight = Platform.OS === 'android' ? Dimensions.get('screen').height -
 var width = Platform.OS === 'android' ? Dimensions.get('screen').width : Dimensions.get('window').width;
 console.log(deviceHeight);
 console.log(width);
-class NavigationDrawerStructure extends React.Component {
-  static navigationOptions = {
-    header: null,
-  };
-  toggleDrawer = () => {
-    //this.props.navigationProps.toggleDrawer();
-    this.props.navigationProps.dispatch(DrawerActions.toggleDrawer())
 
-  };
-  render() {
-    return (
-      <View style={{ flexDirection: 'row', backgroundColor: "white" }}>
-        <TouchableOpacity onPress={this.backButtonQuick} style={{ justifyContent: "center" }}  >
-          <Text style={{ color: "black", fontSize: 40 }}> &#8249;</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity onPress={this.toggleDrawer.bind(this)} style={{ justifyContent: "center", marginLeft: "3%" }} >
-          <Image
-            source={require('./image/drawer.png')}
-            style={{ width: 30, height: 30 }}
-          />
-        </TouchableOpacity>
-        <DrawerNavigation />
-
-
-      </View>
-    );
-  }
-}
 export default class Page1 extends React.Component {
   static navigationOptions = ({ navigation }) => ({
-    headerTitle: <NavigationDrawerStructure navigationProps={navigation} />
+    // headerTitle: <NavigationDrawerStructure navigationProps={navigation} />
+    header: null
   })
   constructor(props) {
     super(props);
@@ -446,7 +421,7 @@ export default class Page1 extends React.Component {
           "address": this.state.address_data,
           "city": this.state.city_data,
           "zip": this.state.zip_data,
-          "state":this.state.property
+          "state": this.state.property
         }
         ,
         "firstName": this.state.fName_data,
@@ -463,16 +438,16 @@ export default class Page1 extends React.Component {
         data: data,
         method: 'post',
 
-      }; 
+      };
       this.setState({ isReady: false, isSubmitting: true });
       console.log('submit is pressed , 3rd log ')
-      console.log(this.state.city_data,this.state.property,this.state.address_data)
+      console.log(this.state.city_data, this.state.property, this.state.address_data)
       axios(config).then((response) => {
-        this.props.navigation.navigate("Submit" )
+        this.props.navigation.navigate("Submit")
         console.log(response);
         this.setState({
           submitting: true,
-          index: 0,
+          index: '1a',
           enable_back: false,
           enable_next: true,
           enable_submit: false,
@@ -497,18 +472,29 @@ export default class Page1 extends React.Component {
           mortage_value: 50000,
           current_interest_value: 75.50,
           down_payment_value: 15.00,
+          current_interest_value2: 75.5,
+          down_payment_value2: 15.0,
           bankrupt_data: "No",
           loan_type: '',
           mortage_late: '',
+          value2: 75000,
+          mortage_value2: 50000,
           // mainModal:false,
           // isReady: false,
           address: '',
-          yes1: "green",
-          yes2: "green",
-          yes3: "green",
-          no1: "red",
-          no2: "red",
-          no3: "red",
+          // yes1: "green",
+          // yes2: "green",
+          // yes3: "green",
+          // no1: "red",
+          // no2: "red",
+          // no3: "red",
+
+          yes1: "#ECE9E9",
+          yes2: "#ECE9E9",
+          yes3: "#ECE9E9",
+          no1: "#ECE9E9",
+          no2: "#ECE9E9",
+          no3: "#ECE9E9",
           city: '',
           zip: '',
           property: '',
@@ -1251,7 +1237,63 @@ export default class Page1 extends React.Component {
       console.log(error.message);
     });
   }
+  toggleDrawer123 = () => {
+    //this.props.navigationProps.toggleDrawer();
+    this.props.navigation.dispatch(DrawerActions.toggleDrawer())
 
+  };
+  backButtonQuick123() {
+    if (this.state.index == '2a') {
+      this.setState({
+        index: '1a'
+      })
+    }
+    if (this.state.index == '3a') {
+      this.setState({
+        index: '2a'
+      })
+    }
+    if (this.state.index == '4a') {
+      this.setState({
+        index: '3a'
+      })
+    }
+    if (this.state.index == '5a') {
+      this.setState({
+        index: '4a'
+      })
+    }
+    if (this.state.index == '6a') {
+      this.setState({
+        index: '5a'
+      })
+    }
+    if (this.state.index == '7a') {
+      this.setState({
+        index: '6a'
+      })
+    }
+    if (this.state.index == '8a') {
+      this.setState({
+        index: '7a'
+      })
+    }
+    if (this.state.index == 0) {
+      this.setState({
+        index: '8a'
+      })
+    }
+    if (this.state.index > 0) {
+      //this.backButtonQuick();
+      this.setState({
+        index: this.state.index - 1,
+        enable_next: true,
+        enable_back: true,
+        enable_submit: false
+      });
+    }
+
+  }
   render() {
     const marks = [
       { name: '0', value: 0 },
@@ -1312,7 +1354,20 @@ export default class Page1 extends React.Component {
       value: 'Adjustable',
     }
     ];
-    let mortage_late_data = ["I'm not behind", 'One', "One or Two", 'Two or More', "Three or More",];
+    let mortage_late_data = [{
+      value: "I'm not behind",
+    }, {
+      value: 'One',
+    },
+    {
+      value: "One or Two",
+    }, {
+      value: 'Two or More',
+    }, {
+      value: 'Three or More',
+    }
+    ];
+    //let mortage_late_data = [{"I'm not behind", 'One', "One or Two", 'Two or More', "Three or More"}];
     let property_data2 = [{
       value: "Alabama",
     }, {
@@ -1486,6 +1541,28 @@ export default class Page1 extends React.Component {
     if (this.state.isReady) {
       return (
         <Container style={{}}>
+          <Header style={{ height: 80, backgroundColor: "white", justifyContent: "flex-start" }}>
+            <View style={{ flexDirection: 'row', backgroundColor: "white",flex:1 }}>
+              <View style={{width:60,flexWrap:"wrap",alignContent:"center",justifyContent:"center",paddingBottom:2}}>
+                {this.state.index == '1a' ? <TouchableOpacity></TouchableOpacity> : <TouchableOpacity onPress={this.backButtonQuick123.bind(this)} style={{ justifyContent: "center" }}  >
+                <Text style={{ color: "black", fontSize: 40 }}> &#8249;</Text>
+              </TouchableOpacity>
+              }
+
+
+              <TouchableOpacity onPress={this.toggleDrawer123.bind(this)} style={{ justifyContent: "center", marginLeft: "3%" }} >
+                <Image
+                  source={require('./image/drawer.png')}
+                  style={{ width: 30, height: 30 }}
+                />
+              </TouchableOpacity>
+              </View>
+              <View style={{justifyContent:"center",alignItems:"center",flex:1}}>  
+              <DrawerNavigation />
+              </View>
+            </View>
+
+          </Header>
           {/* <Header style={styles.headerstyles}>
             <View style={{alignItems: 'center',flex: 1,justifyContent: 'center'}} >
               <Image 
@@ -1513,10 +1590,10 @@ export default class Page1 extends React.Component {
                   </View>
 
 
-                  <View style={{alignItems:"center", justifyContent: "center", padding: "7%" }}>
+                  <View style={{ alignItems: "center", justifyContent: "center", padding: "7%" }}>
                     <View style={styles.yesnobuttonview}>
-                    <View style={{ flexDirection:'row'}}>
-                      <Button style={{ backgroundColor: 'green', flex: 1,}} block onPress={() => {
+                      <View style={{ flexDirection: 'row' }}>
+                        <Button style={{ backgroundColor: 'green', flex: 1, }} block onPress={() => {
                           this.setState({ index: '2a', payCarInsurance_data: this.state.yesnoques0text1.Text })
                         }}>
                           <Text style={{ fontSize: 15, textAlign: "center" }}>{this.state.yesnoques0text1.Text}</Text>
@@ -1524,9 +1601,9 @@ export default class Page1 extends React.Component {
 
 
                       </View>
-                      <View style={{marginTop:10,flexDirection:"row"}}>
+                      <View style={{ marginTop: 10, flexDirection: "row" }}>
 
-                        <Button style={{backgroundColor:"red",flex:1}} block onPress={() => {
+                        <Button style={{ backgroundColor: "red", flex: 1 }} block onPress={() => {
                           this.setState({ index: '2a', payCarInsurance_data: this.state.yesnoques0text2.Text })
                         }}>
                           <Text style={{ fontSize: 15, textAlign: "center" }}>{this.state.yesnoques0text2.Text}</Text>
@@ -1556,10 +1633,10 @@ export default class Page1 extends React.Component {
                   </View>
 
 
-                  <View style={{alignItems:"center", justifyContent: "center", padding: "7%" }}>
+                  <View style={{ alignItems: "center", justifyContent: "center", padding: "7%" }}>
                     <View style={styles.yesnobuttonview}>
-                    <View style={{ flexDirection:'row'}}>
-                      <Button style={{ backgroundColor: "green",flex:1 }} block onPress={() => {
+                      <View style={{ flexDirection: 'row' }}>
+                        <Button style={{ backgroundColor: "green", flex: 1 }} block onPress={() => {
                           this.setState({ index: '3a', fastAndEasyFindout_data: this.state.yesnoques1text1.Text })
                         }}>
                           <Text style={{ fontSize: 15, textAlign: "center" }}>{this.state.yesnoques1text1.Text}</Text>
@@ -1567,9 +1644,9 @@ export default class Page1 extends React.Component {
 
 
                       </View>
-                      <View style={{marginTop:10,flexDirection:"row"}}>
+                      <View style={{ marginTop: 10, flexDirection: "row" }}>
 
-                      <Button style={{ backgroundColor: "red",flex:1 }} block onPress={() => {
+                        <Button style={{ backgroundColor: "red", flex: 1 }} block onPress={() => {
                           this.setState({ index: '3a', fastAndEasyFindout_data: this.state.yesnoques1text2.Text })
                         }}>
                           <Text style={{ fontSize: 15, textAlign: "center" }}>{this.state.yesnoques1text2.Text}</Text>
@@ -1599,10 +1676,10 @@ export default class Page1 extends React.Component {
                   </View>
 
 
-                <View style={{ alignItems: "center", justifyContent: "center", padding: "7%" }}>
-                  <View style={styles.yesnobuttonview}>
-                    <View style={{ flexDirection: 'row' }}>
-                      <Button style={{ backgroundColor: "green",flex:1 }} block onPress={() => {
+                  <View style={{ alignItems: "center", justifyContent: "center", padding: "7%" }}>
+                    <View style={styles.yesnobuttonview}>
+                      <View style={{ flexDirection: 'row' }}>
+                        <Button style={{ backgroundColor: "green", flex: 1 }} block onPress={() => {
                           this.setState({ index: '4a', buyingHouse: this.state.yesnoques2text1.Text })
                         }}>
                           <Text style={{ fontSize: 15, textAlign: "center" }}>{this.state.yesnoques2text1.Text}</Text>
@@ -1610,9 +1687,9 @@ export default class Page1 extends React.Component {
 
 
                       </View>
-                      <View style={{ marginTop:10 ,flexDirection:"row"}}>
+                      <View style={{ marginTop: 10, flexDirection: "row" }}>
 
-                      <Button style={{ backgroundColor: "red",flex:1 }} block onPress={() => {
+                        <Button style={{ backgroundColor: "red", flex: 1 }} block onPress={() => {
                           this.setState({ index: '4a', buyingHouse: this.state.yesnoques2text2.Text })
                         }}>
                           <Text style={{ fontSize: 15, textAlign: "center" }}>{this.state.yesnoques2text2.Text}</Text>
@@ -1642,10 +1719,10 @@ export default class Page1 extends React.Component {
                   </View>
 
 
-                <View style={{ alignItems: "center", justifyContent: "center", padding: "7%" }}>
-                  <View style={styles.yesnobuttonview}>
-                    <View style={{ flexDirection: 'row' }}>
-                      <Button style={{ backgroundColor: "green",flex:1 }} block onPress={() => {
+                  <View style={{ alignItems: "center", justifyContent: "center", padding: "7%" }}>
+                    <View style={styles.yesnobuttonview}>
+                      <View style={{ flexDirection: 'row' }}>
+                        <Button style={{ backgroundColor: "green", flex: 1 }} block onPress={() => {
                           this.setState({ index: '5a', creditReportFirst: this.state.yesnoques3text1.Text })
                         }}>
                           <Text style={{ fontSize: 15, textAlign: "center" }}>{this.state.yesnoques3text1.Text}</Text>
@@ -1653,9 +1730,9 @@ export default class Page1 extends React.Component {
 
 
                       </View>
-                      <View style={{ marginTop:10,flexDirection:"row" }}>
+                      <View style={{ marginTop: 10, flexDirection: "row" }}>
 
-                      <Button style={{ backgroundColor: "red",flex:1 }} block onPress={() => {
+                        <Button style={{ backgroundColor: "red", flex: 1 }} block onPress={() => {
                           this.setState({ index: '5a', creditReportFirst: this.state.yesnoques3text2.Text })
                         }}>
                           <Text style={{ fontSize: 15, textAlign: "center" }}>{this.state.yesnoques3text2.Text}</Text>
@@ -1685,10 +1762,10 @@ export default class Page1 extends React.Component {
                   </View>
 
 
-                <View style={{ alignItems: "center", justifyContent: "center", padding: "7%" }}>
-                  <View style={styles.yesnobuttonview}>
-                    <View style={{ flexDirection: 'row' }}>
-                      <Button style={{ backgroundColor: "green",flex:1 }} block onPress={() => {
+                  <View style={{ alignItems: "center", justifyContent: "center", padding: "7%" }}>
+                    <View style={styles.yesnobuttonview}>
+                      <View style={{ flexDirection: 'row' }}>
+                        <Button style={{ backgroundColor: "green", flex: 1 }} block onPress={() => {
                           this.setState({ index: '6a', haveKids: this.state.yesnoques4text1.Text })
                         }}>
                           <Text style={{ fontSize: 15, textAlign: "center" }}>{this.state.yesnoques4text1.Text}</Text>
@@ -1696,9 +1773,9 @@ export default class Page1 extends React.Component {
 
 
                       </View>
-                      <View style={{ marginTop:10,flexDirection:"row" }}>
+                      <View style={{ marginTop: 10, flexDirection: "row" }}>
 
-                      <Button style={{ backgroundColor: "red",flex:1 }} block onPress={() => {
+                        <Button style={{ backgroundColor: "red", flex: 1 }} block onPress={() => {
                           this.setState({ index: '6a', haveKids: this.state.yesnoques4text2.Text })
                         }}>
                           <Text style={{ fontSize: 15, textAlign: "center" }}>{this.state.yesnoques4text2.Text}</Text>
@@ -1728,10 +1805,10 @@ export default class Page1 extends React.Component {
                   </View>
 
 
-                <View style={{ alignItems: "center", justifyContent: "center", padding: "7%" }}>
-                  <View style={styles.yesnobuttonview}>
-                    <View style={{ flexDirection: 'row' }}>
-                      <Button style={{ backgroundColor: "green",flex:1 }} block onPress={() => {
+                  <View style={{ alignItems: "center", justifyContent: "center", padding: "7%" }}>
+                    <View style={styles.yesnobuttonview}>
+                      <View style={{ flexDirection: 'row' }}>
+                        <Button style={{ backgroundColor: "green", flex: 1 }} block onPress={() => {
                           this.setState({ index: '7a', familyProtection: this.state.yesnoques5text1.Text })
                         }}>
                           <Text style={{ fontSize: 15, textAlign: "center" }}>{this.state.yesnoques5text1.Text}</Text>
@@ -1739,9 +1816,9 @@ export default class Page1 extends React.Component {
 
 
                       </View>
-                      <View style={{ marginTop:10,flexDirection:"row" }}>
+                      <View style={{ marginTop: 10, flexDirection: "row" }}>
 
-                      <Button style={{ backgroundColor: "red",flex:1 }} block onPress={() => {
+                        <Button style={{ backgroundColor: "red", flex: 1 }} block onPress={() => {
                           this.setState({ index: '7a', familyProtection: this.state.yesnoques5text2.Text })
                         }}>
                           <Text style={{ fontSize: 15, textAlign: "center" }}>{this.state.yesnoques5text2.Text}</Text>
@@ -1771,10 +1848,10 @@ export default class Page1 extends React.Component {
                   </View>
 
 
-                <View style={{ alignItems: "center", justifyContent: "center", padding: "7%" }}>
-                  <View style={styles.yesnobuttonview}>
-                    <View style={{ flexDirection: 'row' }}>
-                      <Button style={{ backgroundColor: "green",flex:1 }} block onPress={() => {
+                  <View style={{ alignItems: "center", justifyContent: "center", padding: "7%" }}>
+                    <View style={styles.yesnobuttonview}>
+                      <View style={{ flexDirection: 'row' }}>
+                        <Button style={{ backgroundColor: "green", flex: 1 }} block onPress={() => {
                           this.setState({ index: '8a', haveMortgage: this.state.yesnoques6text1.Text })
                         }}>
                           <Text style={{ fontSize: 15, textAlign: "center" }}>{this.state.yesnoques6text1.Text}</Text>
@@ -1782,9 +1859,9 @@ export default class Page1 extends React.Component {
 
 
                       </View>
-                      <View style={{ marginTop:10,flexDirection:"row" }}>
+                      <View style={{ marginTop: 10, flexDirection: "row" }}>
 
-                      <Button style={{ backgroundColor: "red",flex:1 }} block onPress={() => {
+                        <Button style={{ backgroundColor: "red", flex: 1 }} block onPress={() => {
                           this.setState({ index: '8a', haveMortgage: this.state.yesnoques6text2.Text })
                         }}>
                           <Text style={{ fontSize: 15, textAlign: "center" }}>{this.state.yesnoques6text2.Text}</Text>
@@ -1814,10 +1891,10 @@ export default class Page1 extends React.Component {
                   </View>
 
 
-                <View style={{ alignItems: "center", justifyContent: "center", padding: "7%" }}>
-                  <View style={styles.yesnobuttonview}>
-                    <View style={{ flexDirection: 'row' }}>
-                      <Button style={{ backgroundColor: "green",flex:1 }} block onPress={() => {
+                  <View style={{ alignItems: "center", justifyContent: "center", padding: "7%" }}>
+                    <View style={styles.yesnobuttonview}>
+                      <View style={{ flexDirection: 'row' }}>
+                        <Button style={{ backgroundColor: "green", flex: 1 }} block onPress={() => {
                           this.setState({ index: 0, hugeSavings: this.state.yesnoques7text1.Text })
                         }}>
                           <Text style={{ fontSize: 15, textAlign: "center" }}>{this.state.yesnoques7text1.Text}</Text>
@@ -1825,9 +1902,9 @@ export default class Page1 extends React.Component {
 
 
                       </View>
-                      <View style={{ marginTop:10,flexDirection:"row" }}>
+                      <View style={{ marginTop: 10, flexDirection: "row" }}>
 
-                      <Button style={{ backgroundColor: "red",flex:1 }} block onPress={() => {
+                        <Button style={{ backgroundColor: "red", flex: 1 }} block onPress={() => {
                           this.setState({ index: 0, payCarInsurance_data: this.state.yesnoques7text2.Text })
                         }}>
                           <Text style={{ fontSize: 15, textAlign: "center" }}>{this.state.yesnoques7text2.Text}</Text>
@@ -2386,20 +2463,23 @@ export default class Page1 extends React.Component {
                   </View>
                   <View style={{ padding: 10 }}>
                     <View style={{ alignSelf: "center", width: 300 }}>
-                      {/*<Dropdown inputContainerStyle={{borderBottomColor:"white"}}
-                                baseColor={"black"}
-                                containerStyle={styles.dropdown2}
-                                label={!this.state.mortage_late?'Select':''}
-                                data={mortage_late_data}
-                                onChangeText={this.handleChangeMortageLates.bind(this)}
-                                value={this.state.mortage_late}
-                                itemColor={"blue"}
-                                selectedItemColor={"black"}
-                                itemCount={6}
-                                pickerStyle={{backgroundColor: 'rgba(255, 245, 235, 1)'}}
-                                dropdownPosition={1}
-                      />*/}
-                      <CDD
+                      <Dropdown inputContainerStyle={{ borderBottomColor: "white" }}
+                        baseColor={"black"}
+                        containerStyle={styles.dropdown2}
+                        label={!this.state.mortage_late ? 'Select' : ''}
+                        data={mortage_late_data}
+                        onChangeText={this.handleChangeMortageLates.bind(this)}
+                        value={this.state.mortage_late}
+                        itemColor={"blue"}
+                        selectedItemColor={"black"}
+                        // itemCount={6}
+                        pickerStyle={{ backgroundColor: 'rgba(255, 245, 235, 1)' }}
+                        dropdownPosition={1}
+                      />
+
+
+
+                      {/* <CDD
                         onChangeText={(value) => {
                           this.setState({
                             mortage_late: value,
@@ -2407,14 +2487,14 @@ export default class Page1 extends React.Component {
                             index: 11
                           })
                         }
-                        }
-                        value={this.state.mortage_late == "" ? "Select an option" : this.state.mortage_late + "   "}
+                        } */}
+                      {/* value={this.state.mortage_late == "" ? "Select an option" : this.state.mortage_late + "   "}
                         array={mortage_late_data}
                         fontSize={15}
                         height={150}
                         rgba={[255, 245, 235, 1]}
                         scrollviewstyle={{ width: 250, backgroundColor: '#fff5eb' }}
-                      />
+                      /> */}
                     </View>
                   </View>
                   {!this.state.mortage_late ?
@@ -2757,3 +2837,4 @@ export default class Page1 extends React.Component {
     }
   }
 }
+
