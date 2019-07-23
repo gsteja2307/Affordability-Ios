@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import React  from 'react';
 import {
 StyleSheet,
@@ -5,6 +6,7 @@ StyleSheet,
 View,
 TouchableOpacity,
 Platform ,
+Image,
 ImageBackground
 } from 'react-native';
  
@@ -16,17 +18,28 @@ export default class GetStarted extends React.Component {
       const {navigate} = this.props.navigation;
       return (
         <ImageBackground source={require('../assets/getstartedbg.jpg')} style={styles.container}>
-                 <View>
+          <View style={{ alignItems: 'center',  }}>
+          <Image 
+              style={{marginTop:"37%",marginBottom:"15%"}} 
+          source={require('../assets/main.png')}>
+            
+          </Image>
+          </View>
+          <View style={{}}>
+                  
                      <Text style={styles.hdng_styls}>  CONTROL OF YOUR FINANCES AGAIN</Text>
+                   
+                   
+            <Text style={styles.sub_hdng_styls}>We Are Ex Bankers And We Can Show You </Text>
+            <Text style={styles.sub_hdng_styls}>How To Play This Game</Text>
+                   
                    </View>
-                   <View style={{margin:"7%"}}>
-                      <Text style={styles.sub_hdng_styls}>We Are Ex Bankers And We Can Show You How To Play This Game</Text>
-                   </View>
-                   <View style={{marginTop:"7%"}}>
-                   <TouchableOpacity  style={{justifyContent:"center",backgroundColor:"green",borderRadius:10,height:60}}   onPress={() => navigate('Afford')} >
-                     <Text style={{padding:"3%",color:"white"}} > Get Started</Text>
-                  </TouchableOpacity>
-                   </View>
+          <View style={{ marginTop: "16%" }}>
+            <TouchableOpacity style={{ justifyContent: "center", backgroundColor: "green", borderRadius: 30, height: 60,width:150, alignItems:"center" }} onPress={() => navigate('Afford')} >
+              <Text style={{ fontSize:16, padding: "3%", color: "white" }} > Get Started</Text>
+            </TouchableOpacity>
+          </View>        
+                  
         </ImageBackground>
         
       );
@@ -35,25 +48,23 @@ export default class GetStarted extends React.Component {
 
   const styles = StyleSheet.create({
 container: {
+  marginTop:20,
 flex: 1,
-justifyContent:"center",
+// justifyContent:'center',
  alignItems: 'center',
 },
 hdng_styls:{
+  marginBottom: "5%",
   color: 'white',
-fontWeight:"bold",
+fontWeight:'bold',
 fontSize:20,
-textAlign:"center"
+textAlign:'center'
 },
 sub_hdng_styls:{
+  
 color:'white',
 fontSize:18,
-textAlign:"center"
-},
-topbar: {
-height: 50,
-justifyContent: 'center',
-alignItems: 'center',
-backgroundColor: "#103047",
+textAlign:'center'
 }
+
 });
