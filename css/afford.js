@@ -106,7 +106,7 @@ module.exports = StyleSheet.create({
     backgroundColor: "white"
   },
   password: {
-    width:250,
+    width:300,
     height:deviceHeight<=650?40:60,
     backgroundColor:'white',
     borderBottomWidth: 1,
@@ -117,16 +117,30 @@ module.exports = StyleSheet.create({
     borderRadius:5,
     alignSelf:"center",
   },
+  password2: {
+    width: 300,
+    height: deviceHeight <= 650 ? 40 : 60,
+    backgroundColor: 'white',
+    borderBottomWidth: 1,
+    fontSize: deviceHeight <= 650 ? 10 : 16,
+    paddingLeft: 10,
+    marginTop: 10,
+    position: 'relative',
+    borderRadius: 5,
+    alignSelf: "center",
+    borderBottomColor:"blue"
+  },
   dropdown:{
     height:deviceHeight<=650?40:60,
     borderColor:"black",
-    borderWidth:1,
+    borderBottomWidth:1,
     borderRadius:5,
     paddingLeft:10,
     paddingRight:10,
     justifyContent:"center",
     marginTop:10,
-    paddingBottom:10
+    paddingBottom:10,
+    width:300
   },
   fontsizedropdown:{
     fontSize:deviceHeight<=650?12:18

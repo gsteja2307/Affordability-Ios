@@ -42,6 +42,13 @@ export default class Page1 extends React.Component {
       //quesetions being fetched from server
       //ques label is for questions
       //text label is for options for that question
+      formstyle1: styles.password,
+      formstyle2: styles.password,
+      formstyle3: styles.password,
+      formstyle4: styles.password,
+      formstyle5: styles.password,
+      formstyle6: styles.password,
+      formstyle7: styles.password,
       yes1: "#ECE9E9",
       yes2: "#ECE9E9",
       yes3: "#ECE9E9",
@@ -257,6 +264,76 @@ export default class Page1 extends React.Component {
       showimage15: false,
       showimage16: false
     };
+  }
+  onFocus1(){
+    console.log(styles.password2)
+    this.setState({ formstyle1: styles.password2 })
+    console.log("state",this.state.formstyle)
+  }
+  onBlur1() {
+    console.log(styles.password)
+    this.setState({ formstyle1: styles.password })
+    console.log("state",this.state.formstyle)
+  }
+  onFocus2(){
+    console.log(styles.password2)
+    this.setState({ formstyle2: styles.password2 })
+    console.log("state",this.state.formstyle)
+  }
+  onBlur2() {
+    console.log(styles.password)
+    this.setState({ formstyle2: styles.password })
+    console.log("state",this.state.formstyle)
+  }
+  onFocus3(){
+    console.log(styles.password2)
+    this.setState({ formstyle3: styles.password2 })
+    console.log("state",this.state.formstyle)
+  }
+  onBlur3() {
+    console.log(styles.password)
+    this.setState({ formstyle3: styles.password })
+    console.log("state",this.state.formstyle)
+  }
+  onFocus4(){
+    console.log(styles.password2)
+    this.setState({ formstyle4: styles.password2 })
+    console.log("state",this.state.formstyle)
+  }
+  onBlur4() {
+    console.log(styles.password)
+    this.setState({ formstyle4: styles.password })
+    console.log("state",this.state.formstyle)
+  }
+  onFocus5(){
+    console.log(styles.password2)
+    this.setState({ formstyle5: styles.password2 })
+    console.log("state",this.state.formstyle)
+  }
+  onBlur5() {
+    console.log(styles.password)
+    this.setState({ formstyle5: styles.password })
+    console.log("state",this.state.formstyle)
+  }
+  onFocus6(){
+    console.log(styles.password2)
+    this.setState({ formstyle6: styles.password2 })
+    console.log("state",this.state.formstyle)
+  }
+  onBlur6() {
+    console.log(styles.password)
+    this.setState({ formstyle6: styles.password })
+    console.log("state",this.state.formstyle)
+  }
+  onFocus7(){
+    console.log(styles.password2)
+    this.setState({ formstyle7: styles.password2 })
+    console.log("state",this.state.formstyle)
+  }
+  onBlur7() {
+    console.log(styles.password)
+    this.setState({ formstyle7: styles.password })
+    console.log("state",this.state.formstyle)
   }
   Terms() {
     this.props.navigation.navigate("Terms")
@@ -2663,17 +2740,14 @@ export default class Page1 extends React.Component {
                       inputStyle={{ fontFamily: 'Impact', fontSize: 5 }}
                       autoFocus={true}
                       // onFocus={this.setState.borderBottomColor=}
-                    theme={{
-                      colors: {
-                        placeholder: 'green', text: 'red', primary: 'blue',
-                        underlineColor: 'transparent', background: '#003489'
-                      }
-                    }}
+                      style={this.state.formstyle1}
+                      onBlur={this.onBlur1.bind(this)}
+                      onFocus={this.onFocus1.bind(this)}
                       returnKeyType={"next"}
                       onSubmitEditing={(event) => {
                         this.refs.currentZip.focus();
                       }}
-                      underlineColorAndroid='transparent' style={styles.password}
+                      underlineColorAndroid='transparent' 
                       onChangeText={this.Address.bind(this)}
                       value={this.state.address}>
                     </TextInput>
@@ -2690,9 +2764,11 @@ export default class Page1 extends React.Component {
                       placeholderTextColor={'black'}
                       ref='currentZip'
                       returnKeyType={"next"}
-
+                      style={this.state.formstyle2}
+                      onBlur={this.onBlur2.bind(this)}
+                      onFocus={this.onFocus2.bind(this)}
                       maxLength={5}
-                      underlineColorAndroid='transparent' style={styles.password}
+                      underlineColorAndroid='transparent' 
                       onChangeText={this.Zip.bind(this)} value={this.state.zip}
                       onSubmitEditing={(event) => {
                         this.checkZip(this.state.zip)
@@ -2708,8 +2784,8 @@ export default class Page1 extends React.Component {
                       </View> :
                       <Text></Text>
                     }
-                    <View style={{ alignSelf: "center", width: 250, marginTop: 0 }}>
-                      <Dropdown inputContainerStyle={{ borderBottomColor: "white" }}
+                    <View style={{ alignSelf: "center", width: 300, marginTop: 0 }}>
+                      {/* <Dropdown inputContainerStyle={{ borderBottomColor: "white" }}
 
                         fontSize={deviceHeight < 650 ? 12 : 18}
                         baseColor={"black"}
@@ -2717,13 +2793,28 @@ export default class Page1 extends React.Component {
                         containerStyle={styles.dropdown}
                         label={!this.state.property ? this.state.ques13_text3.Text : ''}
                         data={property_data2}//property_data
-                        onChangeText={this.Property.bind(this)}
-                        value={this.state.property}
+                              onChangeText={this.Property.bind(this)}
+                              value={this.state.property}
                         itemColor={"blue"}
                         pickerStyle={{ backgroundColor: 'rgba(255, 245, 235, 1)' }}
                         selectedItemColor={"black"}
                         dropdownPosition={1}
-                      />
+                      /> */}
+                    <TextInput placeholder="State"
+                      keyboardType="numeric"
+                      placeholderTextColor={'black'}
+                     
+                      style={this.state.formstyle2}
+                      onBlur={this.onBlur2.bind(this)}
+                      onFocus={this.onFocus2.bind(this)}
+                      
+                      underlineColorAndroid='transparent'
+                      onChangeText={this.Property.bind(this)}
+                      value={this.state.property}
+                    
+                    >
+
+                    </TextInput>
                       {/* <CDD  
                           onChangeText={(value) => {this.setState({
                                           property:value
@@ -2746,7 +2837,10 @@ export default class Page1 extends React.Component {
                       <Text></Text>
                     }
                     <TextInput style={{ marginTop: 10 }} placeholder={this.state.ques13_text2.Text} placeholderTextColor={'black'}
-                      underlineColorAndroid='transparent' style={styles.password}
+                      underlineColorAndroid='transparent' 
+                      style={this.state.formstyle3}
+                      onBlur={this.onBlur3.bind(this)}
+                      onFocus={this.onFocus3.bind(this)}
                       onChangeText={this.City.bind(this)}
                       autoCapitalize='none'
                       value={this.state.city}>
@@ -2773,7 +2867,10 @@ export default class Page1 extends React.Component {
                   </View>
                   <View style={{}}>
                     <TextInput placeholder={this.state.ques14_text1.Text} placeholderTextColor={'black'}
-                      underlineColorAndroid='transparent' style={styles.password}
+                      underlineColorAndroid='transparent'
+                       style={this.state.formstyle4}
+                      onBlur={this.onBlur4.bind(this)}
+                      onFocus={this.onFocus4.bind(this)}
                       onChangeText={this.FName.bind(this)}
                       autoFocus={true}
                       returnKeyType={"next"}
@@ -2791,7 +2888,10 @@ export default class Page1 extends React.Component {
                       <Text></Text>
                     }
                     <TextInput placeholder={this.state.ques14_text2.Text} placeholderTextColor={'black'}
-                      underlineColorAndroid='transparent' style={styles.password}
+                      underlineColorAndroid='transparent' 
+                       style={this.state.formstyle5}
+                      onBlur={this.onBlur5.bind(this)}
+                      onFocus={this.onFocus5.bind(this)}
                       onChangeText={this.LName.bind(this)}
                       ref="lastName"
                       returnKeyType={"next"}
@@ -2809,7 +2909,10 @@ export default class Page1 extends React.Component {
                       <Text></Text>
                     }
                     <TextInput placeholder={this.state.ques14_text3.Text} placeholderTextColor={'black'}
-                      underlineColorAndroid='transparent' style={styles.password}
+                      underlineColorAndroid='transparent' 
+                       style={this.state.formstyle6}
+                      onBlur={this.onBlur6.bind(this)}
+                      onFocus={this.onFocus6.bind(this)}
                       onChangeText={this.Email.bind(this)}
                       ref="email"
                       returnKeyType={"next"}
@@ -2834,7 +2937,10 @@ export default class Page1 extends React.Component {
                     <TextInput placeholder={this.state.ques14_text4.Text}
                       keyboardType="numeric"
                       placeholderTextColor={'black'}
-                      underlineColorAndroid='transparent' style={styles.password}
+                      underlineColorAndroid='transparent' 
+                       style={this.state.formstyle7}
+                      onBlur={this.onBlur7.bind(this)}
+                      onFocus={this.onFocus7.bind(this)}
                       onChangeText={this.Phone.bind(this)}
                       ref="PhNumber"
                       value={this.state.phone}>
