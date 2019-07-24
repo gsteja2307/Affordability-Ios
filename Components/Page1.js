@@ -1632,7 +1632,7 @@ export default class Page1 extends React.Component {
                     }}>
                       <Text style={{color:"black" ,fontSize: 15, textAlign: "center" }}>{this.state.yesnoques0text2.Text}</Text>
                     </Button>
-                    <Button style={{ backgroundColor: "white" }}><Text>  </Text></Button>
+                    <Text style={{width:50}}>  </Text>
                     <Button style={{ backgroundColor: this.state.yesno2, width: 125, justifyContent: "center" }}  onPress={() => {
                       this.setState({ index: '2a', payCarInsurance_data: this.state.yesnoques0text1.Text, yesno2: "green", yesno1:"#ECE9E9" })
                         }}>
@@ -1743,7 +1743,7 @@ export default class Page1 extends React.Component {
                     }}>
                       <Text style={{ color: "black", fontSize: 15, textAlign: "center" }}>{this.state.yesnoques2text2.Text}</Text>
                     </Button>
-                    <Button style={{ backgroundColor: "white" }}><Text>  </Text></Button>
+                    <Text style={{ width: 50 }}>  </Text>
 
                     <Button style={{ backgroundColor: this.state.yesno6, width: 125, justifyContent: "center" }} onPress={() => {
                       this.setState({ index: '4a', buyingHouse: this.state.yesnoques2text1.Text, yesno6: "green", yesno5: "#ECE9E9" })
@@ -1858,7 +1858,7 @@ export default class Page1 extends React.Component {
                       <Text style={{ color: "black",fontSize: 15, textAlign: "center" }}>{this.state.yesnoques4text2.Text}</Text>
                     </Button>
 
-                    <Button style={{ backgroundColor: "white" }}><Text>  </Text></Button>
+                    <Text style={{ width: 50 }}>  </Text>
                     {/* </View> */}
                     <Button style={{ backgroundColor: this.state.yesno8, width: 125, justifyContent: "center" }} onPress={() => {
                       this.setState({ index: '6a', haveKids: this.state.yesnoques4text1.Text, yesno8: "green", yesno7: "#ECE9E9" })
@@ -1965,7 +1965,7 @@ export default class Page1 extends React.Component {
                     }}>
                       <Text style={{ color: "black", fontSize: 15, textAlign: "center" }}>{this.state.yesnoques6text2.Text}</Text>
                     </Button>
-                    <Button style={{ backgroundColor: "white" }}><Text>  </Text></Button>
+                    <Text style={{ width: 50 }}>  </Text>
                     {/* </View> */}
                     <Button style={{ backgroundColor: this.state.yesno14, width: 125, justifyContent: "center" }} onPress={() => {
                       this.setState({ index: '8a', haveMortgage: this.state.yesnoques6text1.Text, yesno14: "green", yesno13: "#ECE9E9" })
@@ -2656,12 +2656,19 @@ export default class Page1 extends React.Component {
                   </View>
                   <View style={{}}>
                     <TextInput
-                      style={{ fontSize: "2px", maxHeight: "15px", width: "50px", height: "15px",borderBottomWidth:0 }}
+                      // style={{ fontSize: "2px", maxHeight: "15px", width: "50px", height: "15px",borderTopWidth:0,borderLeftWidth:0,borderRightWidth:0 }}
 
                       placeholder={this.state.ques13_text1.Text}
                       placeholderTextColor={'black'}
                       inputStyle={{ fontFamily: 'Impact', fontSize: 5 }}
                       autoFocus={true}
+                      // onFocus={this.setState.borderBottomColor=}
+                    theme={{
+                      colors: {
+                        placeholder: 'green', text: 'red', primary: 'blue',
+                        underlineColor: 'transparent', background: '#003489'
+                      }
+                    }}
                       returnKeyType={"next"}
                       onSubmitEditing={(event) => {
                         this.refs.currentZip.focus();

@@ -109,7 +109,7 @@ module.exports = StyleSheet.create({
     width:250,
     height:deviceHeight<=650?40:60,
     backgroundColor:'white',
-    borderWidth: 1,
+    borderBottomWidth: 1,
     fontSize:deviceHeight<=650?10:16,
     paddingLeft:10,
     marginTop:10,
