@@ -1666,9 +1666,7 @@ export default class Page1 extends React.Component {
                 />
               </TouchableOpacity>
               </View>
-              <View style={{justifyContent:"center",alignItems:"center",flex:1}}>  
               <DrawerNavigation />
-              </View>
             </View>
 
           </Header>
@@ -2801,7 +2799,7 @@ export default class Page1 extends React.Component {
                         dropdownPosition={1}
                       /> */}
                     <TextInput placeholder="State"
-                      keyboardType="numeric"
+                      
                       placeholderTextColor={'black'}
                      
                       style={this.state.formstyle2}
