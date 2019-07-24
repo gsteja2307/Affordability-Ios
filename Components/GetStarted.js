@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
   },
   hdng_styls: {
     marginBottom: "5%",
-    // fontFamily: "Open Sans",
+    fontFamily: "Baskerville",
     color: 'white',
     fontWeight: 'bold',
     fontSize: 18,
@@ -64,6 +64,7 @@ const styles = StyleSheet.create({
   },
   sub_hdng_styls: {
     // fontFamily: "Open Sans",
+    fontFamily: "Gill Sans",
     color: 'white',
     fontSize: 16,
     fontStyle: 'italic',

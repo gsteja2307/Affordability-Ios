@@ -48,6 +48,22 @@ export default class Page1 extends React.Component {
       no1: "#ECE9E9",
       no2: "#ECE9E9",
       no3: "#ECE9E9",
+      yesno1: "#ECE9E9",
+      yesno2: "#ECE9E9",
+      yesno3: "#ECE9E9",
+      yesno4: "#ECE9E9",
+      yesno5: "#ECE9E9",
+      yesno6: "#ECE9E9",
+      yesno7: "#ECE9E9",
+      yesno8: "#ECE9E9",
+      yesno9: "#ECE9E9",
+      yesno10: "#ECE9E9",
+      yesno11: "#ECE9E9",
+      yesno12: "#ECE9E9",
+      yesno13: "#ECE9E9",
+      yesno14: "#ECE9E9",
+      yesno15: "#ECE9E9",
+      yesno16: "#ECE9E9",
       //question1
       ques1_ques: "",
       ques1_text1: "",
@@ -495,6 +511,22 @@ export default class Page1 extends React.Component {
           no1: "#ECE9E9",
           no2: "#ECE9E9",
           no3: "#ECE9E9",
+          yesno1: "#ECE9E9",
+          yesno2: "#ECE9E9",
+          yesno3: "#ECE9E9",
+          yesno4: "#ECE9E9",
+          yesno5: "#ECE9E9",
+          yesno6: "#ECE9E9",
+          yesno7: "#ECE9E9",
+          yesno8: "#ECE9E9",
+          yesno9: "#ECE9E9",
+          yesno10: "#ECE9E9",
+          yesno11: "#ECE9E9",
+          yesno12: "#ECE9E9",
+          yesno13: "#ECE9E9",
+          yesno14: "#ECE9E9",
+          yesno15: "#ECE9E9",
+          yesno16: "#ECE9E9",
           city: '',
           zip: '',
           property: '',
@@ -1545,7 +1577,7 @@ export default class Page1 extends React.Component {
             <View style={{ flexDirection: 'row', backgroundColor: "white",flex:1 }}>
               <View style={{width:60,flexWrap:"wrap",alignContent:"center",justifyContent:"center",paddingBottom:2}}>
                 {this.state.index == '1a' ? <TouchableOpacity></TouchableOpacity> : <TouchableOpacity onPress={this.backButtonQuick123.bind(this)} style={{ justifyContent: "center" }}  >
-                <Text style={{ color: "black", fontSize: 40 }}> &#8249;</Text>
+                  <Text style={{ color: "black", fontSize: 40 }}> &#8249;&#8249;</Text>
               </TouchableOpacity>
               }
 
@@ -1577,39 +1609,43 @@ export default class Page1 extends React.Component {
               {this.state.index === '1a' &&
 
 
-                <View>
+                <View style={{margin:"5%"}}>
 
 
-                  <View style={{ height: 100, backgroundColor: 'white', justifyContent: "center" }}>
-                    <View style={{ alignContent: 'center' }}>
+                  <View style={{ backgroundColor: 'white', justifyContent: "center" }}>
+                    <View style={{ alignItems: 'center',justifyContent:"center" }}>
 
+                    <Image source={require('../assets/car1.png')}/>
                       <Text style={{ fontSize: 20, fontWeight: "bold", textAlign: "center" }} >
                         {this.state.yesnoques0}
                       </Text>
                     </View>
                   </View>
+                    {/* <Image source={require('../assets/car2.png')}/> */}
 
 
                   <View style={{ alignItems: "center", justifyContent: "center", padding: "7%" }}>
-                    <View style={styles.yesnobuttonview}>
-                      <View style={{ flexDirection: 'row' }}>
-                        <Button style={{ backgroundColor: 'green', flex: 1, }} block onPress={() => {
-                          this.setState({ index: '2a', payCarInsurance_data: this.state.yesnoques0text1.Text })
+                    <View style={{flexDirection:"row",justifyContent:"center"}}>
+                      {/* <View style={{ flexDirection: 'row' }}> */}
+                    <Button style={{ backgroundColor: this.state.yesno1, width: 125, justifyContent: "center" }} onPress={() => {
+                      this.setState({ index: '2a', payCarInsurance_data: this.state.yesnoques0text2.Text, yesno1: "red", yesno2:"#ECE9E9" })
+                    }}>
+                      <Text style={{color:"black" ,fontSize: 15, textAlign: "center" }}>{this.state.yesnoques0text2.Text}</Text>
+                    </Button>
+                    <Button style={{ backgroundColor: "white" }}><Text>  </Text></Button>
+                    <Button style={{ backgroundColor: this.state.yesno2, width: 125, justifyContent: "center" }}  onPress={() => {
+                      this.setState({ index: '2a', payCarInsurance_data: this.state.yesnoques0text1.Text, yesno2: "green", yesno1:"#ECE9E9" })
                         }}>
-                          <Text style={{ fontSize: 15, textAlign: "center" }}>{this.state.yesnoques0text1.Text}</Text>
+                      <Text style={{ color: "black", fontSize: 15, textAlign: "center" }}>{this.state.yesnoques0text1.Text}</Text>
                         </Button>
 
+                        
+                      {/* </View> */}
+                      {/* <View style={{ marginTop: 10, flexDirection: "row" }}> */}
+                        
+                    
 
-                      </View>
-                      <View style={{ marginTop: 10, flexDirection: "row" }}>
-
-                        <Button style={{ backgroundColor: "red", flex: 1 }} block onPress={() => {
-                          this.setState({ index: '2a', payCarInsurance_data: this.state.yesnoques0text2.Text })
-                        }}>
-                          <Text style={{ fontSize: 15, textAlign: "center" }}>{this.state.yesnoques0text2.Text}</Text>
-                        </Button>
-
-                      </View>
+                      {/* </View> */}
                     </View>
 
                   </View>
@@ -1620,12 +1656,12 @@ export default class Page1 extends React.Component {
               {this.state.index === '2a' &&
 
 
-                <View>
+                <View style={{margin:"5%"}}>
 
 
-                  <View style={{ height: 100, backgroundColor: 'white', justifyContent: "center" }}>
-                    <View style={{ alignContent: 'center' }}>
-
+                  <View style={{ backgroundColor: 'white', justifyContent: "center" }}>
+                    <View style={{ alignItems: 'center',justifyContent:"center" }}>
+                    <Image source={require('../assets/defaultqaimg.png')} />
                       <Text style={{ fontSize: 20, fontWeight: "bold", textAlign: "center" }} >
                         {this.state.yesnoques1}
                       </Text>
@@ -1636,20 +1672,20 @@ export default class Page1 extends React.Component {
                   <View style={{ alignItems: "center", justifyContent: "center", padding: "7%" }}>
                     <View style={styles.yesnobuttonview}>
                       <View style={{ flexDirection: 'row' }}>
-                        <Button style={{ backgroundColor: "green", flex: 1 }} block onPress={() => {
-                          this.setState({ index: '3a', fastAndEasyFindout_data: this.state.yesnoques1text1.Text })
+                      <Button style={{ backgroundColor: this.state.yesno3, flex: 1 }} block onPress={() => {
+                        this.setState({ index: '3a', fastAndEasyFindout_data: this.state.yesnoques1text1.Text, yesno3: "green", yesno4: "#ECE9E9" })
                         }}>
-                          <Text style={{ fontSize: 15, textAlign: "center" }}>{this.state.yesnoques1text1.Text}</Text>
+                        <Text style={{ color: "black", fontSize: 15, textAlign: "center" }}>{this.state.yesnoques1text1.Text}</Text>
                         </Button>
 
 
                       </View>
                       <View style={{ marginTop: 10, flexDirection: "row" }}>
 
-                        <Button style={{ backgroundColor: "red", flex: 1 }} block onPress={() => {
-                          this.setState({ index: '3a', fastAndEasyFindout_data: this.state.yesnoques1text2.Text })
+                      <Button style={{ backgroundColor: this.state.yesno4, flex: 1 }} block onPress={() => {
+                        this.setState({ index: '3a', fastAndEasyFindout_data: this.state.yesnoques1text2.Text, yesno4: "red", yesno3: "#ECE9E9" })
                         }}>
-                          <Text style={{ fontSize: 15, textAlign: "center" }}>{this.state.yesnoques1text2.Text}</Text>
+                        <Text style={{ color: "black",fontSize: 15, textAlign: "center" }}>{this.state.yesnoques1text2.Text}</Text>
                         </Button>
 
                       </View>
@@ -1663,12 +1699,12 @@ export default class Page1 extends React.Component {
               {this.state.index === '3a' &&
 
 
-                <View>
+              <View style={{ margin: "5%" }}>
 
 
-                  <View style={{ height: 100, backgroundColor: 'white', justifyContent: "center" }}>
-                    <View style={{ alignContent: 'center' }}>
-
+                <View style={{ backgroundColor: 'white', justifyContent: "center" }}>
+                  <View style={{ alignItems: 'center', justifyContent: "center" }}>
+                    <Image source={require('../assets/defaultqaimg.png')} />
                       <Text style={{ fontSize: 20, fontWeight: "bold", textAlign: "center" }} >
                         {this.state.yesnoques2}
                       </Text>
@@ -1676,7 +1712,7 @@ export default class Page1 extends React.Component {
                   </View>
 
 
-                  <View style={{ alignItems: "center", justifyContent: "center", padding: "7%" }}>
+                  {/* <View style={{ alignItems: "center", justifyContent: "center", padding: "7%" }}>
                     <View style={styles.yesnobuttonview}>
                       <View style={{ flexDirection: 'row' }}>
                         <Button style={{ backgroundColor: "green", flex: 1 }} block onPress={() => {
@@ -1698,7 +1734,32 @@ export default class Page1 extends React.Component {
                       </View>
                     </View>
 
+                  </View> */}
+                <View style={{ alignItems: "center", justifyContent: "center", padding: "7%" }}>
+                  <View style={{ flexDirection: "row", justifyContent: "center" }}>
+                    {/* <View style={{ flexDirection: 'row' }}> */}
+                    <Button style={{ backgroundColor: this.state.yesno5, width: 125, justifyContent: "center" }} onPress={() => {
+                      this.setState({ index: '4a', buyingHouse: this.state.yesnoques2text2.Text, yesno5: "red", yesno6: "#ECE9E9" })
+                    }}>
+                      <Text style={{ color: "black", fontSize: 15, textAlign: "center" }}>{this.state.yesnoques2text2.Text}</Text>
+                    </Button>
+                    <Button style={{ backgroundColor: "white" }}><Text>  </Text></Button>
+
+                    <Button style={{ backgroundColor: this.state.yesno6, width: 125, justifyContent: "center" }} onPress={() => {
+                      this.setState({ index: '4a', buyingHouse: this.state.yesnoques2text1.Text, yesno6: "green", yesno5: "#ECE9E9" })
+                    }}>
+                      <Text style={{ color: "black",fontSize: 15, textAlign: "center" }}>{this.state.yesnoques2text1.Text}</Text>
+                    </Button>
+
+                    {/* </View> */}
+                    {/* <View style={{ marginTop: 10, flexDirection: "row" }}> */}
+
+                    
+
+                    {/* </View> */}
                   </View>
+
+                </View>
 
 
                 </View>
@@ -1706,12 +1767,12 @@ export default class Page1 extends React.Component {
               {this.state.index === '4a' &&
 
 
-                <View>
+              <View style={{ margin: "5%" }}>
 
 
-                  <View style={{ height: 100, backgroundColor: 'white', justifyContent: "center" }}>
-                    <View style={{ alignContent: 'center' }}>
-
+                <View style={{ backgroundColor: 'white', justifyContent: "center" }}>
+                  <View style={{ alignItems: 'center', justifyContent: "center" }}>
+                    <Image source={require('../assets/defaultqaimg.png')} />
                       <Text style={{ fontSize: 20, fontWeight: "bold", textAlign: "center" }} >
                         {this.state.yesnoques3}
                       </Text>
@@ -1722,20 +1783,20 @@ export default class Page1 extends React.Component {
                   <View style={{ alignItems: "center", justifyContent: "center", padding: "7%" }}>
                     <View style={styles.yesnobuttonview}>
                       <View style={{ flexDirection: 'row' }}>
-                        <Button style={{ backgroundColor: "green", flex: 1 }} block onPress={() => {
-                          this.setState({ index: '5a', creditReportFirst: this.state.yesnoques3text1.Text })
+                      <Button style={{ backgroundColor: this.state.yesno11, flex: 1 }} block onPress={() => {
+                        this.setState({ index: '5a', creditReportFirst: this.state.yesnoques3text1.Text, yesno11: "green", yesno12: "#ECE9E9" })
                         }}>
-                          <Text style={{ fontSize: 15, textAlign: "center" }}>{this.state.yesnoques3text1.Text}</Text>
+                        <Text style={{ color: "black", fontSize: 15, textAlign: "center" }}>{this.state.yesnoques3text1.Text}</Text>
                         </Button>
 
 
                       </View>
                       <View style={{ marginTop: 10, flexDirection: "row" }}>
 
-                        <Button style={{ backgroundColor: "red", flex: 1 }} block onPress={() => {
-                          this.setState({ index: '5a', creditReportFirst: this.state.yesnoques3text2.Text })
+                      <Button style={{ backgroundColor: this.state.yesno12, flex: 1 }} block onPress={() => {
+                        this.setState({ index: '5a', creditReportFirst: this.state.yesnoques3text2.Text, yesno12: "red", yesno11: "#ECE9E9" })
                         }}>
-                          <Text style={{ fontSize: 15, textAlign: "center" }}>{this.state.yesnoques3text2.Text}</Text>
+                        <Text style={{ color: "black",fontSize: 15, textAlign: "center" }}>{this.state.yesnoques3text2.Text}</Text>
                         </Button>
 
                       </View>
@@ -1749,12 +1810,12 @@ export default class Page1 extends React.Component {
               {this.state.index === '5a' &&
 
 
-                <View>
+              <View style={{ margin: "5%" }}>
 
 
-                  <View style={{ height: 100, backgroundColor: 'white', justifyContent: "center" }}>
-                    <View style={{ alignContent: 'center' }}>
-
+                <View style={{ backgroundColor: 'white', justifyContent: "center" }}>
+                  <View style={{ alignItems: 'center', justifyContent: "center" }}>
+                    <Image source={require('../assets/defaultqaimg.png')} />
                       <Text style={{ fontSize: 20, fontWeight: "bold", textAlign: "center" }} >
                         {this.state.yesnoques4}
                       </Text>
@@ -1762,7 +1823,7 @@ export default class Page1 extends React.Component {
                   </View>
 
 
-                  <View style={{ alignItems: "center", justifyContent: "center", padding: "7%" }}>
+                  {/* <View style={{ alignItems: "center", justifyContent: "center", padding: "7%" }}>
                     <View style={styles.yesnobuttonview}>
                       <View style={{ flexDirection: 'row' }}>
                         <Button style={{ backgroundColor: "green", flex: 1 }} block onPress={() => {
@@ -1784,7 +1845,31 @@ export default class Page1 extends React.Component {
                       </View>
                     </View>
 
+                  </View> */}
+
+                <View style={{ alignItems: "center", justifyContent: "center", padding: "7%" }}>
+                  <View style={{ flexDirection: "row", justifyContent: "center" }}>
+                    {/* <View style={{ flexDirection: 'row' }}> */}
+                    {/* <View style={{ marginTop: 10, flexDirection: "row" }}> */}
+
+                    <Button style={{ backgroundColor: this.state.yesno7, width: 125, justifyContent: "center" }} onPress={() => {
+                      this.setState({ index: '6a', haveKids: this.state.yesnoques4text2.Text, yesno7: "red", yesno8: "#ECE9E9" })
+                    }}>
+                      <Text style={{ color: "black",fontSize: 15, textAlign: "center" }}>{this.state.yesnoques4text2.Text}</Text>
+                    </Button>
+
+                    <Button style={{ backgroundColor: "white" }}><Text>  </Text></Button>
+                    {/* </View> */}
+                    <Button style={{ backgroundColor: this.state.yesno8, width: 125, justifyContent: "center" }} onPress={() => {
+                      this.setState({ index: '6a', haveKids: this.state.yesnoques4text1.Text, yesno8: "green", yesno7: "#ECE9E9" })
+                    }}>
+                      <Text style={{ color: "black",fontSize: 15, textAlign: "center" }}>{this.state.yesnoques4text1.Text}</Text>
+                    </Button>
+
+                    {/* </View> */}
                   </View>
+
+                </View>
 
 
                 </View>
@@ -1792,12 +1877,12 @@ export default class Page1 extends React.Component {
               {this.state.index === '6a' &&
 
 
-                <View>
+              <View style={{ margin: "5%" }}>
 
 
-                  <View style={{ height: 100, backgroundColor: 'white', justifyContent: "center" }}>
-                    <View style={{ alignContent: 'center' }}>
-
+                <View style={{ backgroundColor: 'white', justifyContent: "center" }}>
+                  <View style={{ alignItems: 'center', justifyContent: "center" }}>
+                    <Image source={require('../assets/defaultqaimg.png')} />
                       <Text style={{ fontSize: 20, fontWeight: "bold", textAlign: "center" }} >
                         {this.state.yesnoques5}
                       </Text>
@@ -1808,20 +1893,20 @@ export default class Page1 extends React.Component {
                   <View style={{ alignItems: "center", justifyContent: "center", padding: "7%" }}>
                     <View style={styles.yesnobuttonview}>
                       <View style={{ flexDirection: 'row' }}>
-                        <Button style={{ backgroundColor: "green", flex: 1 }} block onPress={() => {
-                          this.setState({ index: '7a', familyProtection: this.state.yesnoques5text1.Text })
+                      <Button style={{ backgroundColor: this.state.yesno9, flex: 1 }} block onPress={() => {
+                        this.setState({ index: '7a', familyProtection: this.state.yesnoques5text1.Text, yesno9: "green", yesno10: "#ECE9E9" })
                         }}>
-                          <Text style={{ fontSize: 15, textAlign: "center" }}>{this.state.yesnoques5text1.Text}</Text>
+                        <Text style={{ color: "black",fontSize: 15, textAlign: "center" }}>{this.state.yesnoques5text1.Text}</Text>
                         </Button>
 
 
                       </View>
                       <View style={{ marginTop: 10, flexDirection: "row" }}>
 
-                        <Button style={{ backgroundColor: "red", flex: 1 }} block onPress={() => {
-                          this.setState({ index: '7a', familyProtection: this.state.yesnoques5text2.Text })
+                      <Button style={{ backgroundColor: this.state.yesno10, flex: 1 }} block onPress={() => {
+                        this.setState({ index: '7a', familyProtection: this.state.yesnoques5text2.Text, yesno10: "red", yesno9: "#ECE9E9" })
                         }}>
-                          <Text style={{ fontSize: 15, textAlign: "center" }}>{this.state.yesnoques5text2.Text}</Text>
+                        <Text style={{ color: "black",fontSize: 15, textAlign: "center" }}>{this.state.yesnoques5text2.Text}</Text>
                         </Button>
 
                       </View>
@@ -1835,12 +1920,12 @@ export default class Page1 extends React.Component {
               {this.state.index === '7a' &&
 
 
-                <View>
+              <View style={{ margin: "5%" }}>
 
 
-                  <View style={{ height: 100, backgroundColor: 'white', justifyContent: "center" }}>
-                    <View style={{ alignContent: 'center' }}>
-
+                <View style={{ backgroundColor: 'white', justifyContent: "center" }}>
+                  <View style={{ alignItems: 'center', justifyContent: "center" }}>
+                    <Image source={require('../assets/defaultqaimg.png')} />
                       <Text style={{ fontSize: 20, fontWeight: "bold", textAlign: "center" }} >
                         {this.state.yesnoques6}
                       </Text>
@@ -1848,7 +1933,7 @@ export default class Page1 extends React.Component {
                   </View>
 
 
-                  <View style={{ alignItems: "center", justifyContent: "center", padding: "7%" }}>
+                  {/* <View style={{ alignItems: "center", justifyContent: "center", padding: "7%" }}>
                     <View style={styles.yesnobuttonview}>
                       <View style={{ flexDirection: 'row' }}>
                         <Button style={{ backgroundColor: "green", flex: 1 }} block onPress={() => {
@@ -1870,7 +1955,29 @@ export default class Page1 extends React.Component {
                       </View>
                     </View>
 
+                  </View> */}
+                <View style={{ alignItems: "center", justifyContent: "center", padding: "7%" }}>
+                  <View style={{ flexDirection: "row", justifyContent: "center" }}>
+                    {/* <View style={{ flexDirection: 'row' }}> */}
+
+                    <Button style={{ backgroundColor: this.state.yesno13, width: 125, justifyContent: "center" }} onPress={() => {
+                      this.setState({ index: '8a', haveMortgage: this.state.yesnoques6text2.Text, yesno13: "red", yesno14: "#ECE9E9" })
+                    }}>
+                      <Text style={{ color: "black", fontSize: 15, textAlign: "center" }}>{this.state.yesnoques6text2.Text}</Text>
+                    </Button>
+                    <Button style={{ backgroundColor: "white" }}><Text>  </Text></Button>
+                    {/* </View> */}
+                    <Button style={{ backgroundColor: this.state.yesno14, width: 125, justifyContent: "center" }} onPress={() => {
+                      this.setState({ index: '8a', haveMortgage: this.state.yesnoques6text1.Text, yesno14: "green", yesno13: "#ECE9E9" })
+                    }}>
+                      <Text style={{ color: "black",fontSize: 15, textAlign: "center" }}>{this.state.yesnoques6text1.Text}</Text>
+                    </Button>
+                    {/* <View style={{ marginTop: 10, flexDirection: "row" }}> */}
+
+                    {/* </View> */}
                   </View>
+
+                </View>
 
 
                 </View>
@@ -1878,12 +1985,12 @@ export default class Page1 extends React.Component {
               {this.state.index === '8a' &&
 
 
-                <View>
+              <View style={{ margin: "5%" }}>
 
 
-                  <View style={{ height: 100, backgroundColor: 'white', justifyContent: "center" }}>
-                    <View style={{ alignContent: 'center' }}>
-
+                <View style={{ backgroundColor: 'white', justifyContent: "center" }}>
+                  <View style={{ alignItems: 'center', justifyContent: "center" }}>
+                    <Image source={require('../assets/defaultqaimg.png')} />
                       <Text style={{ fontSize: 20, fontWeight: "bold", textAlign: "center" }} >
                         {this.state.yesnoques7}
                       </Text>
@@ -1894,20 +2001,20 @@ export default class Page1 extends React.Component {
                   <View style={{ alignItems: "center", justifyContent: "center", padding: "7%" }}>
                     <View style={styles.yesnobuttonview}>
                       <View style={{ flexDirection: 'row' }}>
-                        <Button style={{ backgroundColor: "green", flex: 1 }} block onPress={() => {
-                          this.setState({ index: 0, hugeSavings: this.state.yesnoques7text1.Text })
+                      <Button style={{ backgroundColor: this.state.yesno15, flex: 1 }} block onPress={() => {
+                        this.setState({ index: 0, hugeSavings: this.state.yesnoques7text1.Text, yesno15: "green", yesno16: "#ECE9E9" })
                         }}>
-                          <Text style={{ fontSize: 15, textAlign: "center" }}>{this.state.yesnoques7text1.Text}</Text>
+                        <Text style={{ color: "black",fontSize: 15, textAlign: "center" }}>{this.state.yesnoques7text1.Text}</Text>
                         </Button>
 
 
                       </View>
                       <View style={{ marginTop: 10, flexDirection: "row" }}>
 
-                        <Button style={{ backgroundColor: "red", flex: 1 }} block onPress={() => {
-                          this.setState({ index: 0, payCarInsurance_data: this.state.yesnoques7text2.Text })
+                      <Button style={{ backgroundColor: this.state.yesno16, flex: 1 }} block onPress={() => {
+                        this.setState({ index: 0, payCarInsurance_data: this.state.yesnoques7text2.Text, yesno16: "red", yesno15: "#ECE9E9" })
                         }}>
-                          <Text style={{ fontSize: 15, textAlign: "center" }}>{this.state.yesnoques7text2.Text}</Text>
+                        <Text style={{ color: "black", fontSize: 15, textAlign: "center" }}>{this.state.yesnoques7text2.Text}</Text>
                         </Button>
 
                       </View>
@@ -2549,7 +2656,7 @@ export default class Page1 extends React.Component {
                   </View>
                   <View style={{}}>
                     <TextInput
-                      style={{ fontSize: "2px", maxHeight: "15px", width: "50px", height: "15px" }}
+                      style={{ fontSize: "2px", maxHeight: "15px", width: "50px", height: "15px",borderBottomWidth:0 }}
 
                       placeholder={this.state.ques13_text1.Text}
                       placeholderTextColor={'black'}

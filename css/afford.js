@@ -22,7 +22,9 @@ module.exports = StyleSheet.create({
   yesnobuttonview:{
     width: deviceHeight <= 550 ? 250 : 300,
     alignItems:"center",
-    justifyContent:"center"
+    justifyContent:"center",
+    // flexWrap:"wrap"
+    
   },
   viewrifan:{
   flexDirection:"row",
