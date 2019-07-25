@@ -481,7 +481,7 @@ export default class Page1 extends React.Component {
         //enable_back:false
       })
     }
-    if (this.state.index == 13 && (this.state.fname && this.state.validfname && this.state.lname && this.state.validlname && this.state.email.includes("@") && this.state.email.includes(".") )) {
+    if (this.state.index == 13 && (this.state.fname && this.state.validfname && this.state.lname && this.state.validlname && this.state.email.includes("@") && this.state.email.includes(".") && this.state.phone )) {
       this.setState({
         errorvalue10: "",
         errorvalue11: "",
@@ -1414,6 +1414,34 @@ export default class Page1 extends React.Component {
       this.setState({
         index: this.state.index + 1
       })
+      if (this.state.index == 3 && this.state.value) {
+        console.log("ok the property value is set in next butt")
+        this.setState({
+          propertyValue_data: this.state.value,
+          index: 4
+        })
+      }
+      if (this.state.index == 4 && this.state.mortage_value) {
+        console.log("ok the mortage value is set in next butt")
+        this.setState({
+          mortageBal_data: this.state.mortage_value,
+          index: 5
+        })
+      }
+      if (this.state.index == 5 && this.state.current_interest_value) {
+        console.log("ok the CIR value is set in next butt")
+        this.setState({
+          currIntRate_data: this.state.current_interest_value,
+          index: 6
+        })
+      }
+      if (this.state.index == 6 && this.state.down_payment_value) {
+        console.log("ok the down_payment value is set in bext butt")
+        this.setState({
+          downPayament_data: this.state.down_payment_value,
+          index: 7
+        })
+      }
       if (this.state.index == 12 && !this.state.address) {
         this.setState({
           errorvalue8: "Please Enter Your Address",
@@ -1752,7 +1780,7 @@ export default class Page1 extends React.Component {
       return (
         <Container style={{}}>
           <Header style={{ height: 80, backgroundColor: "white", justifyContent: "flex-start" }}>
-            <View style={{ flexDirection: 'row', backgroundColor: "white",flex:1 }}>
+            <View style={{ flexDirection: 'row', backgroundColor: "red",flex:1 }}>
               <View style={{width:60,flexWrap:"wrap",alignContent:"center",justifyContent:"center",paddingBottom:2}}>
                 {this.state.index == '1a' ? <TouchableOpacity></TouchableOpacity> : <TouchableOpacity onPress={this.backButtonQuick123.bind(this)} style={{ justifyContent: "center" }}  >
                   <Text style={{ color: "black", fontSize: 40 }}> &#8249;&#8249;</Text>
