@@ -1779,11 +1779,11 @@ export default class Page1 extends React.Component {
     if (this.state.isReady) {
       return (
         <Container style={{}}>
-          <Header style={{ height: 80, backgroundColor: "white", justifyContent: "flex-start" }}>
-            <View style={{ flexDirection: 'row', backgroundColor: "red",flex:1 }}>
-              <View style={{width:60,flexWrap:"wrap",alignContent:"center",justifyContent:"center",paddingBottom:2}}>
+          <Header style={{ height: 100, backgroundColor: "white", justifyContent: "flex-start" }}>
+            <View style={{ flexDirection: 'row', backgroundColor: "white",flex:1,justifyContent:"center",alignItems:"center" }}>
+              <View style={{flexDirection:"row",width:60,flexWrap:"wrap",alignItems:"center",backgroundColor:"red",justifyContent:"space-between"}}>
                 {this.state.index == '1a' ? <TouchableOpacity></TouchableOpacity> : <TouchableOpacity onPress={this.backButtonQuick123.bind(this)} style={{ justifyContent: "center" }}  >
-                  <Text style={{ color: "black", fontSize: 40 }}> &#8249;&#8249;</Text>
+                  <Text style={{ color: "black", fontSize: 40 }}> &#8249;</Text>
               </TouchableOpacity>
               }
 
@@ -1796,6 +1796,7 @@ export default class Page1 extends React.Component {
               </TouchableOpacity>
               </View>
               <DrawerNavigation />
+              <View style={{width:60}}></View>
             </View>
 
           </Header>
@@ -1891,8 +1892,10 @@ export default class Page1 extends React.Component {
 
 
                   <View style={{ backgroundColor: 'white', justifyContent: "center" }}>
-                    <View style={{ alignItems: 'center',justifyContent:"center" }}>
-                    <Image source={require('../assets/defaultqaimg.png')} />
+                    <View style={{ alignItems: 'center',justifyContent:"center"}}>
+                      <View style={{height:100,width:100,backgroundColor:"red",justifyContent:"center",alignItems:"center" }}>
+                    <Image style={{height:"100%",width:"100%"}} source={require('../assets/defaultqaimg.png')} />
+                    </View>
                       <Text style={{ fontSize: 20, fontWeight: "bold", textAlign: "center" }} >
                         {this.state.yesnoques1}
                       </Text>

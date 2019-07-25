@@ -34,6 +34,7 @@ class NavigationDrawerStructure extends React.Component {
         </TouchableOpacity>
 
         <DrawerNavigation />
+        <View style={{ width: 60 }}></View>
       </View>
     );
   }
@@ -64,7 +65,7 @@ export default class Privacy extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: Platform.OS === "android" ? 24 : 40,
+    marginTop: Platform.OS === "android" ? 24 : 20,
   },
   topbar: {
     height: 50,

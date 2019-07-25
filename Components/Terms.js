@@ -36,6 +36,7 @@ class NavigationDrawerStructure extends React.Component {
         </TouchableOpacity>
 
         <DrawerNavigation />
+        <View style={{ width: 60 }}></View>
       </View>
     );
   }
