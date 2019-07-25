@@ -222,7 +222,7 @@ export default class Page1 extends React.Component {
       mortageRates_data: "",
       //back button , next button and submit button
       enable_back: false,
-      enable_next: true,
+      enable_next: false,
       enable_submit: false,
       index: '1a',
       privacy_enable: false,
@@ -344,6 +344,7 @@ export default class Page1 extends React.Component {
     })
   }
   change(value) {
+    console.log("inside change func",value)
     this.setState({
       value: parseFloat(value),
       propertyValue_data: value
@@ -407,18 +408,21 @@ export default class Page1 extends React.Component {
     return false;
   }
   Mortage(value) {
+    console.log("inside mortage func", value)
     this.setState({
       mortage_value: parseFloat(value),
       mortageBal_data: value
     });
   }
   CurrentInterest(value) {
+    console.log("inside currentinterest func", value)
     this.setState({
       current_interest_value: value,
       currIntRate_data: value
     });
   }
   DownPayment(value) {
+    console.log("inside downpayment func", value)
     this.setState({
       down_payment_value: value,
       downPayament_data: value
@@ -477,7 +481,7 @@ export default class Page1 extends React.Component {
         //enable_back:false
       })
     }
-    if (this.state.index == 13 && (this.state.fname && this.state.validfname && this.state.lname && this.state.validlname && this.state.email.includes("@") && this.state.email.includes(".") && this.state.phone)) {
+    if (this.state.index == 13 && (this.state.fname && this.state.validfname && this.state.lname && this.state.validlname && this.state.email.includes("@") && this.state.email.includes(".") )) {
       this.setState({
         errorvalue10: "",
         errorvalue11: "",
@@ -486,7 +490,7 @@ export default class Page1 extends React.Component {
 
         //  index:13,
         //  enable_next: false,
-        //  enable_submit:true
+         enable_submit:true
       })
       console.log('submit is clicked , second log')
       var data = {
@@ -542,7 +546,7 @@ export default class Page1 extends React.Component {
           submitting: true,
           index: '1a',
           enable_back: false,
-          enable_next: true,
+          enable_next: false,
           enable_submit: false,
           showimage1: false,
 
@@ -562,7 +566,9 @@ export default class Page1 extends React.Component {
           showimage15: false,
           showimage16: false,
           value: 75000,
+          value2: 75000,
           mortage_value: 50000,
+          mortage_value2: 50000,
           current_interest_value: 75.50,
           down_payment_value: 15.00,
           current_interest_value2: 75.5,
@@ -570,8 +576,8 @@ export default class Page1 extends React.Component {
           bankrupt_data: "No",
           loan_type: '',
           mortage_late: '',
-          value2: 75000,
-          mortage_value2: 50000,
+          // value2: 75000,
+          // mortage_value2: 50000,
           // mainModal:false,
           // isReady: false,
           address: '',
@@ -635,7 +641,7 @@ export default class Page1 extends React.Component {
           validZipCode: false,
         });
       }).catch((error) => {
-        console.log(error);
+        console.log(error.result);
       })
       // fetch('http://69.55.49.121:3001/v1/userTemplates/register', {
       //   method: 'POST', // *GET, POST, PUT, DELETE, etc.
@@ -805,7 +811,7 @@ export default class Page1 extends React.Component {
     if (this.state.index < 15) {
       this.setState({
         index: this.state.index - 1,
-        enable_next: true,
+        // enable_next: true,
         enable_back: true,
         enable_submit: false
       });
@@ -813,7 +819,7 @@ export default class Page1 extends React.Component {
     if (this.state.index == 0) {
       this.setState({
         index: this.state.index,
-        enable_next: true,
+        // enable_next: true,
         enable_back: false,
         enable_submit: false
       });
@@ -821,7 +827,7 @@ export default class Page1 extends React.Component {
     if (this.state.index == 1) {
       this.setState({
         //index: this.state.index,
-        enable_next: true,
+        // enable_next: true,
         enable_submit: false,
         enable_back: false
       });
@@ -1005,8 +1011,8 @@ export default class Page1 extends React.Component {
     }
     if (this.state.index == 1) {
       this.setState({
-        enable_next: true,
-        enable_back: true
+        // enable_next: true,
+        // enable_back: true
       });
     }
   }
@@ -1396,10 +1402,105 @@ export default class Page1 extends React.Component {
       //this.backButtonQuick();
       this.setState({
         index: this.state.index - 1,
-        enable_next: true,
+        // enable_next: true,
         enable_back: true,
         enable_submit: false
       });
+    }
+
+  }
+  nextButtonQuick9() {
+    if (this.state.index > 0) {
+      this.setState({
+        index: this.state.index + 1
+      })
+      if (this.state.index == 12 && !this.state.address) {
+        this.setState({
+          errorvalue8: "Please Enter Your Address",
+          //index:0,
+          //enable_back:false
+        })
+      }
+      if (this.state.index == 12 && !this.state.property) {
+        this.setState({
+          stateerrorvalue8: "Please Select Your State",
+          //index:0,
+          //enable_back:false
+        })
+      }
+      if (this.state.index == 12 && !this.state.city) {
+        this.setState({
+          cityerrorvalue: "Please Enter Valid City Name",
+          //index:0,
+          //enable_back:false
+        })
+      }
+      if (this.state.index == 12 && !this.state.zip) {
+        this.setState({
+          errorvalue9: "Please Enter Your Current Zip Code",
+          //index:0,
+          //enable_back:false
+        })
+      }//
+      if (this.state.index == 12 && this.state.validZipCode == false && ((this.state.zip).toString().length) < 5) {
+        this.setState({
+          errorvalue9: "Enter Valid Zip Code",
+          //index:0,
+          //enable_back:false
+        })
+      }//
+      if (this.state.index == 12 && this.state.validZipCode && (this.state.address && this.state.zip && this.state.validcity && ((this.state.zip.toString().length) < 5) == false)) {
+        this.setState({
+          errorvalue8: "",
+          cityerrorvalue: "",
+          errorvalue9: "",
+          index: 13,
+          enable_next: false,
+          enable_submit: true
+        })
+      }
+    }
+  }
+  nextButtonQuick10() {
+    if (this.state.index == '1a') {
+      this.setState({
+        index: '2a'
+      })
+    }
+    if (this.state.index == '2a') {
+      this.setState({
+        index: '3a'
+      })
+    }
+    if (this.state.index == '3a') {
+      this.setState({
+        index: '4a'
+      })
+    }
+    if (this.state.index == '4a') {
+      this.setState({
+        index: '5a'
+      })
+    }
+    if (this.state.index == '5a') {
+      this.setState({
+        index: '6a'
+      })
+    }
+    if (this.state.index == '6a') {
+      this.setState({
+        index: '7a'
+      })
+    }
+    if (this.state.index == '7a') {
+      this.setState({
+        index: '8a'
+      })
+    }
+    if (this.state.index == '8a') {
+      this.setState({
+        index: 0
+      })
     }
 
   }
@@ -1724,7 +1825,34 @@ export default class Page1 extends React.Component {
                     </View>
 
                   </View>
+                {!this.state.payCarInsurance_data ?
+                  <View>
+                    <Text> </Text>
 
+                  </View> :
+                  <View style={{ flexDirection: 'row', justifyContent: "center", marginTop: "10%" }}>
+
+                    <Button block
+                      style={styles.next_btnstyle}
+                      onPress={this.nextButtonQuick10.bind(this)}>
+                      <Text>Next</Text>
+                    </Button>
+
+                  </View>
+
+                }
+
+                {/* 
+                  <View style={{justifyContent:"center"}}>
+                       
+                       <Button block
+                         style={styles.next_btnstyle}
+                         onPress={this.nextButtonQuick10.bind(this)}>
+                         <Text>Next</Text>
+                       </Button>
+                      
+                   </View>
+                  } */}        
 
                 </View>
               }
@@ -1767,7 +1895,22 @@ export default class Page1 extends React.Component {
                     </View>
 
                   </View>
+                {!this.state.fastAndEasyFindout_data ?
+                  <View>
+                    <Text> </Text>
 
+                  </View> :
+                  <View style={{ flexDirection: 'row', justifyContent: "center", marginTop: "10%" }}>
+
+                    <Button block
+                      style={styles.next_btnstyle}
+                      onPress={this.nextButtonQuick10.bind(this)}>
+                      <Text>Next</Text>
+                    </Button>
+
+                  </View>
+
+                }
 
                 </View>
               }
@@ -1835,7 +1978,22 @@ export default class Page1 extends React.Component {
                   </View>
 
                 </View>
+                {!this.state.buyingHouse ?
+                  <View>
+                    <Text> </Text>
 
+                  </View> :
+                  <View style={{ flexDirection: 'row', justifyContent: "center", marginTop: "10%" }}>
+
+                    <Button block
+                      style={styles.next_btnstyle}
+                      onPress={this.nextButtonQuick10.bind(this)}>
+                      <Text>Next</Text>
+                    </Button>
+
+                  </View>
+
+                }
 
                 </View>
               }
@@ -1878,7 +2036,22 @@ export default class Page1 extends React.Component {
                     </View>
 
                   </View>
+                {!this.state.creditReportFirst ?
+                  <View>
+                    <Text> </Text>
 
+                  </View> :
+                  <View style={{ flexDirection: 'row', justifyContent: "center", marginTop: "10%" }}>
+
+                    <Button block
+                      style={styles.next_btnstyle}
+                      onPress={this.nextButtonQuick10.bind(this)}>
+                      <Text>Next</Text>
+                    </Button>
+
+                  </View>
+
+                }
 
                 </View>
               }
@@ -1945,7 +2118,22 @@ export default class Page1 extends React.Component {
                   </View>
 
                 </View>
+                {!this.state.haveKids ?
+                  <View>
+                    <Text> </Text>
 
+                  </View> :
+                  <View style={{ flexDirection: 'row', justifyContent: "center", marginTop: "10%" }}>
+
+                    <Button block
+                      style={styles.next_btnstyle}
+                      onPress={this.nextButtonQuick10.bind(this)}>
+                      <Text>Next</Text>
+                    </Button>
+
+                  </View>
+
+                }
 
                 </View>
               }
@@ -1988,7 +2176,22 @@ export default class Page1 extends React.Component {
                     </View>
 
                   </View>
+                {!this.state.familyProtection ?
+                  <View>
+                    <Text> </Text>
 
+                  </View> :
+                  <View style={{ flexDirection: 'row', justifyContent: "center", marginTop: "10%" }}>
+
+                    <Button block
+                      style={styles.next_btnstyle}
+                      onPress={this.nextButtonQuick10.bind(this)}>
+                      <Text>Next</Text>
+                    </Button>
+
+                  </View>
+
+                }
 
                 </View>
               }
@@ -2053,7 +2256,22 @@ export default class Page1 extends React.Component {
                   </View>
 
                 </View>
+                {!this.state.haveMortgage ?
+                  <View>
+                    <Text> </Text>
 
+                  </View> :
+                  <View style={{ flexDirection: 'row', justifyContent: "center", marginTop: "10%" }}>
+
+                    <Button block
+                      style={styles.next_btnstyle}
+                      onPress={this.nextButtonQuick10.bind(this)}>
+                      <Text>Next</Text>
+                    </Button>
+
+                  </View>
+
+                }
 
                 </View>
               }
@@ -2087,16 +2305,31 @@ export default class Page1 extends React.Component {
                       <View style={{ marginTop: 10, flexDirection: "row" }}>
 
                       <Button style={{ backgroundColor: this.state.yesno16, flex: 1 }} block onPress={() => {
-                        this.setState({ index: 0, payCarInsurance_data: this.state.yesnoques7text2.Text, yesno16: "red", yesno15: "#ECE9E9" })
-                        }}>
+                        this.setState({ index: 0, hugeSavings: this.state.yesnoques7text2.Text, yesno16: "red", yesno15: "#ECE9E9" })
+                      }}>
                         <Text style={{ color: "black", fontSize: 15, textAlign: "center" }}>{this.state.yesnoques7text2.Text}</Text>
-                        </Button>
+                      </Button>
 
                       </View>
                     </View>
 
                   </View>
+                {!this.state.hugeSavings ?
+                  <View>
+                    <Text> </Text>
 
+                  </View> :
+                  <View style={{ flexDirection: 'row', justifyContent: "center", marginTop: "10%" }}>
+
+                    <Button block
+                      style={styles.next_btnstyle}
+                      onPress={this.nextButtonQuick10.bind(this)}>
+                      <Text>Next</Text>
+                    </Button>
+
+                  </View>
+
+                }
 
                 </View>
               }
@@ -2166,7 +2399,15 @@ export default class Page1 extends React.Component {
                           {this.state.errorvalue}
                         </Text>
                       </View> :
-                      <Text></Text>
+                    <View style={{ flexDirection: 'row', justifyContent: "center", marginTop: "10%" }}>
+
+                      <Button block
+                        style={styles.next_btnstyle}
+                        onPress={this.nextButtonQuick9.bind(this)}>
+                        <Text>Next</Text>
+                      </Button>
+
+                    </View>
                     }
                   </View>
                 </View>
@@ -2275,7 +2516,15 @@ export default class Page1 extends React.Component {
                           {this.state.errorvalue1}
                         </Text>
                       </View> :
-                      <Text></Text>
+                    <View style={{ flexDirection: 'row', justifyContent: "center", marginTop: "10%" }}>
+
+                      <Button block
+                        style={styles.next_btnstyle}
+                        onPress={this.nextButtonQuick9.bind(this)}>
+                        <Text>Next</Text>
+                      </Button>
+
+                    </View>
                     }
                   </View>
                 </View>
@@ -2384,7 +2633,15 @@ export default class Page1 extends React.Component {
                           {this.state.errorvalue2}
                         </Text>
                       </View> :
-                      <Text></Text>
+                    <View style={{ flexDirection: 'row', justifyContent: "center", marginTop: "10%" }}>
+
+                      <Button block
+                        style={styles.next_btnstyle}
+                        onPress={this.nextButtonQuick9.bind(this)}>
+                        <Text>Next</Text>
+                      </Button>
+
+                    </View>
                     }
                   </View>
                 </View>
@@ -2407,7 +2664,11 @@ export default class Page1 extends React.Component {
                         max={2000000}
                         marks={marks}
                         // style={{transform: [ { scaleY: 3.0 }],borderRadius:40}}
-                        onChange={value => this.setState({ value2: value })}
+                        onChange={(value) =>{
+                          this.setState({ value2: value })
+                          console.log(this.state.value2)
+                        }
+                        }
                         onSlidingComplete={this.change.bind(this)}
                         minimumTrackTintColor="blue"
                         maximumTrackTintColor="green"
@@ -2417,6 +2678,15 @@ export default class Page1 extends React.Component {
                       <Text style={{ fontSize: 20, textAlign: "center" }}>{"$" + this.state.value2}</Text>
                     </View>
                   </View>
+                <View style={{ flexDirection: 'row', justifyContent: "center", marginTop: "10%" }}>
+
+                  <Button block
+                    style={styles.next_btnstyle}
+                    onPress={this.nextButtonQuick9.bind(this)}>
+                    <Text>Next</Text>
+                  </Button>
+
+                </View>
                 </View>
               }
               {this.state.index === 4 &&
@@ -2448,6 +2718,15 @@ export default class Page1 extends React.Component {
                       <Text style={{ fontSize: 20, textAlign: "center" }}>{"$" + this.state.mortage_value2}</Text>
                     </View>
                   </View>
+                <View style={{ flexDirection: 'row', justifyContent: "center", marginTop: "10%" }}>
+
+                  <Button block
+                    style={styles.next_btnstyle}
+                    onPress={this.nextButtonQuick9.bind(this)}>
+                    <Text>Next</Text>
+                  </Button>
+
+                </View>
                 </View>
               }
               {this.state.index === 5 &&
@@ -2479,6 +2758,16 @@ export default class Page1 extends React.Component {
                       <Text style={{ fontSize: 20, textAlign: "center" }}>{this.state.current_interest_value2 + "%"}</Text>
                     </View>
                   </View>
+
+                <View style={{ flexDirection: 'row', justifyContent: "center", marginTop: "10%" }}>
+
+                  <Button block
+                    style={styles.next_btnstyle}
+                    onPress={this.nextButtonQuick9.bind(this)}>
+                    <Text>Next</Text>
+                  </Button>
+
+                </View>
                 </View>
               }
               {this.state.index === 6 &&
@@ -2510,6 +2799,15 @@ export default class Page1 extends React.Component {
                       <Text style={{ fontSize: 20, textAlign: "center" }}>{this.state.down_payment_value2 + "%"}</Text>
                     </View>
                   </View>
+                <View style={{ flexDirection: 'row', justifyContent: "center", marginTop: "10%" }}>
+
+                  <Button block
+                    style={styles.next_btnstyle}
+                    onPress={this.nextButtonQuick9.bind(this)}>
+                    <Text>Next</Text>
+                  </Button>
+
+                </View>
                 </View>
               }
               {this.state.index === 7 &&
@@ -2539,7 +2837,15 @@ export default class Page1 extends React.Component {
                         {this.state.errorvalue3}
                       </Text>
                     </View> :
-                    <Text></Text>
+                  <View style={{ flexDirection: 'row', justifyContent: "center", marginTop: "10%" }}>
+
+                    <Button block
+                      style={styles.next_btnstyle}
+                      onPress={this.nextButtonQuick9.bind(this)}>
+                      <Text>Next</Text>
+                    </Button>
+
+                  </View>
                   }
                 </View>
               }
@@ -2599,7 +2905,15 @@ export default class Page1 extends React.Component {
                         {this.state.errorvalue4}
                       </Text>
                     </View> :
-                    <Text></Text>
+                  <View style={{ flexDirection: 'row', justifyContent: "center", marginTop: "10%" }}>
+
+                    <Button block
+                      style={styles.next_btnstyle}
+                      onPress={this.nextButtonQuick9.bind(this)}>
+                      <Text>Next</Text>
+                    </Button>
+
+                  </View>
                   }
                 </View>
               }
@@ -2630,7 +2944,15 @@ export default class Page1 extends React.Component {
                         {this.state.errorvalue5}
                       </Text>
                     </View> :
-                    <Text></Text>
+                  <View style={{ flexDirection: 'row', justifyContent: "center", marginTop: "10%" }}>
+
+                    <Button block
+                      style={styles.next_btnstyle}
+                      onPress={this.nextButtonQuick9.bind(this)}>
+                      <Text>Next</Text>
+                    </Button>
+
+                  </View>
                   }
                 </View>
               }
@@ -2685,7 +3007,15 @@ export default class Page1 extends React.Component {
                         {this.state.errorvalue6}
                       </Text>
                     </View> :
-                    <Text></Text>
+                  <View style={{ flexDirection: 'row', justifyContent: "center", marginTop: "10%" }}>
+
+                    <Button block
+                      style={styles.next_btnstyle}
+                      onPress={this.nextButtonQuick9.bind(this)}>
+                      <Text>Next</Text>
+                    </Button>
+
+                  </View>
                   }
                 </View>
               }
@@ -2716,7 +3046,15 @@ export default class Page1 extends React.Component {
                         {this.state.errorvalue7}
                       </Text>
                     </View> :
-                    <Text></Text>
+                  <View style={{ flexDirection: 'row', justifyContent: "center", marginTop: "10%" }}>
+
+                    <Button block
+                      style={styles.next_btnstyle}
+                      onPress={this.nextButtonQuick9.bind(this)}>
+                      <Text>Next</Text>
+                    </Button>
+
+                  </View>
                   }
                 </View>
               }
@@ -2852,6 +3190,15 @@ export default class Page1 extends React.Component {
                       <Text></Text>
                     }
                   </View>
+                <View style={{ flexDirection: 'row', justifyContent: "center", marginTop: "10%" }}>
+
+                  <Button block
+                    style={styles.next_btnstyle}
+                    onPress={this.nextButtonQuick9.bind(this)}>
+                    <Text>Next</Text>
+                  </Button>
+
+                </View>
                 </View>
               }
               {this.state.index === 13 &&
@@ -2956,7 +3303,7 @@ export default class Page1 extends React.Component {
               }
               <View style={styles.buttoncss}>
 
-                <View >
+                {/* <View >
                   <Display
                     enable={this.state.enable_back}
                   >
@@ -2966,7 +3313,7 @@ export default class Page1 extends React.Component {
                       <Text>Back</Text>
                     </Button>
                   </Display>
-                </View>
+                </View> */}
                 <View style={this.state.index != 0 ? { width: 30 } : { width: 0 }}>
 
                 </View>

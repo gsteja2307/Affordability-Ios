@@ -92,7 +92,7 @@ module.exports = StyleSheet.create({
     borderRadius:10,
     padding:"3%",
     width:100,
-    backgroundColor: "#695677",
+    backgroundColor: "#000080",
   },
   submit_btnstyle: {
     padding:"3%",

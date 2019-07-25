@@ -712,7 +712,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 57257B8D7DB049D2E375A6A2 /* Pods-firebaseP.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = firebaseP/firebaseP.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
@@ -735,7 +734,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C1BA8394CBD84FF6D41BF08F /* Pods-firebaseP.release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = firebaseP/firebaseP.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = RX2NHB7J7T;
