@@ -1411,9 +1411,11 @@ export default class Page1 extends React.Component {
   }
   nextButtonQuick9() {
     if (this.state.index > 0) {
+      if(this.state.index!=12){
       this.setState({
         index: this.state.index + 1
       })
+    }
       if (this.state.index == 3 && this.state.value) {
         console.log("ok the property value is set in next butt")
         this.setState({
@@ -1781,8 +1783,8 @@ export default class Page1 extends React.Component {
         <Container style={{}}>
           <Header style={{ height: 100, backgroundColor: "white", justifyContent: "flex-start" }}>
             <View style={{ flexDirection: 'row', backgroundColor: "white",flex:1,justifyContent:"center",alignItems:"center" }}>
-              <View style={{flexDirection:"row",width:60,flexWrap:"wrap",alignItems:"center",backgroundColor:"red",justifyContent:"space-between"}}>
-                {this.state.index == '1a' ? <TouchableOpacity></TouchableOpacity> : <TouchableOpacity onPress={this.backButtonQuick123.bind(this)} style={{ justifyContent: "center" }}  >
+              <View style={{flexDirection:"row",width:60,flexWrap:"wrap",alignItems:"center",backgroundColor:"white",justifyContent:"space-between"}}>
+                {this.state.index == '1a' ? null : <TouchableOpacity onPress={this.backButtonQuick123.bind(this)} style={{ justifyContent: "center" }}  >
                   <Text style={{ color: "black", fontSize: 40 }}> &#8249;</Text>
               </TouchableOpacity>
               }
