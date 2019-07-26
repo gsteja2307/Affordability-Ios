@@ -1,5 +1,3 @@
-
-
 import React from 'react';
 import { View, Image, TextInput, TouchableOpacity, Alert, Animated, ActivityIndicator } from 'react-native';
 import Display from 'react-native-display';
@@ -224,7 +222,7 @@ export default class Page1 extends React.Component {
       enable_back: false,
       enable_next: false,
       enable_submit: false,
-      index: '1a',
+      index: 0,
       privacy_enable: false,
       value: 75000,
       value2: 75000,
@@ -265,75 +263,75 @@ export default class Page1 extends React.Component {
       showimage16: false
     };
   }
-  onFocus1(){
+  onFocus1() {
     console.log(styles.password2)
     this.setState({ formstyle1: styles.password2 })
-    console.log("state",this.state.formstyle)
+    console.log("state", this.state.formstyle)
   }
   onBlur1() {
     console.log(styles.password)
     this.setState({ formstyle1: styles.password })
-    console.log("state",this.state.formstyle)
+    console.log("state", this.state.formstyle)
   }
-  onFocus2(){
+  onFocus2() {
     console.log(styles.password2)
     this.setState({ formstyle2: styles.password2 })
-    console.log("state",this.state.formstyle)
+    console.log("state", this.state.formstyle)
   }
   onBlur2() {
     console.log(styles.password)
     this.setState({ formstyle2: styles.password })
-    console.log("state",this.state.formstyle)
+    console.log("state", this.state.formstyle)
   }
-  onFocus3(){
+  onFocus3() {
     console.log(styles.password2)
     this.setState({ formstyle3: styles.password2 })
-    console.log("state",this.state.formstyle)
+    console.log("state", this.state.formstyle)
   }
   onBlur3() {
     console.log(styles.password)
     this.setState({ formstyle3: styles.password })
-    console.log("state",this.state.formstyle)
+    console.log("state", this.state.formstyle)
   }
-  onFocus4(){
+  onFocus4() {
     console.log(styles.password2)
     this.setState({ formstyle4: styles.password2 })
-    console.log("state",this.state.formstyle)
+    console.log("state", this.state.formstyle)
   }
   onBlur4() {
     console.log(styles.password)
     this.setState({ formstyle4: styles.password })
-    console.log("state",this.state.formstyle)
+    console.log("state", this.state.formstyle)
   }
-  onFocus5(){
+  onFocus5() {
     console.log(styles.password2)
     this.setState({ formstyle5: styles.password2 })
-    console.log("state",this.state.formstyle)
+    console.log("state", this.state.formstyle)
   }
   onBlur5() {
     console.log(styles.password)
     this.setState({ formstyle5: styles.password })
-    console.log("state",this.state.formstyle)
+    console.log("state", this.state.formstyle)
   }
-  onFocus6(){
+  onFocus6() {
     console.log(styles.password2)
     this.setState({ formstyle6: styles.password2 })
-    console.log("state",this.state.formstyle)
+    console.log("state", this.state.formstyle)
   }
   onBlur6() {
     console.log(styles.password)
     this.setState({ formstyle6: styles.password })
-    console.log("state",this.state.formstyle)
+    console.log("state", this.state.formstyle)
   }
-  onFocus7(){
+  onFocus7() {
     console.log(styles.password2)
     this.setState({ formstyle7: styles.password2 })
-    console.log("state",this.state.formstyle)
+    console.log("state", this.state.formstyle)
   }
   onBlur7() {
     console.log(styles.password)
     this.setState({ formstyle7: styles.password })
-    console.log("state",this.state.formstyle)
+    console.log("state", this.state.formstyle)
   }
   Terms() {
     this.props.navigation.navigate("Terms")
@@ -344,7 +342,7 @@ export default class Page1 extends React.Component {
     })
   }
   change(value) {
-    console.log("inside change func",value)
+    console.log("inside change func", value)
     this.setState({
       value: parseFloat(value),
       propertyValue_data: value
@@ -476,12 +474,12 @@ export default class Page1 extends React.Component {
     }
     if (this.state.index == 13 && !this.state.phone) {
       this.setState({
-        errorvalue13: "Please enter the home phone.",
+        errorvalue13: "Please enter the phone number.",
         //index:0,
         //enable_back:false
       })
     }
-    if (this.state.index == 13 && (this.state.fname && this.state.validfname && this.state.lname && this.state.validlname && this.state.email.includes("@") && this.state.email.includes(".") && this.state.phone )) {
+    if (this.state.index == 13 && (this.state.fname && this.state.validfname && this.state.lname && this.state.validlname && this.state.email.includes("@") && this.state.email.includes(".") && this.state.phone)) {
       this.setState({
         errorvalue10: "",
         errorvalue11: "",
@@ -490,7 +488,7 @@ export default class Page1 extends React.Component {
 
         //  index:13,
         //  enable_next: false,
-         enable_submit:true
+        enable_submit: true
       })
       console.log('submit is clicked , second log')
       var data = {
@@ -1410,12 +1408,10 @@ export default class Page1 extends React.Component {
 
   }
   nextButtonQuick9() {
-    if (this.state.index > 0) {
-      if(this.state.index!=12){
+    if (this.state.index >= 0) {
       this.setState({
         index: this.state.index + 1
       })
-    }
       if (this.state.index == 3 && this.state.value) {
         console.log("ok the property value is set in next butt")
         this.setState({
@@ -1444,51 +1440,98 @@ export default class Page1 extends React.Component {
           index: 7
         })
       }
-      if (this.state.index == 12 && !this.state.address) {
-        this.setState({
-          errorvalue8: "Please Enter Your Address",
-          //index:0,
-          //enable_back:false
-        })
-      }
-      if (this.state.index == 12 && !this.state.property) {
-        this.setState({
-          stateerrorvalue8: "Please Select Your State",
-          //index:0,
-          //enable_back:false
-        })
-      }
-      if (this.state.index == 12 && !this.state.city) {
-        this.setState({
-          cityerrorvalue: "Please Enter Valid City Name",
-          //index:0,
-          //enable_back:false
-        })
-      }
-      if (this.state.index == 12 && !this.state.zip) {
-        this.setState({
-          errorvalue9: "Please Enter Your Current Zip Code",
-          //index:0,
-          //enable_back:false
-        })
-      }//
-      if (this.state.index == 12 && this.state.validZipCode == false && ((this.state.zip).toString().length) < 5) {
-        this.setState({
-          errorvalue9: "Enter Valid Zip Code",
-          //index:0,
-          //enable_back:false
-        })
-      }//
-      if (this.state.index == 12 && this.state.validZipCode && (this.state.address && this.state.zip && this.state.validcity && ((this.state.zip.toString().length) < 5) == false)) {
-        this.setState({
-          errorvalue8: "",
-          cityerrorvalue: "",
-          errorvalue9: "",
-          index: 13,
-          enable_next: false,
-          enable_submit: true
-        })
-      }
+      // if (this.state.index == 12 && !this.state.address) {
+      //   this.setState({
+      //     errorvalue8: "Please Enter Your Address",
+      //     //index:0,
+      //     //enable_back:false
+      //   })
+      // }
+      // if (this.state.index == 12 && !this.state.property) {
+      //   this.setState({
+      //     stateerrorvalue8: "Please Select Your State",
+      //     //index:0,
+      //     //enable_back:false
+      //   })
+      // }
+      // if (this.state.index == 12 && !this.state.city) {
+      //   this.setState({
+      //     cityerrorvalue: "Please Enter Valid City Name",
+      //     //index:0,
+      //     //enable_back:false
+      //   })
+      // }
+      // if (this.state.index == 12 && !this.state.zip) {
+      //   this.setState({
+      //     errorvalue9: "Please Enter Your Current Zip Code",
+      //     //index:0,
+      //     //enable_back:false
+      //   })
+      // }//
+      // if (this.state.index == 12 && this.state.validZipCode == false && ((this.state.zip).toString().length) < 5) {
+      //   this.setState({
+      //     errorvalue9: "Enter Valid Zip Code",
+      //     //index:0,
+      //     //enable_back:false
+      //   })
+      // }//
+      // if (this.state.index == 12 && this.state.validZipCode && (this.state.address && this.state.zip && this.state.validcity && ((this.state.zip.toString().length) < 5) == false)) {
+      //   this.setState({
+      //     errorvalue8: "",
+      //     cityerrorvalue: "",
+      //     errorvalue9: "",
+      //     index: 13,
+      //     enable_next: false,
+      //     enable_submit: true
+      //   })
+      // }
+    }
+  }
+  nextButtonQuick12() {
+    if (this.state.index == 12 && !this.state.address) {
+      this.setState({
+        errorvalue8: "Please Enter Your Address",
+        //index:0,
+        //enable_back:false
+      })
+    }
+    if (this.state.index == 12 && !this.state.property) {
+      this.setState({
+        stateerrorvalue8: "Please Select Your State",
+        //index:0,
+        //enable_back:false
+      })
+    }
+    if (this.state.index == 12 && !this.state.city) {
+      this.setState({
+        cityerrorvalue: "Please Enter Valid City Name",
+        //index:0,
+        //enable_back:false
+      })
+    }
+    if (this.state.index == 12 && !this.state.zip) {
+      this.setState({
+        errorvalue9: "Please Enter Your Current Zip Code",
+        //index:0,
+        //enable_back:false
+      })
+    }//
+    if (this.state.index == 12 && this.state.validZipCode == false && ((this.state.zip).toString().length) < 5) {
+      this.setState({
+        errorvalue9: "Enter Valid Zip Code",
+        //index:0,
+        //enable_back:false
+      })
+    }//
+    if (this.state.index == 12 && this.state.validZipCode && (this.state.address && this.state.zip && this.state.validcity && ((this.state.zip.toString().length) < 5) == false)) {
+      this.setState({
+        errorvalue8: "",
+        cityerrorvalue: "",
+        errorvalue9: "",
+        index: 13,
+        enable_next: false,
+        enable_submit: true
+      })
     }
   }
   nextButtonQuick10() {
@@ -1782,26 +1825,28 @@ export default class Page1 extends React.Component {
       return (
         <Container style={{}}>
           <Header style={{ height: 100, backgroundColor: "white", justifyContent: "flex-start" }}>
-            <View style={{ flexDirection: 'row', backgroundColor: "white",flex:1,justifyContent:"center",alignItems:"center" }}>
-              <View style={{flexDirection:"row",width:60,flexWrap:"wrap",alignItems:"center",backgroundColor:"white",justifyContent:"space-between"}}>
+            <View style={{ flexDirection: 'row', backgroundColor: "white", flex: 1, justifyContent: "center", alignItems: "center" }}>
+              <View style={{ flexDirection: "row", width: 70, flexWrap: "wrap", alignItems: "center", backgroundColor: "white", justifyContent: "space-between" }}>
                 {this.state.index == '1a' ? null : <TouchableOpacity onPress={this.backButtonQuick123.bind(this)} style={{ justifyContent: "center" }}  >
-                  <Text style={{ color: "black", fontSize: 40 }}> &#8249;</Text>
-              </TouchableOpacity>
-              }
+                  <Text style={{ color: "black", fontSize: 40, paddingBottom: "7%" }}> &#8249;</Text>
+                </TouchableOpacity>
+                }
 
 
-              <TouchableOpacity onPress={this.toggleDrawer123.bind(this)} style={{ justifyContent: "center", marginLeft: "3%" }} >
-                <Image
-                  source={require('./image/drawer.png')}
-                  style={{ width: 30, height: 30 }}
-                />
-              </TouchableOpacity>
+                <TouchableOpacity onPress={this.toggleDrawer123.bind(this)} style={{ justifyContent: "center", marginLeft: "3%" }} >
+                  <Image
+                    source={require('./image/drawer.png')}
+                    style={{ width: 30, height: 30 }}
+                  />
+                </TouchableOpacity>
               </View>
               <DrawerNavigation />
-              <View style={{width:60}}></View>
+              <View style={{ width: 60 }}></View>
             </View>
 
           </Header>
+
+
           {/* <Header style={styles.headerstyles}>
             <View style={{alignItems: 'center',flex: 1,justifyContent: 'center'}} >
               <Image 
@@ -1816,64 +1861,67 @@ export default class Page1 extends React.Component {
               {this.state.index === '1a' &&
 
 
-                <View style={{margin:"5%"}}>
+                <View style={{ margin: "3%" }}>
 
 
-                  <View style={{ backgroundColor: 'white', justifyContent: "center" }}>
-                    <View style={{ alignItems: 'center',justifyContent:"center" }}>
+                  <View style={{ justifyContent: "center" }}>
+                    <View style={{ alignItems: 'center', justifyContent: "center" }}>
+                      <View style={{ backgroundColor: "white", height: deviceHeight <= 550 ? 80 : 120, width: deviceHeight <= 550 ? 80 : 150, justifyContent: "center", alignItems: "center" }}>
+                        <Image style={{ height: deviceHeight <= 550 ? "80%" : "120%", width: deviceHeight <= 550 ? "80%" : "120%" }} source={require('../assets/car1.png')} />
+                      </View>
 
-                    <Image source={require('../assets/car1.png')}/>
-                      <Text style={{ fontSize: 20, fontWeight: "bold", textAlign: "center" }} >
+                      <Text style={{ fontSize: deviceHeight <= 550 ? 12 : 18, fontWeight: "bold", textAlign: "center" }} >
                         {this.state.yesnoques0}
                       </Text>
                     </View>
                   </View>
-                    {/* <Image source={require('../assets/car2.png')}/> */}
+                  {/* <Image source={require('../assets/car2.png')}/> */}
 
 
-                  <View style={{ alignItems: "center", justifyContent: "center", padding: "7%" }}>
-                    <View style={{flexDirection:"row",justifyContent:"center"}}>
+                  <View style={{ alignItems: "center", justifyContent: "center", marginTop: deviceHeight <= 550 ? "5%" : "10%" }}>
+                    <View style={{ flexDirection: "row", justifyContent: "center" }}>
                       {/* <View style={{ flexDirection: 'row' }}> */}
-                    <Button style={{ backgroundColor: this.state.yesno1, width: 125, justifyContent: "center" }} onPress={() => {
-                      this.setState({ index: '2a', payCarInsurance_data: this.state.yesnoques0text2.Text, yesno1: "red", yesno2:"#ECE9E9" })
-                    }}>
-                      <Text style={{color:"black" ,fontSize: 15, textAlign: "center" }}>{this.state.yesnoques0text2.Text}</Text>
-                    </Button>
-                    <Text style={{width:50}}>  </Text>
-                    <Button style={{ backgroundColor: this.state.yesno2, width: 125, justifyContent: "center" }}  onPress={() => {
-                      this.setState({ index: '2a', payCarInsurance_data: this.state.yesnoques0text1.Text, yesno2: "green", yesno1:"#ECE9E9" })
-                        }}>
-                      <Text style={{ color: "black", fontSize: 15, textAlign: "center" }}>{this.state.yesnoques0text1.Text}</Text>
-                        </Button>
+                      <Button style={{ backgroundColor: this.state.yesno1, width: 125, justifyContent: "center" }} onPress={() => {
+                        this.setState({ index: '2a', payCarInsurance_data: this.state.yesnoques0text2.Text, yesno1: "red", yesno2: "#ECE9E9" })
+                      }}>
+                        <Text style={{ color: this.state.yesno1 == "red" ? "white" : "black", fontSize: 13, textAlign: "center" }}>{this.state.yesnoques0text2.Text}</Text>
 
-                        
+                      </Button>
+                      <Text style={{ width: 50 }}>  </Text>
+                      <Button style={{ backgroundColor: this.state.yesno2, width: 125, justifyContent: "center" }} onPress={() => {
+                        this.setState({ index: '2a', payCarInsurance_data: this.state.yesnoques0text1.Text, yesno2: "green", yesno1: "#ECE9E9" })
+                      }}>
+                        <Text style={{ color: this.state.yesno2 == "green" ? "white" : "black", fontSize: 13, textAlign: "center" }}>{this.state.yesnoques0text1.Text}</Text>
+                      </Button>
+
+
                       {/* </View> */}
                       {/* <View style={{ marginTop: 10, flexDirection: "row" }}> */}
-                        
-                    
+
+
 
                       {/* </View> */}
                     </View>
 
                   </View>
-                {!this.state.payCarInsurance_data ?
-                  <View>
-                    <Text> </Text>
+                  {!this.state.payCarInsurance_data ?
+                    <View>
+                      <Text> </Text>
 
-                  </View> :
-                  <View style={{ flexDirection: 'row', justifyContent: "center", marginTop: "10%" }}>
+                    </View> :
+                    <View style={{ flexDirection: 'row', justifyContent: "center", marginTop: deviceHeight <= 550 ? "5%" : "10%" }}>
 
-                    <Button block
-                      style={styles.next_btnstyle}
-                      onPress={this.nextButtonQuick10.bind(this)}>
-                      <Text>Next</Text>
-                    </Button>
+                      <Button block
+                        style={styles.next_btnstyle}
+                        onPress={this.nextButtonQuick10.bind(this)}>
+                        <Text>Next</Text>
+                      </Button>
 
-                  </View>
+                    </View>
 
-                }
+                  }
 
-                {/* 
+                  {/* 
                   <View style={{justifyContent:"center"}}>
                        
                        <Button block
@@ -1883,80 +1931,83 @@ export default class Page1 extends React.Component {
                        </Button>
                       
                    </View>
-                  } */}        
+                  } */}
 
                 </View>
               }
               {this.state.index === '2a' &&
 
 
-                <View style={{margin:"5%"}}>
+                <View style={{ margin: "3%" }}>
 
 
                   <View style={{ backgroundColor: 'white', justifyContent: "center" }}>
-                    <View style={{ alignItems: 'center',justifyContent:"center"}}>
-                      <View style={{height:100,width:100,backgroundColor:"red",justifyContent:"center",alignItems:"center" }}>
-                    <Image style={{height:"100%",width:"100%"}} source={require('../assets/defaultqaimg.png')} />
-                    </View>
-                      <Text style={{ fontSize: 20, fontWeight: "bold", textAlign: "center" }} >
+                    <View style={{ alignItems: 'center', justifyContent: "center" }}>
+
+                      <View style={{ backgroundColor: "white", height: deviceHeight <= 550 ? 80 : 120, width: deviceHeight <= 550 ? 80 : 150, justifyContent: "center", alignItems: "center" }}>
+                        <Image style={{ height: deviceHeight <= 550 ? "80%" : "100%", width: deviceHeight <= 550 ? "80%" : "100%" }} source={require('../assets/defaultqaimg.png')} />
+                      </View>
+                      <Text style={{ fontSize: deviceHeight <= 550 ? 12 : 18, fontWeight: "bold", textAlign: "center" }} >
                         {this.state.yesnoques1}
                       </Text>
                     </View>
                   </View>
 
 
-                  <View style={{ alignItems: "center", justifyContent: "center", padding: "7%" }}>
+                  <View style={{ alignItems: "center", justifyContent: "center", marginTop: deviceHeight <= 550 ? "5%" : "10%" }}>
                     <View style={styles.yesnobuttonview}>
                       <View style={{ flexDirection: 'row' }}>
-                      <Button style={{ backgroundColor: this.state.yesno3, flex: 1 }} block onPress={() => {
-                        this.setState({ index: '3a', fastAndEasyFindout_data: this.state.yesnoques1text1.Text, yesno3: "green", yesno4: "#ECE9E9" })
+                        <Button style={{ backgroundColor: this.state.yesno3, flex: 1 }} block onPress={() => {
+                          this.setState({ index: '3a', fastAndEasyFindout_data: this.state.yesnoques1text1.Text, yesno3: "green", yesno4: "#ECE9E9" })
                         }}>
-                        <Text style={{ color: "black", fontSize: 15, textAlign: "center" }}>{this.state.yesnoques1text1.Text}</Text>
+                          <Text style={{ color: this.state.yesno3 == "green" ? "white" : "black", fontSize: 13, textAlign: "center" }}>{this.state.yesnoques1text1.Text}</Text>
                         </Button>
 
 
                       </View>
                       <View style={{ marginTop: 10, flexDirection: "row" }}>
 
-                      <Button style={{ backgroundColor: this.state.yesno4, flex: 1 }} block onPress={() => {
-                        this.setState({ index: '3a', fastAndEasyFindout_data: this.state.yesnoques1text2.Text, yesno4: "red", yesno3: "#ECE9E9" })
+                        <Button style={{ backgroundColor: this.state.yesno4, flex: 1 }} block onPress={() => {
+                          this.setState({ index: '3a', fastAndEasyFindout_data: this.state.yesnoques1text2.Text, yesno4: "red", yesno3: "#ECE9E9" })
                         }}>
-                        <Text style={{ color: "black",fontSize: 15, textAlign: "center" }}>{this.state.yesnoques1text2.Text}</Text>
+                          <Text style={{ color: this.state.yesno4 == "red" ? "white" : "black", fontSize: 13, textAlign: "center" }}>{this.state.yesnoques1text2.Text}</Text>
                         </Button>
 
                       </View>
                     </View>
 
                   </View>
-                {!this.state.fastAndEasyFindout_data ?
-                  <View>
-                    <Text> </Text>
+                  {!this.state.fastAndEasyFindout_data ?
+                    <View>
+                      <Text> </Text>
 
-                  </View> :
-                  <View style={{ flexDirection: 'row', justifyContent: "center", marginTop: "10%" }}>
+                    </View> :
+                    <View style={{ flexDirection: 'row', justifyContent: "center", marginTop: "10%" }}>
 
-                    <Button block
-                      style={styles.next_btnstyle}
-                      onPress={this.nextButtonQuick10.bind(this)}>
-                      <Text>Next</Text>
-                    </Button>
+                      <Button block
+                        style={styles.next_btnstyle}
+                        onPress={this.nextButtonQuick10.bind(this)}>
+                        <Text>Next</Text>
+                      </Button>
 
-                  </View>
+                    </View>
 
-                }
+                  }
 
                 </View>
               }
               {this.state.index === '3a' &&
 
 
-              <View style={{ margin: "5%" }}>
+                <View style={{ margin: "3%" }}>
 
 
-                <View style={{ backgroundColor: 'white', justifyContent: "center" }}>
-                  <View style={{ alignItems: 'center', justifyContent: "center" }}>
-                    <Image source={require('../assets/defaultqaimg.png')} />
-                      <Text style={{ fontSize: 20, fontWeight: "bold", textAlign: "center" }} >
+                  <View style={{ backgroundColor: 'white', justifyContent: "center" }}>
+                    <View style={{ alignItems: 'center', justifyContent: "center" }}>
+                      <View style={{ backgroundColor: "white", height: deviceHeight <= 550 ? 80 : 120, width: deviceHeight <= 550 ? 80 : 150, justifyContent: "center", alignItems: "center" }}>
+                        <Image style={{ height: deviceHeight <= 550 ? "80%" : "100%", width: deviceHeight <= 550 ? "80%" : "100%" }} source={require('../assets/defaultqaimg.png')} />
+                      </View>
+                      <Text style={{ fontSize: deviceHeight <= 550 ? 12 : 18, fontWeight: "bold", textAlign: "center" }} >
                         {this.state.yesnoques2}
                       </Text>
                     </View>
@@ -1971,133 +2022,132 @@ export default class Page1 extends React.Component {
                         }}>
                           <Text style={{ fontSize: 15, textAlign: "center" }}>{this.state.yesnoques2text1.Text}</Text>
                         </Button>
-
-
                       </View>
                       <View style={{ marginTop: 10, flexDirection: "row" }}>
-
                         <Button style={{ backgroundColor: "red", flex: 1 }} block onPress={() => {
                           this.setState({ index: '4a', buyingHouse: this.state.yesnoques2text2.Text })
                         }}>
                           <Text style={{ fontSize: 15, textAlign: "center" }}>{this.state.yesnoques2text2.Text}</Text>
                         </Button>
-
                       </View>
                     </View>
-
                   </View> */}
-                <View style={{ alignItems: "center", justifyContent: "center", padding: "7%" }}>
-                  <View style={{ flexDirection: "row", justifyContent: "center" }}>
-                    {/* <View style={{ flexDirection: 'row' }}> */}
-                    <Button style={{ backgroundColor: this.state.yesno5, width: 125, justifyContent: "center" }} onPress={() => {
-                      this.setState({ index: '4a', buyingHouse: this.state.yesnoques2text2.Text, yesno5: "red", yesno6: "#ECE9E9" })
-                    }}>
-                      <Text style={{ color: "black", fontSize: 15, textAlign: "center" }}>{this.state.yesnoques2text2.Text}</Text>
-                    </Button>
-                    <Text style={{ width: 50 }}>  </Text>
+                  <View style={{ alignItems: "center", justifyContent: "center", marginTop: deviceHeight <= 550 ? "5%" : "10%" }}>
+                    <View style={{ flexDirection: "row", justifyContent: "center" }}>
+                      {/* <View style={{ flexDirection: 'row' }}> */}
+                      <Button style={{ backgroundColor: this.state.yesno5, width: 125, justifyContent: "center" }} onPress={() => {
+                        this.setState({ index: '4a', buyingHouse: this.state.yesnoques2text2.Text, yesno5: "red", yesno6: "#ECE9E9" })
+                      }}>
+                        <Text style={{ color: this.state.yesno5 == "red" ? "white" : "black", fontSize: 13, textAlign: "center" }}>{this.state.yesnoques2text2.Text}</Text>
+                      </Button>
+                      <Text style={{ width: 50 }}>  </Text>
 
-                    <Button style={{ backgroundColor: this.state.yesno6, width: 125, justifyContent: "center" }} onPress={() => {
-                      this.setState({ index: '4a', buyingHouse: this.state.yesnoques2text1.Text, yesno6: "green", yesno5: "#ECE9E9" })
-                    }}>
-                      <Text style={{ color: "black",fontSize: 15, textAlign: "center" }}>{this.state.yesnoques2text1.Text}</Text>
-                    </Button>
+                      <Button style={{ backgroundColor: this.state.yesno6, width: 125, justifyContent: "center" }} onPress={() => {
+                        this.setState({ index: '4a', buyingHouse: this.state.yesnoques2text1.Text, yesno6: "green", yesno5: "#ECE9E9" })
+                      }}>
+                        <Text style={{ color: this.state.yesno6 == "green" ? "white" : "black", fontSize: 13, textAlign: "center" }}>{this.state.yesnoques2text1.Text}</Text>
+                      </Button>
 
-                    {/* </View> */}
-                    {/* <View style={{ marginTop: 10, flexDirection: "row" }}> */}
+                      {/* </View> */}
+                      {/* <View style={{ marginTop: 10, flexDirection: "row" }}> */}
 
-                    
 
-                    {/* </View> */}
-                  </View>
 
-                </View>
-                {!this.state.buyingHouse ?
-                  <View>
-                    <Text> </Text>
-
-                  </View> :
-                  <View style={{ flexDirection: 'row', justifyContent: "center", marginTop: "10%" }}>
-
-                    <Button block
-                      style={styles.next_btnstyle}
-                      onPress={this.nextButtonQuick10.bind(this)}>
-                      <Text>Next</Text>
-                    </Button>
+                      {/* </View> */}
+                    </View>
 
                   </View>
+                  {!this.state.buyingHouse ?
+                    <View>
+                      <Text> </Text>
 
-                }
+                    </View> :
+                    <View style={{ flexDirection: 'row', justifyContent: "center", marginTop: "10%" }}>
+
+                      <Button block
+                        style={styles.next_btnstyle}
+                        onPress={this.nextButtonQuick10.bind(this)}>
+                        <Text>Next</Text>
+                      </Button>
+
+                    </View>
+
+                  }
 
                 </View>
               }
               {this.state.index === '4a' &&
 
 
-              <View style={{ margin: "5%" }}>
+                <View style={{ margin: "3%" }}>
 
 
-                <View style={{ backgroundColor: 'white', justifyContent: "center" }}>
-                  <View style={{ alignItems: 'center', justifyContent: "center" }}>
-                    <Image source={require('../assets/defaultqaimg.png')} />
-                      <Text style={{ fontSize: 20, fontWeight: "bold", textAlign: "center" }} >
+                  <View style={{ backgroundColor: 'white', justifyContent: "center" }}>
+                    <View style={{ alignItems: 'center', justifyContent: "center" }}>
+                      <View style={{ backgroundColor: "white", height: deviceHeight <= 550 ? 80 : 120, width: deviceHeight <= 550 ? 80 : 150, justifyContent: "center", alignItems: "center" }}>
+                        <Image style={{ height: deviceHeight <= 550 ? "80%" : "100%", width: deviceHeight <= 550 ? "80%" : "100%" }} source={require('../assets/defaultqaimg.png')} />
+                      </View>
+                      <Text style={{ fontSize: deviceHeight <= 550 ? 12 : 18, fontWeight: "bold", textAlign: "center" }} >
                         {this.state.yesnoques3}
                       </Text>
                     </View>
                   </View>
 
 
-                  <View style={{ alignItems: "center", justifyContent: "center", padding: "7%" }}>
+                  <View style={{ alignItems: "center", justifyContent: "center", marginTop: deviceHeight <= 550 ? "5%" : "10%" }}>
                     <View style={styles.yesnobuttonview}>
                       <View style={{ flexDirection: 'row' }}>
-                      <Button style={{ backgroundColor: this.state.yesno11, flex: 1 }} block onPress={() => {
-                        this.setState({ index: '5a', creditReportFirst: this.state.yesnoques3text1.Text, yesno11: "green", yesno12: "#ECE9E9" })
+                        <Button style={{ backgroundColor: this.state.yesno11, flex: 1 }} block onPress={() => {
+                          this.setState({ index: '5a', creditReportFirst: this.state.yesnoques3text1.Text, yesno11: "green", yesno12: "#ECE9E9" })
                         }}>
-                        <Text style={{ color: "black", fontSize: 15, textAlign: "center" }}>{this.state.yesnoques3text1.Text}</Text>
+                          <Text style={{ color: this.state.yesno11 == "green" ? "white" : "black", fontSize: 13, textAlign: "center" }}>{this.state.yesnoques3text1.Text}</Text>
                         </Button>
 
 
                       </View>
                       <View style={{ marginTop: 10, flexDirection: "row" }}>
 
-                      <Button style={{ backgroundColor: this.state.yesno12, flex: 1 }} block onPress={() => {
-                        this.setState({ index: '5a', creditReportFirst: this.state.yesnoques3text2.Text, yesno12: "red", yesno11: "#ECE9E9" })
+                        <Button style={{ backgroundColor: this.state.yesno12, flex: 1 }} block onPress={() => {
+                          this.setState({ index: '5a', creditReportFirst: this.state.yesnoques3text2.Text, yesno12: "red", yesno11: "#ECE9E9" })
                         }}>
-                        <Text style={{ color: "black",fontSize: 15, textAlign: "center" }}>{this.state.yesnoques3text2.Text}</Text>
+                          <Text style={{ color: this.state.yesno12 == "red" ? "white" : "black", fontSize: 13, textAlign: "center" }}>{this.state.yesnoques3text2.Text}</Text>
                         </Button>
 
                       </View>
                     </View>
 
                   </View>
-                {!this.state.creditReportFirst ?
-                  <View>
-                    <Text> </Text>
+                  {!this.state.creditReportFirst ?
+                    <View>
+                      <Text> </Text>
 
-                  </View> :
-                  <View style={{ flexDirection: 'row', justifyContent: "center", marginTop: "10%" }}>
+                    </View> :
+                    <View style={{ flexDirection: 'row', justifyContent: "center", marginTop: "10%" }}>
 
-                    <Button block
-                      style={styles.next_btnstyle}
-                      onPress={this.nextButtonQuick10.bind(this)}>
-                      <Text>Next</Text>
-                    </Button>
+                      <Button block
+                        style={styles.next_btnstyle}
+                        onPress={this.nextButtonQuick10.bind(this)}>
+                        <Text>Next</Text>
+                      </Button>
 
-                  </View>
+                    </View>
 
-                }
+                  }
 
                 </View>
               }
               {this.state.index === '5a' &&
 
 
-              <View style={{ margin: "5%" }}>
+                <View style={{ margin: "3%" }}>
 
 
-                <View style={{ backgroundColor: 'white', justifyContent: "center" }}>
-                  <View style={{ alignItems: 'center', justifyContent: "center" }}>
-                    <Image source={require('../assets/defaultqaimg.png')} />
-                      <Text style={{ fontSize: 20, fontWeight: "bold", textAlign: "center" }} >
+                  <View style={{ backgroundColor: 'white', justifyContent: "center" }}>
+                    <View style={{ alignItems: 'center', justifyContent: "center" }}>
+                      <View style={{ backgroundColor: "white", height: deviceHeight <= 550 ? 80 : 120, width: deviceHeight <= 550 ? 80 : 150, justifyContent: "center", alignItems: "center" }}>
+                        <Image style={{ height: deviceHeight <= 550 ? "80%" : "100%", width: deviceHeight <= 550 ? "80%" : "100%" }} source={require('../assets/defaultqaimg.png')} />
+                      </View>
+                      <Text style={{ fontSize: deviceHeight <= 550 ? 12 : 18, fontWeight: "bold", textAlign: "center" }} >
                         {this.state.yesnoques4}
                       </Text>
                     </View>
@@ -2112,132 +2162,131 @@ export default class Page1 extends React.Component {
                         }}>
                           <Text style={{ fontSize: 15, textAlign: "center" }}>{this.state.yesnoques4text1.Text}</Text>
                         </Button>
-
-
                       </View>
                       <View style={{ marginTop: 10, flexDirection: "row" }}>
-
                         <Button style={{ backgroundColor: "red", flex: 1 }} block onPress={() => {
                           this.setState({ index: '6a', haveKids: this.state.yesnoques4text2.Text })
                         }}>
                           <Text style={{ fontSize: 15, textAlign: "center" }}>{this.state.yesnoques4text2.Text}</Text>
                         </Button>
-
                       </View>
                     </View>
-
                   </View> */}
 
-                <View style={{ alignItems: "center", justifyContent: "center", padding: "7%" }}>
-                  <View style={{ flexDirection: "row", justifyContent: "center" }}>
-                    {/* <View style={{ flexDirection: 'row' }}> */}
-                    {/* <View style={{ marginTop: 10, flexDirection: "row" }}> */}
+                  <View style={{ alignItems: "center", justifyContent: "center", marginTop: deviceHeight <= 550 ? "5%" : "10%" }}>
+                    <View style={{ flexDirection: "row", justifyContent: "center" }}>
+                      {/* <View style={{ flexDirection: 'row' }}> */}
+                      {/* <View style={{ marginTop: 10, flexDirection: "row" }}> */}
 
-                    <Button style={{ backgroundColor: this.state.yesno7, width: 125, justifyContent: "center" }} onPress={() => {
-                      this.setState({ index: '6a', haveKids: this.state.yesnoques4text2.Text, yesno7: "red", yesno8: "#ECE9E9" })
-                    }}>
-                      <Text style={{ color: "black",fontSize: 15, textAlign: "center" }}>{this.state.yesnoques4text2.Text}</Text>
-                    </Button>
+                      <Button style={{ backgroundColor: this.state.yesno7, width: 125, justifyContent: "center" }} onPress={() => {
+                        this.setState({ index: '6a', haveKids: this.state.yesnoques4text2.Text, yesno7: "red", yesno8: "#ECE9E9" })
+                      }}>
+                        <Text style={{ color: this.state.yesno7 == "red" ? "white" : "black", fontSize: 13, textAlign: "center" }}>{this.state.yesnoques4text2.Text}</Text>
+                      </Button>
 
-                    <Text style={{ width: 50 }}>  </Text>
-                    {/* </View> */}
-                    <Button style={{ backgroundColor: this.state.yesno8, width: 125, justifyContent: "center" }} onPress={() => {
-                      this.setState({ index: '6a', haveKids: this.state.yesnoques4text1.Text, yesno8: "green", yesno7: "#ECE9E9" })
-                    }}>
-                      <Text style={{ color: "black",fontSize: 15, textAlign: "center" }}>{this.state.yesnoques4text1.Text}</Text>
-                    </Button>
+                      <Text style={{ width: 50 }}>  </Text>
+                      {/* </View> */}
+                      <Button style={{ backgroundColor: this.state.yesno8, width: 125, justifyContent: "center" }} onPress={() => {
+                        this.setState({ index: '6a', haveKids: this.state.yesnoques4text1.Text, yesno8: "green", yesno7: "#ECE9E9" })
+                      }}>
+                        <Text style={{ color: this.state.yesno8 == "green" ? "white" : "black", fontSize: 13, textAlign: "center" }}>{this.state.yesnoques4text1.Text}</Text>
+                      </Button>
 
-                    {/* </View> */}
-                  </View>
-
-                </View>
-                {!this.state.haveKids ?
-                  <View>
-                    <Text> </Text>
-
-                  </View> :
-                  <View style={{ flexDirection: 'row', justifyContent: "center", marginTop: "10%" }}>
-
-                    <Button block
-                      style={styles.next_btnstyle}
-                      onPress={this.nextButtonQuick10.bind(this)}>
-                      <Text>Next</Text>
-                    </Button>
+                      {/* </View> */}
+                    </View>
 
                   </View>
+                  {!this.state.haveKids ?
+                    <View>
+                      <Text> </Text>
 
-                }
+                    </View> :
+                    <View style={{ flexDirection: 'row', justifyContent: "center", marginTop: "10%" }}>
+
+                      <Button block
+                        style={styles.next_btnstyle}
+                        onPress={this.nextButtonQuick10.bind(this)}>
+                        <Text>Next</Text>
+                      </Button>
+
+                    </View>
+
+                  }
 
                 </View>
               }
               {this.state.index === '6a' &&
 
 
-              <View style={{ margin: "5%" }}>
+                <View style={{ margin: "3%" }}>
 
 
-                <View style={{ backgroundColor: 'white', justifyContent: "center" }}>
-                  <View style={{ alignItems: 'center', justifyContent: "center" }}>
-                    <Image source={require('../assets/defaultqaimg.png')} />
-                      <Text style={{ fontSize: 20, fontWeight: "bold", textAlign: "center" }} >
+                  <View style={{ backgroundColor: 'white', justifyContent: "center" }}>
+                    <View style={{ alignItems: 'center', justifyContent: "center" }}>
+                      <View style={{ backgroundColor: "white", height: deviceHeight <= 550 ? 80 : 120, width: deviceHeight <= 550 ? 80 : 150, justifyContent: "center", alignItems: "center" }}>
+                        <Image style={{ height: deviceHeight <= 550 ? "80%" : "100%", width: deviceHeight <= 550 ? "80%" : "100%" }} source={require('../assets/defaultqaimg.png')} />
+                      </View>
+                      <Text style={{ fontSize: deviceHeight <= 550 ? 12 : 18, fontWeight: "bold", textAlign: "center" }} >
                         {this.state.yesnoques5}
                       </Text>
                     </View>
                   </View>
 
 
-                  <View style={{ alignItems: "center", justifyContent: "center", padding: "7%" }}>
+                  <View style={{ alignItems: "center", justifyContent: "center", marginTop: deviceHeight <= 550 ? "5%" : "10%" }}>
                     <View style={styles.yesnobuttonview}>
                       <View style={{ flexDirection: 'row' }}>
-                      <Button style={{ backgroundColor: this.state.yesno9, flex: 1 }} block onPress={() => {
-                        this.setState({ index: '7a', familyProtection: this.state.yesnoques5text1.Text, yesno9: "green", yesno10: "#ECE9E9" })
+                        <Button style={{ backgroundColor: this.state.yesno9, flex: 1 }} block onPress={() => {
+                          this.setState({ index: '7a', familyProtection: this.state.yesnoques5text1.Text, yesno9: "green", yesno10: "#ECE9E9" })
                         }}>
-                        <Text style={{ color: "black",fontSize: 15, textAlign: "center" }}>{this.state.yesnoques5text1.Text}</Text>
+                          <Text style={{ color: this.state.yesno9 == "green" ? "white" : "black", fontSize: 13, textAlign: "center" }}>{this.state.yesnoques5text1.Text}</Text>
                         </Button>
 
 
                       </View>
                       <View style={{ marginTop: 10, flexDirection: "row" }}>
 
-                      <Button style={{ backgroundColor: this.state.yesno10, flex: 1 }} block onPress={() => {
-                        this.setState({ index: '7a', familyProtection: this.state.yesnoques5text2.Text, yesno10: "red", yesno9: "#ECE9E9" })
+                        <Button style={{ backgroundColor: this.state.yesno10, flex: 1 }} block onPress={() => {
+                          this.setState({ index: '7a', familyProtection: this.state.yesnoques5text2.Text, yesno10: "red", yesno9: "#ECE9E9" })
                         }}>
-                        <Text style={{ color: "black",fontSize: 15, textAlign: "center" }}>{this.state.yesnoques5text2.Text}</Text>
+                          <Text style={{ color: this.state.yesno10 == "red" ? "white" : "black", fontSize: 13, textAlign: "center" }}>{this.state.yesnoques5text2.Text}</Text>
                         </Button>
 
                       </View>
                     </View>
 
                   </View>
-                {!this.state.familyProtection ?
-                  <View>
-                    <Text> </Text>
+                  {!this.state.familyProtection ?
+                    <View>
+                      <Text> </Text>
 
-                  </View> :
-                  <View style={{ flexDirection: 'row', justifyContent: "center", marginTop: "10%" }}>
+                    </View> :
+                    <View style={{ flexDirection: 'row', justifyContent: "center", marginTop: "10%" }}>
 
-                    <Button block
-                      style={styles.next_btnstyle}
-                      onPress={this.nextButtonQuick10.bind(this)}>
-                      <Text>Next</Text>
-                    </Button>
+                      <Button block
+                        style={styles.next_btnstyle}
+                        onPress={this.nextButtonQuick10.bind(this)}>
+                        <Text>Next</Text>
+                      </Button>
 
-                  </View>
+                    </View>
 
-                }
+                  }
 
                 </View>
               }
               {this.state.index === '7a' &&
 
 
-              <View style={{ margin: "5%" }}>
+                <View style={{ margin: "3%" }}>
 
 
-                <View style={{ backgroundColor: 'white', justifyContent: "center" }}>
-                  <View style={{ alignItems: 'center', justifyContent: "center" }}>
-                    <Image source={require('../assets/defaultqaimg.png')} />
-                      <Text style={{ fontSize: 20, fontWeight: "bold", textAlign: "center" }} >
+                  <View style={{ backgroundColor: 'white', justifyContent: "center" }}>
+                    <View style={{ alignItems: 'center', justifyContent: "center" }}>
+                      <View style={{ backgroundColor: "white", height: deviceHeight <= 550 ? 80 : 120, width: deviceHeight <= 550 ? 80 : 150, justifyContent: "center", alignItems: "center" }}>
+                        <Image style={{ height: deviceHeight <= 550 ? "80%" : "100%", width: deviceHeight <= 550 ? "80%" : "100%" }} source={require('../assets/defaultqaimg.png')} />
+                      </View>
+                      <Text style={{ fontSize: deviceHeight <= 550 ? 12 : 18, fontWeight: "bold", textAlign: "center" }} >
                         {this.state.yesnoques6}
                       </Text>
                     </View>
@@ -2252,117 +2301,114 @@ export default class Page1 extends React.Component {
                         }}>
                           <Text style={{ fontSize: 15, textAlign: "center" }}>{this.state.yesnoques6text1.Text}</Text>
                         </Button>
-
-
                       </View>
                       <View style={{ marginTop: 10, flexDirection: "row" }}>
-
                         <Button style={{ backgroundColor: "red", flex: 1 }} block onPress={() => {
                           this.setState({ index: '8a', haveMortgage: this.state.yesnoques6text2.Text })
                         }}>
                           <Text style={{ fontSize: 15, textAlign: "center" }}>{this.state.yesnoques6text2.Text}</Text>
                         </Button>
-
                       </View>
                     </View>
-
                   </View> */}
-                <View style={{ alignItems: "center", justifyContent: "center", padding: "7%" }}>
-                  <View style={{ flexDirection: "row", justifyContent: "center" }}>
-                    {/* <View style={{ flexDirection: 'row' }}> */}
+                  <View style={{ alignItems: "center", justifyContent: "center", marginTop: deviceHeight <= 550 ? "5%" : "10%" }}>
+                    <View style={{ flexDirection: "row", justifyContent: "center" }}>
+                      {/* <View style={{ flexDirection: 'row' }}> */}
 
-                    <Button style={{ backgroundColor: this.state.yesno13, width: 125, justifyContent: "center" }} onPress={() => {
-                      this.setState({ index: '8a', haveMortgage: this.state.yesnoques6text2.Text, yesno13: "red", yesno14: "#ECE9E9" })
-                    }}>
-                      <Text style={{ color: "black", fontSize: 15, textAlign: "center" }}>{this.state.yesnoques6text2.Text}</Text>
-                    </Button>
-                    <Text style={{ width: 50 }}>  </Text>
-                    {/* </View> */}
-                    <Button style={{ backgroundColor: this.state.yesno14, width: 125, justifyContent: "center" }} onPress={() => {
-                      this.setState({ index: '8a', haveMortgage: this.state.yesnoques6text1.Text, yesno14: "green", yesno13: "#ECE9E9" })
-                    }}>
-                      <Text style={{ color: "black",fontSize: 15, textAlign: "center" }}>{this.state.yesnoques6text1.Text}</Text>
-                    </Button>
-                    {/* <View style={{ marginTop: 10, flexDirection: "row" }}> */}
+                      <Button style={{ backgroundColor: this.state.yesno13, width: 125, justifyContent: "center" }} onPress={() => {
+                        this.setState({ index: '8a', haveMortgage: this.state.yesnoques6text2.Text, yesno13: "red", yesno14: "#ECE9E9" })
+                      }}>
+                        <Text style={{ color: this.state.yesno13 == "red" ? "white" : "black", fontSize: 13, textAlign: "center" }}>{this.state.yesnoques6text2.Text}</Text>
+                      </Button>
+                      <Text style={{ width: 50 }}>  </Text>
+                      {/* </View> */}
+                      <Button style={{ backgroundColor: this.state.yesno14, width: 125, justifyContent: "center" }} onPress={() => {
+                        this.setState({ index: '8a', haveMortgage: this.state.yesnoques6text1.Text, yesno14: "green", yesno13: "#ECE9E9" })
+                      }}>
+                        <Text style={{ color: this.state.yesno14 == "green" ? "white" : "black", fontSize: 13, textAlign: "center" }}>{this.state.yesnoques6text1.Text}</Text>
+                      </Button>
+                      {/* <View style={{ marginTop: 10, flexDirection: "row" }}> */}
 
-                    {/* </View> */}
-                  </View>
-
-                </View>
-                {!this.state.haveMortgage ?
-                  <View>
-                    <Text> </Text>
-
-                  </View> :
-                  <View style={{ flexDirection: 'row', justifyContent: "center", marginTop: "10%" }}>
-
-                    <Button block
-                      style={styles.next_btnstyle}
-                      onPress={this.nextButtonQuick10.bind(this)}>
-                      <Text>Next</Text>
-                    </Button>
+                      {/* </View> */}
+                    </View>
 
                   </View>
+                  {!this.state.haveMortgage ?
+                    <View>
+                      <Text> </Text>
 
-                }
+                    </View> :
+                    <View style={{ flexDirection: 'row', justifyContent: "center", marginTop: "10%" }}>
+
+                      <Button block
+                        style={styles.next_btnstyle}
+                        onPress={this.nextButtonQuick10.bind(this)}>
+                        <Text>Next</Text>
+                      </Button>
+
+                    </View>
+
+                  }
 
                 </View>
               }
               {this.state.index === '8a' &&
 
 
-              <View style={{ margin: "5%" }}>
+                <View style={{ margin: "3%" }}>
 
 
-                <View style={{ backgroundColor: 'white', justifyContent: "center" }}>
-                  <View style={{ alignItems: 'center', justifyContent: "center" }}>
-                    <Image source={require('../assets/defaultqaimg.png')} />
-                      <Text style={{ fontSize: 20, fontWeight: "bold", textAlign: "center" }} >
+                  <View style={{ backgroundColor: 'white', justifyContent: "center" }}>
+                    <View style={{ alignItems: 'center', justifyContent: "center" }}>
+                      <View style={{ backgroundColor: "white", height: deviceHeight <= 550 ? 80 : 120, width: deviceHeight <= 550 ? 80 : 150, justifyContent: "center", alignItems: "center" }}>
+                        <Image style={{ height: deviceHeight <= 550 ? "80%" : "100%", width: deviceHeight <= 550 ? "80%" : "100%" }} source={require('../assets/defaultqaimg.png')} />
+                      </View>
+                      <Text style={{ fontSize: deviceHeight <= 550 ? 12 : 18, fontWeight: "bold", textAlign: "center" }} >
                         {this.state.yesnoques7}
                       </Text>
                     </View>
                   </View>
 
 
-                  <View style={{ alignItems: "center", justifyContent: "center", padding: "7%" }}>
+                  <View style={{ alignItems: "center", justifyContent: "center", marginTop: deviceHeight <= 550 ? "5%" : "10%" }}>
                     <View style={styles.yesnobuttonview}>
                       <View style={{ flexDirection: 'row' }}>
-                      <Button style={{ backgroundColor: this.state.yesno15, flex: 1 }} block onPress={() => {
-                        this.setState({ index: 0, hugeSavings: this.state.yesnoques7text1.Text, yesno15: "green", yesno16: "#ECE9E9" })
+                        <Button style={{ backgroundColor: this.state.yesno15, flex: 1 }} block onPress={() => {
+                          this.setState({ index: 0, hugeSavings: this.state.yesnoques7text1.Text, yesno15: "green", yesno16: "#ECE9E9" })
                         }}>
-                        <Text style={{ color: "black",fontSize: 15, textAlign: "center" }}>{this.state.yesnoques7text1.Text}</Text>
+                          <Text style={{ color: this.state.yesno15 == "green" ? "white" : "black", fontSize: 13, textAlign: "center" }}>{this.state.yesnoques7text1.Text}</Text>
                         </Button>
 
 
                       </View>
                       <View style={{ marginTop: 10, flexDirection: "row" }}>
 
-                      <Button style={{ backgroundColor: this.state.yesno16, flex: 1 }} block onPress={() => {
-                        this.setState({ index: 0, hugeSavings: this.state.yesnoques7text2.Text, yesno16: "red", yesno15: "#ECE9E9" })
-                      }}>
-                        <Text style={{ color: "black", fontSize: 15, textAlign: "center" }}>{this.state.yesnoques7text2.Text}</Text>
-                      </Button>
+                        <Button style={{ backgroundColor: this.state.yesno16, flex: 1 }} block onPress={() => {
+                          this.setState({ index: 0, hugeSavings: this.state.yesnoques7text2.Text, yesno16: "red", yesno15: "#ECE9E9" })
+                        }}>
+                          <Text style={{ color: this.state.yesno16 == "red" ? "white" : "black", fontSize: 13, textAlign: "center" }}>{this.state.yesnoques7text2.Text}</Text>
+                        </Button>
 
                       </View>
                     </View>
 
                   </View>
-                {!this.state.hugeSavings ?
-                  <View>
-                    <Text> </Text>
+                  {!this.state.hugeSavings ?
+                    <View>
+                      <Text> </Text>
 
-                  </View> :
-                  <View style={{ flexDirection: 'row', justifyContent: "center", marginTop: "10%" }}>
+                    </View> :
+                    <View style={{ flexDirection: 'row', justifyContent: "center", marginTop: "10%" }}>
 
-                    <Button block
-                      style={styles.next_btnstyle}
-                      onPress={this.nextButtonQuick10.bind(this)}>
-                      <Text>Next</Text>
-                    </Button>
+                      <Button block
+                        style={styles.next_btnstyle}
+                        onPress={this.nextButtonQuick10.bind(this)}>
+                        <Text>Next</Text>
+                      </Button>
 
-                  </View>
+                    </View>
 
-                }
+                  }
 
                 </View>
               }
@@ -2372,22 +2418,41 @@ export default class Page1 extends React.Component {
               {this.state.index === 0 &&
 
 
-                <View>
+                <View style={{ justifyContent: "center", alignItems: "center"}}>
 
-
-                  <View style={{ height: 100, backgroundColor: 'white', justifyContent: "center" }}>
-                    <View style={{ alignContent: 'center' }}>
-
-                      <Text style={{ fontSize: 20, fontWeight: "bold", textAlign: "center" }} >
+                <View style={{ width: 250, height: 200 }}>
+                  <Image
+                  style={{width:"100%",height:"100%"}}
+                    source={require('../assets/pick_your_loan_type.png')}
+                  />
+                </View>
+                  <View style={{ backgroundColor: 'white', justifyContent: "center"}}>
+                  
+                    {/* <View style={{ alignContent: 'center' }}> */}
+                    
+                  <Text style={{ fontSize: deviceHeight <= 550 ? 12 : 18, fontWeight: "bold", textAlign: "center", color:"#40b049" }} >
                         {this.state.ques1_ques}
                       </Text>
-                    </View>
+                    {/* </View> */}
                   </View>
-                  <View style={{ justifyContent: "center", padding: "7%" }}>
+                  <View style={{ justifyContent: "center", marginTop: deviceHeight <= 550 ? "5%" : "10%" }}>
                     <View style={styles.viewrifan}>
-                      <View style={{ alignItems: 'flex-start', backgroundColor: 'white' }}>
+                      <View style={{ alignItems: 'flex-start', backgroundColor: 'white',
+                      borderWidth: 1,
+                      borderRadius: 7,
+                      borderColor: '#ddd',
+                      // borderBottomWidth: 0,
+                      shadowColor: '#000',
+                      shadowOffset: { width: 2, height: 2 },
+                      shadowOpacity: 0.8,
+                      shadowRadius: 2,
+                      elevation: 1,
+                      marginLeft: 5,
+                      marginRight: 5,
+                      marginTop: 10, }}>
                         {this.state.showimage1 == false &&
-                          <TouchableOpacity onPress={this.handleChangeRefinance.bind(this)}>
+                          <TouchableOpacity style={{}}
+                           onPress={this.handleChangeRefinance.bind(this)}>
                             <Image
                               style={styles.refinance}
                               source={require('../assets/refinance_final.png')}
@@ -2401,10 +2466,23 @@ export default class Page1 extends React.Component {
                           />
                         }
                         <View style={{ alignSelf: 'center', margin: 5 }}>
-                          <Text style={{ fontSize: 15, textAlign: "center" }}>{this.state.ques1_text1.Text}</Text>
+                        <Text style={{ fontWeight: "bold", fontSize: 15, textAlign: "center", color:"#2959a7" }}>{this.state.ques1_text1.Text}</Text>
                         </View>
                       </View>
-                      <View style={{ alignItems: 'flex-end', position: "absolute", right: 0 }}>
+                      <View style={{ alignItems: 'flex-end', position: "absolute", right: 0,
+                        backgroundColor: 'white',
+                        borderWidth: 1,
+                        borderRadius: 7,
+                        borderColor: '#ddd',
+                        // borderBottomWidth: 0,
+                        shadowColor: '#000',
+                        shadowOffset: {width: 2, height: 2 },
+                        shadowOpacity: 0.8,
+                        shadowRadius: 2,
+                        elevation: 1,
+                        marginLeft: 5,
+                        marginRight: 5,
+                        marginTop: 10, }}>
                         {this.state.showimage2 == false &&
                           <TouchableOpacity
                             onPress={this.handleChangePurchase.bind(this)}
@@ -2422,7 +2500,7 @@ export default class Page1 extends React.Component {
                           />
                         }
                         <View style={{ alignSelf: 'center', margin: 5 }}>
-                          <Text style={{ fontSize: 15, textAlign: "center" }}>{this.state.ques1_text2.Text}</Text>
+                        <Text style={{ fontWeight: "bold", fontSize: 15, textAlign: "center", color:"#2959a7" }}>{this.state.ques1_text2.Text}</Text>
                         </View>
                       </View>
                     </View>
@@ -2432,31 +2510,52 @@ export default class Page1 extends React.Component {
                           {this.state.errorvalue}
                         </Text>
                       </View> :
-                    <View style={{ flexDirection: 'row', justifyContent: "center", marginTop: "10%" }}>
+                      <View style={{ flexDirection: 'row', justifyContent: "center", marginTop: "10%" }}>
 
-                      <Button block
-                        style={styles.next_btnstyle}
-                        onPress={this.nextButtonQuick9.bind(this)}>
-                        <Text>Next</Text>
-                      </Button>
+                        <Button block
+                          style={styles.next_btnstyle}
+                          onPress={this.nextButtonQuick9.bind(this)}>
+                          <Text>Next</Text>
+                        </Button>
 
-                    </View>
+                      </View>
                     }
                   </View>
                 </View>
               }
               {this.state.index === 1 &&
-                <View>
-                  <View style={{ height: 60, backgroundColor: 'white', justifyContent: "center" }}>
-                    <View style={{ alignContent: 'center' }}>
-                      <Text style={{ fontSize: 20, fontWeight: "bold", textAlign: "center" }} >
+                <View style={{ justifyContent: "center", alignItems: "center" }}>
+                <View style={{ width: 250, height: 200 }}>
+                  <Image
+                    style={{ width: "100%", height: "100%" }}
+                    source={require('../assets/Property_type.png')}
+                  />
+                </View>
+                  <View style={{ backgroundColor: 'white', justifyContent: "center" }}>
+                    {/* <View style={{ alignContent: 'center' }}> */}
+                  <Text style={{ fontSize: deviceHeight <= 550 ? 12 : 18, fontWeight: "bold", textAlign: "center", color:"#40b049" }} >
                         {this.state.ques2_ques}
                       </Text>
-                    </View>
+                    {/* </View> */}
                   </View>
                   <View style={styles.ViewPropertytype}>
                     <View style={{ flexDirection: "row", width: 300, alignSelf: "center" }}>
-                      <View style={{ alignItems: 'flex-start', backgroundColor: 'white', alignSelf: "center" }}>
+                      <View style={{ alignItems: 'flex-start',
+                      backgroundColor: 'white',
+                      borderWidth: 1,
+                      borderRadius: 7,
+                      borderColor: '#ddd',
+                      // borderBottomWidth: 0,
+                      shadowColor: '#000',
+                      shadowOffset: { width: 2, height: 2 },
+                      shadowOpacity: 0.8,
+                      shadowRadius: 2,
+                      elevation: 1,
+                      marginLeft: 5,
+                      marginRight: 5,
+                      marginTop: 10,
+                      alignSelf: "center" }}>
+                   
                         {this.state.showimage3 == false &&
                           <TouchableOpacity
                             onPress={this.handleChangeSingle.bind(this)}
@@ -2474,7 +2573,7 @@ export default class Page1 extends React.Component {
                           />
                         }
                         <View style={{ alignSelf: 'center', margin: 5 }}>
-                          <Text style={{ fontSize: 15, textAlign: "center" }}>{this.state.ques2_text1.Text}</Text>
+                        <Text style={{ fontWeight: "bold",fontSize: 15, textAlign: "center", color:"#2959a7" }}>{this.state.ques2_text1.Text}</Text>
                         </View>
                       </View>
                       <View style={styles.multifinalview}>
@@ -2495,12 +2594,25 @@ export default class Page1 extends React.Component {
                           />
                         }
                         <View style={{ alignSelf: 'center', margin: 5 }}>
-                          <Text style={{ fontSize: 15, textAlign: "center" }}>{this.state.ques2_text2.Text}</Text>
+                        <Text style={{ fontWeight: "bold",fontSize: 15, textAlign: "center", color: "#2959a7" }}>{this.state.ques2_text2.Text}</Text>
                         </View>
                       </View>
                     </View>
                     <View style={styles.page2style2}>
-                      <View style={{ alignItems: 'flex-start', backgroundColor: 'white' }}>
+                      <View style={{ alignItems: 'flex-start', backgroundColor: 'white',
+                      backgroundColor: 'white',
+                      
+                      borderWidth: 1,
+                      borderRadius: 7,
+                      borderColor: '#ddd',
+                      // borderBottomWidth: 0,
+                      shadowColor: '#000',
+                      shadowOffset: { width: 2, height: 2 },
+                      shadowOpacity: 0.8,
+                      shadowRadius: 2,
+                      elevation: 1,
+                      marginTop: 10,
+                       }}>
                         {this.state.showimage5 == false &&
                           <TouchableOpacity
                             onPress={this.handleChangeCando.bind(this)}
@@ -2518,7 +2630,7 @@ export default class Page1 extends React.Component {
                           />
                         }
                         <View style={{ alignSelf: 'center', margin: 5 }}>
-                          <Text style={{ fontSize: 15, textAlign: "center" }}>{this.state.ques2_text3.Text}</Text>
+                        <Text style={{ fontWeight: "bold",fontSize: 15, textAlign: "center", color: "#2959a7" }}>{this.state.ques2_text3.Text}</Text>
                         </View>
                       </View>
                       <View style={styles.singlefinalImage2}>
@@ -2539,7 +2651,7 @@ export default class Page1 extends React.Component {
                           />
                         }
                         <View style={{ alignSelf: 'center', margin: 5 }}>
-                          <Text style={{ fontSize: 15, textAlign: "center" }}>{this.state.ques2_text4.Text}</Text>
+                        <Text style={{ fontWeight: "bold",fontSize: 15, textAlign: "center", color: "#2959a7" }}>{this.state.ques2_text4.Text}</Text>
                         </View>
                       </View>
                     </View>
@@ -2549,25 +2661,25 @@ export default class Page1 extends React.Component {
                           {this.state.errorvalue1}
                         </Text>
                       </View> :
-                    <View style={{ flexDirection: 'row', justifyContent: "center", marginTop: "10%" }}>
+                      <View style={{ flexDirection: 'row', justifyContent: "center", marginTop: "10%" }}>
 
-                      <Button block
-                        style={styles.next_btnstyle}
-                        onPress={this.nextButtonQuick9.bind(this)}>
-                        <Text>Next</Text>
-                      </Button>
+                        <Button block
+                          style={styles.next_btnstyle}
+                          onPress={this.nextButtonQuick9.bind(this)}>
+                          <Text>Next</Text>
+                        </Button>
 
-                    </View>
+                      </View>
                     }
                   </View>
                 </View>
               }
               {this.state.index === 2 &&
                 <View>
-                  <View style={{ height: 80, backgroundColor: 'white', justifyContent: "center" }}>
+                  <View style={{ backgroundColor: 'white', justifyContent: "center", margin: "3%" }}>
                     <View style={{ alignContent: 'center' }}>
-                      <Text style={{ fontSize: 20, fontWeight: "bold", textAlign: "center" }} >
-                        {this.state.ques2_ques}
+                      <Text style={{ fontSize: deviceHeight <= 550 ? 12 : 18, fontWeight: "bold", textAlign: "center" }} >
+                        {this.state.ques3_ques}
                       </Text>
                     </View>
                   </View>
@@ -2666,15 +2778,15 @@ export default class Page1 extends React.Component {
                           {this.state.errorvalue2}
                         </Text>
                       </View> :
-                    <View style={{ flexDirection: 'row', justifyContent: "center", marginTop: "10%" }}>
+                      <View style={{ flexDirection: 'row', justifyContent: "center", marginTop: "10%" }}>
 
-                      <Button block
-                        style={styles.next_btnstyle}
-                        onPress={this.nextButtonQuick9.bind(this)}>
-                        <Text>Next</Text>
-                      </Button>
+                        <Button block
+                          style={styles.next_btnstyle}
+                          onPress={this.nextButtonQuick9.bind(this)}>
+                          <Text>Next</Text>
+                        </Button>
 
-                    </View>
+                      </View>
                     }
                   </View>
                 </View>
@@ -2683,7 +2795,7 @@ export default class Page1 extends React.Component {
                 <View>
                   <View style={{ height: 100, backgroundColor: '', justifyContent: "center" }}>
                     <View style={{ alignContent: 'center', margin: "2%" }}>
-                      <Text style={{ fontSize: 20, fontWeight: "bold", textAlign: "center" }} >
+                      <Text style={{ fontSize: deviceHeight <= 550 ? 12 : 18, fontWeight: "bold", textAlign: "center" }} >
                         {this.state.ques4_ques}(0-2000000)
                       </Text>
                     </View>
@@ -2697,7 +2809,7 @@ export default class Page1 extends React.Component {
                         max={2000000}
                         marks={marks}
                         // style={{transform: [ { scaleY: 3.0 }],borderRadius:40}}
-                        onChange={(value) =>{
+                        onChange={(value) => {
                           this.setState({ value2: value })
                           console.log(this.state.value2)
                         }
@@ -2711,22 +2823,22 @@ export default class Page1 extends React.Component {
                       <Text style={{ fontSize: 20, textAlign: "center" }}>{"$" + this.state.value2}</Text>
                     </View>
                   </View>
-                <View style={{ flexDirection: 'row', justifyContent: "center", marginTop: "10%" }}>
+                  <View style={{ flexDirection: 'row', justifyContent: "center", marginTop: "10%" }}>
 
-                  <Button block
-                    style={styles.next_btnstyle}
-                    onPress={this.nextButtonQuick9.bind(this)}>
-                    <Text>Next</Text>
-                  </Button>
+                    <Button block
+                      style={styles.next_btnstyle}
+                      onPress={this.nextButtonQuick9.bind(this)}>
+                      <Text>Next</Text>
+                    </Button>
 
-                </View>
+                  </View>
                 </View>
               }
               {this.state.index === 4 &&
                 <View>
                   <View style={{ height: 100, backgroundColor: '', justifyContent: "center" }}>
                     <View style={{ alignContent: 'center' }}>
-                      <Text style={{ fontSize: 20, fontWeight: "bold", textAlign: "center" }} >
+                      <Text style={{ fontSize: deviceHeight <= 550 ? 12 : 18, fontWeight: "bold", textAlign: "center" }} >
                         {this.state.ques5_ques}(0-2000000)
                       </Text>
                     </View>
@@ -2751,22 +2863,22 @@ export default class Page1 extends React.Component {
                       <Text style={{ fontSize: 20, textAlign: "center" }}>{"$" + this.state.mortage_value2}</Text>
                     </View>
                   </View>
-                <View style={{ flexDirection: 'row', justifyContent: "center", marginTop: "10%" }}>
+                  <View style={{ flexDirection: 'row', justifyContent: "center", marginTop: "10%" }}>
 
-                  <Button block
-                    style={styles.next_btnstyle}
-                    onPress={this.nextButtonQuick9.bind(this)}>
-                    <Text>Next</Text>
-                  </Button>
+                    <Button block
+                      style={styles.next_btnstyle}
+                      onPress={this.nextButtonQuick9.bind(this)}>
+                      <Text>Next</Text>
+                    </Button>
 
-                </View>
+                  </View>
                 </View>
               }
               {this.state.index === 5 &&
                 <View>
                   <View style={{ height: 100, backgroundColor: '', justifyContent: "center" }}>
                     <View style={{ alignContent: 'center' }}>
-                      <Text style={{ fontSize: 20, fontWeight: "bold", textAlign: "center" }} >
+                      <Text style={{ fontSize: deviceHeight <= 550 ? 12 : 18, fontWeight: "bold", textAlign: "center" }} >
                         {this.state.ques6_ques}(0-100)
                       </Text>
                     </View>
@@ -2792,22 +2904,22 @@ export default class Page1 extends React.Component {
                     </View>
                   </View>
 
-                <View style={{ flexDirection: 'row', justifyContent: "center", marginTop: "10%" }}>
+                  <View style={{ flexDirection: 'row', justifyContent: "center", marginTop: "10%" }}>
 
-                  <Button block
-                    style={styles.next_btnstyle}
-                    onPress={this.nextButtonQuick9.bind(this)}>
-                    <Text>Next</Text>
-                  </Button>
+                    <Button block
+                      style={styles.next_btnstyle}
+                      onPress={this.nextButtonQuick9.bind(this)}>
+                      <Text>Next</Text>
+                    </Button>
 
-                </View>
+                  </View>
                 </View>
               }
               {this.state.index === 6 &&
                 <View>
                   <View style={{ height: 100, backgroundColor: '', justifyContent: "center", marginTop: "2%" }}>
                     <View style={{ alignContent: 'center', margin: "3%" }}>
-                      <Text style={{ fontSize: 20, fontWeight: "bold", textAlign: "center" }} >
+                      <Text style={{ fontSize: deviceHeight <= 550 ? 12 : 18, fontWeight: "bold", textAlign: "center" }} >
                         {this.state.ques7_ques}(0-100)
                       </Text>
                     </View>
@@ -2832,27 +2944,27 @@ export default class Page1 extends React.Component {
                       <Text style={{ fontSize: 20, textAlign: "center" }}>{this.state.down_payment_value2 + "%"}</Text>
                     </View>
                   </View>
-                <View style={{ flexDirection: 'row', justifyContent: "center", marginTop: "10%" }}>
+                  <View style={{ flexDirection: 'row', justifyContent: "center", marginTop: "10%" }}>
 
-                  <Button block
-                    style={styles.next_btnstyle}
-                    onPress={this.nextButtonQuick9.bind(this)}>
-                    <Text>Next</Text>
-                  </Button>
+                    <Button block
+                      style={styles.next_btnstyle}
+                      onPress={this.nextButtonQuick9.bind(this)}>
+                      <Text>Next</Text>
+                    </Button>
 
-                </View>
+                  </View>
                 </View>
               }
               {this.state.index === 7 &&
                 <View>
-                  <View style={{ height: 100, backgroundColor: '', justifyContent: "center" }}>
+                  <View style={{ height: 100, backgroundColor: '', justifyContent: "center", margin: "3%" }}>
                     <View style={{ alignContent: 'center' }}>
-                      <Text style={{ fontSize: 20, fontWeight: "bold", textAlign: "center" }} >
+                      <Text style={{ fontSize: deviceHeight <= 550 ? 12 : 18, fontWeight: "bold", textAlign: "center" }} >
                         {this.state.ques8_ques}
                       </Text>
                     </View>
                   </View>
-                  <View style={{ padding: 10 }}>
+                  {/* <View style={{ padding: 10 }}>
                     <View style={{ width: 130, margin: "3%", alignSelf: "center" }} >
                       <Button block style={{ backgroundColor: this.state.yes1 }} rounded onPress={this.handleChangeBankruptcyYes.bind(this)}>
                         <Text style={{ fontSize: 15, color: this.state.yes1 == "green" ? "white" : "black" }}>{this.state.ques8_text1.Text}</Text>
@@ -2863,22 +2975,39 @@ export default class Page1 extends React.Component {
                         <Text style={{ fontSize: 15, color: this.state.no1 == "red" ? "white" : "black" }}>{this.state.ques8_text2.Text}</Text>
                       </Button>
                     </View>
+                  </View> */}
+
+                  <View style={{ alignItems: "center", justifyContent: "center", padding: "7%" }}>
+                    <View style={{ flexDirection: "row", justifyContent: "center" }}>
+                      {/* <View style={{ flexDirection: 'row' }}> */}
+
+                      <Button style={{ backgroundColor: this.state.no1, width: 125, justifyContent: "center" }} onPress={this.handleChangeBankruptcyNo.bind(this)}>
+                        <Text style={{ color: this.state.no1 == "red" ? "white" : "black", fontSize: 13, textAlign: "center" }}>{this.state.ques8_text2.Text}</Text>
+                      </Button>
+                      <Text style={{ width: 50 }}>  </Text>
+                      <Button style={{ backgroundColor: this.state.yes1, width: 125, justifyContent: "center" }} onPress={this.handleChangeBankruptcyYes.bind(this)}>
+                        <Text style={{ color: this.state.yes1 == "green" ? "white" : "black", fontSize: 13, textAlign: "center" }}>{this.state.ques8_text1.Text}</Text>
+
+                      </Button>
+                    </View>
                   </View>
+
+
                   {this.state.showimage11 == false && this.state.showimage12 == false ?
                     <View style={{ alignSelf: "center" }}>
                       <Text style={{ color: "red" }}>
                         {this.state.errorvalue3}
                       </Text>
                     </View> :
-                  <View style={{ flexDirection: 'row', justifyContent: "center", marginTop: "10%" }}>
+                    <View style={{ flexDirection: 'row', justifyContent: "center", marginTop: "10%" }}>
 
-                    <Button block
-                      style={styles.next_btnstyle}
-                      onPress={this.nextButtonQuick9.bind(this)}>
-                      <Text>Next</Text>
-                    </Button>
+                      <Button block
+                        style={styles.next_btnstyle}
+                        onPress={this.nextButtonQuick9.bind(this)}>
+                        <Text>Next</Text>
+                      </Button>
 
-                  </View>
+                    </View>
                   }
                 </View>
               }
@@ -2886,7 +3015,7 @@ export default class Page1 extends React.Component {
                 <View style={{}}>
                   <View style={{ height: 120, backgroundColor: '', justifyContent: "center" }}>
                     <View style={{ alignContent: 'center' }}>
-                      <Text style={{ fontSize: 20, fontWeight: "bold", textAlign: "center" }} >
+                      <Text style={{ fontSize: deviceHeight <= 550 ? 12 : 18, fontWeight: "bold", textAlign: "center" }} >
                         {this.state.ques9_ques}
                       </Text>
                     </View>
@@ -2938,15 +3067,15 @@ export default class Page1 extends React.Component {
                         {this.state.errorvalue4}
                       </Text>
                     </View> :
-                  <View style={{ flexDirection: 'row', justifyContent: "center", marginTop: "10%" }}>
+                    <View style={{ flexDirection: 'row', justifyContent: "center", marginTop: "10%" }}>
 
-                    <Button block
-                      style={styles.next_btnstyle}
-                      onPress={this.nextButtonQuick9.bind(this)}>
-                      <Text>Next</Text>
-                    </Button>
+                      <Button block
+                        style={styles.next_btnstyle}
+                        onPress={this.nextButtonQuick9.bind(this)}>
+                        <Text>Next</Text>
+                      </Button>
 
-                  </View>
+                    </View>
                   }
                 </View>
               }
@@ -2954,12 +3083,12 @@ export default class Page1 extends React.Component {
                 <View>
                   <View style={{ height: 100, backgroundColor: '', justifyContent: "center" }}>
                     <View style={{ alignContent: 'center' }}>
-                      <Text style={{ fontSize: 20, fontWeight: "bold", textAlign: "center" }} >
+                      <Text style={{ fontSize: deviceHeight <= 550 ? 12 : 18, fontWeight: "bold", textAlign: "center" }} >
                         {this.state.ques10_ques}
                       </Text>
                     </View>
                   </View>
-                  <View style={{ padding: 10 }}>
+                  {/* <View style={{ padding: 10 }}>
                     <View style={{ width: 130, margin: "3%", alignSelf: "center" }} >
                       <Button block style={{ backgroundColor: this.state.yes2 }} rounded onPress={this.handleChangeVeteranYes.bind(this)}>
                         <Text style={{ fontSize: 15, color: this.state.yes2 == "green" ? "white" : "black" }}>{this.state.ques10_text1.Text}</Text>
@@ -2970,30 +3099,45 @@ export default class Page1 extends React.Component {
                         <Text style={{ fontSize: 15, color: this.state.no2 == "red" ? "white" : "black" }}>{this.state.ques10_text2.Text}</Text>
                       </Button>
                     </View>
+                  </View> */}
+
+                  <View style={{ alignItems: "center", justifyContent: "center", padding: "7%" }}>
+                    <View style={{ flexDirection: "row", justifyContent: "center" }}>
+                      <Button style={{ backgroundColor: this.state.no2, width: 125, justifyContent: "center" }} onPress={this.handleChangeVeteranNo.bind(this)}>
+                        <Text style={{ color: this.state.no2 == "red" ? "white" : "black", fontSize: 13, textAlign: "center" }}>{this.state.ques10_text2.Text}</Text>
+                      </Button>
+                      <Text style={{ width: 50 }}>  </Text>
+                      <Button style={{ backgroundColor: this.state.yes2, width: 125, justifyContent: "center" }} onPress={this.handleChangeVeteranYes.bind(this)}>
+                        <Text style={{ color: this.state.yes2 == "green" ? "white" : "black", fontSize: 13, textAlign: "center" }}>{this.state.ques10_text1.Text}</Text>
+
+                      </Button>
+                    </View>
                   </View>
+
+
                   {this.state.showimage13 == false && this.state.showimage14 == false ?
                     <View style={{ alignSelf: "center" }}>
                       <Text style={{ color: "red" }}>
                         {this.state.errorvalue5}
                       </Text>
                     </View> :
-                  <View style={{ flexDirection: 'row', justifyContent: "center", marginTop: "10%" }}>
+                    <View style={{ flexDirection: 'row', justifyContent: "center", marginTop: "10%" }}>
 
-                    <Button block
-                      style={styles.next_btnstyle}
-                      onPress={this.nextButtonQuick9.bind(this)}>
-                      <Text>Next</Text>
-                    </Button>
+                      <Button block
+                        style={styles.next_btnstyle}
+                        onPress={this.nextButtonQuick9.bind(this)}>
+                        <Text>Next</Text>
+                      </Button>
 
-                  </View>
+                    </View>
                   }
                 </View>
               }
               {this.state.index === 10 &&
                 <View style={{}}>
-                  <View style={{ height: 100, backgroundColor: '', justifyContent: "center" }}>
+                  <View style={{ height: 100, backgroundColor: '', justifyContent: "center", margin: "3%" }}>
                     <View style={{ alignContent: 'center', margin: "3%" }}>
-                      <Text style={{ fontSize: 20, fontWeight: "bold", textAlign: "center" }} >
+                      <Text style={{ fontSize: deviceHeight <= 550 ? 12 : 18, fontWeight: "bold", textAlign: "center" }} >
                         {this.state.ques11_ques}
                       </Text>
                     </View>
@@ -3040,28 +3184,28 @@ export default class Page1 extends React.Component {
                         {this.state.errorvalue6}
                       </Text>
                     </View> :
-                  <View style={{ flexDirection: 'row', justifyContent: "center", marginTop: "10%" }}>
+                    <View style={{ flexDirection: 'row', justifyContent: "center", marginTop: "10%" }}>
 
-                    <Button block
-                      style={styles.next_btnstyle}
-                      onPress={this.nextButtonQuick9.bind(this)}>
-                      <Text>Next</Text>
-                    </Button>
+                      <Button block
+                        style={styles.next_btnstyle}
+                        onPress={this.nextButtonQuick9.bind(this)}>
+                        <Text>Next</Text>
+                      </Button>
 
-                  </View>
+                    </View>
                   }
                 </View>
               }
               {this.state.index === 11 &&
                 <View>
-                  <View style={{ height: 100, backgroundColor: '', justifyContent: "center" }}>
+                  <View style={{ height: 100, backgroundColor: '', justifyContent: "center", margin: "3%" }}>
                     <View style={{ alignContent: 'center' }}>
-                      <Text style={{ fontSize: 20, fontWeight: "bold", textAlign: "center" }} >
+                      <Text style={{ fontSize: deviceHeight <= 550 ? 12 : 18, fontWeight: "bold", textAlign: "center" }} >
                         {this.state.ques12_ques}
                       </Text>
                     </View>
                   </View>
-                  <View style={{ padding: 10 }}>
+                  {/* <View style={{ padding: 10 }}>
                     <View style={{ width: 130, margin: "3%", alignSelf: "center" }} >
                       <Button block style={{ backgroundColor: this.state.yes3 }} rounded onPress={this.handleChangeBorrowYes.bind(this)}>
                         <Text style={{ fontSize: 15, color: this.state.yes3 == "green" ? "white" : "black" }}>{this.state.ques12_text1.Text}</Text>
@@ -3072,29 +3216,44 @@ export default class Page1 extends React.Component {
                         <Text style={{ fontSize: 15, color: this.state.no3 == "red" ? "white" : "black" }}>{this.state.ques12_text2.Text}</Text>
                       </Button>
                     </View>
+                  </View> */}
+
+                  <View style={{ alignItems: "center", justifyContent: "center", padding: "7%" }}>
+                    <View style={{ flexDirection: "row", justifyContent: "center" }}>
+                      <Button style={{ backgroundColor: this.state.no3, width: 125, justifyContent: "center" }} onPress={this.handleChangeBorrowNo.bind(this)}>
+                        <Text style={{ color: this.state.no3 == "red" ? "white" : "black", fontSize: 13, textAlign: "center" }}>{this.state.ques10_text2.Text}</Text>
+                      </Button>
+                      <Text style={{ width: 50 }}>  </Text>
+                      <Button style={{ backgroundColor: this.state.yes3, width: 125, justifyContent: "center" }} onPress={this.handleChangeBorrowYes.bind(this)}>
+                        <Text style={{ color: this.state.yes3 == "green" ? "white" : "black", fontSize: 13, textAlign: "center" }}>{this.state.ques10_text1.Text}</Text>
+
+                      </Button>
+                    </View>
                   </View>
+
+
                   {this.state.showimage15 == false && this.state.showimage16 == false ?
                     <View style={{ alignSelf: "center" }}>
                       <Text style={{ color: "red" }}>
                         {this.state.errorvalue7}
                       </Text>
                     </View> :
-                  <View style={{ flexDirection: 'row', justifyContent: "center", marginTop: "10%" }}>
+                    <View style={{ flexDirection: 'row', justifyContent: "center", marginTop: "10%" }}>
 
-                    <Button block
-                      style={styles.next_btnstyle}
-                      onPress={this.nextButtonQuick9.bind(this)}>
-                      <Text>Next</Text>
-                    </Button>
+                      <Button block
+                        style={styles.next_btnstyle}
+                        onPress={this.nextButtonQuick9.bind(this)}>
+                        <Text>Next</Text>
+                      </Button>
 
-                  </View>
+                    </View>
                   }
                 </View>
               }
               {this.state.index === 12 &&
                 <View>
                   <View style={styles.heading1}>
-                    <View style={{ alignContent: 'center', padding: 5 }}>
+                    <View style={{ alignContent: 'center', margin: "3%" }}>
                       <Text style={styles.headingFont} >
                         {this.state.ques13_ques}
                       </Text>
@@ -3116,7 +3275,7 @@ export default class Page1 extends React.Component {
                       onSubmitEditing={(event) => {
                         this.refs.currentZip.focus();
                       }}
-                      underlineColorAndroid='transparent' 
+                      underlineColorAndroid='transparent'
                       onChangeText={this.Address.bind(this)}
                       value={this.state.address}>
                     </TextInput>
@@ -3137,7 +3296,7 @@ export default class Page1 extends React.Component {
                       onBlur={this.onBlur2.bind(this)}
                       onFocus={this.onFocus2.bind(this)}
                       maxLength={5}
-                      underlineColorAndroid='transparent' 
+                      underlineColorAndroid='transparent'
                       onChangeText={this.Zip.bind(this)} value={this.state.zip}
                       onSubmitEditing={(event) => {
                         this.checkZip(this.state.zip)
@@ -3155,10 +3314,8 @@ export default class Page1 extends React.Component {
                     }
                     <View style={{ alignSelf: "center", width: 300, marginTop: 0 }}>
                       {/* <Dropdown inputContainerStyle={{ borderBottomColor: "white" }}
-
                         fontSize={deviceHeight < 650 ? 12 : 18}
                         baseColor={"black"}
-
                         containerStyle={styles.dropdown}
                         label={!this.state.property ? this.state.ques13_text3.Text : ''}
                         data={property_data2}//property_data
@@ -3169,21 +3326,21 @@ export default class Page1 extends React.Component {
                         selectedItemColor={"black"}
                         dropdownPosition={1}
                       /> */}
-                    <TextInput placeholder="State"
-                      
-                      placeholderTextColor={'black'}
-                     
-                      style={this.state.formstyle2}
-                      onBlur={this.onBlur2.bind(this)}
-                      onFocus={this.onFocus2.bind(this)}
-                      
-                      underlineColorAndroid='transparent'
-                      onChangeText={this.Property.bind(this)}
-                      value={this.state.property}
-                    
-                    >
+                      <TextInput placeholder="State"
 
-                    </TextInput>
+                        placeholderTextColor={'black'}
+
+                        style={this.state.formstyle2}
+                        onBlur={this.onBlur2.bind(this)}
+                        onFocus={this.onFocus2.bind(this)}
+
+                        underlineColorAndroid='transparent'
+                        onChangeText={this.Property.bind(this)}
+                        value={this.state.property}
+
+                      >
+
+                      </TextInput>
                       {/* <CDD  
                           onChangeText={(value) => {this.setState({
                                           property:value
@@ -3206,7 +3363,7 @@ export default class Page1 extends React.Component {
                       <Text></Text>
                     }
                     <TextInput style={{ marginTop: 10 }} placeholder={this.state.ques13_text2.Text} placeholderTextColor={'black'}
-                      underlineColorAndroid='transparent' 
+                      underlineColorAndroid='transparent'
                       style={this.state.formstyle3}
                       onBlur={this.onBlur3.bind(this)}
                       onFocus={this.onFocus3.bind(this)}
@@ -3223,15 +3380,15 @@ export default class Page1 extends React.Component {
                       <Text></Text>
                     }
                   </View>
-                <View style={{ flexDirection: 'row', justifyContent: "center", marginTop: "10%" }}>
+                  <View style={{ flexDirection: 'row', justifyContent: "center", marginTop: "10%" }}>
 
-                  <Button block
-                    style={styles.next_btnstyle}
-                    onPress={this.nextButtonQuick9.bind(this)}>
-                    <Text>Next</Text>
-                  </Button>
+                    <Button block
+                      style={styles.next_btnstyle}
+                      onPress={this.nextButtonQuick12.bind(this)}>
+                      <Text>Next</Text>
+                    </Button>
 
-                </View>
+                  </View>
                 </View>
               }
               {this.state.index === 13 &&
@@ -3246,7 +3403,7 @@ export default class Page1 extends React.Component {
                   <View style={{}}>
                     <TextInput placeholder={this.state.ques14_text1.Text} placeholderTextColor={'black'}
                       underlineColorAndroid='transparent'
-                       style={this.state.formstyle4}
+                      style={this.state.formstyle4}
                       onBlur={this.onBlur4.bind(this)}
                       onFocus={this.onFocus4.bind(this)}
                       onChangeText={this.FName.bind(this)}
@@ -3266,8 +3423,8 @@ export default class Page1 extends React.Component {
                       <Text></Text>
                     }
                     <TextInput placeholder={this.state.ques14_text2.Text} placeholderTextColor={'black'}
-                      underlineColorAndroid='transparent' 
-                       style={this.state.formstyle5}
+                      underlineColorAndroid='transparent'
+                      style={this.state.formstyle5}
                       onBlur={this.onBlur5.bind(this)}
                       onFocus={this.onFocus5.bind(this)}
                       onChangeText={this.LName.bind(this)}
@@ -3287,8 +3444,8 @@ export default class Page1 extends React.Component {
                       <Text></Text>
                     }
                     <TextInput placeholder={this.state.ques14_text3.Text} placeholderTextColor={'black'}
-                      underlineColorAndroid='transparent' 
-                       style={this.state.formstyle6}
+                      underlineColorAndroid='transparent'
+                      style={this.state.formstyle6}
                       onBlur={this.onBlur6.bind(this)}
                       onFocus={this.onFocus6.bind(this)}
                       onChangeText={this.Email.bind(this)}
@@ -3315,8 +3472,8 @@ export default class Page1 extends React.Component {
                     <TextInput placeholder={this.state.ques14_text4.Text}
                       keyboardType="numeric"
                       placeholderTextColor={'black'}
-                      underlineColorAndroid='transparent' 
-                       style={this.state.formstyle7}
+                      underlineColorAndroid='transparent'
+                      style={this.state.formstyle7}
                       onBlur={this.onBlur7.bind(this)}
                       onFocus={this.onFocus7.bind(this)}
                       onChangeText={this.Phone.bind(this)}
@@ -3435,4 +3592,5 @@ export default class Page1 extends React.Component {
     }
   }
 }
+
 

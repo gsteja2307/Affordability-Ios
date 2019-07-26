@@ -165,6 +165,20 @@ module.exports = StyleSheet.create({
     height: deviceHeight<=650?(deviceHeight<=550)?80:90:110
   },
   singlefinalImage2:{ 
+    padding:"2%",
+    backgroundColor: 'white',
+    borderWidth: 1,
+    borderRadius: 7,
+    borderColor: '#ddd',
+    // borderBottomWidth: 0,
+    shadowColor: '#000',
+    shadowOffset: { width: 2, height: 2 },
+    shadowOpacity: 0.8,
+    shadowRadius: 2,
+    elevation: 1,
+    marginLeft: 5,
+    marginRight: 5,
+    marginTop: 10,
     alignItems: 'flex-end',
     marginLeft:50,
     left: deviceHeight<=550?20:10,
@@ -175,12 +189,12 @@ module.exports = StyleSheet.create({
    },
    page2style2:{
      flexDirection:"row",
-     width:300,
+     width:305,
       alignSelf:"center",
       marginTop:deviceHeight<=650?10:20
    },
    page2style3:{ 
-    width: deviceHeight<=650?(deviceHeight<=550)?100:120:130,
+    width: deviceHeight<=650?(deviceHeight<=550)?100:120:120,
     height: deviceHeight<=650?(deviceHeight<=550)?85:95:110
   },
   multifinalImage:{ 
@@ -201,6 +215,20 @@ module.exports = StyleSheet.create({
     marginTop:deviceHeight<=650?0:20
   },
   multifinalview:{
+    backgroundColor: 'white',
+    borderWidth: 1,
+    borderRadius: 7,
+    borderColor: '#ddd',
+    // borderBottomWidth: 0,
+    shadowColor: '#000',
+    shadowOffset: { width: 2, height: 2 },
+    shadowOpacity: 0.8,
+    shadowRadius: 2,
+    elevation: 1,
+    marginLeft: 5,
+    padding:"2%",
+    marginRight: 5,
+    marginTop: 10,
     alignItems: 'flex-end',
     position:"absolute",
     right: deviceHeight<=650?10:0,
