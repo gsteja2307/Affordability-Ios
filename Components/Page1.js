@@ -222,7 +222,7 @@ export default class Page1 extends React.Component {
       enable_back: false,
       enable_next: false,
       enable_submit: false,
-      index: 0,
+      index: "1a",
       privacy_enable: false,
       value: 75000,
       value2: 75000,
@@ -1408,10 +1408,12 @@ export default class Page1 extends React.Component {
 
   }
   nextButtonQuick9() {
-    if (this.state.index >= 0) {
-      this.setState({
-        index: this.state.index + 1
-      })
+    if (this.state.index > 0) {
+      if (this.state.index != 12) {
+        this.setState({
+          index: this.state.index + 1
+        })
+      }
       if (this.state.index == 3 && this.state.value) {
         console.log("ok the property value is set in next butt")
         this.setState({
@@ -1440,51 +1442,51 @@ export default class Page1 extends React.Component {
           index: 7
         })
       }
-      // if (this.state.index == 12 && !this.state.address) {
-      //   this.setState({
-      //     errorvalue8: "Please Enter Your Address",
-      //     //index:0,
-      //     //enable_back:false
-      //   })
-      // }
-      // if (this.state.index == 12 && !this.state.property) {
-      //   this.setState({
-      //     stateerrorvalue8: "Please Select Your State",
-      //     //index:0,
-      //     //enable_back:false
-      //   })
-      // }
-      // if (this.state.index == 12 && !this.state.city) {
-      //   this.setState({
-      //     cityerrorvalue: "Please Enter Valid City Name",
-      //     //index:0,
-      //     //enable_back:false
-      //   })
-      // }
-      // if (this.state.index == 12 && !this.state.zip) {
-      //   this.setState({
-      //     errorvalue9: "Please Enter Your Current Zip Code",
-      //     //index:0,
-      //     //enable_back:false
-      //   })
-      // }//
-      // if (this.state.index == 12 && this.state.validZipCode == false && ((this.state.zip).toString().length) < 5) {
-      //   this.setState({
-      //     errorvalue9: "Enter Valid Zip Code",
-      //     //index:0,
-      //     //enable_back:false
-      //   })
-      // }//
-      // if (this.state.index == 12 && this.state.validZipCode && (this.state.address && this.state.zip && this.state.validcity && ((this.state.zip.toString().length) < 5) == false)) {
-      //   this.setState({
-      //     errorvalue8: "",
-      //     cityerrorvalue: "",
-      //     errorvalue9: "",
-      //     index: 13,
-      //     enable_next: false,
-      //     enable_submit: true
-      //   })
-      // }
+      if (this.state.index == 12 && !this.state.address) {
+        this.setState({
+          errorvalue8: "Please Enter Your Address",
+          //index:0,
+          //enable_back:false
+        })
+      }
+      if (this.state.index == 12 && !this.state.property) {
+        this.setState({
+          stateerrorvalue8: "Please Select Your State",
+          //index:0,
+          //enable_back:false
+        })
+      }
+      if (this.state.index == 12 && !this.state.city) {
+        this.setState({
+          cityerrorvalue: "Please Enter Valid City Name",
+          //index:0,
+          //enable_back:false
+        })
+      }
+      if (this.state.index == 12 && !this.state.zip) {
+        this.setState({
+          errorvalue9: "Please Enter Your Current Zip Code",
+          //index:0,
+          //enable_back:false
+        })
+      }//
+      if (this.state.index == 12 && this.state.validZipCode == false && ((this.state.zip).toString().length) < 5) {
+        this.setState({
+          errorvalue9: "Enter Valid Zip Code",
+          //index:0,
+          //enable_back:false
+        })
+      }//
+      if (this.state.index == 12 && this.state.validZipCode && (this.state.address && this.state.zip && this.state.validcity && ((this.state.zip.toString().length) < 5) == false)) {
+        this.setState({
+          errorvalue8: "",
+          cityerrorvalue: "",
+          errorvalue9: "",
+          index: 13,
+          enable_next: false,
+          enable_submit: true
+        })
+      }
     }
   }
   nextButtonQuick12() {
@@ -2524,155 +2526,277 @@ export default class Page1 extends React.Component {
                 </View>
               }
               {this.state.index === 1 &&
-                <View style={{ justifyContent: "center", alignItems: "center" }}>
-                <View style={{ width: 250, height: 200 }}>
-                  <Image
-                    style={{ width: "100%", height: "100%" }}
-                    source={require('../assets/Property_type.png')}
-                  />
-                </View>
-                  <View style={{ backgroundColor: 'white', justifyContent: "center" }}>
-                    {/* <View style={{ alignContent: 'center' }}> */}
-                  <Text style={{ fontSize: deviceHeight <= 550 ? 12 : 18, fontWeight: "bold", textAlign: "center", color:"#40b049" }} >
-                        {this.state.ques2_ques}
-                      </Text>
-                    {/* </View> */}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+               
+                <View>
+                  <View style={{justifyContent:"center",alignItems:"center"}}>{/*image + question view */}
+                    <View >
+                    <Image
+                      
+                      source={require('../assets/Property_type.png')}
+                    />
+                    <Text style={{ paddingTop:10,fontWeight: "bold", marginLeft: "5%", color:"#40b049"}}>
+                      {this.state.ques2_ques}
+                    </Text>
                   </View>
-                  <View style={styles.ViewPropertytype}>
-                    <View style={{ flexDirection: "row", width: 300, alignSelf: "center" }}>
-                      <View style={{ alignItems: 'flex-start',
-                      backgroundColor: 'white',
-                      borderWidth: 1,
-                      borderRadius: 7,
-                      borderColor: '#ddd',
-                      // borderBottomWidth: 0,
-                      shadowColor: '#000',
-                      shadowOffset: { width: 2, height: 2 },
-                      shadowOpacity: 0.8,
-                      shadowRadius: 2,
-                      elevation: 1,
-                      marginLeft: 5,
-                      marginRight: 5,
-                      marginTop: 10,
-                      alignSelf: "center" }}>
-                   
+                </View>
+                    
+                    
+                  <View style={{justifyContent:"center",alignItems:"center",flex:1,flexDirection:"row"}}>{/* all images container */}
+                    <View style={{}}>{/* 1st column of images */}
+                    <View
+                    style={{
+                        backgroundColor: 'white',
+                        // paddingBottom:"5%"
+                        borderWidth: 1,
+                        borderRadius: 7,
+                        borderColor: '#ddd',
+                        // borderBottomWidth: 0,
+                        shadowColor: '#000',
+                        shadowOffset: { width: 2, height: 2 },
+                        shadowOpacity: 0.8,
+                        shadowRadius: 2,
+                        elevation: 1,
+                        marginTop: 10,
+                        justifyContent:"center",
+                        alignItems:"center",
+                        margin: "10%"
+                    }}>
+                      <View style={{width:80,height:80,
+                     }}>{/*image 1*/}
                         {this.state.showimage3 == false &&
                           <TouchableOpacity
+                            style={{}}
                             onPress={this.handleChangeSingle.bind(this)}
                           >
                             <Image
-                              style={styles.singlefinalImage}
+                              style={{width:"100%",height:"100%"}}
                               source={require('../assets/single_final.png')}
                             />
                           </TouchableOpacity>
                         }
                         {(this.state.showimage3 == true) &&
                           <Image
-                            style={styles.singlefinalImage}
+                        style={{ width: "100%", height: "100%" }}
                             source={require('../assets/Tick_mark.png')}
                           />
                         }
-                        <View style={{ alignSelf: 'center', margin: 5 }}>
-                        <Text style={{ fontWeight: "bold",fontSize: 15, textAlign: "center", color:"#2959a7" }}>{this.state.ques2_text1.Text}</Text>
+                        </View>
+                        <View >
+                        <Text style={{ fontWeight:"bold", color:"#2959a7"}}>{this.state.ques2_text1.Text}</Text>
                         </View>
                       </View>
-                      <View style={styles.multifinalview}>
+                    <View
+                      style={{
+                        backgroundColor: 'white',
+                        // paddingBottom:"5%"
+                        borderWidth: 1,
+                        borderRadius: 7,
+                        borderColor: '#ddd',
+                        // borderBottomWidth: 0,
+                        shadowColor: '#000',
+                        shadowOffset: { width: 2, height: 2 },
+                        shadowOpacity: 0.8,
+                        shadowRadius: 2,
+                        elevation: 1,
+                        marginTop: 10,
+                        justifyContent: "center",
+                        alignItems: "center",
+                        margin: "10%"
+                      }}>
+                    <View style={{
+                      width: 80, height: 80}}>{/* image 2 */}
                         {this.state.showimage4 == false &&
                           <TouchableOpacity
                             onPress={this.handleChangeMulti.bind(this)}
                           >
                             <Image
-                              style={styles.multifinalImage}
+                          style={{ width: "100%", height: "100%" }}
                               source={require('../assets/multifamily_final.png')}
                             />
                           </TouchableOpacity>
                         }
                         {(this.state.showimage4 == true) &&
                           <Image
-                            style={styles.multifinalImage}
+                        style={{ width: "100%", height: "100%" }}
                             source={require('../assets/Tick_mark.png')}
                           />
                         }
-                        <View style={{ alignSelf: 'center', margin: 5 }}>
-                        <Text style={{ fontWeight: "bold",fontSize: 15, textAlign: "center", color: "#2959a7" }}>{this.state.ques2_text2.Text}</Text>
+                        </View>
+                        <View >
+                        <Text style={{ fontWeight: "bold", color: "#2959a7" }}>{this.state.ques2_text2.Text}</Text>
                         </View>
                       </View>
                     </View>
-                    <View style={styles.page2style2}>
-                      <View style={{ alignItems: 'flex-start', backgroundColor: 'white',
-                      backgroundColor: 'white',
-                      
-                      borderWidth: 1,
-                      borderRadius: 7,
-                      borderColor: '#ddd',
-                      // borderBottomWidth: 0,
-                      shadowColor: '#000',
-                      shadowOffset: { width: 2, height: 2 },
-                      shadowOpacity: 0.8,
-                      shadowRadius: 2,
-                      elevation: 1,
-                      marginTop: 10,
-                       }}>
+
+
+
+
+
+
+                    <View style={{}}>{/* second column of images */}
+                    <View
+                      style={{
+                        backgroundColor: 'white',
+                        // paddingBottom:"5%"
+                        borderWidth: 1,
+                        borderRadius: 7,
+                        borderColor: '#ddd',
+                        // borderBottomWidth: 0,
+                        shadowColor: '#000',
+                        shadowOffset: { width: 2, height: 2 },
+                        shadowOpacity: 0.8,
+                        shadowRadius: 2,
+                        elevation: 1,
+                        marginTop: 10,
+                        justifyContent: "center",
+                        alignItems: "center",
+                        margin: "10%"
+                      }}>
+                    <View style={{
+                      height: 80, width: 80}}>{/* 3rd image */}
                         {this.state.showimage5 == false &&
                           <TouchableOpacity
                             onPress={this.handleChangeCando.bind(this)}
                           >
                             <Image
-                              style={styles.page2style3}
+                          style={{ width: "100%", height: "100%" }}
                               source={require('../assets/cando_final.png')}
                             />
                           </TouchableOpacity>
                         }
                         {(this.state.showimage5 == true) &&
                           <Image
-                            style={styles.page2style3}
+                        style={{ width: "100%", height: "100%" }}
                             source={require('../assets/Tick_mark.png')}
                           />
                         }
-                        <View style={{ alignSelf: 'center', margin: 5 }}>
-                        <Text style={{ fontWeight: "bold",fontSize: 15, textAlign: "center", color: "#2959a7" }}>{this.state.ques2_text3.Text}</Text>
+                        </View>
+                        <View >
+                        <Text style={{ fontWeight: "bold", color: "#2959a7" }}>{this.state.ques2_text3.Text}</Text>
                         </View>
                       </View>
-                      <View style={styles.singlefinalImage2}>
+                    <View
+                      style={{
+                        backgroundColor: 'white',
+                        // paddingBottom:"5%"
+                        margin: "10%",
+                        borderWidth: 1,
+                        borderRadius: 7,
+                        borderColor: '#ddd',
+                        // borderBottomWidth: 0,
+                        shadowColor: '#000',
+                        shadowOffset: { width: 2, height: 2 },
+                        shadowOpacity: 0.8,
+                        shadowRadius: 2,
+                        elevation: 1,
+                        marginTop: 10,
+                        justifyContent: "center",
+                        alignItems: "center"
+                      }}>
+                    <View style={{
+                      width: 80, height: 80, }}>{/**4th image */}
                         {this.state.showimage6 == false &&
                           <TouchableOpacity
                             onPress={this.handleChangeTownHouse.bind(this)}
                           >
                             <Image
-                              style={styles.singlefinalImage}
+                          style={{ width: "100%", height: "100%" }}
                               source={require('../assets/townhouse_final.png')}
                             />
                           </TouchableOpacity>
                         }
                         {(this.state.showimage6 == true) &&
                           <Image
-                            style={styles.singlefinalImage}
+                        style={{ width: "100%", height: "100%" }}
                             source={require('../assets/Tick_mark.png')}
                           />
                         }
-                        <View style={{ alignSelf: 'center', margin: 5 }}>
-                        <Text style={{ fontWeight: "bold",fontSize: 15, textAlign: "center", color: "#2959a7" }}>{this.state.ques2_text4.Text}</Text>
+                        </View>
+                        <View >
+                        <Text style={{ fontWeight: "bold", color: "#2959a7" }}>{this.state.ques2_text4.Text}</Text>
                         </View>
                       </View>
                     </View>
-                    {this.state.showimage3 == false && this.state.showimage4 == false && this.state.showimage5 == false && this.state.showimage6 == false ?
-                      <View style={{ alignSelf: "center", marginTop: 10 }}>
-                        <Text style={{ color: "red" }}>
-                          {this.state.errorvalue1}
-                        </Text>
-                      </View> :
-                      <View style={{ flexDirection: 'row', justifyContent: "center", marginTop: "10%" }}>
 
-                        <Button block
-                          style={styles.next_btnstyle}
-                          onPress={this.nextButtonQuick9.bind(this)}>
-                          <Text>Next</Text>
-                        </Button>
 
-                      </View>
-                    }
+
+                    
                   </View>
+                {this.state.showimage3 == false && this.state.showimage4 == false && this.state.showimage5 == false && this.state.showimage6 == false ?
+                  <View >
+                    <Text style={{ color: "red" }}>
+                      {this.state.errorvalue1}
+                    </Text>
+                  </View> :
+                  <View style={{ flexDirection: 'row', justifyContent: "center", marginTop: "10%" }}>
+
+                    <Button block
+                      style={styles.next_btnstyle}
+                      onPress={this.nextButtonQuick9.bind(this)}>
+                      <Text>Next</Text>
+                    </Button>
+
+                  </View>
+                }
                 </View>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
               }
               {this.state.index === 2 &&
                 <View>
@@ -3384,7 +3508,7 @@ export default class Page1 extends React.Component {
 
                     <Button block
                       style={styles.next_btnstyle}
-                      onPress={this.nextButtonQuick12.bind(this)}>
+                      onPress={this.nextButtonQuick9.bind(this)}>
                       <Text>Next</Text>
                     </Button>
 
