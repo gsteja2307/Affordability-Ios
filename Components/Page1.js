@@ -2839,7 +2839,7 @@ export default class Page1 extends React.Component {
                               />
                             </TouchableOpacity>
                           }
-                          {(this.state.showimage4 == true) &&
+                          {(this.state.showimage8 == true) &&
                             <Image
                               style={{ width: "100%", height: "100%" }}
                               source={require('../assets/Tick_mark.png')}
