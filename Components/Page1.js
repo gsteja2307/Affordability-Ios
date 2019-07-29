@@ -155,9 +155,10 @@ export default class Page1 extends React.Component {
       ques14_text4: "",
 
       //validation for proper names
+
       validcity: false,
-      validfname: false,
-      validlname: false,
+      validfname: (global.data.firstName) ? true : false,
+      validlname: (global.data.lastName) ? true : false,
       validZipCode: false, //! valid zipcode is not functioning as of now, need to implement the checkzip function with client api and then get back to this
       //errormessages
 
@@ -240,10 +241,10 @@ export default class Page1 extends React.Component {
       city: "",
       zip: "",
       property: "",
-      fname: "",
-      lname: "",
-      phone: "",
-      email: "",
+      fname: global.data.firstName,
+      lname: global.data.lastName,
+      phone: (global.data.phoneNumber) ? global.data.phoneNumber : "",
+      email: global.data.emailId,
       submitting: false,
       showimage1: false,
       showimage2: false,
@@ -517,12 +518,12 @@ export default class Page1 extends React.Component {
           "city": this.state.city_data,
           "zip": this.state.zip_data,
           "state": this.state.property
-        }
-        ,
-        "firstName": this.state.fName_data,
-        "lastName": this.state.lName_data,
-        "emailId": this.state.email_data,
-        "phoneNumber": this.state.phoneNumber_data
+        },
+
+        "firstName": (global.data.firstName) ? global.data.firstName : this.state.fName_data,
+        "lastName": (global.data.lastName) ? global.data.lastName : this.state.lName_data,
+        "emailId": (global.data.emailId) ? global.data.emailId : this.state.email_data,
+        "phoneNumber": (global.data.phoneNumber) ? global.data.phoneNumber : this.state.phoneNumber_data
       }
       console.log(data);
       const self = this;
@@ -1580,6 +1581,8 @@ export default class Page1 extends React.Component {
 
   }
   render() {
+    // console.log("details",this.props.screenProps.details)
+    console.log("data", global.data)
     const marks = [
       { name: '0', value: 0 },
       // { name: '250K', value: 250000 },
@@ -2420,41 +2423,43 @@ export default class Page1 extends React.Component {
               {this.state.index === 0 &&
 
 
-                <View style={{ justifyContent: "center", alignItems: "center"}}>
+                <View style={{ justifyContent: "center", alignItems: "center" }}>
 
-                <View style={{ width: 250, height: 200 }}>
-                  <Image
-                  style={{width:"100%",height:"100%"}}
-                    source={require('../assets/pick_your_loan_type.png')}
-                  />
-                </View>
-                  <View style={{ backgroundColor: 'white', justifyContent: "center"}}>
-                  
+                  <View style={{ width: 250, height: 200 }}>
+                    <Image
+                      style={{ width: "100%", height: "100%" }}
+                      source={require('../assets/pick_your_loan_type.png')}
+                    />
+                  </View>
+                  <View style={{ backgroundColor: 'white', justifyContent: "center" }}>
+
                     {/* <View style={{ alignContent: 'center' }}> */}
-                    
-                  <Text style={{ fontSize: deviceHeight <= 550 ? 12 : 18, fontWeight: "bold", textAlign: "center", color:"#40b049" }} >
-                        {this.state.ques1_ques}
-                      </Text>
+
+                    <Text style={{ fontSize: deviceHeight <= 550 ? 12 : 18, fontWeight: "bold", textAlign: "center", color: "#40b049" }} >
+                      {this.state.ques1_ques}
+                    </Text>
                     {/* </View> */}
                   </View>
                   <View style={{ justifyContent: "center", marginTop: deviceHeight <= 550 ? "5%" : "10%" }}>
                     <View style={styles.viewrifan}>
-                      <View style={{ alignItems: 'flex-start', backgroundColor: 'white',
-                      borderWidth: 1,
-                      borderRadius: 7,
-                      borderColor: '#ddd',
-                      // borderBottomWidth: 0,
-                      shadowColor: '#000',
-                      shadowOffset: { width: 2, height: 2 },
-                      shadowOpacity: 0.8,
-                      shadowRadius: 2,
-                      elevation: 1,
-                      marginLeft: 5,
-                      marginRight: 5,
-                      marginTop: 10, }}>
+                      <View style={{
+                        alignItems: 'flex-start', backgroundColor: 'white',
+                        borderWidth: 1,
+                        borderRadius: 7,
+                        borderColor: '#ddd',
+                        // borderBottomWidth: 0,
+                        shadowColor: '#000',
+                        shadowOffset: { width: 2, height: 2 },
+                        shadowOpacity: 0.8,
+                        shadowRadius: 2,
+                        elevation: 1,
+                        marginLeft: 5,
+                        marginRight: 5,
+                        marginTop: 10,
+                      }}>
                         {this.state.showimage1 == false &&
                           <TouchableOpacity style={{}}
-                           onPress={this.handleChangeRefinance.bind(this)}>
+                            onPress={this.handleChangeRefinance.bind(this)}>
                             <Image
                               style={styles.refinance}
                               source={require('../assets/refinance_final.png')}
@@ -2468,23 +2473,25 @@ export default class Page1 extends React.Component {
                           />
                         }
                         <View style={{ alignSelf: 'center', margin: 5 }}>
-                        <Text style={{ fontWeight: "bold", fontSize: 15, textAlign: "center", color:"#2959a7" }}>{this.state.ques1_text1.Text}</Text>
+                          <Text style={{ fontWeight: "bold", fontSize: 15, textAlign: "center", color: "#2959a7" }}>{this.state.ques1_text1.Text}</Text>
                         </View>
                       </View>
-                      <View style={{ alignItems: 'flex-end', position: "absolute", right: 0,
+                      <View style={{
+                        alignItems: 'flex-end', position: "absolute", right: 0,
                         backgroundColor: 'white',
                         borderWidth: 1,
                         borderRadius: 7,
                         borderColor: '#ddd',
                         // borderBottomWidth: 0,
                         shadowColor: '#000',
-                        shadowOffset: {width: 2, height: 2 },
+                        shadowOffset: { width: 2, height: 2 },
                         shadowOpacity: 0.8,
                         shadowRadius: 2,
                         elevation: 1,
                         marginLeft: 5,
                         marginRight: 5,
-                        marginTop: 10, }}>
+                        marginTop: 10,
+                      }}>
                         {this.state.showimage2 == false &&
                           <TouchableOpacity
                             onPress={this.handleChangePurchase.bind(this)}
@@ -2502,7 +2509,7 @@ export default class Page1 extends React.Component {
                           />
                         }
                         <View style={{ alignSelf: 'center', margin: 5 }}>
-                        <Text style={{ fontWeight: "bold", fontSize: 15, textAlign: "center", color:"#2959a7" }}>{this.state.ques1_text2.Text}</Text>
+                          <Text style={{ fontWeight: "bold", fontSize: 15, textAlign: "center", color: "#2959a7" }}>{this.state.ques1_text2.Text}</Text>
                         </View>
                       </View>
                     </View>
@@ -2526,123 +2533,105 @@ export default class Page1 extends React.Component {
                 </View>
               }
               {this.state.index === 1 &&
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-               
                 <View>
-                  <View style={{justifyContent:"center",alignItems:"center"}}>{/*image + question view */}
+                  <View style={{ justifyContent: "center", alignItems: "center" }}>{/*image + question view */}
                     <View >
-                    <Image
-                      
-                      source={require('../assets/Property_type.png')}
-                    />
-                    <Text style={{ paddingTop:10,fontWeight: "bold", marginLeft: "5%", color:"#40b049"}}>
-                      {this.state.ques2_ques}
-                    </Text>
+                      <Image
+
+                        source={require('../assets/Property_type.png')}
+                      />
+                      <Text style={{ paddingTop: 10, fontWeight: "bold", marginLeft: "5%", color: "#40b049" }}>
+                        {this.state.ques2_ques}
+                      </Text>
+                    </View>
                   </View>
-                </View>
-                    
-                    
-                  <View style={{justifyContent:"center",alignItems:"center",flex:1,flexDirection:"row"}}>{/* all images container */}
+
+
+                  <View style={{ justifyContent: "center", alignItems: "center", flex: 1, flexDirection: "row" }}>{/* all images container */}
                     <View style={{}}>{/* 1st column of images */}
-                    <View
-                    style={{
-                        backgroundColor: 'white',
-                        // paddingBottom:"5%"
-                        borderWidth: 1,
-                        borderRadius: 7,
-                        borderColor: '#ddd',
-                        // borderBottomWidth: 0,
-                        shadowColor: '#000',
-                        shadowOffset: { width: 2, height: 2 },
-                        shadowOpacity: 0.8,
-                        shadowRadius: 2,
-                        elevation: 1,
-                        marginTop: 10,
-                        justifyContent:"center",
-                        alignItems:"center",
-                        margin: "10%"
-                    }}>
-                      <View style={{width:80,height:80,
-                     }}>{/*image 1*/}
-                        {this.state.showimage3 == false &&
-                          <TouchableOpacity
-                            style={{}}
-                            onPress={this.handleChangeSingle.bind(this)}
-                          >
+                      <View
+                        style={{
+                          backgroundColor: 'white',
+                          // paddingBottom:"5%"
+                          borderWidth: 1,
+                          borderRadius: 7,
+                          borderColor: '#ddd',
+                          // borderBottomWidth: 0,
+                          shadowColor: '#000',
+                          shadowOffset: { width: 2, height: 2 },
+                          shadowOpacity: 0.8,
+                          shadowRadius: 2,
+                          elevation: 1,
+                          marginTop: 10,
+                          justifyContent: "center",
+                          alignItems: "center",
+                          margin: "10%"
+                        }}>
+                        <View style={{
+                          width: 80, height: 80,
+                        }}>{/*image 1*/}
+                          {this.state.showimage3 == false &&
+                            <TouchableOpacity
+                              style={{}}
+                              onPress={this.handleChangeSingle.bind(this)}
+                            >
+                              <Image
+                                style={{ width: "100%", height: "100%" }}
+                                source={require('../assets/single_final.png')}
+                              />
+                            </TouchableOpacity>
+                          }
+                          {(this.state.showimage3 == true) &&
                             <Image
-                              style={{width:"100%",height:"100%"}}
-                              source={require('../assets/single_final.png')}
+                              style={{ width: "100%", height: "100%" }}
+                              source={require('../assets/Tick_mark.png')}
                             />
-                          </TouchableOpacity>
-                        }
-                        {(this.state.showimage3 == true) &&
-                          <Image
-                        style={{ width: "100%", height: "100%" }}
-                            source={require('../assets/Tick_mark.png')}
-                          />
-                        }
+                          }
                         </View>
                         <View >
-                        <Text style={{ fontWeight:"bold", color:"#2959a7"}}>{this.state.ques2_text1.Text}</Text>
+                          <Text style={{ fontWeight: "bold", color: "#2959a7" }}>{this.state.ques2_text1.Text}</Text>
                         </View>
                       </View>
-                    <View
-                      style={{
-                        backgroundColor: 'white',
-                        // paddingBottom:"5%"
-                        borderWidth: 1,
-                        borderRadius: 7,
-                        borderColor: '#ddd',
-                        // borderBottomWidth: 0,
-                        shadowColor: '#000',
-                        shadowOffset: { width: 2, height: 2 },
-                        shadowOpacity: 0.8,
-                        shadowRadius: 2,
-                        elevation: 1,
-                        marginTop: 10,
-                        justifyContent: "center",
-                        alignItems: "center",
-                        margin: "10%"
-                      }}>
-                    <View style={{
-                      width: 80, height: 80}}>{/* image 2 */}
-                        {this.state.showimage4 == false &&
-                          <TouchableOpacity
-                            onPress={this.handleChangeMulti.bind(this)}
-                          >
+                      <View
+                        style={{
+                          backgroundColor: 'white',
+                          // paddingBottom:"5%"
+                          borderWidth: 1,
+                          borderRadius: 7,
+                          borderColor: '#ddd',
+                          // borderBottomWidth: 0,
+                          shadowColor: '#000',
+                          shadowOffset: { width: 2, height: 2 },
+                          shadowOpacity: 0.8,
+                          shadowRadius: 2,
+                          elevation: 1,
+                          marginTop: 10,
+                          justifyContent: "center",
+                          alignItems: "center",
+                          margin: "10%"
+                        }}>
+                        <View style={{
+                          width: 80, height: 80
+                        }}>{/* image 2 */}
+                          {this.state.showimage4 == false &&
+                            <TouchableOpacity
+                              onPress={this.handleChangeMulti.bind(this)}
+                            >
+                              <Image
+                                style={{ width: "100%", height: "100%" }}
+                                source={require('../assets/multifamily_final.png')}
+                              />
+                            </TouchableOpacity>
+                          }
+                          {(this.state.showimage4 == true) &&
                             <Image
-                          style={{ width: "100%", height: "100%" }}
-                              source={require('../assets/multifamily_final.png')}
+                              style={{ width: "100%", height: "100%" }}
+                              source={require('../assets/Tick_mark.png')}
                             />
-                          </TouchableOpacity>
-                        }
-                        {(this.state.showimage4 == true) &&
-                          <Image
-                        style={{ width: "100%", height: "100%" }}
-                            source={require('../assets/Tick_mark.png')}
-                          />
-                        }
+                          }
                         </View>
                         <View >
-                        <Text style={{ fontWeight: "bold", color: "#2959a7" }}>{this.state.ques2_text2.Text}</Text>
+                          <Text style={{ fontWeight: "bold", color: "#2959a7" }}>{this.state.ques2_text2.Text}</Text>
                         </View>
                       </View>
                     </View>
@@ -2653,267 +2642,330 @@ export default class Page1 extends React.Component {
 
 
                     <View style={{}}>{/* second column of images */}
-                    <View
-                      style={{
-                        backgroundColor: 'white',
-                        // paddingBottom:"5%"
-                        borderWidth: 1,
-                        borderRadius: 7,
-                        borderColor: '#ddd',
-                        // borderBottomWidth: 0,
-                        shadowColor: '#000',
-                        shadowOffset: { width: 2, height: 2 },
-                        shadowOpacity: 0.8,
-                        shadowRadius: 2,
-                        elevation: 1,
-                        marginTop: 10,
-                        justifyContent: "center",
-                        alignItems: "center",
-                        margin: "10%"
-                      }}>
-                    <View style={{
-                      height: 80, width: 80}}>{/* 3rd image */}
-                        {this.state.showimage5 == false &&
-                          <TouchableOpacity
-                            onPress={this.handleChangeCando.bind(this)}
-                          >
+                      <View
+                        style={{
+                          backgroundColor: 'white',
+                          // paddingBottom:"5%"
+                          borderWidth: 1,
+                          borderRadius: 7,
+                          borderColor: '#ddd',
+                          // borderBottomWidth: 0,
+                          shadowColor: '#000',
+                          shadowOffset: { width: 2, height: 2 },
+                          shadowOpacity: 0.8,
+                          shadowRadius: 2,
+                          elevation: 1,
+                          marginTop: 10,
+                          justifyContent: "center",
+                          alignItems: "center",
+                          margin: "10%"
+                        }}>
+                        <View style={{
+                          height: 80, width: 80
+                        }}>{/* 3rd image */}
+                          {this.state.showimage5 == false &&
+                            <TouchableOpacity
+                              onPress={this.handleChangeCando.bind(this)}
+                            >
+                              <Image
+                                style={{ width: "100%", height: "100%" }}
+                                source={require('../assets/cando_final.png')}
+                              />
+                            </TouchableOpacity>
+                          }
+                          {(this.state.showimage5 == true) &&
                             <Image
-                          style={{ width: "100%", height: "100%" }}
-                              source={require('../assets/cando_final.png')}
+                              style={{ width: "100%", height: "100%" }}
+                              source={require('../assets/Tick_mark.png')}
                             />
-                          </TouchableOpacity>
-                        }
-                        {(this.state.showimage5 == true) &&
-                          <Image
-                        style={{ width: "100%", height: "100%" }}
-                            source={require('../assets/Tick_mark.png')}
-                          />
-                        }
+                          }
                         </View>
                         <View >
-                        <Text style={{ fontWeight: "bold", color: "#2959a7" }}>{this.state.ques2_text3.Text}</Text>
+                          <Text style={{ fontWeight: "bold", color: "#2959a7" }}>{this.state.ques2_text3.Text}</Text>
                         </View>
                       </View>
-                    <View
-                      style={{
-                        backgroundColor: 'white',
-                        // paddingBottom:"5%"
-                        margin: "10%",
-                        borderWidth: 1,
-                        borderRadius: 7,
-                        borderColor: '#ddd',
-                        // borderBottomWidth: 0,
-                        shadowColor: '#000',
-                        shadowOffset: { width: 2, height: 2 },
-                        shadowOpacity: 0.8,
-                        shadowRadius: 2,
-                        elevation: 1,
-                        marginTop: 10,
-                        justifyContent: "center",
-                        alignItems: "center"
-                      }}>
-                    <View style={{
-                      width: 80, height: 80, }}>{/**4th image */}
-                        {this.state.showimage6 == false &&
-                          <TouchableOpacity
-                            onPress={this.handleChangeTownHouse.bind(this)}
-                          >
+                      <View
+                        style={{
+                          backgroundColor: 'white',
+                          // paddingBottom:"5%"
+                          margin: "10%",
+                          // borderWidth: 1,
+                          borderRadius: 7,
+                          borderColor: '#ddd',
+
+                          // borderBottomWidth: 0,
+                          shadowColor: '#000',
+                          shadowOffset: { width: 2, height: 2 },
+                          shadowOpacity: 0.8,
+                          shadowRadius: 2,
+                          elevation: 6,
+                          marginTop: 10,
+                          justifyContent: "center",
+                          alignItems: "center"
+                        }}>
+                        <View style={{
+                          width: 80, height: 80,
+                        }}>{/**4th image */}
+                          {this.state.showimage6 == false &&
+                            <TouchableOpacity
+                              onPress={this.handleChangeTownHouse.bind(this)}
+                            >
+                              <Image
+                                style={{ width: "100%", height: "100%" }}
+                                source={require('../assets/townhouse_final.png')}
+                              />
+                            </TouchableOpacity>
+                          }
+                          {(this.state.showimage6 == true) &&
                             <Image
-                          style={{ width: "100%", height: "100%" }}
-                              source={require('../assets/townhouse_final.png')}
+                              style={{ width: "100%", height: "100%" }}
+                              source={require('../assets/Tick_mark.png')}
                             />
-                          </TouchableOpacity>
-                        }
-                        {(this.state.showimage6 == true) &&
-                          <Image
-                        style={{ width: "100%", height: "100%" }}
-                            source={require('../assets/Tick_mark.png')}
-                          />
-                        }
+                          }
                         </View>
                         <View >
-                        <Text style={{ fontWeight: "bold", color: "#2959a7" }}>{this.state.ques2_text4.Text}</Text>
+                          <Text style={{ fontWeight: "bold", color: "#2959a7" }}>{this.state.ques2_text4.Text}</Text>
                         </View>
                       </View>
                     </View>
 
 
 
-                    
-                  </View>
-                {this.state.showimage3 == false && this.state.showimage4 == false && this.state.showimage5 == false && this.state.showimage6 == false ?
-                  <View >
-                    <Text style={{ color: "red" }}>
-                      {this.state.errorvalue1}
-                    </Text>
-                  </View> :
-                  <View style={{ flexDirection: 'row', justifyContent: "center", marginTop: "10%" }}>
-
-                    <Button block
-                      style={styles.next_btnstyle}
-                      onPress={this.nextButtonQuick9.bind(this)}>
-                      <Text>Next</Text>
-                    </Button>
 
                   </View>
-                }
+                  {this.state.showimage3 == false && this.state.showimage4 == false && this.state.showimage5 == false && this.state.showimage6 == false ?
+                    <View >
+                      <Text style={{ color: "red" }}>
+                        {this.state.errorvalue1}
+                      </Text>
+                    </View> :
+                    <View style={{ flexDirection: 'row', justifyContent: "center", marginTop: "10%" }}>
+
+                      <Button block
+                        style={styles.next_btnstyle}
+                        onPress={this.nextButtonQuick9.bind(this)}>
+                        <Text>Next</Text>
+                      </Button>
+
+                    </View>
+                  }
                 </View>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
               }
               {this.state.index === 2 &&
                 <View>
-                  <View style={{ backgroundColor: 'white', justifyContent: "center", margin: "3%" }}>
-                    <View style={{ alignContent: 'center' }}>
-                      <Text style={{ fontSize: deviceHeight <= 550 ? 12 : 18, fontWeight: "bold", textAlign: "center" }} >
+                  <View style={{ justifyContent: "center", alignItems: "center" }}>{/*image + question view */}
+                    <View >
+                      <Image
+
+                        source={require('../assets/credit_header.png')}
+                      />
+                      <Text style={{ paddingTop: 10, fontWeight: "bold", marginLeft: "5%", color: "#40b049" }}>
                         {this.state.ques3_ques}
                       </Text>
                     </View>
                   </View>
-                  <View style={styles.ViewPropertytype}>
-                    <View style={styles.page3style1}>
-                      <View style={{ alignItems: 'flex-start', backgroundColor: 'white' }}>
-                        {this.state.showimage7 == false &&
-                          <TouchableOpacity
-                            onPress={this.handleChangeExcellent.bind(this)}
-                          >
+                  <View style={{ justifyContent: "center", alignItems: "center", flex: 1, flexDirection: "row" }}>{/* all images container */}
+                    <View style={{}}>{/* 1st column of images */}
+                      <View
+                        style={{
+                          backgroundColor: 'white',
+                          // paddingBottom:"5%"
+                          // borderWidth: 1,
+                          // borderRadius: 7,
+                          // borderColor: '#ddd',
+                          // borderBottomWidth: 0,
+                          // shadowColor: '#000',
+                          // shadowOffset: { width: 2, height: 2 },
+                          // shadowOpacity: 0.8,
+                          // shadowRadius: 2,
+                          // elevation: 1,
+                          marginTop: 10,
+                          justifyContent: "center",
+                          alignItems: "center",
+                          margin: "10%"
+                        }}>
+                        <View style={{
+                          width: 80, height: 80,
+                        }}>{/*image 1*/}
+                          {this.state.showimage7 == false &&
+                            <TouchableOpacity
+                              onPress={this.handleChangeExcellent.bind(this)}
+                            >
+                              <Image
+                                style={{ width: "100%", height: "100%" }}
+                                source={require('../assets/excellent_credit.png')}
+                              />
+                            </TouchableOpacity>
+                          }
+                          {(this.state.showimage7 == true) &&
                             <Image
-                              style={styles.credit}
-                              source={require('../assets/excellent_credit.png')}
+                              style={{ width: "100%", height: "100%" }}
+                              source={require('../assets/Tick_mark.png')}
                             />
-                          </TouchableOpacity>
-                        }
-                        {(this.state.showimage7 == true) &&
-                          <Image
-                            style={styles.credit}
-                            source={require('../assets/Tick_mark.png')}
-                          />
-                        }
-                        <View style={{ alignSelf: 'center', margin: 5 }}>
-                          <Text style={{ fontSize: 15, textAlign: "center" }}>{this.state.ques3_text1.Text}</Text>
+                          }
+                        </View>
+                        <View >
+                          <Text style={{ fontWeight: "bold", color: "#2959a7" }}>{this.state.ques3_text1.Text}</Text>
                         </View>
                       </View>
-                      <View style={{ alignItems: 'flex-end', position: "absolute", right: 0 }}>
-                        {this.state.showimage8 == false &&
-                          <TouchableOpacity
-                            onPress={this.handleChangeGood.bind(this)}
-                          >
+                      <View
+                        style={{
+                          backgroundColor: 'white',
+                          // paddingBottom:"5%"
+                          // borderWidth: 1,
+                          // borderRadius: 7,
+                          // borderColor: '#ddd',
+                          // borderBottomWidth: 0,
+                          // shadowColor: '#000',
+                          // shadowOffset: { width: 2, height: 2 },
+                          // shadowOpacity: 0.8,
+                          // shadowRadius: 2,
+                          // elevation: 1,
+                          marginTop: 10,
+                          justifyContent: "center",
+                          alignItems: "center",
+                          margin: "10%"
+                        }}>
+                        <View style={{
+                          width: 80, height: 80
+                        }}>{/* image 2 */}
+                          {this.state.showimage8 == false &&
+                            <TouchableOpacity
+                              onPress={this.handleChangeGood.bind(this)}
+                            >
+                              <Image
+                                style={{ width: "100%", height: "100%" }}
+                                source={require('../assets/good_credit.png')}
+                              />
+                            </TouchableOpacity>
+                          }
+                          {(this.state.showimage4 == true) &&
                             <Image
-                              style={styles.credit}
-                              source={require('../assets/good_credit.png')}
+                              style={{ width: "100%", height: "100%" }}
+                              source={require('../assets/Tick_mark.png')}
                             />
-                          </TouchableOpacity>
-                        }
-                        {(this.state.showimage8 == true) &&
-                          <Image
-                            style={styles.credit}
-                            source={require('../assets/Tick_mark.png')}
-                          />
-                        }
-                        <View style={{ alignSelf: 'center', margin: 5 }}>
-                          <Text style={{ fontSize: 15, textAlign: "center" }}>{this.state.ques3_text2.Text}</Text>
+                          }
+                        </View>
+                        <View >
+                          <Text style={{ fontWeight: "bold", color: "#2959a7" }}>{this.state.ques3_text2.Text}</Text>
                         </View>
                       </View>
                     </View>
-                    <View style={styles.page3style2}>
-                      <View style={{ alignItems: 'flex-start', backgroundColor: 'white' }}>
-                        {this.state.showimage9 == false &&
-                          <TouchableOpacity
-                            onPress={this.handleChangeFair.bind(this)}
-                          >
+
+
+
+
+
+
+                    <View style={{}}>{/* second column of images */}
+                      <View
+                        style={{
+                          backgroundColor: 'white',
+                          // paddingBottom:"5%"
+                          // borderWidth: 1,
+                          // borderRadius: 7,
+                          // borderColor: '#ddd',
+                          // borderBottomWidth: 0,
+                          // shadowColor: '#000',
+                          // shadowOffset: { width: 2, height: 2 },
+                          // shadowOpacity: 0.8,
+                          // shadowRadius: 2,
+                          // elevation: 1,
+                          marginTop: 10,
+                          justifyContent: "center",
+                          alignItems: "center",
+                          margin: "10%"
+                        }}>
+                        <View style={{
+                          height: 80, width: 80
+                        }}>{/* 3rd image */}
+                          {this.state.showimage9 == false &&
+                            <TouchableOpacity
+                              onPress={this.handleChangeFair.bind(this)}
+                            >
+                              <Image
+                                style={{ width: "100%", height: "100%" }}
+                                source={require('../assets/fair_credit.png')}
+                              />
+                            </TouchableOpacity>
+                          }
+                          {(this.state.showimage9 == true) &&
                             <Image
-                              style={styles.credit}
-                              source={require('../assets/fair_credit.png')}
+                              style={{ width: "100%", height: "100%" }}
+                              source={require('../assets/Tick_mark.png')}
                             />
-                          </TouchableOpacity>
-                        }
-                        {(this.state.showimage9 == true) &&
-                          <Image
-                            style={styles.credit}
-                            source={require('../assets/Tick_mark.png')}
-                          />
-                        }
-                        <View style={{ alignSelf: 'center', margin: 5 }}>
-                          <Text style={{ fontSize: 15, textAlign: "center" }}>{this.state.ques3_text3.Text}</Text>
+                          }
+                        </View>
+                        <View >
+                          <Text style={{ fontWeight: "bold", color: "#2959a7" }}>{this.state.ques3_text3.Text}</Text>
                         </View>
                       </View>
-                      <View style={{ alignItems: 'flex-end', position: "absolute", right: 0 }}>
-                        {this.state.showimage10 == false &&
-                          <TouchableOpacity
-                            onPress={this.handleChangePoor.bind(this)}
-                          >
+                      <View
+                        style={{
+                          backgroundColor: 'white',
+                          // paddingBottom:"5%"
+                          margin: "10%",
+                          // borderWidth: 1,
+                          // borderRadius: 7,
+                          // borderColor: '#ddd',
+                          // borderBottomWidth: 0,
+                          // shadowColor: '#000',
+                          // shadowOffset: { width: 2, height: 2 },
+                          // shadowOpacity: 0.8,
+                          // shadowRadius: 2,
+                          // elevation: 1,
+                          marginTop: 10,
+                          justifyContent: "center",
+                          alignItems: "center"
+                        }}>
+                        <View style={{
+                          width: 80, height: 80,
+                        }}>{/**4th image */}
+                          {this.state.showimage10 == false &&
+                            <TouchableOpacity
+                              onPress={this.handleChangePoor.bind(this)}
+                            >
+                              <Image
+                                style={{ width: "100%", height: "100%" }}
+                                source={require('../assets/poor_credit.png')}
+                              />
+                            </TouchableOpacity>
+                          }
+                          {(this.state.showimage10 == true) &&
                             <Image
-                              style={styles.credit}
-                              source={require('../assets/poor_credit.png')}
+                              style={{ width: "100%", height: "100%" }}
+                              source={require('../assets/Tick_mark.png')}
                             />
-                          </TouchableOpacity>
-                        }
-                        {(this.state.showimage10 == true) &&
-                          <Image
-                            style={styles.credit}
-                            source={require('../assets/Tick_mark.png')}
-                          />
-                        }
-                        <View style={{ alignSelf: 'center', margin: 5 }}>
-                          <Text style={{ fontSize: 15, textAlign: "center" }}>{this.state.ques3_text4.Text}</Text>
+                          }
+                        </View>
+                        <View >
+                          <Text style={{ fontWeight: "bold", color: "#2959a7" }}>{this.state.ques3_text4.Text}</Text>
                         </View>
                       </View>
                     </View>
-                    {this.state.showimage7 == false && this.state.showimage8 == false && this.state.showimage9 == false && this.state.showimage10 == false ?
-                      <View style={{ alignSelf: "center", marginTop: 10 }}>
-                        <Text style={{ color: "red" }}>
-                          {this.state.errorvalue2}
-                        </Text>
-                      </View> :
-                      <View style={{ flexDirection: 'row', justifyContent: "center", marginTop: "10%" }}>
 
-                        <Button block
-                          style={styles.next_btnstyle}
-                          onPress={this.nextButtonQuick9.bind(this)}>
-                          <Text>Next</Text>
-                        </Button>
 
-                      </View>
-                    }
+
+
                   </View>
+                  {this.state.showimage7 == false && this.state.showimage8 == false && this.state.showimage9 == false && this.state.showimage10 == false ?
+                    <View style={{ alignSelf: "center", marginTop: 10 }}>
+                      <Text style={{ color: "red" }}>
+                        {this.state.errorvalue2}
+                      </Text>
+                    </View> :
+                    <View style={{ flexDirection: 'row', justifyContent: "center", marginTop: "10%" }}>
+
+                      <Button block
+                        style={styles.next_btnstyle}
+                        onPress={this.nextButtonQuick9.bind(this)}>
+                        <Text>Next</Text>
+                      </Button>
+
+                    </View>
+                  }
                 </View>
+
               }
               {this.state.index === 3 &&
                 <View>
