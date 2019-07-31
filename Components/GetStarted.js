@@ -47,7 +47,7 @@ export default class GetStarted extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    marginTop:Platform.OS== "android"?"": 20,
+    marginTop:Platform.OS== "android"?"": 30,
     flex: 1,
     // justifyContent:'center',
     alignItems: 'center',

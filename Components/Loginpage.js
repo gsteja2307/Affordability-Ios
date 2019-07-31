@@ -324,7 +324,7 @@ class Loginpage extends React.Component {
       <View style={styles.container}>
         <ImageBackground source={BG_IMAGE} style={styles.bgImage}>
 
-          <View style={{paddingTop:'15%'}}>
+          <View style={{}}>
            <ScrollView>
             <KeyboardAvoidingView
               contentContainerStyle={styles.loginContainer}
@@ -414,8 +414,8 @@ class Loginpage extends React.Component {
                       onChangeText={lastname => this.setState({ lastname })}
                     />
                       {
-                        this.state.validlastname ? <Text></Text> : <Text style={{ color: "red" }}>Please enter lastname</Text>
-                      }
+                      this.state.validlastname ? <Text></Text> : <Text style={{ justifyContent: 'flex-start', color: "red" }}>Please enter lastname</Text>
+                      }	
                     <Input
 
                       value={email}
@@ -438,7 +438,7 @@ class Loginpage extends React.Component {
                      
                     />
                       {
-                        isEmailValid ? <Text></Text> : <Text style={{left:0,color:"red"}}>Please enter a valid email address</Text>
+                        isEmailValid ? <Text></Text> : <Text style={{ justifyContent: 'flex-start',color:"red"}}>Please enter a valid email address</Text>
                       }
                       
                     <Input
@@ -463,7 +463,7 @@ class Loginpage extends React.Component {
                       onChangeText={phonenumber => this.setState({ phonenumber })}
                     />
                       {
-                        this.state.validphone ? <Text></Text> : <Text style={{ color: "red" }}>Please enter phoneNumber</Text>
+                        this.state.validphone ? <Text></Text> : <Text style={{ justifyContent: 'flex-start',color: "red" }}>Please enter phoneNumber</Text>
                       }
                     <Input
                       value={password}
@@ -490,7 +490,7 @@ class Loginpage extends React.Component {
                     
                     />
                     {
-                      isPasswordValid ? <Text></Text> : <Text style={{ left: 0, color: "red" }}>Please enter a valid email address</Text>
+                        isPasswordValid ? <Text></Text> : <Text style={{ justifyContent: 'flex-start', left: 0, color: "red" }}>Please enter a valid email address</Text>
                     }  
 
                   </View>
@@ -559,7 +559,7 @@ class Loginpage extends React.Component {
     onPress={() => {
       this.props.navigation.navigate("Details")
     }}>
-    Forgot Passsword
+    Forgot Passsword ?
    </Text>
 
 
@@ -579,7 +579,7 @@ class Loginpage extends React.Component {
    
                 <Button
                   buttonStyle={styles.loginButton}
-                  containerStyle={{ marginTop: 32, flex: 0 }}
+                  containerStyle={{ marginTop: 15, flex: 0 }}
                   activeOpacity={0.8}
                   title={isLoginPage ? 'LOGIN' : 'SIGN UP'}
                   onPress={isLoginPage ? this.login : this.signUp}
@@ -867,7 +867,7 @@ class Forgotpassword extends React.Component {
   render() {
     return (
 
-      <View style={{ flex: 1 }}>
+      <View style={{ flex: 1 ,marginTop:30}}>
         <ImageBackground source={BG_IMAGE} style={styles.bgImage}>
           <View style={{ alignItems: 'center', marginTop: '10%', backgroundColor: 'white', height: '45%', borderRadius: 10, justifyContent: 'flex-start' }}>
             <View style={styles.formsignup2}>
@@ -891,7 +891,7 @@ class Forgotpassword extends React.Component {
             </View>
             {
               this.state.status ? (
-                <View style={styles.forgotpasssword}>
+                <View style={styles.formsignup2}>
 
                   <Input
 
@@ -923,7 +923,7 @@ class Forgotpassword extends React.Component {
                     onChangeText={password => this.setState({ password })}
                     keyboardType="email-address" s
                     returnKeyType="next"
-                    inputStyle={{ marginLeft: 0}}
+                    inputStyle={{ marginLeft: 10 }}
                     placeholder={'Password'}
                     containerStyle={{
                       borderBottomColor: 'rgba(0, 0, 0, 0.38)',
@@ -1000,6 +1000,7 @@ export default Page;
 
 const styles = StyleSheet.create({
   container: {
+    marginTop:30,
     flex: 1,
     fontFamily: 'open sans',
 
@@ -1019,8 +1020,8 @@ const styles = StyleSheet.create({
     height: 0,
     width: 0,
     top: -5,
-    borderRightWidth: 70,
-    borderBottomWidth: 70,
+    borderRightWidth: 60,
+    borderBottomWidth: 60,
     borderColor: 'white',
     backgroundColor: 'white',
   },
@@ -1044,7 +1045,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 10,
-    height: 50,
+    height: 45,
     width: 150,
     marginRight: 5
     // marginTop:'10%',
@@ -1068,33 +1069,23 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     width: SCREEN_WIDTH - 30,
     borderRadius: 10,
-    paddingTop: 25,
-    paddingBottom: 32,
+
+    // paddingBottom: 32,
     alignItems: 'center',
   },
   formsignup: {
     backgroundColor: 'white',
     width: SCREEN_WIDTH - 30,
     borderRadius: 10,
-    paddingBottom: 10,
-    alignItems: 'center',
+    paddingBottom: 8,
+    alignItems: 'flex-start',
   },
   //// login form css
   formsignup2: {
     backgroundColor: 'white',
     width: SCREEN_WIDTH - 30,
     borderRadius: 10,
-    paddingTop: 10,
-    alignItems: 'center',
-
-
-  },
-  forgotpasssword: {
-  
-    backgroundColor: 'white',
-    width: SCREEN_WIDTH - 30,
-    borderRadius: 10,
-    paddingTop: 10,
+    paddingTop: 20,
     alignItems: 'center',
 
 
@@ -1136,12 +1127,12 @@ const styles = StyleSheet.create({
     color: 'white',
     fontSize: 25,
     paddingTop: 6,
-    // fontFamily: 'light',
+    // fontFamily: 'open sans',
   },
   titleText: {
     color: 'white',
     fontSize: 30,
-    // fontFamily: 'regular',
+    // fontFamily: 'open sans',
   },
 
 });

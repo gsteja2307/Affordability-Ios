@@ -12,6 +12,8 @@ import {
   Footer,
 
 } from "native-base";
+import Toast, { DURATION } from 'react-native-easy-toast'
+
 import { Dropdown } from 'react-native-material-dropdown'; // 0.7.2
 import Modal from "react-native-modal";
 import Slider from 'react-native-slider';
@@ -47,6 +49,9 @@ export default class Page1 extends React.Component {
       formstyle5: styles.password,
       formstyle6: styles.password,
       formstyle7: styles.password,
+      formstyle8: styles.password,
+
+
       yes1: "#ECE9E9",
       yes2: "#ECE9E9",
       yes3: "#ECE9E9",
@@ -277,6 +282,16 @@ export default class Page1 extends React.Component {
   onFocus2() {
     console.log(styles.password2)
     this.setState({ formstyle2: styles.password2 })
+    console.log("state", this.state.formstyle)
+  }
+  onBlur8() {
+    console.log(styles.password)
+    this.setState({ formstyle8: styles.password })
+    console.log("state", this.state.formstyle)
+  }
+  onFocus8() {
+    console.log(styles.password2)
+    this.setState({ formstyle8: styles.password2 })
     console.log("state", this.state.formstyle)
   }
   onBlur2() {
@@ -640,7 +655,9 @@ export default class Page1 extends React.Component {
           validZipCode: false,
         });
       }).catch((error) => {
-        console.log(error.result);
+        this.refs.toast.show(error.response.data.result.error_message.error, 5000);
+
+        console.log(error.response.data.result.error_message.error);
       })
       // fetch('http://69.55.49.121:3001/v1/userTemplates/register', {
       //   method: 'POST', // *GET, POST, PUT, DELETE, etc.
@@ -1409,12 +1426,8 @@ export default class Page1 extends React.Component {
 
   }
   nextButtonQuick9() {
-    if (this.state.index > 0) {
-      if (this.state.index != 12) {
-        this.setState({
-          index: this.state.index + 1
-        })
-      }
+    if (this.state.index >= 0) {
+
       if (this.state.index == 3 && this.state.value) {
         console.log("ok the property value is set in next butt")
         this.setState({
@@ -1441,6 +1454,11 @@ export default class Page1 extends React.Component {
         this.setState({
           downPayament_data: this.state.down_payment_value,
           index: 7
+        })
+      }
+      if (this.state.index != 12) {
+        this.setState({
+          index: this.state.index + 1
         })
       }
       if (this.state.index == 12 && !this.state.address) {
@@ -1833,7 +1851,7 @@ export default class Page1 extends React.Component {
             <View style={{ flexDirection: 'row', backgroundColor: "white", flex: 1, justifyContent: "center", alignItems: "center" }}>
               <View style={{ flexDirection: "row", width: 70, flexWrap: "wrap", alignItems: "center", backgroundColor: "white", justifyContent: "space-between" }}>
                 {this.state.index == '1a' ? null : <TouchableOpacity onPress={this.backButtonQuick123.bind(this)} style={{ justifyContent: "center" }}  >
-                  <Text style={{ color: "black", fontSize: 40, paddingBottom: "7%" }}> &#8249;</Text>
+                  <Text style={{ color: "black", fontSize: 40, paddingBottom: "10%" }}> &#8249;</Text>
                 </TouchableOpacity>
                 }
 
@@ -1845,6 +1863,7 @@ export default class Page1 extends React.Component {
                   />
                 </TouchableOpacity>
               </View>
+
               <DrawerNavigation />
               <View style={{ width: 60 }}></View>
             </View>
@@ -1875,7 +1894,7 @@ export default class Page1 extends React.Component {
                         <Image style={{ height: deviceHeight <= 550 ? "80%" : "120%", width: deviceHeight <= 550 ? "80%" : "120%" }} source={require('../assets/car1.png')} />
                       </View>
 
-                      <Text style={{ fontSize: deviceHeight <= 550 ? 12 : 18, fontWeight: "bold", textAlign: "center" }} >
+                      <Text style={{ fontSize: deviceHeight <= 550 ? 12 : 18, fontWeight: "bold", textAlign: "center", color: "#40b049" }} >
                         {this.state.yesnoques0}
                       </Text>
                     </View>
@@ -1952,7 +1971,7 @@ export default class Page1 extends React.Component {
                       <View style={{ backgroundColor: "white", height: deviceHeight <= 550 ? 80 : 120, width: deviceHeight <= 550 ? 80 : 150, justifyContent: "center", alignItems: "center" }}>
                         <Image style={{ height: deviceHeight <= 550 ? "80%" : "100%", width: deviceHeight <= 550 ? "80%" : "100%" }} source={require('../assets/defaultqaimg.png')} />
                       </View>
-                      <Text style={{ fontSize: deviceHeight <= 550 ? 12 : 18, fontWeight: "bold", textAlign: "center" }} >
+                      <Text style={{ fontSize: deviceHeight <= 550 ? 12 : 18, fontWeight: "bold", textAlign: "center", color: "#40b049" }} >
                         {this.state.yesnoques1}
                       </Text>
                     </View>
@@ -2012,7 +2031,7 @@ export default class Page1 extends React.Component {
                       <View style={{ backgroundColor: "white", height: deviceHeight <= 550 ? 80 : 120, width: deviceHeight <= 550 ? 80 : 150, justifyContent: "center", alignItems: "center" }}>
                         <Image style={{ height: deviceHeight <= 550 ? "80%" : "100%", width: deviceHeight <= 550 ? "80%" : "100%" }} source={require('../assets/defaultqaimg.png')} />
                       </View>
-                      <Text style={{ fontSize: deviceHeight <= 550 ? 12 : 18, fontWeight: "bold", textAlign: "center" }} >
+                      <Text style={{ fontSize: deviceHeight <= 550 ? 12 : 18, fontWeight: "bold", textAlign: "center", color: "#40b049" }} >
                         {this.state.yesnoques2}
                       </Text>
                     </View>
@@ -2092,7 +2111,7 @@ export default class Page1 extends React.Component {
                       <View style={{ backgroundColor: "white", height: deviceHeight <= 550 ? 80 : 120, width: deviceHeight <= 550 ? 80 : 150, justifyContent: "center", alignItems: "center" }}>
                         <Image style={{ height: deviceHeight <= 550 ? "80%" : "100%", width: deviceHeight <= 550 ? "80%" : "100%" }} source={require('../assets/defaultqaimg.png')} />
                       </View>
-                      <Text style={{ fontSize: deviceHeight <= 550 ? 12 : 18, fontWeight: "bold", textAlign: "center" }} >
+                      <Text style={{ fontSize: deviceHeight <= 550 ? 12 : 18, fontWeight: "bold", textAlign: "center", color: "#40b049" }} >
                         {this.state.yesnoques3}
                       </Text>
                     </View>
@@ -2152,7 +2171,7 @@ export default class Page1 extends React.Component {
                       <View style={{ backgroundColor: "white", height: deviceHeight <= 550 ? 80 : 120, width: deviceHeight <= 550 ? 80 : 150, justifyContent: "center", alignItems: "center" }}>
                         <Image style={{ height: deviceHeight <= 550 ? "80%" : "100%", width: deviceHeight <= 550 ? "80%" : "100%" }} source={require('../assets/defaultqaimg.png')} />
                       </View>
-                      <Text style={{ fontSize: deviceHeight <= 550 ? 12 : 18, fontWeight: "bold", textAlign: "center" }} >
+                      <Text style={{ fontSize: deviceHeight <= 550 ? 12 : 18, fontWeight: "bold", textAlign: "center", color: "#40b049" }} >
                         {this.state.yesnoques4}
                       </Text>
                     </View>
@@ -2231,7 +2250,7 @@ export default class Page1 extends React.Component {
                       <View style={{ backgroundColor: "white", height: deviceHeight <= 550 ? 80 : 120, width: deviceHeight <= 550 ? 80 : 150, justifyContent: "center", alignItems: "center" }}>
                         <Image style={{ height: deviceHeight <= 550 ? "80%" : "100%", width: deviceHeight <= 550 ? "80%" : "100%" }} source={require('../assets/defaultqaimg.png')} />
                       </View>
-                      <Text style={{ fontSize: deviceHeight <= 550 ? 12 : 18, fontWeight: "bold", textAlign: "center" }} >
+                      <Text style={{ fontSize: deviceHeight <= 550 ? 12 : 18, fontWeight: "bold", textAlign: "center", color: "#40b049" }} >
                         {this.state.yesnoques5}
                       </Text>
                     </View>
@@ -2291,7 +2310,7 @@ export default class Page1 extends React.Component {
                       <View style={{ backgroundColor: "white", height: deviceHeight <= 550 ? 80 : 120, width: deviceHeight <= 550 ? 80 : 150, justifyContent: "center", alignItems: "center" }}>
                         <Image style={{ height: deviceHeight <= 550 ? "80%" : "100%", width: deviceHeight <= 550 ? "80%" : "100%" }} source={require('../assets/defaultqaimg.png')} />
                       </View>
-                      <Text style={{ fontSize: deviceHeight <= 550 ? 12 : 18, fontWeight: "bold", textAlign: "center" }} >
+                      <Text style={{ fontSize: deviceHeight <= 550 ? 12 : 18, fontWeight: "bold", textAlign: "center", color: "#40b049" }} >
                         {this.state.yesnoques6}
                       </Text>
                     </View>
@@ -2368,7 +2387,7 @@ export default class Page1 extends React.Component {
                       <View style={{ backgroundColor: "white", height: deviceHeight <= 550 ? 80 : 120, width: deviceHeight <= 550 ? 80 : 150, justifyContent: "center", alignItems: "center" }}>
                         <Image style={{ height: deviceHeight <= 550 ? "80%" : "100%", width: deviceHeight <= 550 ? "80%" : "100%" }} source={require('../assets/defaultqaimg.png')} />
                       </View>
-                      <Text style={{ fontSize: deviceHeight <= 550 ? 12 : 18, fontWeight: "bold", textAlign: "center" }} >
+                      <Text style={{ fontSize: deviceHeight <= 550 ? 12 : 18, fontWeight: "bold", textAlign: "center", color: "#40b049" }} >
                         {this.state.yesnoques7}
                       </Text>
                     </View>
@@ -2417,6 +2436,7 @@ export default class Page1 extends React.Component {
 
                 </View>
               }
+
 
 
               {/****************************************************************** */}
@@ -3014,7 +3034,7 @@ export default class Page1 extends React.Component {
                 <View>
                   <View style={{ height: 100, backgroundColor: '', justifyContent: "center" }}>
                     <View style={{ alignContent: 'center' }}>
-                      <Text style={{ fontSize: deviceHeight <= 550 ? 12 : 18, fontWeight: "bold", textAlign: "center" }} >
+                      <Text style={{ fontSize: deviceHeight <= 550 ? 12 : 18, fontWeight: "bold", textAlign: "center", color: "#40b049" }} >
                         {this.state.ques5_ques}(0-2000000)
                       </Text>
                     </View>
@@ -3054,7 +3074,7 @@ export default class Page1 extends React.Component {
                 <View>
                   <View style={{ height: 100, backgroundColor: '', justifyContent: "center" }}>
                     <View style={{ alignContent: 'center' }}>
-                      <Text style={{ fontSize: deviceHeight <= 550 ? 12 : 18, fontWeight: "bold", textAlign: "center" }} >
+                      <Text style={{ fontSize: deviceHeight <= 550 ? 12 : 18, fontWeight: "bold", textAlign: "center", color: "#40b049" }} >
                         {this.state.ques6_ques}(0-100)
                       </Text>
                     </View>
@@ -3095,7 +3115,7 @@ export default class Page1 extends React.Component {
                 <View>
                   <View style={{ height: 100, backgroundColor: '', justifyContent: "center", marginTop: "2%" }}>
                     <View style={{ alignContent: 'center', margin: "3%" }}>
-                      <Text style={{ fontSize: deviceHeight <= 550 ? 12 : 18, fontWeight: "bold", textAlign: "center" }} >
+                      <Text style={{ fontSize: deviceHeight <= 550 ? 12 : 18, fontWeight: "bold", textAlign: "center", color: "#40b049" }} >
                         {this.state.ques7_ques}(0-100)
                       </Text>
                     </View>
@@ -3135,7 +3155,7 @@ export default class Page1 extends React.Component {
                 <View>
                   <View style={{ height: 100, backgroundColor: '', justifyContent: "center", margin: "3%" }}>
                     <View style={{ alignContent: 'center' }}>
-                      <Text style={{ fontSize: deviceHeight <= 550 ? 12 : 18, fontWeight: "bold", textAlign: "center" }} >
+                      <Text style={{ fontSize: deviceHeight <= 550 ? 12 : 18, fontWeight: "bold", textAlign: "center", color: "#40b049" }} >
                         {this.state.ques8_ques}
                       </Text>
                     </View>
@@ -3191,7 +3211,7 @@ export default class Page1 extends React.Component {
                 <View style={{}}>
                   <View style={{ height: 120, backgroundColor: '', justifyContent: "center" }}>
                     <View style={{ alignContent: 'center' }}>
-                      <Text style={{ fontSize: deviceHeight <= 550 ? 12 : 18, fontWeight: "bold", textAlign: "center" }} >
+                      <Text style={{ fontSize: deviceHeight <= 550 ? 12 : 18, fontWeight: "bold", textAlign: "center", color: "#40b049" }} >
                         {this.state.ques9_ques}
                       </Text>
                     </View>
@@ -3205,7 +3225,7 @@ export default class Page1 extends React.Component {
                       onChangeText={this.handleChangeLoanType.bind(this)}
                       value={this.state.loan_type}
                       itemColor={"blue"}
-                      pickerStyle={{ backgroundColor: 'rgba(255, 245, 235, 1)' }}
+                      // pickerStyle={{ backgroundColor: 'white' }}
                       selectedItemColor={"black"}
                       dropdownPosition={1}
                     // overlayStyle={{opacity:0.5}}
@@ -3259,7 +3279,7 @@ export default class Page1 extends React.Component {
                 <View>
                   <View style={{ height: 100, backgroundColor: '', justifyContent: "center" }}>
                     <View style={{ alignContent: 'center' }}>
-                      <Text style={{ fontSize: deviceHeight <= 550 ? 12 : 18, fontWeight: "bold", textAlign: "center" }} >
+                      <Text style={{ fontSize: deviceHeight <= 550 ? 12 : 18, fontWeight: "bold", textAlign: "center", color: "#40b049" }} >
                         {this.state.ques10_ques}
                       </Text>
                     </View>
@@ -3313,7 +3333,7 @@ export default class Page1 extends React.Component {
                 <View style={{}}>
                   <View style={{ height: 100, backgroundColor: '', justifyContent: "center", margin: "3%" }}>
                     <View style={{ alignContent: 'center', margin: "3%" }}>
-                      <Text style={{ fontSize: deviceHeight <= 550 ? 12 : 18, fontWeight: "bold", textAlign: "center" }} >
+                      <Text style={{ fontSize: deviceHeight <= 550 ? 12 : 18, fontWeight: "bold", textAlign: "center", color: "#40b049" }} >
                         {this.state.ques11_ques}
                       </Text>
                     </View>
@@ -3330,7 +3350,7 @@ export default class Page1 extends React.Component {
                         itemColor={"blue"}
                         selectedItemColor={"black"}
                         // itemCount={6}
-                        pickerStyle={{ backgroundColor: 'rgba(255, 245, 235, 1)' }}
+                        // pickerStyle={{ backgroundColor: 'rgba(255, 245, 235, 1)' }}
                         dropdownPosition={1}
                       />
 
@@ -3376,7 +3396,7 @@ export default class Page1 extends React.Component {
                 <View>
                   <View style={{ height: 100, backgroundColor: '', justifyContent: "center", margin: "3%" }}>
                     <View style={{ alignContent: 'center' }}>
-                      <Text style={{ fontSize: deviceHeight <= 550 ? 12 : 18, fontWeight: "bold", textAlign: "center" }} >
+                      <Text style={{ fontSize: deviceHeight <= 550 ? 12 : 18, fontWeight: "bold", textAlign: "center", color: "#40b049" }} >
                         {this.state.ques12_ques}
                       </Text>
                     </View>
@@ -3456,7 +3476,7 @@ export default class Page1 extends React.Component {
                       value={this.state.address}>
                     </TextInput>
                     {!this.state.address ?
-                      <View style={{ width: 250, alignSelf: "center" }}>
+                      <View style={{ width: 250, alignSelf: "flex-start", paddingLeft: '11%' }}>
                         <Text style={{ color: "red", height: 20, fontSize: 10 }}>
                           {this.state.errorvalue8}
                         </Text>
@@ -3481,7 +3501,7 @@ export default class Page1 extends React.Component {
 
                     </TextInput>
                     {(!this.state.zip || (this.state.zip < 5) == false) ?
-                      <View style={{ width: 250, alignSelf: "center" }}>
+                      <View style={{ width: 250, alignSelf: "flex-start", paddingLeft: '11%' }}>
                         <Text style={{ color: "red", height: 20, fontSize: 10 }}>
                           {this.state.errorvalue9}
                         </Text>
@@ -3506,9 +3526,9 @@ export default class Page1 extends React.Component {
 
                         placeholderTextColor={'black'}
 
-                        style={this.state.formstyle2}
-                        onBlur={this.onBlur2.bind(this)}
-                        onFocus={this.onFocus2.bind(this)}
+                        style={this.state.formstyle3}
+                        onBlur={this.onBlur3.bind(this)}
+                        onFocus={this.onFocus3.bind(this)}
 
                         underlineColorAndroid='transparent'
                         onChangeText={this.Property.bind(this)}
@@ -3531,7 +3551,7 @@ export default class Page1 extends React.Component {
                      />*/}
                     </View>
                     {!this.state.property ?
-                      <View style={{ width: 250, alignSelf: "center" }}>
+                      <View style={{ width: 250, alignSelf: "flex-start", paddingLeft: '11%' }}>
                         <Text style={{ color: "red", height: 20, fontSize: 10 }}>
                           {this.state.stateerrorvalue8}
                         </Text>
@@ -3540,15 +3560,15 @@ export default class Page1 extends React.Component {
                     }
                     <TextInput style={{ marginTop: 10 }} placeholder={this.state.ques13_text2.Text} placeholderTextColor={'black'}
                       underlineColorAndroid='transparent'
-                      style={this.state.formstyle3}
-                      onBlur={this.onBlur3.bind(this)}
-                      onFocus={this.onFocus3.bind(this)}
+                      style={this.state.formstyle8}
+                      onBlur={this.onBlur8.bind(this)}
+                      onFocus={this.onFocus8.bind(this)}
                       onChangeText={this.City.bind(this)}
                       autoCapitalize='none'
                       value={this.state.city}>
                     </TextInput>
                     {(!this.state.city || this.state.validcity == false) ?
-                      <View style={{ width: 250, alignSelf: "center" }}>
+                      <View style={{ width: 250, alignSelf: "flex-start", paddingLeft: '11%' }}>
                         <Text style={{ color: "red", height: 20, fontSize: 10 }}>
                           {this.state.cityerrorvalue}
                         </Text>
@@ -3585,13 +3605,13 @@ export default class Page1 extends React.Component {
                       onChangeText={this.FName.bind(this)}
                       autoFocus={true}
                       returnKeyType={"next"}
-                      onSubmitEditing={(event) => {
+                      Editing={(event) => {
                         this.refs.lastName.focus();
                       }}
                       value={this.state.fname}>
                     </TextInput>
                     {(!this.state.fname || this.state.validfname == false) ?
-                      <View style={{ width: 250, alignSelf: "center" }}>
+                      <View style={{ width: 250, alignSelf: "flex-start", paddingLeft: '11%' }}>
                         <Text style={{ color: "red", height: 20, fontSize: 10 }}>
                           {this.state.errorvalue10}
                         </Text>
@@ -3612,7 +3632,7 @@ export default class Page1 extends React.Component {
                       value={this.state.lname}>
                     </TextInput>
                     {(!this.state.lname || this.state.validlname == false) ?
-                      <View style={{ width: 250, alignSelf: "center" }}>
+                      <View style={{ width: 250, alignSelf: "flex-start", paddingLeft: '11%' }}>
                         <Text style={{ color: "red", height: 20, fontSize: 10 }}>
                           {this.state.errorvalue11}
                         </Text>
@@ -3632,7 +3652,7 @@ export default class Page1 extends React.Component {
                       }}
                       value={this.state.email}>
                     </TextInput>
-                    <View style={{ width: 250, alignSelf: "center" }}>
+                    <View style={{ width: 250, alignSelf: "flex-start", paddingLeft: '11%' }}>
                       <Text style={{ color: "red", height: 20, fontSize: 10 }}>
                         {this.state.errorvalue21}
                       </Text>
@@ -3657,7 +3677,7 @@ export default class Page1 extends React.Component {
                       value={this.state.phone}>
                     </TextInput>
                     {!this.state.phone ?
-                      <View style={{ width: 250, alignSelf: "center" }}>
+                      <View style={{ width: 250, alignSelf: "flex-start", paddingLeft: '11%' }}>
                         <Text style={{ color: "red", height: 20, fontSize: 10 }}>
                           {this.state.errorvalue13}
                         </Text>
@@ -3665,6 +3685,16 @@ export default class Page1 extends React.Component {
                       <Text></Text>
                     }
                   </View>
+                  <Toast
+                    ref="toast"
+                    style={{ backgroundColor: 'white' }}
+                    position='top'
+                    positionValue={200}
+                    fadeInDuration={750}
+                    fadeOutDuration={1000}
+                    opacity={0.8}
+                    textStyle={{ color: 'white' }}
+                  />
                 </View>
               }
               <View style={styles.buttoncss}>
