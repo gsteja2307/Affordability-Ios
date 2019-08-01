@@ -30,7 +30,7 @@ module.exports = StyleSheet.create({
   },
   viewrifan: {
     flexDirection: "row",
-    width: deviceHeight <= 550 ? 250 : 300,
+    
     alignSelf: "center"
   },
   // mycont:{
@@ -95,6 +95,17 @@ module.exports = StyleSheet.create({
     padding: "3%",
     width: 100,
     backgroundColor: "#2959a7",
+    justifyContent:"center",
+    alignItems:"center"
+  },
+  next_btnstyle_2: {
+    borderRadius: 10,
+    padding: "3%",
+    width: 100,
+    backgroundColor: "#2959a7",
+    justifyContent:"center",
+    alignItems:"center",
+    // paddingBottom:"3%"
   },
   submit_btnstyle: {
     padding: "3%",

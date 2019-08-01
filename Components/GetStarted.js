@@ -34,7 +34,7 @@ export default class GetStarted extends React.Component {
 
         </View>
         <View style={{ marginTop: "16%" }}>
-          <TouchableOpacity style={{ justifyContent: "center", backgroundColor: "green", borderRadius: 30, height: 60, width: 150, alignItems: "center" }} onPress={() => navigate('Loginpage')} >
+          <TouchableOpacity style={{ justifyContent: "center", backgroundColor: "green", borderRadius: 30, height: 60, width: 150, alignItems: "center" }} onPress={() => navigate('Afford')} >
             <Text style={{ fontSize: 16, padding: "3%", color: "white" }} > Get Started</Text>
           </TouchableOpacity>
         </View>
