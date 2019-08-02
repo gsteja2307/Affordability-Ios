@@ -91,7 +91,7 @@ module.exports = StyleSheet.create({
     opacity: 0.8
   },
   next_btnstyle: {
-    borderRadius: 10,
+    borderRadius: 5,
     padding: "3%",
     width: "30%",
     backgroundColor: "#2959a7",
@@ -99,7 +99,7 @@ module.exports = StyleSheet.create({
     alignItems:"center"
   },
   next_btnstyle_2: {
-    borderRadius: 10,
+    borderRadius: 5,
     padding: "3%",
     width: "30%",
     backgroundColor: "#2959a7",

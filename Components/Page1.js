@@ -1904,20 +1904,20 @@ export default class Page1 extends React.Component {
                     <View style={{ alignItems: "center", justifyContent: "center", marginTop: deviceHeight <= 550 ? "5%" : "10%" }}>
                       <View style={{ flexDirection: "row", justifyContent: "center" }}>
                         {/* <View style={{ flexDirection: 'row' }}> */}
-                        <Button style={{ backgroundColor: this.state.yesno1, width:"30%", justifyContent: "center" }} onPress={() => {
+                        <Button style={{ backgroundColor: this.state.yesno1, width:"30%", justifyContent: "center",borderRadius:5 }} onPress={() => {
                           this.setState({ yesno1: "red", yesno2: "#ECE9E9" })
                           this.rundelay(() => this.setState({ payCarInsurance_data: this.state.yesnoques0text2.Text, index: '2a' }))
                         }}>
-                          <Text style={{ color: this.state.yesno1 == "red" ? "white" : "black", fontSize:hp(1.5), textAlign: "center" }}>{this.state.yesnoques0text2.Text}</Text>
+                          <Text style={{ color: this.state.yesno1 == "red" ? "white" : "black", fontSize:hp(1.8), textAlign: "center" }}>{this.state.yesnoques0text2.Text}</Text>
 
                         </Button>
                         <Text style={{ width: "10%" }}>  </Text>
-                        <Button style={{ backgroundColor: this.state.yesno2, width: "30%", justifyContent: "center" }} onPress={() => {
+                      <Button style={{ backgroundColor: this.state.yesno2, width: "30%", justifyContent: "center", borderRadius: 5 }} onPress={() => {
                           this.setState({ yesno2: "green", yesno1: "#ECE9E9" })
                           this.rundelay(() => this.setState({ index: '2a', payCarInsurance_data: this.state.yesnoques0text1.Text, }))
 
                         }}>
-                          <Text style={{ color: this.state.yesno2 == "green" ? "white" : "black", fontSize:hp(1.5), textAlign: "center" }}>{this.state.yesnoques0text1.Text}</Text>
+                          <Text style={{ color: this.state.yesno2 == "green" ? "white" : "black", fontSize:hp(1.8), textAlign: "center" }}>{this.state.yesnoques0text1.Text}</Text>
                         </Button>
 
 
@@ -1940,7 +1940,7 @@ export default class Page1 extends React.Component {
                       <Button block
                         style={styles.next_btnstyle}
                         onPress={this.nextButtonQuick10.bind(this)}>
-                        <Text>Next</Text>
+                        <Text style={{fontSize:hp(1.8)}}>Next</Text>
                       </Button>
 
                     </View>
@@ -1965,23 +1965,23 @@ export default class Page1 extends React.Component {
                     <View style={{ alignItems: "center", justifyContent: "center", marginTop: deviceHeight <= 550 ? "5%" : "10%" }}>
                       <View style={styles.yesnobuttonview}>
                         <View style={{ flexDirection: 'row' }}>
-                          <Button style={{ backgroundColor: this.state.yesno3, flex: 1,width:"30%" }} block onPress={() => {
+                        <Button style={{ backgroundColor: this.state.yesno3, flex: 1, width: "30%", borderRadius: 5 }} block onPress={() => {
                             this.setState({ yesno3: "green", yesno4: "#ECE9E9" })
                             this.rundelay(() => { this.setState({ index: '3a', fastAndEasyFindout_data: this.state.yesnoques1text1.Text, }) })
                           }}
                           >
-                          <Text style={{ color: this.state.yesno3 == "green" ? "white" : "black", fontSize: hp(1.5), textAlign: "center" }}>{this.state.yesnoques1text1.Text}</Text>
+                          <Text style={{ color: this.state.yesno3 == "green" ? "white" : "black", fontSize: hp(1.8), textAlign: "center" }}>{this.state.yesnoques1text1.Text}</Text>
                           </Button>
 
 
                         </View>
                         <View style={{ marginTop: 10, flexDirection: "row" }}>
 
-                        <Button style={{ backgroundColor: this.state.yesno4, flex: 1, width: "30%"}} block onPress={() => {
+                        <Button style={{ backgroundColor: this.state.yesno4, flex: 1, width: "30%", borderRadius: 5}} block onPress={() => {
                             this.setState({ yesno4: "red", yesno3: "#ECE9E9" })
                             this.rundelay(() => this.setState({ index: '3a', fastAndEasyFindout_data: this.state.yesnoques1text2.Text, }))
                           }}>
-                          <Text style={{ color: this.state.yesno4 == "red" ? "white" : "black", fontSize: hp(1.5), textAlign: "center" }}>{this.state.yesnoques1text2.Text}</Text>
+                          <Text style={{ color: this.state.yesno4 == "red" ? "white" : "black", fontSize: hp(1.8), textAlign: "center" }}>{this.state.yesnoques1text2.Text}</Text>
                           </Button>
 
                         </View>
@@ -1998,7 +1998,7 @@ export default class Page1 extends React.Component {
                         <Button block
                           style={styles.next_btnstyle}
                           onPress={this.nextButtonQuick10.bind(this)}>
-                          <Text>Next</Text>
+                          <Text style={{fontSize:hp(1.8)}}>Next</Text>
                         </Button>
 
                       </View>
@@ -2023,19 +2023,19 @@ export default class Page1 extends React.Component {
                     <View style={{ alignItems: "center", justifyContent: "center", marginTop: deviceHeight <= 550 ? "5%" : "10%" }}>
                       <View style={{ flexDirection: "row", justifyContent: "center" }}>
                         {/* <View style={{ flexDirection: 'row' }}> */}
-                      <Button style={{ backgroundColor: this.state.yesno5, width: "30%", justifyContent: "center" }} onPress={() => {
+                      <Button style={{ backgroundColor: this.state.yesno5, width: "30%", justifyContent: "center", borderRadius: 5 }} onPress={() => {
                           this.setState({ yesno5: "red", yesno6: "#ECE9E9" })
                           this.rundelay(() => this.setState({ index: '4a', buyingHouse: this.state.yesnoques2text2.Text, }))
                         }}>
-                        <Text style={{ color: this.state.yesno5 == "red" ? "white" : "black", fontSize: hp(1.5), textAlign: "center" }}>{this.state.yesnoques2text2.Text}</Text>
+                        <Text style={{ color: this.state.yesno5 == "red" ? "white" : "black", fontSize: hp(1.8), textAlign: "center" }}>{this.state.yesnoques2text2.Text}</Text>
                         </Button>
                         <Text style={{ width: 50 }}>  </Text>
 
-                    <Button style={{ backgroundColor: this.state.yesno6, width: "30%", justifyContent: "center" }} onPress={() => {
+                      <Button style={{ backgroundColor: this.state.yesno6, width: "30%", justifyContent: "center", borderRadius: 5 }} onPress={() => {
                           this.setState({ yesno6: "green", yesno5: "#ECE9E9" })
                           this.rundelay(() => this.setState({ index: '4a', buyingHouse: this.state.yesnoques2text1.Text, }))
                         }}>
-                        <Text style={{ color: this.state.yesno6 == "green" ? "white" : "black", fontSize: hp(1.5), textAlign: "center" }}>{this.state.yesnoques2text1.Text}</Text>
+                        <Text style={{ color: this.state.yesno6 == "green" ? "white" : "black", fontSize: hp(1.8), textAlign: "center" }}>{this.state.yesnoques2text1.Text}</Text>
                         </Button>
 
                         {/* </View> */}
@@ -2057,7 +2057,7 @@ export default class Page1 extends React.Component {
                         <Button block
                           style={styles.next_btnstyle}
                           onPress={this.nextButtonQuick10.bind(this)}>
-                          <Text>Next</Text>
+                          <Text style={{fontSize:hp(1.8)}}>Next</Text>
                         </Button>
 
                       </View>
@@ -2082,22 +2082,22 @@ export default class Page1 extends React.Component {
                     <View style={{ alignItems: "center", justifyContent: "center", marginTop: deviceHeight <= 550 ? "5%" : "10%" }}>
                       <View style={styles.yesnobuttonview}>
                         <View style={{ flexDirection: 'row' }}>
-                        <Button style={{ backgroundColor: this.state.yesno11, width: "30%",flex: 1 }} block onPress={() => {
+                        <Button style={{ backgroundColor: this.state.yesno11, width: "30%", flex: 1, borderRadius: 5 }} block onPress={() => {
                             this.setState({ yesno11: "green", yesno12: "#ECE9E9" })
                             this.rundelay(() => this.setState({ index: '5a', creditReportFirst: this.state.yesnoques3text1.Text, }))
                           }}>
-                          <Text style={{ color: this.state.yesno11 == "green" ? "white" : "black", fontSize: hp(1.5), textAlign: "center" }}>{this.state.yesnoques3text1.Text}</Text>
+                          <Text style={{ color: this.state.yesno11 == "green" ? "white" : "black", fontSize: hp(1.8), textAlign: "center" }}>{this.state.yesnoques3text1.Text}</Text>
                           </Button>
 
 
                         </View>
                         <View style={{ marginTop: 10, flexDirection: "row" }}>
 
-                        <Button style={{ backgroundColor: this.state.yesno12, width: "30%", flex: 1 }} block onPress={() => {
+                        <Button style={{ backgroundColor: this.state.yesno12, width: "30%", flex: 1, borderRadius: 5 }} block onPress={() => {
                             this.setState({ yesno12: "red", yesno11: "#ECE9E9" })
                             this.rundelay(() => this.setState({ index: '5a', creditReportFirst: this.state.yesnoques3text2.Text, }))
                           }}>
-                          <Text style={{ color: this.state.yesno12 == "red" ? "white" : "black", fontSize: hp(1.5), textAlign: "center" }}>{this.state.yesnoques3text2.Text}</Text>
+                          <Text style={{ color: this.state.yesno12 == "red" ? "white" : "black", fontSize: hp(1.8), textAlign: "center" }}>{this.state.yesnoques3text2.Text}</Text>
                           </Button>
 
                         </View>
@@ -2114,7 +2114,7 @@ export default class Page1 extends React.Component {
                         <Button block
                           style={styles.next_btnstyle}
                           onPress={this.nextButtonQuick10.bind(this)}>
-                          <Text>Next</Text>
+                          <Text style={{fontSize:hp(1.8)}}>Next</Text>
                         </Button>
 
                       </View>
@@ -2141,20 +2141,20 @@ export default class Page1 extends React.Component {
                         {/* <View style={{ flexDirection: 'row' }}> */}
                         {/* <View style={{ marginTop: 10, flexDirection: "row" }}> */}
 
-                      <Button style={{ backgroundColor: this.state.yesno7, width: "30%", justifyContent: "center" }} onPress={() => {
+                      <Button style={{ backgroundColor: this.state.yesno7, width: "30%", justifyContent: "center", borderRadius: 5 }} onPress={() => {
                           this.setState({ yesno7: "red", yesno8: "#ECE9E9" })
                           this.rundelay(() => this.setState({ index: '6a', haveKids: this.state.yesnoques4text2.Text, }))
                         }}>
-                        <Text style={{ color: this.state.yesno7 == "red" ? "white" : "black", fontSize: hp(1.5), textAlign: "center" }}>{this.state.yesnoques4text2.Text}</Text>
+                        <Text style={{ color: this.state.yesno7 == "red" ? "white" : "black", fontSize: hp(1.8), textAlign: "center" }}>{this.state.yesnoques4text2.Text}</Text>
                         </Button>
 
                         <Text style={{ width: 50 }}>  </Text>
                         {/* </View> */}
-                      <Button style={{ backgroundColor: this.state.yesno8, width: "30%", justifyContent: "center" }} onPress={() => {
+                      <Button style={{ backgroundColor: this.state.yesno8, width: "30%", justifyContent: "center", borderRadius: 5}} onPress={() => {
                           this.setState({ yesno8: "green", yesno7: "#ECE9E9" })
                           this.rundelay(() => this.setState({ index: '6a', haveKids: this.state.yesnoques4text1.Text, }))
                         }}>
-                        <Text style={{ color: this.state.yesno8 == "green" ? "white" : "black", fontSize: hp(1.5), textAlign: "center" }}>{this.state.yesnoques4text1.Text}</Text>
+                        <Text style={{ color: this.state.yesno8 == "green" ? "white" : "black", fontSize: hp(1.8), textAlign: "center" }}>{this.state.yesnoques4text1.Text}</Text>
                         </Button>
 
                         {/* </View> */}
@@ -2171,7 +2171,7 @@ export default class Page1 extends React.Component {
                         <Button block
                           style={styles.next_btnstyle}
                           onPress={this.nextButtonQuick10.bind(this)}>
-                          <Text>Next</Text>
+                          <Text style={{fontSize:hp(1.8)}}>Next</Text>
                         </Button>
 
                       </View>
@@ -2197,22 +2197,22 @@ export default class Page1 extends React.Component {
                     <View style={{ alignItems: "center", justifyContent: "center", marginTop: deviceHeight <= 550 ? "5%" : "10%" }}>
                       <View style={styles.yesnobuttonview}>
                         <View style={{ flexDirection: 'row' }}>
-                        <Button style={{ backgroundColor: this.state.yesno9, width: "30%",flex: 1 }} block onPress={() => {
+                        <Button style={{ backgroundColor: this.state.yesno9, width: "30%", flex: 1, borderRadius: 5 }} block onPress={() => {
                             this.setState({ yesno9: "green", yesno10: "#ECE9E9" })
                             this.rundelay(() => this.setState({ index: '7a', familyProtection: this.state.yesnoques5text1.Text, }))
                           }}>
-                          <Text style={{ color: this.state.yesno9 == "green" ? "white" : "black", fontSize: hp(1.5), textAlign: "center" }}>{this.state.yesnoques5text1.Text}</Text>
+                          <Text style={{ color: this.state.yesno9 == "green" ? "white" : "black", fontSize: hp(1.8), textAlign: "center" }}>{this.state.yesnoques5text1.Text}</Text>
                           </Button>
 
 
                         </View>
                         <View style={{ marginTop: 10, flexDirection: "row" }}>
 
-                        <Button style={{ backgroundColor: this.state.yesno10, width: "30%",flex: 1 }} block onPress={() => {
+                        <Button style={{ backgroundColor: this.state.yesno10, width: "30%", flex: 1, borderRadius: 5 }} block onPress={() => {
                             this.setState({ yesno10: "red", yesno9: "#ECE9E9" })
                             this.rundelay(() => this.setState({ index: '7a', familyProtection: this.state.yesnoques5text2.Text, }))
                           }}>
-                          <Text style={{ color: this.state.yesno10 == "red" ? "white" : "black", fontSize: hp(1.5), textAlign: "center" }}>{this.state.yesnoques5text2.Text}</Text>
+                          <Text style={{ color: this.state.yesno10 == "red" ? "white" : "black", fontSize: hp(1.8), textAlign: "center" }}>{this.state.yesnoques5text2.Text}</Text>
                           </Button>
 
                         </View>
@@ -2229,7 +2229,7 @@ export default class Page1 extends React.Component {
                         <Button block
                           style={styles.next_btnstyle}
                           onPress={this.nextButtonQuick10.bind(this)}>
-                          <Text>Next</Text>
+                          <Text style={{fontSize:hp(1.8)}}>Next</Text>
                         </Button>
 
                       </View>
@@ -2256,19 +2256,19 @@ export default class Page1 extends React.Component {
                       <View style={{ flexDirection: "row", justifyContent: "center" }}>
                         {/* <View style={{ flexDirection: 'row' }}> */}
 
-                      <Button style={{ backgroundColor: this.state.yesno13, width: "30%", justifyContent: "center" }} onPress={() => {
+                      <Button style={{ backgroundColor: this.state.yesno13, width: "30%", justifyContent: "center", borderRadius: 5 }} onPress={() => {
                           this.setState({ yesno13: "red", yesno14: "#ECE9E9" })
                           this.rundelay(() => this.setState({ index: '8a', haveMortgage: this.state.yesnoques6text2.Text, }))
                         }}>
-                        <Text style={{ color: this.state.yesno13 == "red" ? "white" : "black", fontSize: hp(1.5), textAlign: "center" }}>{this.state.yesnoques6text2.Text}</Text>
+                        <Text style={{ color: this.state.yesno13 == "red" ? "white" : "black", fontSize: hp(1.8), textAlign: "center" }}>{this.state.yesnoques6text2.Text}</Text>
                         </Button>
                         <Text style={{ width: 50 }}>  </Text>
                         {/* </View> */}
-                      <Button style={{ backgroundColor: this.state.yesno14, width: "30%", justifyContent: "center" }} onPress={() => {
+                      <Button style={{ backgroundColor: this.state.yesno14, width: "30%", justifyContent: "center", borderRadius: 5 }} onPress={() => {
                           this.setState({ yesno14: "green", yesno13: "#ECE9E9" })
                           this.rundelay(() => this.setState({ index: '8a', haveMortgage: this.state.yesnoques6text1.Text, }))
                         }}>
-                        <Text style={{ color: this.state.yesno14 == "green" ? "white" : "black", fontSize: hp(1.5), textAlign: "center" }}>{this.state.yesnoques6text1.Text}</Text>
+                        <Text style={{ color: this.state.yesno14 == "green" ? "white" : "black", fontSize: hp(1.8), textAlign: "center" }}>{this.state.yesnoques6text1.Text}</Text>
                         </Button>
                         {/* <View style={{ marginTop: 10, flexDirection: "row" }}> */}
 
@@ -2286,7 +2286,7 @@ export default class Page1 extends React.Component {
                         <Button block
                           style={styles.next_btnstyle}
                           onPress={this.nextButtonQuick10.bind(this)}>
-                          <Text>Next</Text>
+                          <Text style={{fontSize:hp(1.8)}}>Next</Text>
                         </Button>
 
                       </View>
@@ -2312,22 +2312,22 @@ export default class Page1 extends React.Component {
                     <View style={{ alignItems: "center", justifyContent: "center", marginTop: deviceHeight <= 550 ? "5%" : "10%" }}>
                       <View style={styles.yesnobuttonview}>
                         <View style={{ flexDirection: 'row' }}>
-                        <Button style={{ backgroundColor: this.state.yesno15, width: "30%", flex: 1 }} block onPress={() => {
+                        <Button style={{ backgroundColor: this.state.yesno15, width: "30%", flex: 1, borderRadius: 5 }} block onPress={() => {
                             this.setState({ yesno15: "green", yesno16: "#ECE9E9" })
                             this.rundelay(() => this.setState({ index: 0, hugeSavings: this.state.yesnoques7text1.Text, }))
                           }}>
-                          <Text style={{ color: this.state.yesno15 == "green" ? "white" : "black", fontSize: hp(1.5), textAlign: "center" }}>{this.state.yesnoques7text1.Text}</Text>
+                          <Text style={{ color: this.state.yesno15 == "green" ? "white" : "black", fontSize: hp(1.8), textAlign: "center" }}>{this.state.yesnoques7text1.Text}</Text>
                           </Button>
 
 
                         </View>
                         <View style={{ marginTop: 10, flexDirection: "row" }}>
 
-                        <Button style={{ backgroundColor: this.state.yesno16, width: "30%", flex: 1 }} block onPress={() => {
+                        <Button style={{ backgroundColor: this.state.yesno16, width: "30%", flex: 1, borderRadius: 5 }} block onPress={() => {
                             this.setState({ yesno16: "red", yesno15: "#ECE9E9" })
                             this.rundelay(() => this.setState({ index: 0, hugeSavings: this.state.yesnoques7text2.Text, }))
                           }}>
-                          <Text style={{ color: this.state.yesno16 == "red" ? "white" : "black", fontSize: hp(1.5), textAlign: "center" }}>{this.state.yesnoques7text2.Text}</Text>
+                          <Text style={{ color: this.state.yesno16 == "red" ? "white" : "black", fontSize: hp(1.8), textAlign: "center" }}>{this.state.yesnoques7text2.Text}</Text>
                           </Button>
 
                         </View>
@@ -2344,7 +2344,7 @@ export default class Page1 extends React.Component {
                         <Button block
                           style={styles.next_btnstyle}
                           onPress={this.nextButtonQuick10.bind(this)}>
-                          <Text>Next</Text>
+                          <Text style={{fontSize:hp(1.8)}}>Next</Text>
                         </Button>
 
                       </View>
@@ -2462,7 +2462,7 @@ export default class Page1 extends React.Component {
                       <Button block
                         style={styles.next_btnstyle}
                         onPress={this.nextButtonQuick9.bind(this)}>
-                        <Text>Next</Text>
+                        <Text style={{fontSize:hp(1.8)}}>Next</Text>
                       </Button>
 
                     </View>
@@ -2684,7 +2684,7 @@ export default class Page1 extends React.Component {
                       <Button block
                         style={styles.next_btnstyle}
                         onPress={this.nextButtonQuick9.bind(this)}>
-                        <Text>Next</Text>
+                        <Text style={{fontSize:hp(1.8)}}>Next</Text>
                       </Button>
 
                     </View>
@@ -2907,7 +2907,7 @@ export default class Page1 extends React.Component {
                         <Button block
                           style={styles.next_btnstyle}
                           onPress={this.nextButtonQuick9.bind(this)}>
-                          <Text>Next</Text>
+                          <Text style={{fontSize:hp(1.8)}}>Next</Text>
                         </Button>
 
                       </View>
@@ -2955,7 +2955,7 @@ export default class Page1 extends React.Component {
                     <Button
                       style={styles.next_btnstyle}
                       onPress={this.nextButtonQuick9.bind(this)}>
-                      <Text>Next</Text>
+                      <Text style={{fontSize:hp(1.8)}}>Next</Text>
                     </Button>
 
                   </NextButton>
@@ -2997,7 +2997,7 @@ export default class Page1 extends React.Component {
                     <Button 
                       style={styles.next_btnstyle_2}
                       onPress={this.nextButtonQuick9.bind(this)}>
-                      <Text>Next</Text>
+                      <Text style={{fontSize:hp(1.8)}}>Next</Text>
                     </Button>
                   </NextButton>
                 </Contain>
@@ -3038,7 +3038,7 @@ export default class Page1 extends React.Component {
                     <Button 
                       style={styles.next_btnstyle_2}
                       onPress={this.nextButtonQuick9.bind(this)}>
-                      <Text>Next</Text>
+                      <Text style={{fontSize:hp(1.8)}}>Next</Text>
                     </Button>
                   </NextButton>
                 </Contain>
@@ -3080,7 +3080,7 @@ export default class Page1 extends React.Component {
                     <Button 
                       style={styles.next_btnstyle_2}
                       onPress={this.nextButtonQuick9.bind(this)}>
-                      <Text>Next</Text>
+                      <Text style={{fontSize:hp(1.8)}}>Next</Text>
                     </Button>
                   </NextButton>
                 </Contain>
@@ -3099,21 +3099,21 @@ export default class Page1 extends React.Component {
                       <View style={{ flexDirection: "row", justifyContent: "center" }}>
                         {/* <View style={{ flexDirection: 'row' }}> */}
 
-                      <Button style={{ backgroundColor: this.state.no1, width: "30%", justifyContent: "center" }} onPress={() => {
+                      <Button style={{ backgroundColor: this.state.no1, width: "30%", justifyContent: "center", borderRadius: 5 }} onPress={() => {
                           this.setState({ no1: "red", yes1: "#ECE9E9" })
                           this.rundelay(this.handleChangeBankruptcyNo.bind(this))
                         }
                         }>
-                          <Text style={{ color: this.state.no1 == "red" ? "white" : "black", fontSize: 13, textAlign: "center" }}>{this.state.ques8_text2.Text}</Text>
+                          <Text style={{ color: this.state.no1 == "red" ? "white" : "black", fontSize: hp(1.8), textAlign: "center" }}>{this.state.ques8_text2.Text}</Text>
                         </Button>
                         <Text style={{ width: 50 }}>  </Text>
-                      <Button style={{ backgroundColor: this.state.yes1, width: "30%", justifyContent: "center" }} onPress={() => {
+                      <Button style={{ backgroundColor: this.state.yes1, width: "30%", justifyContent: "center", borderRadius: 5 }} onPress={() => {
                           this.setState({ yes1: "green", no1: "#ECE9E9" })
                           this.rundelay(this.handleChangeBankruptcyYes.bind(this))
                         }
                         }>
 
-                          <Text style={{ color: this.state.yes1 == "green" ? "white" : "black", fontSize: 13, textAlign: "center" }}>{this.state.ques8_text1.Text}</Text>
+                          <Text style={{ color: this.state.yes1 == "green" ? "white" : "black", fontSize: hp(1.8), textAlign: "center" }}>{this.state.ques8_text1.Text}</Text>
 
                         </Button>
                       </View>
@@ -3134,7 +3134,7 @@ export default class Page1 extends React.Component {
                       <Button block
                         style={styles.next_btnstyle_2}
                         onPress={this.nextButtonQuick9.bind(this)}>
-                        <Text>Next</Text>
+                        <Text style={{fontSize:hp(1.8)}}>Next</Text>
                       </Button>
 
                     </View>
@@ -3208,7 +3208,7 @@ export default class Page1 extends React.Component {
                       <Button block
                         style={styles.next_btnstyle_2}
                         onPress={this.nextButtonQuick9.bind(this)}>
-                        <Text>Next</Text>
+                        <Text style={{fontSize:hp(1.8)}}>Next</Text>
                       </Button>
 
                     </View>
@@ -3228,7 +3228,7 @@ export default class Page1 extends React.Component {
                   <Options style={{ alignItems: "center", justifyContent: "center" }}>
                     <View style={{ alignItems: "center", justifyContent: "center", padding: "7%" }}>
                       <View style={{ flexDirection: "row", justifyContent: "center" }}>
-                      <Button style={{ backgroundColor: this.state.no2, width: "30%", justifyContent: "center" }}
+                      <Button style={{ backgroundColor: this.state.no2, width: "30%", justifyContent: "center", borderRadius: 5 }}
 
                           onPress={() => {
                             this.setState({ no2: "red", yes2: "#ECE9E9" })
@@ -3238,10 +3238,10 @@ export default class Page1 extends React.Component {
 
                         >
 
-                          <Text style={{ color: this.state.no2 == "red" ? "white" : "black", fontSize: 13, textAlign: "center" }}>{this.state.ques10_text2.Text}</Text>
+                          <Text style={{ color: this.state.no2 == "red" ? "white" : "black", fontSize: hp(1.8), textAlign: "center" }}>{this.state.ques10_text2.Text}</Text>
                         </Button>
                         <Text style={{ width: 50 }}>  </Text>
-                      <Button style={{ backgroundColor: this.state.yes2, width: "30%", justifyContent: "center" }}
+                      <Button style={{ backgroundColor: this.state.yes2, width: "30%", justifyContent: "center", borderRadius: 5 }}
 
                           onPress={() => {
                             this.setState({ yes2: "green", no2: "#ECE9E9" })
@@ -3250,7 +3250,7 @@ export default class Page1 extends React.Component {
                           }
 
                         >
-                          <Text style={{ color: this.state.yes2 == "green" ? "white" : "black", fontSize: 13, textAlign: "center" }}>{this.state.ques10_text1.Text}</Text>
+                          <Text style={{ color: this.state.yes2 == "green" ? "white" : "black", fontSize: hp(1.8), textAlign: "center" }}>{this.state.ques10_text1.Text}</Text>
 
                         </Button>
                       </View>
@@ -3268,7 +3268,7 @@ export default class Page1 extends React.Component {
                         <Button block
                           style={styles.next_btnstyle_2}
                           onPress={this.nextButtonQuick9.bind(this)}>
-                          <Text>Next</Text>
+                          <Text style={{fontSize:hp(1.8)}}>Next</Text>
                         </Button>
 
                       </View>
@@ -3335,7 +3335,7 @@ export default class Page1 extends React.Component {
                       <Button block
                         style={styles.next_btnstyle}
                         onPress={this.nextButtonQuick9.bind(this)}>
-                        <Text>Next</Text>
+                        <Text style={{fontSize:hp(1.8)}}>Next</Text>
                       </Button>
 
                     </View>
@@ -3355,24 +3355,24 @@ export default class Page1 extends React.Component {
                   <Options style={{ alignItems: "center", justifyContent: "center" }}>
                     <View style={{ alignItems: "center", justifyContent: "center", padding: "7%" }}>
                       <View style={{ flexDirection: "row", justifyContent: "center" }}>
-                      <Button style={{ backgroundColor: this.state.no3, width: "30%", justifyContent: "center" }}
+                      <Button style={{ backgroundColor: this.state.no3, width: "30%", justifyContent: "center", borderRadius: 5 }}
                           onPress={() => {
                             this.setState({ no3: "red", yes3: "#ECE9E9" })
                             this.rundelay(this.handleChangeBorrowNo.bind(this))
                           }
                           }
                         >
-                          <Text style={{ color: this.state.no3 == "red" ? "white" : "black", fontSize: 13, textAlign: "center" }}>{this.state.ques10_text2.Text}</Text>
+                          <Text style={{ color: this.state.no3 == "red" ? "white" : "black", fontSize: hp(1.8), textAlign: "center" }}>{this.state.ques10_text2.Text}</Text>
                         </Button>
                         <Text style={{ width: 50 }}>  </Text>
-                      <Button style={{ backgroundColor: this.state.yes3, width: "30%", justifyContent: "center" }}
+                      <Button style={{ backgroundColor: this.state.yes3, width: "30%", justifyContent: "center", borderRadius: 5 }}
                           onPress={() => {
                             this.setState({ yes3: "green", no3: "#ECE9E9" })
                             this.rundelay(this.handleChangeBorrowYes.bind(this))
                           }
                           }
                         >
-                          <Text style={{ color: this.state.yes3 == "green" ? "white" : "black", fontSize: 13, textAlign: "center" }}>{this.state.ques10_text1.Text}</Text>
+                          <Text style={{ color: this.state.yes3 == "green" ? "white" : "black", fontSize: hp(1.8), textAlign: "center" }}>{this.state.ques10_text1.Text}</Text>
 
                         </Button>
                       </View>
@@ -3390,7 +3390,7 @@ export default class Page1 extends React.Component {
                         <Button block
                           style={styles.next_btnstyle}
                           onPress={this.nextButtonQuick9.bind(this)}>
-                          <Text>Next</Text>
+                          <Text style={{fontSize:hp(1.8)}}>Next</Text>
                         </Button>
 
                       </View>
@@ -3534,7 +3534,7 @@ export default class Page1 extends React.Component {
                     <Button block
                       style={styles.next_btnstyle}
                       onPress={this.nextButtonQuick9.bind(this)}>
-                      <Text>Next</Text>
+                      <Text style={{fontSize:hp(1.8)}}>Next</Text>
                     </Button>
 
                   </View>
@@ -3673,7 +3673,7 @@ export default class Page1 extends React.Component {
                     <Button block
                       style={styles.next_btnstyle}
                       onPress={this.nextButtonQuick.bind(this)}>
-                      <Text>Next</Text>
+                      <Text style={{fontSize:hp(1.8)}}>Next</Text>
                     </Button>
                   </Display>
                 </View>
