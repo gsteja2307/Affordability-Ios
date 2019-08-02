@@ -9,7 +9,7 @@
 import React, { Component } from 'react';
 import { Platform, StyleSheet, Text, View, Alert,ScrollView,TouchableOpacity } from 'react-native';
 // import { GoogleSignin, statusCodes, GoogleSigninButton } from 'react-native-google-signin';
-// import { LoginManager, LoginButton, AccessToken, GraphRequest, GraphRequestManager } from "react-native-fbsdk";
+import { LoginManager, LoginButton, AccessToken, GraphRequest, GraphRequestManager } from "react-native-fbsdk";
 import PropTypes from 'prop-types';
 import axios from 'axios';
 import Toast, { DURATION } from 'react-native-easy-toast'
@@ -588,7 +588,7 @@ class Loginpage extends React.Component {
                   disabled={isLoading}
                 />
 
-{/* <View style={{ alignItems: 'center', paddingTop:10,flexDirection: 'row'}}>
+ <View style={{ alignItems: 'center', paddingTop:10,flexDirection: 'row'}}>
               <LoginButton
                style={{ width: 180, height: 30 }}
                 publishPermissions={["publish_actions"]}
@@ -609,9 +609,9 @@ class Loginpage extends React.Component {
                               if (error) {
                                 console.log('Error fetching data: ' + error.toString());
                               } else {
-                                // console.log('Result Name: ' + result.name);
-                                // console.log('result', result);
-                                this.setState({ firstname: result.first_name, lastname: result.last_name, email: result.email });
+                                console.log('Result Name: ' + result.name);
+                                 console.log('result', result);
+                                //this.setState({ firstname: result.first_name, lastname: result.last_name, email: result.email });
 
                                 this.postSocialMediaData();
 
@@ -628,13 +628,13 @@ class Loginpage extends React.Component {
                 onLogoutFinished={() => console.log("logout.")} />
 
 
-              <GoogleSigninButton
+              {/* <GoogleSigninButton
                 style={{ width: 195, height: 36 }}
                 size={GoogleSigninButton.Size.Wide}
                 color={GoogleSigninButton.Color.Dark}
                 onPress={this._signIn}
-              />
-            </View> */}
+              /> */}
+            </View> 
                 
               </View>
             </KeyboardAvoidingView>
