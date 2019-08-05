@@ -8,7 +8,7 @@
 
 import React, { Component } from 'react';
 import { Platform, StyleSheet, Text, View, Alert,ScrollView,TouchableOpacity } from 'react-native';
-// import { GoogleSignin, statusCodes, GoogleSigninButton } from 'react-native-google-signin';
+import { GoogleSignin, statusCodes, GoogleSigninButton } from 'react-native-google-signin';
 import { LoginManager, LoginButton, AccessToken, GraphRequest, GraphRequestManager } from "react-native-fbsdk";
 import PropTypes from 'prop-types';
 import axios from 'axios';
@@ -54,7 +54,7 @@ const TabSelector = ({ selected }) => {
       <View style={selected && styles.selected} />
     </View>
   );
-};
+};``
 
 TabSelector.propTypes = {
   selected: PropTypes.bool.isRequired,
@@ -257,49 +257,49 @@ class Loginpage extends React.Component {
 
   }
 
-  // //googlelogin
-  // async componentDidMount() {
-  //   this._configureGoogleSignIn();
-  // }
+  //googlelogin
+  async componentDidMount() {
+    this._configureGoogleSignIn();
+  }
 
-  // _configureGoogleSignIn() {
-  //   GoogleSignin.configure({
-  //     webClientId: '858556472336-suopeger5ggvrtasb5akmr5mfuejepdc.apps.googleusercontent.com',  //Replace with your own client id
-  //     offlineAccess: false,
-  //   });
-  // }
+  _configureGoogleSignIn() {
+    GoogleSignin.configure({
+      webClientId: '685490266582-kme9phetflvug5dg5h8ks5proeg9bbh0.apps.googleusercontent.com',  //Replace with your own client id
+      offlineAccess: false,
+    });
+  }
 
-  // _signIn = async () => {
-  //   try {
-  //     await GoogleSignin.hasPlayServices();
-  //     const userInfo = await GoogleSignin.signIn();
-  //     await GoogleSignin.revokeAccess();
-  //     console.log('Success:', userInfo.user);
+  _signIn = async () => {
+    try {
+      await GoogleSignin.hasPlayServices();
+      const userInfo = await GoogleSignin.signIn();
+      await GoogleSignin.revokeAccess();
+      console.log('Success:', userInfo.user);
 
-  //     this.setState({ firstname: userInfo.user.givenName, lastname: userInfo.user.familyName, email: userInfo.user.email });
-  //     this.postSocialMediaData();
+      this.setState({ firstname: userInfo.user.givenName, lastname: userInfo.user.familyName, email: userInfo.user.email });
+      this.postSocialMediaData();
 
 
 
-  //   } catch (error) {
-  //     if (error.code === statusCodes.SIGN_IN_CANCELLED) {
-  //       // sign in was cancelled
-  //       console.log('cancelled');
-  //     } else if (error.code === statusCodes.IN_PROGRESS) {
-  //       // operation in progress already
-  //       console.log('in progress');
-  //     } else if (error.code === statusCodes.PLAY_SERVICES_NOT_AVAILABLE) {
+    } catch (error) {
+      if (error.code === statusCodes.SIGN_IN_CANCELLED) {
+        // sign in was cancelled
+        console.log('cancelled');
+      } else if (error.code === statusCodes.IN_PROGRESS) {
+        // operation in progress already
+        console.log('in progress');
+      } else if (error.code === statusCodes.PLAY_SERVICES_NOT_AVAILABLE) {
 
-  //       console.log('play services not available or outdated');
-  //     } else {
-  //       console.log('Something went wrong:', error.toString());
+        console.log('play services not available or outdated');
+      } else {
+        console.log('Something went wrong:', error.toString());
 
-  //       this.setState({
-  //         error,
-  //       });
-  //     }
-  //   }
-  // };
+        this.setState({
+          error,
+        });
+      }
+    }
+  };
 
   render() {
 
@@ -609,9 +609,9 @@ class Loginpage extends React.Component {
                               if (error) {
                                 console.log('Error fetching data: ' + error.toString());
                               } else {
-                                console.log('Result Name: ' + result.name);
-                                 console.log('result', result);
-                                //this.setState({ firstname: result.first_name, lastname: result.last_name, email: result.email });
+                                //console.log('Result Name: ' + result.name);
+                                 //console.log('result', result);
+                                this.setState({ firstname: result.first_name, lastname: result.last_name, email: result.email });
 
                                 this.postSocialMediaData();
 
@@ -628,12 +628,12 @@ class Loginpage extends React.Component {
                 onLogoutFinished={() => console.log("logout.")} />
 
 
-              {/* <GoogleSigninButton
+              <GoogleSigninButton
                 style={{ width: 195, height: 36 }}
                 size={GoogleSigninButton.Size.Wide}
                 color={GoogleSigninButton.Color.Dark}
                 onPress={this._signIn}
-              /> */}
+              />
             </View> 
                 
               </View>
@@ -707,35 +707,35 @@ class Loginpage extends React.Component {
 
     );
   }
-  // postSocialMediaData() {
-  //   var data = {
-  //     "firstName": this.state.firstname,
-  //     "lastName": this.state.lastname,
-  //     "emailId": this.state.email
-  //   };
-  //   const self = this;
-  //   const config = {
-  //     url: 'http://69.55.49.121:3001/v1/mobile-users/social-media-user',
+  postSocialMediaData() {
+    var data = {
+      "firstName": this.state.firstname,
+      "lastName": this.state.lastname,
+      "emailId": this.state.email
+    };
+    const self = this;
+    const config = {
+      url: 'http://69.55.49.121:3001/v1/mobile-users/social-media-user',
 
-  //     data: data,
-  //     method: 'post'
-  //   }
-  //   console.log(config);
+      data: data,
+      method: 'post'
+    }
+    console.log(config);
 
-  //   axios(config).then((response) => {
-  //     //this.props.navigation.navigate("LoginPage" )
-  //     this.props.navigation.navigate("Afford");
+    axios(config).then((response) => {
+      //this.props.navigation.navigate("LoginPage" )
+      this.props.navigation.navigate("Afford");
 
 
-  //     console.log('successully posted user details');
+      console.log('successully posted user details');
 
-  //   }).catch((error) => {
-  //     this.refs.toast.show(error.response.data.result.error_message.error, 5000);
+    }).catch((error) => {
+      this.refs.toast.show(error.response.data.result.error_message.error, 5000);
 
-  //     console.log(error);
-  //   });
+      console.log(error);
+    });
 
-  // }
+  }
 }
 
 

@@ -1,0 +1,55 @@
+{this.state.index === 11 &&
+                <Contain style={{alignItems:"center", justifyContent: "center" }}>
+                <HeadImage style={{ alignItems: "center", justifyContent: "center" }}>
+                <Text style={{ fontSize:hp(2.5), fontWeight: "bold", textAlign: "center", color: "#40b049" }} >
+                      {this.state.ques12_ques}
+                    </Text>
+                </HeadImage>
+                 
+                <Options style={{ alignItems: "center", justifyContent: "center" }}>
+                   <View style={{ alignItems: "center", justifyContent: "center", padding: "7%" }}>
+                    <View style={{ flexDirection: "row", justifyContent: "center" }}>
+                      <Button style={{ backgroundColor: this.state.no3, width: 125, justifyContent: "center" }} 
+                      onPress={() => {
+                        this.setState({ no3: "red", yes3: "#ECE9E9" })
+                        this.rundelay(this.handleChangeBorrowNo.bind(this))
+                      }
+                      }
+                      >
+                        <Text style={{ color: this.state.no3 == "red" ? "white" : "black", fontSize: 13, textAlign: "center" }}>{this.state.ques10_text2.Text}</Text>
+                      </Button>
+                      <Text style={{ width: 50 }}>  </Text>
+                      <Button style={{ backgroundColor: this.state.yes3, width: 125, justifyContent: "center" }} 
+                      onPress={() => {
+                        this.setState({ yes3: "green", no3: "#ECE9E9" })
+                        this.rundelay(this.handleChangeBorrowYes.bind(this))
+                      }
+                      }
+                      >
+                        <Text style={{ color: this.state.yes3 == "green" ? "white" : "black", fontSize: 13, textAlign: "center" }}>{this.state.ques10_text1.Text}</Text>
+
+                      </Button>
+                    </View>
+                  </View>
+                  </Options>
+                  <NextButton>
+                    {this.state.showimage15 == false && this.state.showimage16 == false ?
+                    <View style={{ alignSelf: "center" }}>
+                      <Text style={{ color: "red" }}>
+                        {this.state.errorvalue7}
+                      </Text>
+                    </View> :
+                    <View style={{ flexDirection: 'row', justifyContent: "center", marginTop: "10%" }}>
+
+                      <Button block
+                        style={styles.next_btnstyle}
+                        onPress={this.nextButtonQuick9.bind(this)}>
+                        <Text>Next</Text>
+                      </Button>
+
+                    </View>
+                  }
+                  </NextButton>
+                </Contain>
+
+              }
