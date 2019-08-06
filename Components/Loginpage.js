@@ -426,6 +426,51 @@ class Loginpage extends React.Component {
     }
   };
 
+  //fblogin
+  _fblogin = async () => {
+    let self = this;
+    LoginManager.logInWithPermissions(["public_profile", "email"]).then(
+      function (result) {
+        if (result.isCancelled) {
+          console.log("Login cancelled");
+        } else {
+          AccessToken.getCurrentAccessToken().then(
+            (data) => {
+              const infoRequest = new GraphRequest(
+                '/me?fields=name,first_name,last_name,email',
+                null,
+                //Create response callback.
+                _responseInfoCallback = (error, result) => {
+                  if (error) {
+                    console.log('Error fetching data: ' + error.toString());
+                  } else {
+                    console.log('Result Name: ' + result.name);
+                    console.log('result', result);
+                    self.setState({ firstname: result.first_name, lastname: result.last_name, email: result.email });
+                    global.loginType = "facebook";
+                    self.postSocialMediaData();
+
+                  }
+                }
+              );
+              // Start the graph request.
+              new GraphRequestManager().addRequest(infoRequest).start();
+            }
+          )
+
+
+
+        }
+
+      },
+
+
+
+
+    );
+
+  };
+
   render() {
 
 
@@ -714,9 +759,9 @@ class Loginpage extends React.Component {
                 />
 
  <View style={{ alignItems: 'center', paddingTop:10,flexDirection: 'row'}}>
-              <LoginButton
+              {/* <LoginButton
                style={{ width: 180, height: 30 }}
-                publishPermissions={["publish_actions","email"]}
+                publishPermissions={["publish_actions"]}
                 onLoginFinished={
                   (error, result) => {
                     if (error) {
@@ -750,8 +795,14 @@ class Loginpage extends React.Component {
                     }
                   }
                 }
-                onLogoutFinished={() => console.log("logout.")} />
+/> */}
+                    <TouchableOpacity onPress={this._fblogin} style={{ paddingRight: 10 }}>
 
+                      <Image
+                        source={require('../assets/fbicon.png')}
+
+                      />
+                    </TouchableOpacity>
 
               <GoogleSigninButton
                 style={{ width: 195, height: 36 }}
