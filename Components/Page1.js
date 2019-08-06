@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Image, TextInput, TouchableOpacity, Alert, Animated, ActivityIndicator } from 'react-native';
+import { View, Image, TextInput, TouchableOpacity, Alert, Animated, ActivityIndicator, BackHandler } from 'react-native';
 import Display from 'react-native-display';
 import MarkSlider from 'react-native-mark-slider';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
@@ -116,7 +116,7 @@ export default class Page1 extends React.Component {
       ques3_text2: "",
       ques3_text3: "",
       ques3_text4: "",
-      isSubmitting: false,
+      isSubmitting: true,
       //question4
       ques4_ques: "",
       //question5
@@ -657,6 +657,7 @@ export default class Page1 extends React.Component {
           validZipCode: false,
         });
       }).catch((error) => {
+        Alert.alert("you already submitted the details");
         this.refs.toast.show(error.response.data.result.error_message.error, 5000);
 
         console.log(error.response.data.result.error_message.error);
@@ -686,11 +687,31 @@ export default class Page1 extends React.Component {
 
     }
   }
+
+  componentWillUnmount() {
+    BackHandler.removeEventListener('hardwareBackPress', this.onBackPress);
+  }
+  onBackPress = () => {
+
+    //Code to display alert message when use click on android device back button.
+    Alert.alert(
+      ' Exit From App ',
+      ' Do you want to exit From App ?',
+      [
+        { text: 'Yes', onPress: () => BackHandler.exitApp() },
+        { text: 'No', onPress: () => console.log('NO Pressed') }
+      ],
+      { cancelable: false },
+    );
+
+    // Return true to enable back button over ride.
+    return true;
+  }
   Dismiss() {
     this.setState({ mainModal: !this.state.mainModal });
   }
   async componentWillMount() {
-
+    BackHandler.addEventListener('hardwareBackPress', this.onBackPress);
     this.setState({ isReady: false });
   }
   PrivacyPolicy() {
@@ -1852,7 +1873,7 @@ export default class Page1 extends React.Component {
     if (this.state.isReady) {
       return (
         <Container style={{marginTop:20}}>
-          <Heading style={{ backgroundColor: "white", justifyContent: "flex-start" }}>
+          <Heading style={{ backgroundColor: "white", justifyContent: "flex-start",elevation:5 }}>
             <View style={{ flexDirection: 'row', backgroundColor: "white", flex: 1, justifyContent: "center", alignItems: "center" }}>
               <View style={{ flexDirection: "row", width: 60, flexWrap: "wrap", alignItems: "center", backgroundColor: "white", justifyContent: "space-between" }}>
                 {this.state.index == '1a' ? null : <TouchableOpacity onPress={this.backButtonQuick123.bind(this)} style={{ marginLeft: "5%",height:25,width:25, justifyContent: "center",alignItems:"center" }}  >
@@ -3585,7 +3606,11 @@ export default class Page1 extends React.Component {
                         style={this.state.formstyle3}
                         onBlur={this.onBlur3.bind(this)}
                         onFocus={this.onFocus3.bind(this)}
-
+                      ref="states"
+                      returnKeyType={"next"}
+                      onSubmitEditing={(event) => {
+                        this.refs.currentCity.focus();
+                      }}
                         underlineColorAndroid='transparent'
                         onChangeText={this.Property.bind(this)}
                         value={this.state.property}
@@ -3617,6 +3642,7 @@ export default class Page1 extends React.Component {
                     <TextInput style={{ marginTop: 10 }} placeholder={this.state.ques13_text2.Text} placeholderTextColor={'black'}
                       underlineColorAndroid='transparent'
                       style={this.state.formstyle8}
+                      ref="currentCity"
                       onBlur={this.onBlur8.bind(this)}
                       onFocus={this.onFocus8.bind(this)}
                       onChangeText={this.City.bind(this)}

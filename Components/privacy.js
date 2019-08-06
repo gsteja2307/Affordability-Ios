@@ -18,12 +18,13 @@ class NavigationDrawerStructure extends React.Component {
     this.props.navigationProps.dispatch(DrawerActions.toggleDrawer())
   };
   BackButn = () => {
+    global.currentScreenIndex = 0;
     this.props.navigationProps.navigate('Page1');
   };
   render() {
     return (
-      <View style={{ flexDirection: 'row', backgroundColor: "white" }}>
-        <TouchableOpacity onPress={this.BackButn.bind(this)} style={{ justifyContent: "center" }}  >
+      <View style={{ flexDirection: 'row', backgroundColor: "white", backgroundColor: "red" }}>
+        {/* <TouchableOpacity onPress={this.BackButn.bind(this)} style={{ justifyContent: "center" }}  >
           <Text style={{ color: "black", fontSize: 40 }}> &#8249;</Text>
         </TouchableOpacity>
         <TouchableOpacity onPress={this.toggleDrawer.bind(this)} style={{ justifyContent: "center", marginLeft: "3%" }} >
@@ -34,7 +35,31 @@ class NavigationDrawerStructure extends React.Component {
         </TouchableOpacity>
 
         <DrawerNavigation />
-        <View style={{ width: 60 }}></View>
+        <View style={{ width: 60 }}></View> */}
+
+
+        <View style={{ flexDirection: 'row', backgroundColor: "white", flex: 1, justifyContent: "center", alignItems: "center" }}>
+          <View style={{ flexDirection: "row", width: 60, flexWrap: "wrap", alignItems: "center", backgroundColor: "white", justifyContent: "space-between" }}>
+            <TouchableOpacity onPress={this.BackButn.bind(this)} style={{ marginLeft: "5%", height: 25, width: 25, justifyContent: "center", alignItems: "center" }}  >
+              <Image
+                source={require('../assets/backarrow.png')}
+                style={{ marginLeft: "5%", width: "100%", height: "100%" }}
+              />
+            </TouchableOpacity>
+
+
+
+            <TouchableOpacity onPress={this.toggleDrawer.bind(this)} style={{ justifyContent: "center", marginLeft: "3%" }} >
+              <Image
+                source={require('./image/drawer.png')}
+                style={{ width: 25, height: 25 }}
+              />
+            </TouchableOpacity>
+          </View>
+
+          <DrawerNavigation />
+          <View style={{ width: 60 }}></View>
+        </View>
       </View>
     );
   }

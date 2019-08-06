@@ -18,10 +18,3 @@ const MainNavigator = createStackNavigator({
 const WelcomePage = createAppContainer(MainNavigator);
 
 export default WelcomePage;
-global.data = {
-  "firstName": false,
-  "lastName": false,
-  "emailId": false,
-  "password": false,
-  "phoneNumber": false
-}

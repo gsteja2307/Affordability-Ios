@@ -6,13 +6,90 @@ import {
   TouchableOpacity,
   Platform,
   Image,
-  ImageBackground
+  ImageBackground,
+  AsyncStorage
 } from 'react-native';
 
+global.data = {
+  "firstName": "",
+  "lastName": "",
+  "emailId": "",
+  "phoneNumber": ""
+
+}
+
 export default class GetStarted extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      firstname: '',
+      lastname: '',
+      email: '',
+      phonenumber: '',
+      userid: "",
+
+    };
+  }
   static navigationOptions = {
     header: null,
-  };
+  }
+  componentDidMount() {
+    displayData = () => {
+
+    }
+  }
+  // console.log("suchith",logindetails);
+
+  usercheck = async function () {
+
+
+    try {
+      console.log("async data", AsyncStorage.getItem('user'));
+      await AsyncStorage.getItem('user').then(user => {
+        console.log("user", user)
+        let parsed = JSON.parse(user)
+        console.log("parsed", parsed)
+        global.data = {
+          "firstName": (parsed.firstName) ? parsed.firstName : null,
+          "lastName": (parsed.lastName) ? parsed.lastName : null,
+          "emailId": (parsed.emailId) ? parsed.emailId : null,
+          "phoneNumber": (parsed.phoneNumber) ? parsed.phoneNumber : null
+
+        }
+
+
+      })
+    }
+    catch (error) {
+      global.data = {
+        "firstName": null,
+        "lastName": null,
+        "emailId": null,
+        "phoneNumber": null
+
+      }
+      console.log("hello");
+    }
+
+    if (global.data.firstName !== null && global.data.firstName !== undefined && global.data.firstName !== "") {
+      console.log("globaldata", global.data);
+      this.props.navigation.navigate("Afford");
+    }
+    else {
+      this.props.navigation.navigate("Loginpage");
+    }
+
+
+    // catch(error){ 
+    // console.log(error);
+
+    // } 
+
+
+  }
+
+
   render() {
     const { navigate } = this.props.navigation;
     return (
@@ -34,7 +111,7 @@ export default class GetStarted extends React.Component {
 
         </View>
         <View style={{ marginTop: "16%" }}>
-          <TouchableOpacity style={{ justifyContent: "center", backgroundColor: "green", borderRadius: 30, height: 60, width: 150, alignItems: "center" }} onPress={() => navigate('Loginpage')} >
+          <TouchableOpacity style={{ justifyContent: "center", backgroundColor: "green", borderRadius: 30, height: 60, width: 150, alignItems: "center" }} onPress={this.usercheck.bind(this)} >
             <Text style={{ fontSize: 16, padding: "3%", color: "white" }} > Get Started</Text>
           </TouchableOpacity>
         </View>
@@ -47,14 +124,14 @@ export default class GetStarted extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    marginTop:Platform.OS== "android"?"": 30,
+    marginTop:Platform.OS== "android"?"": 20,
     flex: 1,
     // justifyContent:'center',
     alignItems: 'center',
   },
   hdng_styls: {
     marginBottom: "5%",
-    fontFamily: "gill Sans",
+    // fontFamily: "Open Sans",
     color: 'white',
     fontWeight: 'bold',
     fontSize: 18,
@@ -62,7 +139,7 @@ const styles = StyleSheet.create({
 
   },
   sub_hdng_styls: {
-    fontFamily: "gill Sans",
+    // fontFamily: "Open Sans",
     color: 'white',
     fontSize: 16,
     fontStyle: 'italic',

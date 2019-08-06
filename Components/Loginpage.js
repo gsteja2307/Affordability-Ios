@@ -5,14 +5,14 @@
  * @format
  * @flow
  */
-
-import React, { Component } from 'react';
-import { Platform, StyleSheet, Text, View, Alert,ScrollView,TouchableOpacity } from 'react-native';
+console.log("global", global.userinfo2)
+ import React, { Component } from 'react';
+import { Platform, StyleSheet, Text, View, Alert, ScrollView, StatusBar, Image, TouchableOpacity, AsyncStorage } from 'react-native';
 import { GoogleSignin, statusCodes, GoogleSigninButton } from 'react-native-google-signin';
 import { LoginManager, LoginButton, AccessToken, GraphRequest, GraphRequestManager } from "react-native-fbsdk";
 import PropTypes from 'prop-types';
 import axios from 'axios';
-import Toast, { DURATION } from 'react-native-easy-toast'
+import Toast, { DURATION } from 'react-native-easy-toast';
 import {
   ImageBackground,
   Dimensions,
@@ -34,6 +34,117 @@ const BG_IMAGE = require('../assets/getstartedbg.jpg');
 
 global.signin=false;
 global.signup=false;
+removeItemValue = async (key) => {
+  try {
+    AsyncStorage.setItem(key, null);
+    await AsyncStorage.removeItem(key);
+    console.log("removing item", key);
+    return true;
+  }
+  catch (exception) {
+    AsyncStorage.setItem(key, null);
+  }
+}
+// global.success=false;
+global.logout = async () => {
+  await this.removeItemValue('user')
+  console.log("i am in global function");
+  if (global.loginType == "google") {
+    console.log("if condition");
+    (signOut = async () => {
+      try {
+        console.log("inside try")
+        await GoogleSignin.revokeAccess();
+        console.log("revoke access is working")
+        await GoogleSignin.signOut();
+        console.log("hellooooooo")
+        global.data = {
+          "firstName": "",
+          "lastName": "",
+          "emailId": "",
+          "phoneNumber": ""
+        };
+        global.loginType = "";
+        console.log("data", global.data);
+        console.log("logintype", global.loginType);
+        // Remember to remove the user from your app's state as well
+        console.log("logout");
+        return true;
+
+      } catch (error) {
+        console.error(error);
+        return false;
+      }
+    })();
+  }
+  else if (global.loginType == "login") {
+    (logout = async () => {
+      console.log("acess", global.Accesstoken);
+      if (global.Accesstoken != "") {
+        global.data = {
+          "firstName": "",
+          "lastName": "",
+          "emailId": "",
+          "phoneNumber": ""
+        };
+        global.loginType = "";
+        global.Accesstoken = "";
+        console.log("data", global.data);
+        console.log("logintype", global.loginType);
+        console.log("acess", global.Accesstoken);
+        // Remember to remove the user from your app's state as well
+        console.log("logout");
+        return true;
+
+      }
+      else {
+        return false;
+      }
+    })();
+  }
+  else if (global.loginType == "facebook") {
+    (customFacebookLogout = () => {
+      var current_access_token = '';
+      AccessToken.getCurrentAccessToken().then((data) => {
+        current_access_token = data.accessToken.toString();
+      }).then(() => {
+        let logout =
+          new GraphRequest(
+            "me/permissions/",
+            {
+              accessToken: current_access_token,
+              httpMethod: 'DELETE'
+            },
+            (error, result) => {
+              if (error) {
+                console.log('Error fetching data: ' + error.toString());
+              } else {
+                console.log("logintype", global.loginType);
+                LoginManager.logOut();
+                global.data = {
+                  "firstName": "",
+                  "lastName": "",
+                  "emailId": "",
+                  "phoneNumber": ""
+                };
+                global.loginType = "";
+                console.log("data", global.data);
+                console.log("logintype", global.loginType);
+                // Remember to remove the user from your app's state as well
+                console.log("logout");
+                return true;
+              }
+            });
+        new GraphRequestManager().addRequest(logout).start();
+      })
+        .catch(error => {
+          console.log(error)
+          return false;
+        });
+    })();
+  }
+}
+
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
   android:
@@ -54,7 +165,7 @@ const TabSelector = ({ selected }) => {
       <View style={selected && styles.selected} />
     </View>
   );
-};``
+};
 
 TabSelector.propTypes = {
   selected: PropTypes.bool.isRequired,
@@ -79,7 +190,8 @@ class Loginpage extends React.Component {
       isConfirmationValid: true,
       validfirstname:true,
       validlastname:true,
-      validphone:true
+      validphone:true,
+      userid: ""
     };
 
     this.selectCategory = this.selectCategory.bind(this);
@@ -102,7 +214,7 @@ class Loginpage extends React.Component {
     var re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
     return re.test(email);
-  }
+  };
 
   // login() {
   //   const { email, password } = this.state;
@@ -130,19 +242,19 @@ class Loginpage extends React.Component {
      global.data = {
       "firstName": "",
       "lastName": "",
-      "emailId": this.state.email,
+      "emailId": "",
       
       "phoneNumber": ""
     }
-    global.login={
+    login={
       "emailId": this.state.email,
       "password": this.state.password
     }
-    console.log(global.login)
+    console.log(login)
     const self = this;
     const config = {
       url: 'http://69.55.49.121:3001/v1/mobile-users/login',
-      data: global.login,
+      data: login,
       method: 'post'
 
     };
@@ -152,10 +264,22 @@ class Loginpage extends React.Component {
       global.data = {
         "firstName": response.data.result.firstName,
         "lastName": response.data.result.lastName,
-        "emailId": this.state.email,
-        
+        "emailId": response.data.result.emailId,
+        "userid":response.data.result._id,
         "phoneNumber": response.data.result.phoneNumber
       }
+      let obj = {
+        "firstName": response.data.result.firstName,
+         "lastName": response.data.result.lastName,
+      "emailId": response.data.result.emailId,
+      "phoneNumber": response.data.result.phoneNumber,
+      "userid":response.data.result._id
+   }
+     AsyncStorage.setItem('user',JSON.stringify(obj));  
+      global.Accesstoken=response.data.result.access_token;
+
+      global.loginType="login";
+
       console.log("sending this data",global.data);
       console.log('success', response.data.result); 
       this.props.navigation.navigate("Afford");
@@ -193,7 +317,7 @@ class Loginpage extends React.Component {
   // }
 
   signUp() {
-    global.signup=true;
+    // global.signup=true;
     const { firstname, lastname, email, password, phonenumber } = this.state;
     this.setState({
       isLoading: false,
@@ -237,9 +361,10 @@ class Loginpage extends React.Component {
     }
     axios(config).then((response) => {
       console.log(data["firstName"])
+        this.setState({ color: "green" });
+      this.refs.toast.show("sucessfully registered please login to continue", 5000);
+    	this.props.navigation.navigate(" Loginpage");
 
-      this.props.navigation.navigate("Afford");
- 
     
 
       console.log('successully registered');
@@ -273,7 +398,7 @@ class Loginpage extends React.Component {
     try {
       await GoogleSignin.hasPlayServices();
       const userInfo = await GoogleSignin.signIn();
-      await GoogleSignin.revokeAccess();
+      // await GoogleSignin.revokeAccess();
       console.log('Success:', userInfo.user);
 
       this.setState({ firstname: userInfo.user.givenName, lastname: userInfo.user.familyName, email: userInfo.user.email });
@@ -708,7 +833,7 @@ class Loginpage extends React.Component {
     );
   }
   postSocialMediaData() {
-    var data = {
+    global.data = {
       "firstName": this.state.firstname,
       "lastName": this.state.lastname,
       "emailId": this.state.email
@@ -717,13 +842,30 @@ class Loginpage extends React.Component {
     const config = {
       url: 'http://69.55.49.121:3001/v1/mobile-users/social-media-user',
 
-      data: data,
+      data: global.data,
       method: 'post'
     }
     console.log(config);
 
     axios(config).then((response) => {
       //this.props.navigation.navigate("LoginPage" )
+        //this.props.navigation.navigate("LoginPage" )
+      let obj = {
+        "firstName": response.data.result.firstName,
+        "lastName": response.data.result.lastName,
+        "emailId": response.data.result.emailId,
+        "phoneNumber": ""
+     }
+       AsyncStorage.setItem('user',JSON.stringify(obj));  
+  
+    
+     
+         
+       
+      
+        global.Accesstoken=response.data.result.access_token;
+        console.log("sending this data", global.data);
+        console.log('success', response.data.result);
       this.props.navigation.navigate("Afford");
 
 
@@ -758,6 +900,9 @@ class Forgotpassword extends React.Component {
     };
     // this.selectCategory = this.selectCategory.bind(this);
     // this.forgotpasssword = this.forgotpasssword.bind(this);
+  }
+    rundelay=(x)=>{
+    setTimeout(()=>x(),3000)
   }
 
   validateEmail(email) {
@@ -822,7 +967,9 @@ class Forgotpassword extends React.Component {
     })
 
   }
-
+ nav(){
+      this.props.navigation.navigate("Home");
+  }
   resetPassword() {
     const { email, password } = this.state;
 
@@ -847,10 +994,11 @@ class Forgotpassword extends React.Component {
     axios(config).then((response) => {
       //this.props.navigation.navigate("Googlefblogin" )
       this.setState({ color: "green" });
-      this.refs.toast.show('successfully Password Changed', 5000);
+       this.refs.toast.show('successfully Password Changed try login again', 10000);
 
       console.log('successfully Password Changed');
-      this.props.navigation.navigate("Home");
+      this.rundelay(this.nav.bind(this))
+
 
 
 
@@ -904,7 +1052,7 @@ class Forgotpassword extends React.Component {
                     keyboardType="numeric"
                     returnKeyType={'done'}
                     blurOnSubmit={true}
-                    placeholder={'Otp'}
+                    placeholder={'Verification Code'}
                     containerStyle={{
                       marginTop: 16,
                       borderBottomColor: 'rgba(0, 0, 0, 0.38)',
