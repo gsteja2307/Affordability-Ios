@@ -13,6 +13,7 @@ import { LoginManager, LoginButton, AccessToken, GraphRequest, GraphRequestManag
 import PropTypes from 'prop-types';
 import axios from 'axios';
 import Toast, { DURATION } from 'react-native-easy-toast';
+import Icon from 'react-native-vector-icons/FontAwesome';
 import {
     ImageBackground,
     Dimensions,
@@ -20,7 +21,7 @@ import {
     UIManager,
     KeyboardAvoidingView,
 } from 'react-native';
-import { Input, Button, Icon, SocialIcon } from 'react-native-elements';
+import { Input, Button, SocialIcon } from 'react-native-elements';
 // import OtpInputs from 'react-native-otp-inputs';
 
 
@@ -32,8 +33,7 @@ const BG_IMAGE = require('../assets/getstartedbg.jpg');
 
 // const BG_IMAGE = require('../assets/loginback.jpg');
 
-global.signin = false;
-global.signup = false;
+
 removeItemValue = async (key) => {
     try {
         AsyncStorage.setItem(key, {});
@@ -401,6 +401,7 @@ class Loginpage extends React.Component {
             const userInfo = await GoogleSignin.signIn();
             // await GoogleSignin.revokeAccess();
             console.log('Success:', userInfo.user);
+            global.loginType = "google";
 
             this.setState({ firstname: userInfo.user.givenName, lastname: userInfo.user.familyName, email: userInfo.user.email });
             this.postSocialMediaData();
@@ -784,6 +785,8 @@ class Loginpage extends React.Component {
                                             <Text style={{ color: '#314E99', paddingTop: 5, alignSelf: 'flex-end', paddingRight: 5, }}
                                                 //details is forgotpage in navigation
                                                 onPress={() => {
+                                                   
+
                                                     this.props.navigation.navigate("Details")
                                                 }}>
                                                 Forgot Passsword ?
@@ -814,59 +817,28 @@ class Loginpage extends React.Component {
                                         loading={isLoading}
                                         disabled={isLoading}
                                     />
-
-                                    <View style={{ alignItems: 'center', paddingTop: 10, flexDirection: 'row' }}>
-                                        {/* <LoginButton
-               style={{ width: 180, height: 30 }}
-                publishPermissions={["publish_actions"]}
-                onLoginFinished={
-                  (error, result) => {
-                    if (error) {
-                      console.log("login has error: " + result.error);
-                    } else if (result.isCancelled) {
-                      console.log("login is cancelled.");
-                    } else {
-                      AccessToken.getCurrentAccessToken().then(
-                        (data) => {
-                          const infoRequest = new GraphRequest(
-                            '/me?fields=name,first_name,last_name,email',
-                            null,
-                            //Create response callback.
-                            _responseInfoCallback = (error, result) => {
-                              if (error) {
-                                console.log('Error fetching data: ' + error.toString());
-                              } else {
-                                //console.log('Result Name: ' + result.name);
-                                 //console.log('result', result);
-                                this.setState({ firstname: result.first_name, lastname: result.last_name, email: result.email });
-
-                                this.postSocialMediaData();
-
-                              }
-                            }
-                          );
-                          // Start the graph request.
-                          new GraphRequestManager().addRequest(infoRequest).start();
-                        }
-                      )
-                    }
-                  }
-                }
-/> */}
-                                        <TouchableOpacity onPress={this._fblogin} style={{ paddingRight: 10 }}>
-
-                                            <Image
-                                                source={require('../assets/fbicon.png')}
-
-                                            />
-                                        </TouchableOpacity>
-
-                                        <GoogleSigninButton
-                                            style={{ width: 195, height: 36 }}
-                                            size={GoogleSigninButton.Size.Wide}
-                                            color={GoogleSigninButton.Color.Dark}
-                                            onPress={this._signIn}
-                                        />
+                               {/* fb and google button  */}
+                                    <View style={{ alignItems: 'center', paddingTop: 10 }}>
+                                        <View style={{ paddingBottom: 5 }}>
+                                            <Icon.Button
+                                                name="facebook"
+                                                backgroundColor="#3b5998"
+                                                onPress={this._fblogin}
+                                                {...iconStyles}
+                                            >
+                                                Login with Facebook
+                    </Icon.Button>
+                                        </View>
+                                        <View style={{ paddingTop: 5 ,marginBottom:5}}>
+                                            <Icon.Button
+                                                name="google"
+                                                backgroundColor="#DD4B39"
+                                                onPress={this._signIn}
+                                                {...iconStyles}
+                                            >
+                                                Login with Google
+                     </Icon.Button>
+                                        </View>
                                     </View>
 
                                 </View>
@@ -1147,7 +1119,7 @@ class Forgotpassword extends React.Component {
                         </View>
                         {
                             this.state.status ? (
-                                <View style={styles.formsignup2}>
+                                <View style={styles.formsignup3}>
 
                                     <Input
 
@@ -1180,7 +1152,7 @@ class Forgotpassword extends React.Component {
                                         keyboardType="email-address" s
                                         returnKeyType="next"
                                         inputStyle={{ marginLeft: 10 }}
-                                        placeholder={'Password'}
+                                        placeholder={' New Password'}
                                         containerStyle={{
                                             borderBottomColor: 'rgba(0, 0, 0, 0.38)',
                                         }}
@@ -1195,28 +1167,32 @@ class Forgotpassword extends React.Component {
 
                                 buttonStyle={styles.submitbutton}
                                 type="clear"
+                                containerStyle={{ marginTop: 15, flex: 0 }}
+                                activeOpacity={0.8}
 
                                 activeOpacity={0.7}
                                 // onPress={() => this.selectCategory(1)}
                                 onPress={this.ShowHideTextComponentView}
 
                                 titleStyle={[
-                                    styles.submittext,
+                                    styles.loginTextButton,
                                 ]}
                                 title={'Submit'}
                             />
                             <Button
                                 buttonStyle={styles.submitbutton2}
                                 type="clear"
+                                containerStyle={{ marginTop: 15, flex: 0 }}
+                                activeOpacity={0.8}
 
                                 activeOpacity={0.7}
                                 // onPress={() => this.selectCategory(1)}
                                 onPress={() => this.props.navigation.navigate("Home")}
 
                                 titleStyle={[
-                                    styles.submittext,
+                                    styles.loginTextButton,
                                 ]}
-                                title={'back'}
+                                title={'Back'}
                             />
                         </View>
                         <Toast
@@ -1235,6 +1211,12 @@ class Forgotpassword extends React.Component {
         );
     }
 }
+const iconStyles = {
+    justifyContent: "center",
+    borderRadius: 10,
+    width: 200,
+
+};
 
 const AppNavigator = createStackNavigator({
     Home: {
@@ -1296,6 +1278,16 @@ const styles = StyleSheet.create({
         height: 50,
         width: 200,
     },
+    formsignup3: {
+        backgroundColor: 'white',
+        width: SCREEN_WIDTH - 30,
+        borderRadius: 10,
+        // paddingTop: 20,
+        alignItems: 'center',
+
+
+    },
+
     submitbutton: {
         backgroundColor: '#3FB149',
         alignItems: 'center',

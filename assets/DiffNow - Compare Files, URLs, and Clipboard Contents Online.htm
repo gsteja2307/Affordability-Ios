@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<!-- saved from url=(0030)https://www.diffnow.com/report -->
+<html lang="en" class=" es6collections es5array es5date es5function es5object strictmode es5string json es5syntax es5undefined es5 localstorage flexbox"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style id="react-tooltip">.__react_component_tooltip{border-radius:3px;display:inline-block;font-size:13px;left:-999em;opacity:0;padding:8px 21px;position:fixed;pointer-events:none;transition:opacity 0.3s ease-out;top:-999em;visibility:hidden;z-index:999}.__react_component_tooltip:before,.__react_component_tooltip:after{content:"";width:0;height:0;position:absolute}.__react_component_tooltip.show{opacity:0.9;margin-top:0px;margin-left:0px;visibility:visible}.__react_component_tooltip.type-dark{color:#fff;background-color:#222}.__react_component_tooltip.type-dark.place-top:after{border-top-color:#222;border-top-style:solid;border-top-width:6px}.__react_component_tooltip.type-dark.place-bottom:after{border-bottom-color:#222;border-bottom-style:solid;border-bottom-width:6px}.__react_component_tooltip.type-dark.place-left:after{border-left-color:#222;border-left-style:solid;border-left-width:6px}.__react_component_tooltip.type-dark.place-right:after{border-right-color:#222;border-right-style:solid;border-right-width:6px}.__react_component_tooltip.type-dark.border{border:1px solid #fff}.__react_component_tooltip.type-dark.border.place-top:before{border-top:8px solid #fff}.__react_component_tooltip.type-dark.border.place-bottom:before{border-bottom:8px solid #fff}.__react_component_tooltip.type-dark.border.place-left:before{border-left:8px solid #fff}.__react_component_tooltip.type-dark.border.place-right:before{border-right:8px solid #fff}.__react_component_tooltip.type-success{color:#fff;background-color:#8DC572}.__react_component_tooltip.type-success.place-top:after{border-top-color:#8DC572;border-top-style:solid;border-top-width:6px}.__react_component_tooltip.type-success.place-bottom:after{border-bottom-color:#8DC572;border-bottom-style:solid;border-bottom-width:6px}.__react_component_tooltip.type-success.place-left:after{border-left-color:#8DC572;border-left-style:solid;border-left-width:6px}.__react_component_tooltip.type-success.place-right:after{border-right-color:#8DC572;border-right-style:solid;border-right-width:6px}.__react_component_tooltip.type-success.border{border:1px solid #fff}.__react_component_tooltip.type-success.border.place-top:before{border-top:8px solid #fff}.__react_component_tooltip.type-success.border.place-bottom:before{border-bottom:8px solid #fff}.__react_component_tooltip.type-success.border.place-left:before{border-left:8px solid #fff}.__react_component_tooltip.type-success.border.place-right:before{border-right:8px solid #fff}.__react_component_tooltip.type-warning{color:#fff;background-color:#F0AD4E}.__react_component_tooltip.type-warning.place-top:after{border-top-color:#F0AD4E;border-top-style:solid;border-top-width:6px}.__react_component_tooltip.type-warning.place-bottom:after{border-bottom-color:#F0AD4E;border-bottom-style:solid;border-bottom-width:6px}.__react_component_tooltip.type-warning.place-left:after{border-left-color:#F0AD4E;border-left-style:solid;border-left-width:6px}.__react_component_tooltip.type-warning.place-right:after{border-right-color:#F0AD4E;border-right-style:solid;border-right-width:6px}.__react_component_tooltip.type-warning.border{border:1px solid #fff}.__react_component_tooltip.type-warning.border.place-top:before{border-top:8px solid #fff}.__react_component_tooltip.type-warning.border.place-bottom:before{border-bottom:8px solid #fff}.__react_component_tooltip.type-warning.border.place-left:before{border-left:8px solid #fff}.__react_component_tooltip.type-warning.border.place-right:before{border-right:8px solid #fff}.__react_component_tooltip.type-error{color:#fff;background-color:#BE6464}.__react_component_tooltip.type-error.place-top:after{border-top-color:#BE6464;border-top-style:solid;border-top-width:6px}.__react_component_tooltip.type-error.place-bottom:after{border-bottom-color:#BE6464;border-bottom-style:solid;border-bottom-width:6px}.__react_component_tooltip.type-error.place-left:after{border-left-color:#BE6464;border-left-style:solid;border-left-width:6px}.__react_component_tooltip.type-error.place-right:after{border-right-color:#BE6464;border-right-style:solid;border-right-width:6px}.__react_component_tooltip.type-error.border{border:1px solid #fff}.__react_component_tooltip.type-error.border.place-top:before{border-top:8px solid #fff}.__react_component_tooltip.type-error.border.place-bottom:before{border-bottom:8px solid #fff}.__react_component_tooltip.type-error.border.place-left:before{border-left:8px solid #fff}.__react_component_tooltip.type-error.border.place-right:before{border-right:8px solid #fff}.__react_component_tooltip.type-info{color:#fff;background-color:#337AB7}.__react_component_tooltip.type-info.place-top:after{border-top-color:#337AB7;border-top-style:solid;border-top-width:6px}.__react_component_tooltip.type-info.place-bottom:after{border-bottom-color:#337AB7;border-bottom-style:solid;border-bottom-width:6px}.__react_component_tooltip.type-info.place-left:after{border-left-color:#337AB7;border-left-style:solid;border-left-width:6px}.__react_component_tooltip.type-info.place-right:after{border-right-color:#337AB7;border-right-style:solid;border-right-width:6px}.__react_component_tooltip.type-info.border{border:1px solid #fff}.__react_component_tooltip.type-info.border.place-top:before{border-top:8px solid #fff}.__react_component_tooltip.type-info.border.place-bottom:before{border-bottom:8px solid #fff}.__react_component_tooltip.type-info.border.place-left:before{border-left:8px solid #fff}.__react_component_tooltip.type-info.border.place-right:before{border-right:8px solid #fff}.__react_component_tooltip.type-light{color:#222;background-color:#fff}.__react_component_tooltip.type-light.place-top:after{border-top-color:#fff;border-top-style:solid;border-top-width:6px}.__react_component_tooltip.type-light.place-bottom:after{border-bottom-color:#fff;border-bottom-style:solid;border-bottom-width:6px}.__react_component_tooltip.type-light.place-left:after{border-left-color:#fff;border-left-style:solid;border-left-width:6px}.__react_component_tooltip.type-light.place-right:after{border-right-color:#fff;border-right-style:solid;border-right-width:6px}.__react_component_tooltip.type-light.border{border:1px solid #222}.__react_component_tooltip.type-light.border.place-top:before{border-top:8px solid #222}.__react_component_tooltip.type-light.border.place-bottom:before{border-bottom:8px solid #222}.__react_component_tooltip.type-light.border.place-left:before{border-left:8px solid #222}.__react_component_tooltip.type-light.border.place-right:before{border-right:8px solid #222}.__react_component_tooltip.place-top{margin-top:-10px}.__react_component_tooltip.place-top:before{border-left:10px solid transparent;border-right:10px solid transparent;bottom:-8px;left:50%;margin-left:-10px}.__react_component_tooltip.place-top:after{border-left:8px solid transparent;border-right:8px solid transparent;bottom:-6px;left:50%;margin-left:-8px}.__react_component_tooltip.place-bottom{margin-top:10px}.__react_component_tooltip.place-bottom:before{border-left:10px solid transparent;border-right:10px solid transparent;top:-8px;left:50%;margin-left:-10px}.__react_component_tooltip.place-bottom:after{border-left:8px solid transparent;border-right:8px solid transparent;top:-6px;left:50%;margin-left:-8px}.__react_component_tooltip.place-left{margin-left:-10px}.__react_component_tooltip.place-left:before{border-top:6px solid transparent;border-bottom:6px solid transparent;right:-8px;top:50%;margin-top:-5px}.__react_component_tooltip.place-left:after{border-top:5px solid transparent;border-bottom:5px solid transparent;right:-6px;top:50%;margin-top:-4px}.__react_component_tooltip.place-right{margin-left:10px}.__react_component_tooltip.place-right:before{border-top:6px solid transparent;border-bottom:6px solid transparent;left:-8px;top:50%;margin-top:-5px}.__react_component_tooltip.place-right:after{border-top:5px solid transparent;border-bottom:5px solid transparent;left:-6px;top:50%;margin-top:-4px}.__react_component_tooltip .multi-line{display:block;padding:2px 0px;text-align:center}</style><meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name="theme-color" content="#000000"><script type="application/javascript" async="" defer="" src="./DiffNow - Compare Files, URLs, and Clipboard Contents Online_files/track.js"></script><script src="./DiffNow - Compare Files, URLs, and Clipboard Contents Online_files/osd.js"></script><script src="./DiffNow - Compare Files, URLs, and Clipboard Contents Online_files/ca-pub-4700667168875048.js"></script><script type="text/javascript" async="" src="./DiffNow - Compare Files, URLs, and Clipboard Contents Online_files/TytbtbWpquetlWuQU3E5Q.js"></script><script async="" src="./DiffNow - Compare Files, URLs, and Clipboard Contents Online_files/analytics.js"></script><script async="" src="./DiffNow - Compare Files, URLs, and Clipboard Contents Online_files/f.txt"></script><link rel="manifest" href="https://www.diffnow.com/manifest.json"><link rel="shortcut icon" href="https://www.diffnow.com/favicon.ico"><link href="./DiffNow - Compare Files, URLs, and Clipboard Contents Online_files/icon" rel="stylesheet"><link href="./DiffNow - Compare Files, URLs, and Clipboard Contents Online_files/css" rel="stylesheet"><title>DiffNow - Compare Files, URLs, and Clipboard Contents Online</title><link href="./DiffNow - Compare Files, URLs, and Clipboard Contents Online_files/main.b83ca34c.chunk.css" rel="stylesheet"><link rel="preload" href="./DiffNow - Compare Files, URLs, and Clipboard Contents Online_files/f(1).txt" as="script"><script type="text/javascript" src="./DiffNow - Compare Files, URLs, and Clipboard Contents Online_files/f(1).txt"></script><link rel="preload" href="./DiffNow - Compare Files, URLs, and Clipboard Contents Online_files/f(2).txt" as="script"><script type="text/javascript" src="./DiffNow - Compare Files, URLs, and Clipboard Contents Online_files/f(2).txt"></script><style type="text/css" data-jss="" data-meta="MuiCssBaseline">
+html {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+body {
+  margin: 0;
+  background-color: #eeeeee;
+}
+@media print {
+  body {
+    background-color: #fff;
+  }
+}
+</style><style type="text/css" data-jss="" data-meta="MuiTouchRipple">
+.jss76 {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  z-index: 0;
+  position: absolute;
+  overflow: hidden;
+  border-radius: inherit;
+  pointer-events: none;
+}
+.jss77 {
+  top: 0;
+  left: 0;
+  width: 50px;
+  height: 50px;
+  opacity: 0;
+  position: absolute;
+}
+.jss78 {
+  opacity: 0.3;
+  transform: scale(1);
+  animation: mui-ripple-enter 550ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.jss79 {
+  animation-duration: 200ms;
+}
+.jss80 {
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+  display: block;
+  border-radius: 50%;
+  background-color: currentColor;
+}
+.jss81 {
+  opacity: 0;
+  animation: mui-ripple-exit 550ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.jss82 {
+  top: 0;
+  left: 0;
+  position: absolute;
+  animation: mui-ripple-pulsate 2500ms cubic-bezier(0.4, 0, 0.2, 1) 200ms infinite;
+}
+@-webkit-keyframes mui-ripple-enter {
+  0% {
+    opacity: 0.1;
+    transform: scale(0);
+  }
+  100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+}
+@-webkit-keyframes mui-ripple-exit {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@-webkit-keyframes mui-ripple-pulsate {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.92);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+</style><style type="text/css" data-jss="" data-meta="MuiButtonBase">
+.jss66 {
+  color: inherit;
+  border: 0;
+  margin: 0;
+  cursor: pointer;
+  display: inline-flex;
+  outline: none;
+  padding: 0;
+  position: relative;
+  align-items: center;
+  user-select: none;
+  border-radius: 0;
+  vertical-align: middle;
+  justify-content: center;
+  -moz-appearance: none;
+  text-decoration: none;
+  background-color: transparent;
+  -webkit-appearance: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.jss66::-moz-focus-inner {
+  border-style: none;
+}
+.jss66.jss67 {
+  cursor: default;
+  pointer-events: none;
+}
+</style><style type="text/css" data-jss="" data-meta="MuiButton">
+.jss40 {
+  color: rgba(0, 0, 0, 0.87);
+  padding: 8px 16px;
+  font-size: 0.875rem;
+  min-width: 64px;
+  box-sizing: border-box;
+  min-height: 36px;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  font-weight: 500;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  line-height: 1.4em;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+.jss40:hover {
+  text-decoration: none;
+  background-color: rgba(0, 0, 0, 0.08);
+}
+.jss40.jss60 {
+  color: rgba(0, 0, 0, 0.26);
+}
+@media (hover: none) {
+  .jss40:hover {
+    background-color: transparent;
+  }
+}
+.jss40:hover.jss60 {
+  background-color: transparent;
+}
+.jss41 {
+  width: 100%;
+  display: inherit;
+  align-items: inherit;
+  justify-content: inherit;
+}
+.jss43 {
+  color: #1976d2;
+}
+.jss43:hover {
+  background-color: rgba(25, 118, 210, 0.08);
+}
+@media (hover: none) {
+  .jss43:hover {
+    background-color: transparent;
+  }
+}
+.jss44 {
+  color: #ffee58;
+}
+.jss44:hover {
+  background-color: rgba(255, 238, 88, 0.08);
+}
+@media (hover: none) {
+  .jss44:hover {
+    background-color: transparent;
+  }
+}
+.jss48 {
+  border: 1px solid rgba(0, 0, 0, 0.23);
+}
+.jss49 {
+  border: 1px solid rgba(25, 118, 210, 0.5);
+}
+.jss49:hover {
+  border: 1px solid #1976d2;
+}
+.jss50 {
+  border: 1px solid rgba(255, 238, 88, 0.5);
+}
+.jss50:hover {
+  border: 1px solid #ffee58;
+}
+.jss51 {
+  color: rgba(0, 0, 0, 0.87);
+  box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2),0px 2px 2px 0px rgba(0, 0, 0, 0.14),0px 3px 1px -2px rgba(0, 0, 0, 0.12);
+  background-color: #e0e0e0;
+}
+.jss51.jss59 {
+  box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2),0px 6px 10px 0px rgba(0, 0, 0, 0.14),0px 1px 18px 0px rgba(0, 0, 0, 0.12);
+}
+.jss51:active {
+  box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.2),0px 8px 10px 1px rgba(0, 0, 0, 0.14),0px 3px 14px 2px rgba(0, 0, 0, 0.12);
+}
+.jss51.jss60 {
+  color: rgba(0, 0, 0, 0.26);
+  box-shadow: none;
+  background-color: rgba(0, 0, 0, 0.12);
+}
+.jss51:hover {
+  background-color: #d5d5d5;
+}
+@media (hover: none) {
+  .jss51:hover {
+    background-color: #e0e0e0;
+  }
+}
+.jss51:hover.jss60 {
+  background-color: rgba(0, 0, 0, 0.12);
+}
+.jss52 {
+  color: #ffffff;
+  background-color: #1976d2;
+}
+.jss52:hover {
+  background-color: #004ba0;
+}
+@media (hover: none) {
+  .jss52:hover {
+    background-color: #1976d2;
+  }
+}
+.jss53 {
+  color: #000000;
+  background-color: #ffee58;
+}
+.jss53:hover {
+  background-color: #c9bc1f;
+}
+@media (hover: none) {
+  .jss53:hover {
+    background-color: #ffee58;
+  }
+}
+.jss57 {
+  width: 56px;
+  height: 56px;
+  padding: 0;
+  min-width: 0;
+  box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2),0px 6px 10px 0px rgba(0, 0, 0, 0.14),0px 1px 18px 0px rgba(0, 0, 0, 0.12);
+  border-radius: 50%;
+}
+.jss57:active {
+  box-shadow: 0px 7px 8px -4px rgba(0, 0, 0, 0.2),0px 12px 17px 2px rgba(0, 0, 0, 0.14),0px 5px 22px 4px rgba(0, 0, 0, 0.12);
+}
+.jss58 {
+  width: auto;
+  height: 48px;
+  padding: 0 16px;
+  min-width: 48px;
+  border-radius: 24px;
+}
+.jss61 {
+  color: inherit;
+}
+.jss62 {
+  width: 40px;
+  height: 40px;
+}
+.jss63 {
+  padding: 7px 8px;
+  min-width: 64px;
+  font-size: 0.8125rem;
+  min-height: 32px;
+}
+.jss64 {
+  padding: 8px 24px;
+  min-width: 112px;
+  font-size: 0.9375rem;
+  min-height: 40px;
+}
+.jss65 {
+  width: 100%;
+}
+</style><style type="text/css" data-jss="" data-meta="MuiPaper">
+.jss9 {
+  background-color: #fff;
+}
+.jss10 {
+  border-radius: 4px;
+}
+.jss11 {
+  box-shadow: none;
+}
+.jss12 {
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2),0px 1px 1px 0px rgba(0, 0, 0, 0.14),0px 2px 1px -1px rgba(0, 0, 0, 0.12);
+}
+.jss13 {
+  box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2),0px 2px 2px 0px rgba(0, 0, 0, 0.14),0px 3px 1px -2px rgba(0, 0, 0, 0.12);
+}
+.jss14 {
+  box-shadow: 0px 1px 8px 0px rgba(0, 0, 0, 0.2),0px 3px 4px 0px rgba(0, 0, 0, 0.14),0px 3px 3px -2px rgba(0, 0, 0, 0.12);
+}
+.jss15 {
+  box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),0px 4px 5px 0px rgba(0, 0, 0, 0.14),0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+}
+.jss16 {
+  box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2),0px 5px 8px 0px rgba(0, 0, 0, 0.14),0px 1px 14px 0px rgba(0, 0, 0, 0.12);
+}
+.jss17 {
+  box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2),0px 6px 10px 0px rgba(0, 0, 0, 0.14),0px 1px 18px 0px rgba(0, 0, 0, 0.12);
+}
+.jss18 {
+  box-shadow: 0px 4px 5px -2px rgba(0, 0, 0, 0.2),0px 7px 10px 1px rgba(0, 0, 0, 0.14),0px 2px 16px 1px rgba(0, 0, 0, 0.12);
+}
+.jss19 {
+  box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.2),0px 8px 10px 1px rgba(0, 0, 0, 0.14),0px 3px 14px 2px rgba(0, 0, 0, 0.12);
+}
+.jss20 {
+  box-shadow: 0px 5px 6px -3px rgba(0, 0, 0, 0.2),0px 9px 12px 1px rgba(0, 0, 0, 0.14),0px 3px 16px 2px rgba(0, 0, 0, 0.12);
+}
+.jss21 {
+  box-shadow: 0px 6px 6px -3px rgba(0, 0, 0, 0.2),0px 10px 14px 1px rgba(0, 0, 0, 0.14),0px 4px 18px 3px rgba(0, 0, 0, 0.12);
+}
+.jss22 {
+  box-shadow: 0px 6px 7px -4px rgba(0, 0, 0, 0.2),0px 11px 15px 1px rgba(0, 0, 0, 0.14),0px 4px 20px 3px rgba(0, 0, 0, 0.12);
+}
+.jss23 {
+  box-shadow: 0px 7px 8px -4px rgba(0, 0, 0, 0.2),0px 12px 17px 2px rgba(0, 0, 0, 0.14),0px 5px 22px 4px rgba(0, 0, 0, 0.12);
+}
+.jss24 {
+  box-shadow: 0px 7px 8px -4px rgba(0, 0, 0, 0.2),0px 13px 19px 2px rgba(0, 0, 0, 0.14),0px 5px 24px 4px rgba(0, 0, 0, 0.12);
+}
+.jss25 {
+  box-shadow: 0px 7px 9px -4px rgba(0, 0, 0, 0.2),0px 14px 21px 2px rgba(0, 0, 0, 0.14),0px 5px 26px 4px rgba(0, 0, 0, 0.12);
+}
+.jss26 {
+  box-shadow: 0px 8px 9px -5px rgba(0, 0, 0, 0.2),0px 15px 22px 2px rgba(0, 0, 0, 0.14),0px 6px 28px 5px rgba(0, 0, 0, 0.12);
+}
+.jss27 {
+  box-shadow: 0px 8px 10px -5px rgba(0, 0, 0, 0.2),0px 16px 24px 2px rgba(0, 0, 0, 0.14),0px 6px 30px 5px rgba(0, 0, 0, 0.12);
+}
+.jss28 {
+  box-shadow: 0px 8px 11px -5px rgba(0, 0, 0, 0.2),0px 17px 26px 2px rgba(0, 0, 0, 0.14),0px 6px 32px 5px rgba(0, 0, 0, 0.12);
+}
+.jss29 {
+  box-shadow: 0px 9px 11px -5px rgba(0, 0, 0, 0.2),0px 18px 28px 2px rgba(0, 0, 0, 0.14),0px 7px 34px 6px rgba(0, 0, 0, 0.12);
+}
+.jss30 {
+  box-shadow: 0px 9px 12px -6px rgba(0, 0, 0, 0.2),0px 19px 29px 2px rgba(0, 0, 0, 0.14),0px 7px 36px 6px rgba(0, 0, 0, 0.12);
+}
+.jss31 {
+  box-shadow: 0px 10px 13px -6px rgba(0, 0, 0, 0.2),0px 20px 31px 3px rgba(0, 0, 0, 0.14),0px 8px 38px 7px rgba(0, 0, 0, 0.12);
+}
+.jss32 {
+  box-shadow: 0px 10px 13px -6px rgba(0, 0, 0, 0.2),0px 21px 33px 3px rgba(0, 0, 0, 0.14),0px 8px 40px 7px rgba(0, 0, 0, 0.12);
+}
+.jss33 {
+  box-shadow: 0px 10px 14px -6px rgba(0, 0, 0, 0.2),0px 22px 35px 3px rgba(0, 0, 0, 0.14),0px 8px 42px 7px rgba(0, 0, 0, 0.12);
+}
+.jss34 {
+  box-shadow: 0px 11px 14px -7px rgba(0, 0, 0, 0.2),0px 23px 36px 3px rgba(0, 0, 0, 0.14),0px 9px 44px 8px rgba(0, 0, 0, 0.12);
+}
+.jss35 {
+  box-shadow: 0px 11px 15px -7px rgba(0, 0, 0, 0.2),0px 24px 38px 3px rgba(0, 0, 0, 0.14),0px 9px 46px 8px rgba(0, 0, 0, 0.12);
+}
+</style><style type="text/css" data-jss="" data-meta="MuiIcon">
+.jss69 {
+  width: 1em;
+  height: 1em;
+  overflow: hidden;
+  font-size: 24px;
+  user-select: none;
+  flex-shrink: 0;
+}
+.jss70 {
+  color: #1976d2;
+}
+.jss71 {
+  color: #ffee58;
+}
+.jss72 {
+  color: rgba(0, 0, 0, 0.54);
+}
+.jss73 {
+  color: #f44336;
+}
+.jss74 {
+  color: rgba(0, 0, 0, 0.26);
+}
+.jss75 {
+  font-size: inherit;
+}
+</style><style type="text/css" data-jss="" data-meta="MuiModal">
+.jss123 {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1300;
+  position: fixed;
+}
+.jss124 {
+  visibility: hidden;
+}
+</style><style type="text/css" data-jss="" data-meta="MuiDialog">
+.jss113 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.jss114 {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.jss115 {
+  margin: 48px;
+  display: flex;
+  outline: none;
+  position: relative;
+  overflow-y: auto;
+  flex-direction: column;
+}
+.jss116 {
+  flex: 0 1 auto;
+  max-height: calc(100% - 96px);
+}
+.jss117 {
+  margin: 48px auto;
+}
+.jss118 {
+  max-width: 360px;
+}
+@media (max-width:455.95px) {
+  .jss118.jss117 {
+    margin: 48px;
+  }
+}
+.jss119 {
+  max-width: 600px;
+}
+@media (max-width:695.95px) {
+  .jss119.jss117 {
+    margin: 48px;
+  }
+}
+.jss120 {
+  max-width: 960px;
+}
+@media (max-width:1055.95px) {
+  .jss120.jss117 {
+    margin: 48px;
+  }
+}
+.jss121 {
+  width: 100%;
+}
+.jss122 {
+  width: 100%;
+  margin: 0;
+  height: 100%;
+  max-width: 100%;
+  max-height: none;
+  border-radius: 0;
+}
+</style><style type="text/css" data-jss="">
+.jss125 {
+  width: 500px;
+  max-width: 500px;
+}
+</style><style type="text/css" data-jss="">
+.jss111 {
+  width: 500px;
+  max-width: 500px;
+}
+</style><style type="text/css" data-jss="">
+.jss128 {
+  z-index: 1500;
+}
+</style><style type="text/css" data-jss="">
+.jss129 {
+  z-index: 1500;
+}
+.jss130 {
+  width: 100%;
+}
+.jss131 {
+  width: 300px;
+}
+.jss132 {
+  color: red;
+  font-size: 12px;
+  margin-top: 10px;
+}
+</style><style type="text/css" data-jss="">
+.jss127 {
+  width: 750px;
+  max-width: 750px;
+  max-height: 400px;
+  overflow-y: auto;
+}
+</style><style type="text/css" data-jss="">
+.jss126 {
+  width: 400px;
+  max-width: 400px;
+}
+</style><style type="text/css" data-jss="">
+.jss166 {
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  position: absolute;
+  transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  will-change: left, width;
+}
+.jss167 {
+  background-color: #1976d2;
+}
+.jss168 {
+  background-color: #ffee58;
+}
+</style><style type="text/css" data-jss="" data-meta="MuiTabs">
+.jss90 {
+  overflow: hidden;
+  min-height: 48px;
+  -webkit-overflow-scrolling: touch;
+}
+.jss91 {
+  display: flex;
+}
+.jss92 {
+  justify-content: center;
+}
+.jss93 {
+  flex: 1 1 auto;
+  display: inline-block;
+  position: relative;
+  white-space: nowrap;
+}
+.jss94 {
+  width: 100%;
+  overflow-x: hidden;
+}
+.jss95 {
+  overflow-x: scroll;
+}
+@media (max-width:599.95px) {
+  .jss97 {
+    display: none;
+  }
+}
+</style><style type="text/css" data-jss="" data-meta="MuiTab">
+.jss99 {
+  color: rgba(0, 0, 0, 0.87);
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+  font-size: 0.875rem;
+  max-width: 264px;
+  min-width: 72px;
+  min-height: 48px;
+  font-weight: 500;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  flex-shrink: 0;
+  text-transform: uppercase;
+}
+@media (min-width:960px) {
+  .jss99 {
+    min-width: 160px;
+  }
+}
+.jss100 {
+  min-height: 72px;
+}
+.jss101 {
+  color: inherit;
+  opacity: 0.7;
+}
+.jss101.jss104 {
+  opacity: 1;
+}
+.jss101.jss105 {
+  opacity: 0.4;
+}
+.jss102 {
+  color: rgba(0, 0, 0, 0.54);
+}
+.jss102.jss104 {
+  color: #1976d2;
+}
+.jss102.jss105 {
+  color: rgba(0, 0, 0, 0.38);
+}
+.jss103 {
+  color: rgba(0, 0, 0, 0.54);
+}
+.jss103.jss104 {
+  color: #ffee58;
+}
+.jss103.jss105 {
+  color: rgba(0, 0, 0, 0.38);
+}
+.jss106 {
+  flex-grow: 1;
+  max-width: none;
+  flex-shrink: 1;
+}
+.jss107 {
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+.jss108 {
+  padding-top: 6px;
+  padding-left: 12px;
+  padding-right: 12px;
+  padding-bottom: 6px;
+}
+@media (min-width:960px) {
+  .jss108 {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+.jss109 {
+  font-size: 0.875rem;
+  white-space: normal;
+}
+@media (min-width:960px) {
+  .jss109 {
+    font-size: 0.8125rem;
+  }
+}
+@media (max-width:959.95px) {
+  .jss110 {
+    font-size: 0.75rem;
+  }
+}
+</style><style type="text/css" data-jss="">
+.jss140 {
+  width: 400px;
+  max-width: 400px;
+}
+</style><style type="text/css" data-jss="">
+.jss141 {
+  width: 400px;
+  max-height: 400px;
+}
+</style><style type="text/css" data-jss="">
+.jss142 {
+  width: 420px;
+  max-height: 380px;
+}
+</style><style type="text/css" data-jss="">
+.jss133 {
+  width: 840px;
+  overflow: visible;
+  max-width: 840px;
+  max-height: 800px;
+}
+.jss134 {
+  background-color: #DDDDDD;
+}
+.jss135 {
+  display: flex;
+  flex-direction: row;
+}
+.jss136 {
+  border-bottom: 1px solid #e8e8e8;
+}
+.jss137 {
+  background-color: #1890ff;
+}
+.jss138 {
+  width: 25%;
+  height: 48px;
+  min-height: 48px;
+  text-transform: initial;
+}
+.jss138:hover {
+  color: #40a9ff;
+  opacity: 1;
+}
+.jss138.jss139 {
+  color: #1890ff;
+  font-weight: 700;
+}
+.jss138:focus {
+  color: #40a9ff;
+}
+</style><style type="text/css" data-jss="">
+.jss143 {
+  width: 475px;
+  max-height: 475px;
+}
+</style><style type="text/css" data-jss="">
+.jss144 {
+  width: 800px;
+  overflow: visible;
+  max-width: 800px;
+}
+</style><style type="text/css" data-jss="">
+.jss145 {
+  width: 600px;
+  overflow: visible;
+  max-width: 600px;
+}
+.jss146 {
+  margin-bottom: 10px;
+}
+.jss147 {
+  height: 40px;
+}
+.jss148 {
+  margin-right: 0;
+}
+.jss149 {
+  height: 40px;
+}
+.jss150 {
+  color: #444444;
+  margin: 10px 0;
+  font-size: 14px;
+}
+.jss151 {
+  display: flex;
+  align-items: center;
+}
+.jss152 {
+  color: #444444;
+  font-size: 14px;
+}
+.jss153 {
+  cursor: pointer;
+}
+</style><style type="text/css" data-jss="">
+.jss160 {
+  z-index: 1500;
+}
+</style><style type="text/css" data-jss="">
+.jss154 {
+  margin-bottom: 5px;
+}
+.jss155 {
+  color: red;
+  font-weight: bold;
+}
+.jss156 {
+  color: green;
+  font-weight: bold;
+}
+.jss157 {
+  font-size: 12px;
+  margin-top: 10px;
+}
+.jss158 {
+  color: red;
+}
+.jss159 {
+  color: red;
+  font-size: 12px;
+  margin-top: 10px;
+}
+</style><style type="text/css" data-jss="">
+.jss161 {
+  width: 650px;
+  max-height: 650px;
+}
+</style><style type="text/css" data-jss="">
+.jss162 {
+  width: 550px;
+  max-height: 550px;
+}
+</style><style type="text/css" data-jss="">
+.jss163 {
+  width: 550px;
+  max-height: 550px;
+}
+</style><style type="text/css" data-jss="">
+.jss164 {
+  width: 450px;
+  max-width: 450px;
+}
+</style><style type="text/css" data-jss="">
+.jss165 {
+  width: 600px;
+  max-height: 600px;
+}
+</style><style type="text/css" data-jss="" data-meta="MuiAppBar">
+.jss1 {
+  width: 100%;
+  display: flex;
+  z-index: 2000;
+  box-sizing: border-box;
+  flex-shrink: 0;
+  flex-direction: column;
+}
+.jss2 {
+  top: 0;
+  left: auto;
+  right: 0;
+  position: fixed;
+}
+.jss3 {
+  top: 0;
+  left: auto;
+  right: 0;
+  position: absolute;
+}
+.jss4 {
+  top: 0;
+  left: auto;
+  right: 0;
+  position: sticky;
+}
+.jss5 {
+  position: static;
+}
+.jss6 {
+  color: rgba(0, 0, 0, 0.87);
+  background-color: #f5f5f5;
+}
+.jss7 {
+  color: #ffffff;
+  background-color: #1976d2;
+}
+.jss8 {
+  color: #000000;
+  background-color: #ffee58;
+}
+</style><style type="text/css" data-jss="" data-meta="MuiToolbar">
+.jss36 {
+  display: flex;
+  position: relative;
+  align-items: center;
+}
+.jss37 {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+@media (min-width:600px) {
+  .jss37 {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+.jss38 {
+  min-height: 56px;
+}
+@media (min-width:0px) and (orientation: landscape) {
+  .jss38 {
+    min-height: 48px;
+  }
+}
+@media (min-width:600px) {
+  .jss38 {
+    min-height: 64px;
+  }
+}
+.jss39 {
+  min-height: 48px;
+}
+</style><style type="text/css" data-jss="">
+.jss83 {
+  display: flex;
+  flex-direction: row;
+}
+.jss84 {
+  display: none;
+}
+.jss85 {
+  width: 25%;
+  color: white;
+  height: 48px;
+  max-width: unset;
+  min-height: 48px;
+  text-transform: initial;
+  background-color: #1976d2;
+}
+.jss86 {
+  width: 25%;
+  color: white;
+  height: 48px;
+  max-width: unset;
+  min-height: 48px;
+  box-shadow: inset 0px -5px #0D47A1;
+  text-transform: initial;
+  background-color: #1976d2;
+}
+.jss87 {
+  border-left: 1px solid #CCCCCC;
+}
+.jss88 {
+  background-color: #448AFF;
+}
+.jss89 {
+  opacity: 1;
+}
+</style><link rel="preload" href="https://pagead2.googlesyndication.com/pagead/js/r20190731/r20190131/show_ads_impl.js" as="script"><meta name="description" content="Upload files, provide URLs, and paste clipboard contents to compare content online. Powered by ExamDiff Pro, the most powerful desktop file comparison tool." data-react-helmet="true"><style type="text/css" media="screen">.uv-icon{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;display:inline-block;cursor:pointer;position:relative;-moz-transition:all 300ms;-o-transition:all 300ms;-webkit-transition:all 300ms;transition:all 300ms;width:39px;height:39px;position:fixed;z-index:100002;opacity:0.8;-moz-transition:opacity 100ms;-o-transition:opacity 100ms;-webkit-transition:opacity 100ms;transition:opacity 100ms}.uv-icon.uv-bottom-right{bottom:10px;right:12px}.uv-icon.uv-top-right{top:10px;right:12px}.uv-icon.uv-bottom-left{bottom:10px;left:12px}.uv-icon.uv-top-left{top:10px;left:12px}.uv-icon.uv-is-selected{opacity:1}.uv-icon svg{width:39px;height:39px}.uv-icon-trigger{display:block;width:39px;height:39px}.uv-popover{font-family:sans-serif;font-weight:100;font-size:13px;color:black;position:fixed;z-index:100001}.uv-popover-content{-moz-border-radius:5px;-webkit-border-radius:5px;border-radius:5px;background:white;border:1px solid transparent;position:relative;width:325px;height:325px;-moz-transition:background 200ms;-o-transition:background 200ms;-webkit-transition:background 200ms;transition:background 200ms}.uv-bottom .uv-popover-content{-moz-box-shadow:rgba(0,0,0,0.3) 0 -10px 60px,rgba(0,0,0,0.1) 0 0 20px;-webkit-box-shadow:rgba(0,0,0,0.3) 0 -10px 60px,rgba(0,0,0,0.1) 0 0 20px;box-shadow:rgba(0,0,0,0.3) 0 -10px 60px,rgba(0,0,0,0.1) 0 0 20px}.uv-top .uv-popover-content{-moz-box-shadow:rgba(0,0,0,0.3) 0 10px 60px,rgba(0,0,0,0.1) 0 0 20px;-webkit-box-shadow:rgba(0,0,0,0.3) 0 10px 60px,rgba(0,0,0,0.1) 0 0 20px;box-shadow:rgba(0,0,0,0.3) 0 10px 60px,rgba(0,0,0,0.1) 0 0 20px}.uv-left .uv-popover-content{-moz-box-shadow:rgba(0,0,0,0.3) 10px 0 60px,rgba(0,0,0,0.1) 0 0 20px;-webkit-box-shadow:rgba(0,0,0,0.3) 10px 0 60px,rgba(0,0,0,0.1) 0 0 20px;box-shadow:rgba(0,0,0,0.3) 10px 0 60px,rgba(0,0,0,0.1) 0 0 20px}.uv-right .uv-popover-content{-moz-box-shadow:rgba(0,0,0,0.3) -10px 0 60px,rgba(0,0,0,0.1) 0 0 20px;-webkit-box-shadow:rgba(0,0,0,0.3) -10px 0 60px,rgba(0,0,0,0.1) 0 0 20px;box-shadow:rgba(0,0,0,0.3) -10px 0 60px,rgba(0,0,0,0.1) 0 0 20px}.uv-ie8 .uv-popover-content{position:relative}.uv-ie8 .uv-popover-content .uv-popover-content-shadow{display:block;background:black;content:'';position:absolute;left:-15px;top:-15px;width:100%;height:100%;filter:progid:DXImageTransform.Microsoft.Blur(PixelRadius=15,MakeShadow=true,ShadowOpacity=0.30);z-index:-1}.uv-popover-tail{border:9px solid transparent;width:0;z-index:10;position:absolute;-moz-transition:border-top-color 200ms;-o-transition:border-top-color 200ms;-webkit-transition:border-top-color 200ms;transition:border-top-color 200ms}.uv-top .uv-popover-tail{bottom:-20px;border-top:11px solid white}.uv-bottom .uv-popover-tail{top:-20px;border-bottom:11px solid white}.uv-left .uv-popover-tail{right:-20px;border-left:11px solid white}.uv-right .uv-popover-tail{left:-20px;border-right:11px solid white}.uv-popover-loading{background:white;-moz-border-radius:5px;-webkit-border-radius:5px;border-radius:5px;position:absolute;width:100%;height:100%;left:0;top:0}.uv-popover-loading-text{position:absolute;top:50%;margin-top:-0.5em;width:100%;text-align:center}.uv-popover-iframe-container{height:100%}.uv-popover-iframe{-moz-border-radius:5px;-webkit-border-radius:5px;border-radius:5px;overflow:hidden}.uv-is-hidden{display:none}.uv-is-invisible{display:block !important;visibility:hidden !important}.uv-is-transitioning{display:block !important}.uv-no-transition{-moz-transition:none !important;-webkit-transition:none !important;-o-transition:color 0 ease-in !important;transition:none !important}.uv-fade{opacity:1;-moz-transition:opacity 200ms ease-out;-o-transition:opacity 200ms ease-out;-webkit-transition:opacity 200ms ease-out;transition:opacity 200ms ease-out}.uv-fade.uv-is-hidden{opacity:0}.uv-scale-top,.uv-scale-top-left,.uv-scale-top-right,.uv-scale-bottom,.uv-scale-bottom-left,.uv-scale-bottom-right,.uv-scale-right,.uv-scale-right-top,.uv-scale-right-bottom,.uv-scale-left,.uv-scale-left-top,.uv-scale-left-bottom,.uv-slide-top,.uv-slide-bottom,.uv-slide-left,.uv-slide-right{opacity:1;-moz-transition:all 80ms ease-out;-o-transition:all 80ms ease-out;-webkit-transition:all 80ms ease-out;transition:all 80ms ease-out}.uv-scale-top.uv-is-hidden{opacity:0;-moz-transform:scale(0.8) translateY(-15%);-ms-transform:scale(0.8) translateY(-15%);-webkit-transform:scale(0.8) translateY(-15%);transform:scale(0.8) translateY(-15%)}.uv-scale-top-left.uv-is-hidden{opacity:0;-moz-transform:scale(0.8) translateY(-15%) translateX(-10%);-ms-transform:scale(0.8) translateY(-15%) translateX(-10%);-webkit-transform:scale(0.8) translateY(-15%) translateX(-10%);transform:scale(0.8) translateY(-15%) translateX(-10%)}.uv-scale-top-right.uv-is-hidden{opacity:0;-moz-transform:scale(0.8) translateY(-15%) translateX(10%);-ms-transform:scale(0.8) translateY(-15%) translateX(10%);-webkit-transform:scale(0.8) translateY(-15%) translateX(10%);transform:scale(0.8) translateY(-15%) translateX(10%)}.uv-scale-bottom.uv-is-hidden{opacity:0;-moz-transform:scale(0.8) translateY(15%);-ms-transform:scale(0.8) translateY(15%);-webkit-transform:scale(0.8) translateY(15%);transform:scale(0.8) translateY(15%)}.uv-scale-bottom-left.uv-is-hidden{opacity:0;-moz-transform:scale(0.8) translateY(15%) translateX(-10%);-ms-transform:scale(0.8) translateY(15%) translateX(-10%);-webkit-transform:scale(0.8) translateY(15%) translateX(-10%);transform:scale(0.8) translateY(15%) translateX(-10%)}.uv-scale-bottom-right.uv-is-hidden{opacity:0;-moz-transform:scale(0.8) translateY(15%) translateX(10%);-ms-transform:scale(0.8) translateY(15%) translateX(10%);-webkit-transform:scale(0.8) translateY(15%) translateX(10%);transform:scale(0.8) translateY(15%) translateX(10%)}.uv-scale-right.uv-is-hidden{opacity:0;-moz-transform:scale(0.8) translateX(15%);-ms-transform:scale(0.8) translateX(15%);-webkit-transform:scale(0.8) translateX(15%);transform:scale(0.8) translateX(15%)}.uv-scale-right-top.uv-is-hidden{opacity:0;-moz-transform:scale(0.8) translateX(15%) translateY(-10%);-ms-transform:scale(0.8) translateX(15%) translateY(-10%);-webkit-transform:scale(0.8) translateX(15%) translateY(-10%);transform:scale(0.8) translateX(15%) translateY(-10%)}.uv-scale-right-bottom.uv-is-hidden{opacity:0;-moz-transform:scale(0.8) translateX(15%) translateY(10%);-ms-transform:scale(0.8) translateX(15%) translateY(10%);-webkit-transform:scale(0.8) translateX(15%) translateY(10%);transform:scale(0.8) translateX(15%) translateY(10%)}.uv-scale-left.uv-is-hidden{opacity:0;-moz-transform:scale(0.8) translateX(-15%);-ms-transform:scale(0.8) translateX(-15%);-webkit-transform:scale(0.8) translateX(-15%);transform:scale(0.8) translateX(-15%)}.uv-scale-left-top.uv-is-hidden{opacity:0;-moz-transform:scale(0.8) translateX(-15%) translateY(-10%);-ms-transform:scale(0.8) translateX(-15%) translateY(-10%);-webkit-transform:scale(0.8) translateX(-15%) translateY(-10%);transform:scale(0.8) translateX(-15%) translateY(-10%)}.uv-scale-left-bottom.uv-is-hidden{opacity:0;-moz-transform:scale(0.8) translateX(-15%) translateY(10%);-ms-transform:scale(0.8) translateX(-15%) translateY(10%);-webkit-transform:scale(0.8) translateX(-15%) translateY(10%);transform:scale(0.8) translateX(-15%) translateY(10%)}.uv-slide-top.uv-is-hidden{-moz-transform:translateY(-100%);-ms-transform:translateY(-100%);-webkit-transform:translateY(-100%);transform:translateY(-100%)}.uv-slide-bottom.uv-is-hidden{-moz-transform:translateY(100%);-ms-transform:translateY(100%);-webkit-transform:translateY(100%);transform:translateY(100%)}.uv-slide-left.uv-is-hidden{-moz-transform:translateX(-100%);-ms-transform:translateX(-100%);-webkit-transform:translateX(-100%);transform:translateX(-100%)}.uv-slide-right.uv-is-hidden{-moz-transform:translateX(100%);-ms-transform:translateX(100%);-webkit-transform:translateX(100%);transform:translateX(100%)}
+</style><style type="text/css" media="print">#uvTab,.uv-tray,.uv-icon,.uv-popover,.uv-bubble{display:none!important}</style></head><body style=""><noscript>You need to enable JavaScript to run this app.</noscript><div id="root"><div style="height: 64px;"><header class="jss9 jss15 jss1 jss5 jss7"><div class="jss36 jss38 jss37" style="display: flex; justify-content: space-between;"><div style="display: flex;"><a href="https://www.diffnow.com/compare-clips" style="height: 64px;"><img src="data:image/png;base64,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" alt="DiffNow" style="margin-top: 10px; height: 70%;"></a><div style="margin-left: 20px; display: flex; align-items: center;"><button tabindex="0" class="jss66 jss40 jss42 jss48" type="button" style="color: rgb(68, 68, 68); background-color: rgb(255, 238, 88);"><span class="jss41"><div>Get Premium</div><span class="material-icons jss69" aria-hidden="true" style="margin-left: 10px;">star</span></span><span class="jss76"></span></button></div></div><button tabindex="0" class="jss66 jss40 jss42 jss45" type="button" style="color: white;"><span class="jss41">Login<span class="material-icons jss69" aria-hidden="true" style="margin-left: 10px;">person</span></span><span class="jss76"></span></button></div></header></div><div style="margin: 20px 72px;"><div style="position: relative; display: flex; margin-top: 20px; margin-bottom: 20px; justify-content: center; align-items: center; border: 1px solid rgb(136, 136, 136); border-radius: 4px; height: 100px; overflow: hidden;"><div style="position: absolute; top: 5px; left: 5px; font-size: 9px; font-weight: 600; color: rgb(85, 85, 85);">ADVERTISEMENT</div><ins class="adsbygoogle" data-ad-client="ca-pub-4700667168875048" data-ad-slot="4808589960" data-ad-format="rectangle,horizontal" style="display: flex; width: 100%; height: 90px; justify-content: center;" data-adsbygoogle-status="done"><ins id="aswift_0_expand" style="display:inline-table;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:1200px;background-color:transparent;"><ins id="aswift_0_anchor" style="display:block;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:1200px;background-color:transparent;"><iframe width="1200" height="90" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_0" name="aswift_0" style="left:0;position:absolute;top:0;border:0px;width:1200px;height:90px;" src="./DiffNow - Compare Files, URLs, and Clipboard Contents Online_files/saved_resource.html"></iframe></ins></ins></ins></div><div style="display: flex; justify-content: space-between; margin-bottom: 20px;"><a tabindex="0" class="jss66 jss40 jss51 jss53 jss54 jss56" role="button" href="https://www.prestosoft.com/edp_examdiffpro.asp?ref=diffnow_header" target="_blank" rel="noopener noreferrer"><span class="jss41">Powered by ExamDiff Pro<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAVESURBVHjatFZbbFRVFF33zp3pTKedmdJ3S01HqASIQHikqbEEFZREIhiFDzEmRnkFEyUqEvnCx5eJP4YghX5oiCEkGjVgrBFTNIYUxSgoFWgrrZS2M+1Mp/Oe+ziuc+9UK6kKH55kJ/ece+5ae6/9mAH+vjy0T2iCdprmwi0uIcSsNtuSoO8USQ78HwQ4AqwIAl0KkOa2Wp4dBeYcBoK3S6BMXzgIlGnAvoYAXphbDr/JODYMA0/4gI1ewOsGkjlgOInzOQOdFUDHFsCcSTDbsgmkZx5N6XpgWWXr3HAtstFxWhTHYxbRgNcZg4/sIRIdq3PhjYWlaOw3Euu+zLbtT6HXRtoDX9Dtf85boj3q83mMXE4vsyzzNa3IcnT96nBrXXs7UDMXpbExKD1nsFn0YZ0pEKD3/hLpJXCuxoOn9j6MidFE8MPQmZ/eOp5Z8Oo2d23Q7z22dv3dTa0r7vKUej3o6bla+OD42ZD2LtDWUud+vG75UmBJmxNXWQC+xAR8kzdQnU3DIjB5YPHVJKXz57Pw1XtRuyHs/rrv8sc+vxbYsHVFc2WwHCm+c2kqzvX0RXLJ3Kd8xDOLGhh7WdCJJZsCclkWrBfC54eVSdtCW0WCxpSBSz9fQ0U4CLWxBD8sVJa0tNZbyUIOrrRq+5eYzGAskriITsQ0VcE91W4KHY/yzQRdNUiQhuCzlU79CW4W63bvgI5HvujFyOoGqEENiYBAfbmiJtJpG7yQ09F9sjcaHZ96Se41l4IyxdCBqxfYAUyJPwBMxSCGrkAw3JngqTAQvd+F96tq8fxvU/jWyKKgCUxMTCF+PQXXcNpyZY2xiVhuIyvnkk2gW/g1WUBTeeQ6kEk6UqWTEMlJggtbFgkeX8LX91VhQdt8eMo8OOmqQPt73eg1Clg2LrCp2YeHlvrVZH/MSMRy+wdO4LEtW2BqBPj86gTWLa8nDEGlCTgVI72Xz8l5BF8TQMuDbVDdIR4y064qfPN0FTUZops8M5m3/DBqFrua+i6Y3nA8uY+fvqky/I5fIojnjdk71OJ0iq5x485VIajWCOuAnWdSUquUwAtIVAcYMSkGmBQoqhfheZ5qav/Kj4fQqO6mtBkDL3cP3tT6RZtcBFRW1sJd0cDKanJOJUl+rFhaeZ6RTFALq0AzoLE251S5hKFgu11XO4HOoUl0dl9zvplucWnJZnZwOOTMQCEBKIXKsFQCKwzbyyjUMkDnXDGZQ5N3RBZzKqyA6sJmddrj7cCzzMXbH7HxbyT/ikSvUOCtpCSCYpoph1XwgkIg/QpzMEBS7lVOJyPjRKF44C2xZLCN2kxZSPLikSxOnbqCA6Vu3OvjiGimKeYUJaHHWjlB447HHtZs5qJDzIQjP04C3hGMyspBVe1CKVVvTuo24KsdQLuuoyaewUrLFIN6ImHCYDMKaq9WEoiEhQiZSaiwrAtyn3KSJiW0MijIQFREtX/8UWDxSDvfoXw2HjHWNvoLLRC/01sCyoh0qbXqlKxRlM9Ocsb+eGoKulDQpd7Cj9WhyGihxkjLGcUoMvRcN+RM4D7ueG7GHWAzQULd7qGREeRZAx3/SbByBy6ysjr7+wujQmcjmgTSOXfkswQ1ok4fyAqy+x4YGkSaVXt6+U6cvZUIMBDCXs6y7y5fFnFDem6lHZkkqCSh13ZTEn9wEJlYHMOeAp60y/1fcuD0g+L8qp44Ade8BA5wt6e6mpkIosTvh10t2aytOUZH6bnAaU8eWxfvRuq2CKbX94dxB1TsYrNu4mSfL+RE1jAs/+Zw7h1ctQvnZt7/Q4ABAB7hmvTNwhpKAAAAAElFTkSuQmCC" alt="ExamDiff Pro" style="margin-left: 10px;"></span><span class="jss76"></span></a><div style="display: flex;"><div class="__react_component_tooltip place-top type-dark " id="top-button-tooltip-open_in_new" data-id="tooltip" style="left: 240px; top: 141px;">This feature is Windows-only and requires ExamDiff Pro 10.0.1.6 or above to be installed on your system.</div><div data-tip="This feature is Windows-only and requires ExamDiff Pro 10.0.1.6 or above to be installed on your system." data-for="top-button-tooltip-open_in_new" currentitem="false"><button tabindex="-1" class="jss66 jss67 jss40 jss51 jss53 jss54 jss56 jss60" type="button" disabled="" style="border-right: 0px; margin-right: 10px;"><span class="jss41"><span class="material-icons jss69" aria-hidden="true" style="margin-right: 10px;">open_in_new</span>Open in ExamDiff Pro</span></button></div><div data-tip="You must be logged in to use this feature" data-for="top-button-tooltip-fullscreen"><button tabindex="0" class="jss66 jss40 jss51 jss53 jss54 jss56" type="button" style="border-right: 1px solid rgb(204, 204, 204); margin-right: 0px;"><span class="jss41"><span class="material-icons jss69" aria-hidden="true" style="margin-right: 10px;">fullscreen</span>Fullscreen</span><span class="jss76"></span></button></div><div class="__react_component_tooltip place-top type-dark " id="top-button-tooltip-share" data-id="tooltip" style="left: 763px; top: 140px;">You must be logged in to use this feature</div><div data-tip="You must be logged in to use this feature" data-for="top-button-tooltip-share" currentitem="false"><button tabindex="-1" class="jss66 jss67 jss40 jss51 jss53 jss54 jss56 jss60" type="button" disabled="" style="border-right: 1px solid rgb(204, 204, 204); margin-right: 0px;"><span class="jss41"><span class="material-icons jss69" aria-hidden="true" style="margin-right: 10px;">share</span>Save/Share</span></button></div><div data-tip="You must be logged in to use this feature" data-for="top-button-tooltip-file_download"><button tabindex="0" class="jss66 jss40 jss51 jss53 jss54 jss56" type="button" style="border-right: 0px; margin-right: 10px;"><span class="jss41"><span class="material-icons jss69" aria-hidden="true" style="margin-right: 10px;">file_download</span>Download</span><span class="jss76"></span></button></div><div data-tip="You must be logged in to use this feature" data-for="top-button-tooltip-build"><button tabindex="0" class="jss66 jss40 jss51 jss53 jss54 jss56" type="button" style="border-right: 1px solid rgb(204, 204, 204); margin-right: 0px;"><span class="jss41"><span class="material-icons jss69" aria-hidden="true" style="margin-right: 10px;">build</span>Options</span><span class="jss76"></span></button></div><div data-tip="You must be logged in to use this feature" data-for="top-button-tooltip-info"><button tabindex="0" class="jss66 jss40 jss51 jss53 jss54 jss56" type="button" style="border-right: 0px; margin-right: 10px;"><span class="jss41"><span class="material-icons jss69" aria-hidden="true" style="margin-right: 10px;">info</span>About</span><span class="jss76"></span></button></div></div></div><div class="jss90"><div class="jss91"><div class="jss93 jss94" role="tablist" style="margin-bottom: 0px;"><div class="jss91"><a tabindex="0" class="jss66 jss99 jss86 jss101 jss89 jss104 jss100" role="tab" aria-selected="true" href="https://www.diffnow.com/compare-clips"><span class="jss107 jss83"><span class="material-icons jss69" aria-hidden="true">textsms</span><span class="jss108"><span class="jss109">TEXT INPUT</span></span></span><span class="jss76"></span></a><a tabindex="0" class="jss66 jss99 jss85 jss87 jss101 jss89 jss100" role="tab" aria-selected="false" href="https://www.diffnow.com/compare-files"><span class="jss107 jss83"><span class="material-icons jss69" aria-hidden="true">file_upload</span><span class="jss108"><span class="jss109">FILE UPLOAD</span></span></span><span class="jss76"></span></a><a tabindex="0" class="jss66 jss99 jss85 jss87 jss101 jss89 jss100" role="tab" aria-selected="false" href="https://www.diffnow.com/compare-urls"><span class="jss107 jss83"><span class="material-icons jss69" aria-hidden="true">link</span><span class="jss108"><span class="jss109">URLS</span></span></span><span class="jss76"></span></a><a tabindex="0" class="jss66 jss99 jss85 jss87 jss101 jss89 jss100" role="tab" aria-selected="false" href="https://www.diffnow.com/samples"><span class="jss107 jss83"><span class="material-icons jss69" aria-hidden="true">play_circle_filled</span><span class="jss108"><span class="jss109">SAMPLES</span></span></span><span class="jss76"></span></a></div><span class="jss166 jss167 jss98 jss84" style="left: 0px; width: 320px;"></span></div></div></div><div class="jss9 jss13 jss10" style="display: none; align-items: center; padding: 10px; margin-top: 20px; justify-content: space-between;"><div style="display: flex; align-items: center;"><div style="margin-left: 10px;"><span></span></div></div></div><div class="jss9 jss13 jss10" style="padding: 12px; margin-top: 20px; display: block;"><iframe title="DiffNow Output Frame" style="width: 100%; height: 600px; border: none;" src="./DiffNow - Compare Files, URLs, and Clipboard Contents Online_files/__edp_output__5436cdb4-655d-4fb3-b93b-7c3d4c9fd424.html"></iframe></div><div style="position: relative; display: flex; margin-top: 20px; margin-bottom: 20px; justify-content: center; align-items: center; border: 1px solid rgb(136, 136, 136); border-radius: 4px; height: 100px; overflow: hidden;"><div style="position: absolute; top: 5px; left: 5px; font-size: 9px; font-weight: 600; color: rgb(85, 85, 85);">ADVERTISEMENT</div><ins class="adsbygoogle" data-ad-client="ca-pub-4700667168875048" data-ad-slot="9678020683" data-ad-format="rectangle,horizontal" style="display: flex; width: 100%; height: 90px; justify-content: center;" data-adsbygoogle-status="done"><ins id="aswift_1_expand" style="display:inline-table;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:1200px;background-color:transparent;"><ins id="aswift_1_anchor" style="display:block;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:1200px;background-color:transparent;"><iframe width="1200" height="90" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_1" name="aswift_1" style="left:0;position:absolute;top:0;border:0px;width:1200px;height:90px;" src="./DiffNow - Compare Files, URLs, and Clipboard Contents Online_files/saved_resource(1).html"></iframe></ins></ins></ins></div><div style="padding: 12px; margin-top: 15px; display: flex; justify-content: center; font-size: 12px; color: rgb(119, 119, 119);"><div>Copyright © 2011-2018 PrestoSoft LLC. All rights reserved.</div><div style="margin-left: 5px; text-decoration: underline; cursor: pointer;">Terms of Service</div><div>.</div><div style="margin-left: 5px; text-decoration: underline; cursor: pointer;">Contact us</div><div>.</div><div style="margin-left: 5px; text-decoration: underline; cursor: pointer;">Changelog</div><div>.</div><a target="_blank" rel="noopener noreferrer" href="https://www.paypal.me/diffnow" style="margin-left: 5px; text-decoration: underline; cursor: pointer; color: rgb(119, 119, 119);">Donate</a><div>.</div></div></div><div></div><div style="width: 100%; display: none; position: fixed; bottom: 0px; height: 64px; justify-content: center; align-items: center; background-color: rgb(85, 85, 85); color: rgb(204, 204, 204); padding: 0px 48px; box-sizing: border-box;"><div style="font-size: 14px;"><span>This site uses cookies to deliver our services and to allow for analysis of how people use our website in order to improve your experience and our services. By using our site, you acknowledge that you have read and understand our&nbsp;</span><a href="https://www.diffnow.com/report#terms-of-service" style="color: white; text-decoration: underline; cursor: pointer;">Terms of Service</a>.</div><span class="material-icons jss69" aria-hidden="true" style="margin-left: 20px; cursor: pointer; color: white;">clear</span></div></div><script>!function(e){function r(r){for(var n,f,i=r[0],l=r[1],a=r[2],c=0,s=[];c<i.length;c++)f=i[c],o[f]&&s.push(o[f][0]),o[f]=0;for(n in l)Object.prototype.hasOwnProperty.call(l,n)&&(e[n]=l[n]);for(p&&p(r);s.length;)s.shift()();return u.push.apply(u,a||[]),t()}function t(){for(var e,r=0;r<u.length;r++){for(var t=u[r],n=!0,i=1;i<t.length;i++){var l=t[i];0!==o[l]&&(n=!1)}n&&(u.splice(r--,1),e=f(f.s=t[0]))}return e}var n={},o={1:0},u=[];function f(r){if(n[r])return n[r].exports;var t=n[r]={i:r,l:!1,exports:{}};return e[r].call(t.exports,t,t.exports,f),t.l=!0,t.exports}f.m=e,f.c=n,f.d=function(e,r,t){f.o(e,r)||Object.defineProperty(e,r,{enumerable:!0,get:t})},f.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},f.t=function(e,r){if(1&r&&(e=f(e)),8&r)return e;if(4&r&&"object"==typeof e&&e&&e.__esModule)return e;var t=Object.create(null);if(f.r(t),Object.defineProperty(t,"default",{enumerable:!0,value:e}),2&r&&"string"!=typeof e)for(var n in e)f.d(t,n,function(r){return e[r]}.bind(null,n));return t},f.n=function(e){var r=e&&e.__esModule?function(){return e.default}:function(){return e};return f.d(r,"a",r),r},f.o=function(e,r){return Object.prototype.hasOwnProperty.call(e,r)},f.p="/";var i=window.webpackJsonp=window.webpackJsonp||[],l=i.push.bind(i);i.push=r,i=i.slice();for(var a=0;a<i.length;a++)r(i[a]);var p=l;t()}([])</script><script src="./DiffNow - Compare Files, URLs, and Clipboard Contents Online_files/2.6a20e441.chunk.js"></script><script src="./DiffNow - Compare Files, URLs, and Clipboard Contents Online_files/main.2a1a5094.chunk.js"></script><ins class="adsbygoogle adsbygoogle-noablate" data-adsbygoogle-status="done" style="display: none !important;"><ins id="aswift_2_expand" style="display:inline-table;border:none;height:0px;margin:0;padding:0;position:relative;visibility:visible;width:0px;background-color:transparent;"><ins id="aswift_2_anchor" style="display:block;border:none;height:0px;margin:0;padding:0;position:relative;visibility:visible;width:0px;background-color:transparent;"><iframe frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_2" name="aswift_2" style="left:0;position:absolute;top:0;border:0px;width:0px;height:0px;" src="./DiffNow - Compare Files, URLs, and Clipboard Contents Online_files/saved_resource(2).html"></iframe></ins></ins></ins><iframe id="google_osd_static_frame_7878421098219" name="google_osd_static_frame" style="display: none; width: 0px; height: 0px;" src="./DiffNow - Compare Files, URLs, and Clipboard Contents Online_files/saved_resource(3).html"></iframe><div id="uvTab" style="background: url(&quot;https://widget.uservoice.com/pkg/clients/widget2/tab-left-dark-no-bullhorn-9669fb4a9d79416e9dc17618c9ed226faf8171ce461449f1282d6fcc2d6aa338.png&quot;) 50% 0px no-repeat rgb(133, 189, 217); border-top: 1px solid rgb(255, 255, 255); border-right: 1px solid rgb(255, 255, 255); border-bottom: 1px solid rgb(255, 255, 255); border-image: initial; border-left: none; border-radius: 0px 4px 4px 0px; box-shadow: rgba(255, 255, 255, 0.25) 1px 1px 1px inset, rgba(0, 0, 0, 0.5) 0px 1px 2px; font: bold 14px/1em Arial, sans-serif; position: fixed; left: 0px; top: 50%; z-index: 9999; margin-top: -47px;" class="uv-tab uv-slide-left " aria-label="Open Feedback Widget"><a id="uvTabLabel" style="background-color: transparent; display:block;padding:10px 5px 10px 5px;text-decoration:none;" href="javascript:void(0);"><img src="./DiffNow - Compare Files, URLs, and Clipboard Contents Online_files/feedback-tab.png" alt="feedback" style="border:0; background-color: transparent; padding:0; margin:0;"></a></div></body><iframe id="google_shimpl" style="display: none;" src="./DiffNow - Compare Files, URLs, and Clipboard Contents Online_files/saved_resource(4).html"></iframe><iframe id="google_esf" name="google_esf" src="./DiffNow - Compare Files, URLs, and Clipboard Contents Online_files/zrt_lookup.html" data-ad-client="ca-pub-4700667168875048" style="display: none;"></iframe></html>

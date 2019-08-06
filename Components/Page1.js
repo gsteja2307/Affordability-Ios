@@ -1880,7 +1880,11 @@ export default class Page1 extends React.Component {
     if (this.state.isReady) {
       return (
         <Container style={{marginTop:20}}>
-          <Heading style={{ backgroundColor: "white", justifyContent: "flex-start", elevation: 5 }}>
+          <Heading style={{
+            backgroundColor: "white", justifyContent: "flex-start", shadowColor: '#000',
+            shadowOffset: { width: 2, height: 2 },
+            shadowOpacity: 0.1,
+            shadowRadius: 2, }}>
             <View style={{ flexDirection: 'row', backgroundColor: "white", flex: 1, justifyContent: "center", alignItems: "center" }}>
               <View style={{ flexDirection: "row", width: 60, flexWrap: "wrap", alignItems: "center", backgroundColor: "white", justifyContent: "space-between" }}>
                 {this.state.index == '1a' ? null : <TouchableOpacity onPress={this.backButtonQuick123.bind(this)} style={{ marginLeft: "5%", height: 25, width: 25, justifyContent: "center", alignItems: "center" }}  >
