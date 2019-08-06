@@ -36,13 +36,13 @@ global.signin=false;
 global.signup=false;
 removeItemValue = async (key) => {
   try {
-    AsyncStorage.setItem(key, null);
-    await AsyncStorage.removeItem(key);
+    AsyncStorage.setItem(key, {});
+    // await AsyncStorage.removeItem(key);
     console.log("removing item", key);
     return true;
   }
   catch (exception) {
-    AsyncStorage.setItem(key, null);
+    AsyncStorage.setItem(key, {});
   }
 }
 // global.success=false;
@@ -716,7 +716,7 @@ class Loginpage extends React.Component {
  <View style={{ alignItems: 'center', paddingTop:10,flexDirection: 'row'}}>
               <LoginButton
                style={{ width: 180, height: 30 }}
-                publishPermissions={["publish_actions"]}
+                publishPermissions={["publish_actions","email"]}
                 onLoginFinished={
                   (error, result) => {
                     if (error) {

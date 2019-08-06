@@ -1,15 +1,9 @@
 
-// global.data = {
-//   "firstName": false,
-//   "lastName": false,
-//   "emailId": false,
 
-//   "phoneNumber": false
-// }
 //This is an example code for NavigationDrawer//
 import React, { Component } from 'react';
 //import react in our code.
-import { View, Image, TouchableOpacity, } from 'react-native';
+import { View, Image, TouchableOpacity, Dimensions } from 'react-native';
 import Icon from 'react-native-vector-icons/dist/FontAwesome';
 // import all basic components
 //For React Navigation 2.+ import following
@@ -30,9 +24,12 @@ import {
 // import Screen3 from './pages/Screen3';
 
 //import About from "./views/About";
+import DrawerImage from "./drawerimage";
 import Page1 from "./Page1";
 import Privacy from "./privacy";
 import Terms from "./Terms";
+import CustomSidebarMenu from './CustomSidebarMenu';
+import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 
 // class NavigationDrawerStructure extends Component {
 //   //Structure for the navigatin Drawer
@@ -60,6 +57,8 @@ import Terms from "./Terms";
 //For React Navigation 2.+ need to use StackNavigator instead createStackNavigator
 //const FirstActivity_StackNavigator = StackNavigator({
 //For React Navigation 3.+
+
+
 const FirstActivity_StackNavigator = createStackNavigator({
 
   //All the screen from the Screen1 will be indexed here
@@ -74,7 +73,7 @@ const FirstActivity_StackNavigator = createStackNavigator({
       //headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
       headerStyle: {
         backgroundColor: 'white',
-        height: 80,
+        height: hp(10),
       },
       headerTintColor: '#fff',
       // right: <Text style={{color: 'red'}} onPress={() => navigation.goBack()}>hello</Text>,
@@ -90,11 +89,11 @@ const Screen2_StackNavigator = createStackNavigator({
   Second: {
     screen: Privacy,
     navigationOptions: ({ navigation }) => ({
-      title: 'Follow Us on Facebook',
+      // title: 'Follow Us on Facebook',
       //headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
       headerStyle: {
         backgroundColor: 'white',
-        height: 80,
+        height: hp(10),
       },
       headerTintColor: '#fff',
     }),
@@ -113,12 +112,15 @@ const Screen3_StackNavigator = createStackNavigator({
       //headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
       headerStyle: {
         backgroundColor: 'white',
-        height: 80,
+        height: hp(10),
       },
       headerTintColor: '#fff',
     }),
   },
 });
+
+
+
 
 //For React Navigation 2.+ need to use DrawerNavigator instead createDrawerNavigator
 //const DrawerNavigatorExample = DrawerNavigator({
@@ -148,7 +150,20 @@ const Afford = createDrawerNavigator({
       drawerLabel: 'Terms',
     },
   },
-});
+
+
+},
+
+  {
+    //For the Custom sidebar menu we have to provide our CustomSidebarMenu
+    contentComponent: CustomSidebarMenu,
+    //Sidebar width
+    drawerWidth: Dimensions.get('window').width - 130,
+  },
+  {
+    initialRouteName: "Page1"
+  },
+);
 
 //For React Navigation 2.+ need to export App only
 //export default App;

@@ -69,7 +69,7 @@ export default class GetStarted extends React.Component {
         "phoneNumber": null
 
       }
-      console.log("hello");
+      console.log("usercheck fucntion in getstarted");
     }
 
     if (global.data.firstName !== null && global.data.firstName !== undefined && global.data.firstName !== "") {
